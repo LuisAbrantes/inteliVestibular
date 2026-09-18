@@ -1,0 +1,7 @@
+data/raw
+data/extracted
+learning-records
+bin
+scripts
+.git
+*.log
