@@ -7,21 +7,25 @@
   <link rel="stylesheet" href="../assets/lesson.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}, {left: '\\(', right: '\\)', display: false}, {left: '\\[', right: '\\]', display: true}], throwOnError: false})"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="initKaTeX()"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    function initKaTeX() {
       if (window.renderMathInElement) {
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},
-            {left: '$', right: '$', display: false},
-            {left: '\\(', right: '\\)', display: false},
-            {left: '\\[', right: '\\]', display: true}
+            {left: '$', right: '$', display: false}
           ],
           throwOnError: false
         });
       }
-    });
+    }
+    document.addEventListener("DOMContentLoaded", initKaTeX);
+    window.addEventListener("load", initKaTeX);
+    try {
+      const saved = localStorage.getItem('theme');
+      if (saved) document.documentElement.setAttribute('data-theme', saved);
+    } catch (e) {}
   </script>
   <style>
     .grid-2col {
@@ -37,6 +41,9 @@
 </head>
 <body>
   <div class="container">
+    <div style="margin-bottom: 1.5rem;">
+      <a href="/" class="btn-nav-back">← Voltar ao Portal</a>
+    </div>
     <div class="lesson-meta">Documento de Referência Rápida • Vestibular Inteli • Trilha Superior</div>
     <h1>Matemática Aplicada & Modelagem Computacional</h1>
 

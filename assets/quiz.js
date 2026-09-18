@@ -147,16 +147,58 @@
     }
   }
 
+  // ==========================================================================
+  // Global Theme Management for Lessons (Dark & Light Anthropic Modes)
+  // ==========================================================================
+  function initLessonTheme() {
+    const savedTheme = localStorage.getItem('inteli_theme') || 'dark';
+    const root = document.documentElement;
+
+    function applyTheme(theme) {
+      if (theme === 'light') {
+        root.classList.remove('dark');
+        root.classList.add('light');
+        root.setAttribute('data-theme', 'light');
+      } else {
+        root.classList.remove('light');
+        root.classList.add('dark');
+        root.setAttribute('data-theme', 'dark');
+      }
+      localStorage.setItem('inteli_theme', theme);
+      const toggleBtn = document.getElementById('btn-theme-toggle') || document.querySelector('.btn-theme-toggle');
+      if (toggleBtn) {
+        toggleBtn.textContent = theme === 'dark' ? '☀️' : '🌙';
+        toggleBtn.setAttribute('title', theme === 'dark' ? 'Alternar para Modo Claro (Anthropic Parchment)' : 'Alternar para Modo Escuro (Claude.ai)');
+      }
+    }
+
+    applyTheme(savedTheme);
+
+    const toggleBtn = document.getElementById('btn-theme-toggle') || document.querySelector('.btn-theme-toggle');
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const isLight = root.classList.contains('light') || root.getAttribute('data-theme') === 'light';
+        applyTheme(isLight ? 'dark' : 'light');
+      });
+    }
+  }
+
   // Auto initialize on DOM ready
+  function initAll() {
+    initAllQuizzes();
+    initLessonTheme();
+  }
+
   function initAllQuizzes() {
     const containers = document.querySelectorAll('.quiz-container, [data-quiz]');
     containers.forEach((c) => new QuizController(c));
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initAllQuizzes);
+    document.addEventListener('DOMContentLoaded', initAll);
   } else {
-    initAllQuizzes();
+    initAll();
   }
 
   // Global namespace export

@@ -1,10 +1,10 @@
 {
   "summary": {
-    "totalExams": 16,
-    "totalQuestionsAnswered": 320,
-    "totalCorrect": 252,
-    "averageScore": 15.8,
-    "averagePercentage": 79,
+    "totalExams": 18,
+    "totalQuestionsAnswered": 360,
+    "totalCorrect": 288,
+    "averageScore": 16,
+    "averagePercentage": 80,
     "overallProficiency": "Intermediário",
     "accuracyPerTopic": {
       "0": {
@@ -18,24 +18,96 @@
         "percentage": 0
       },
       "Análise Combinatória": {
-        "correct": 70,
-        "total": 70,
+        "correct": 80,
+        "total": 80,
         "percentage": 100
       },
       "Probabilidade": {
-        "correct": 56,
-        "total": 70,
+        "correct": 64,
+        "total": 80,
         "percentage": 80
       },
       "Álgebra Linear": {
-        "correct": 126,
-        "total": 140,
+        "correct": 144,
+        "total": 160,
         "percentage": 90
       }
     },
-    "lastUpdated": "2026-09-18T20:58:58.783Z"
+    "lastUpdated": "2026-09-18T21:24:33.703Z"
   },
   "history": [
+    {
+      "id": "test_session_automated",
+      "timestamp": "2026-09-18T21:24:33.703Z",
+      "mode": "diagnostic",
+      "score": 18,
+      "total": 20,
+      "percentage": 90,
+      "proficiency": "Avançado",
+      "timeTaken": 1200,
+      "topicBreakdown": {
+        "Análise Combinatória": {
+          "correct": 5,
+          "total": 5
+        },
+        "Probabilidade": {
+          "correct": 4,
+          "total": 5
+        },
+        "Álgebra Linear": {
+          "correct": 9,
+          "total": 10
+        }
+      },
+      "answers": [
+        {
+          "id": 1,
+          "topic": "Análise Combinatória",
+          "isCorrect": true
+        },
+        {
+          "id": 2,
+          "topic": "Probabilidade",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": "test_session_automated",
+      "timestamp": "2026-09-18T21:21:42.395Z",
+      "mode": "diagnostic",
+      "score": 18,
+      "total": 20,
+      "percentage": 90,
+      "proficiency": "Avançado",
+      "timeTaken": 1200,
+      "topicBreakdown": {
+        "Análise Combinatória": {
+          "correct": 5,
+          "total": 5
+        },
+        "Probabilidade": {
+          "correct": 4,
+          "total": 5
+        },
+        "Álgebra Linear": {
+          "correct": 9,
+          "total": 10
+        }
+      },
+      "answers": [
+        {
+          "id": 1,
+          "topic": "Análise Combinatória",
+          "isCorrect": true
+        },
+        {
+          "id": 2,
+          "topic": "Probabilidade",
+          "isCorrect": false
+        }
+      ]
+    },
     {
       "id": "test_session_automated",
       "timestamp": "2026-09-18T20:58:58.783Z",

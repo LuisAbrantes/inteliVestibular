@@ -1,16 +1,19 @@
-# Mission: Conquistar Aprovação no Vestibular Inteli com Bolsa Integral (100%) e Auxílios de Permanência
+# Mission: Aprovação em Engenharia de Software no Inteli com Bolsa Integral (100%) e Auxílio-Moradia
+
+## Perfil Confirmado do Candidato
+- **Curso Oficial:** Engenharia de Software (Bacharelado de 4 anos com 16 projetos práticos)
+- **Origem Geográfica:** Reside fora da Região Metropolitana de São Paulo (Elegibilidade com prioridade máxima para concessão de Auxílio-Moradia e vaga na acomodação estudantil parceira no Butantã)
+- **Foco Prioritário Atual:** Eixo Prova teórica (Matemática Aplicada, Lógica e Computação). A estruturação do Eixo Perfil (ensaios) e a submissão do Open Finance ocorrerão em momento posterior dedicado.
 
 ## Why
-Ingressar na mais inovadora faculdade de tecnologia, engenharia e liderança da América Latina com custo financeiro zero, acelerando uma carreira de impacto global em computação, inovação e negócios sem contrair dívidas estudantis.
+Ingressar na mais inovadora faculdade de tecnologia, engenharia e liderança da América Latina com custo financeiro zero, acelerando uma carreira de impacto global em engenharia de software, sistemas distribuídos e liderança tecnológica sem contrair dívidas estudantis.
 
 ## Success looks like
-- Dominar 100% dos tópicos de Matemática Aplicada, Pensamento Computacional e Lógica do Vestibular Inteli.
+- Dominar 100% dos 17 tópicos de Matemática Aplicada e Lógica do Vestibular Inteli 2027.
 - Obter escore igual ou superior a 17/20 na Prova Adaptativa oficial, garantindo alocação consistente na Trilha Superior (High Proficiency).
-- Elaborar ensaios de liderança, trajetória pessoal e visão de futuro de alto impacto para o Eixo Perfil.
-- Estruturar o dossiê socioeconômico completo e auditável via Open Finance (EducaOpen) para deferimento da Bolsa Integral (100%) e Auxílios de Permanência (Moradia, Notebook, Alimentação e Inglês).
-- Demonstrar postura colaborativa e capacidade de resolução ágil na dinâmica do Eixo Projeto (PBL).
-
-## Constraints
+- Deferimento da Bolsa Integral (100% da mensalidade) + Auxílio-Moradia, Notebook corporativo de alta performance, Auxílio-Alimentação e Curso de Inglês Profissional.
+- Submissão de dossiê documental blindado via Open Finance (EducaOpen) no momento oportuno.
+- Elaboração de 2 ensaios de liderança servidora pelo método STAR para o Eixo Perfil após a prova teórica.
 - Estudos estruturados sob demanda com sessões de alta densidade cognitiva.
 - Foco absoluto em retenção de longo prazo (storage strength) por meio de recuperação ativa (retrieval practice) e prática intercalada (interleaving), evitando a ilusão de fluência passiva.
 - Simulações e exercícios calibrados no padrão real do Inteli: problemas contextualizados em tecnologia, startups, engenharia e lógica de sistemas.

@@ -1,59 +1,190 @@
 /* ==========================================================================
-   INTELI HARNESS — DESIGN SYSTEM & VISUAL ARCHITECTURE (TUFTE WARM PAPER)
-   Palette: Edward Tufte Warm Paper Editorial (#fffff8 cream, #111111 ink black)
-   Accents: Official Inteli Brand Triad (Coral #c0392b, Tech Blue #1a5276, Violet #6B449B)
+   INTELI HARNESS — ANTHROPIC DESIGN SYSTEM & VISUAL ARCHITECTURE
+   Official Palette: Slate Dark (#141413), Ivory Medium (#f0eee6), Clay (#d97757)
+   Support: Claude.ai Dark Mode (Default) & Anthropic Editorial Parchment (Light)
    ========================================================================== */
 
 :root {
   /* ------------------------------------------------------------------------
-     1. Base Palette: Tufte Warm Paper Editorial System
+     1. Canonical Anthropic Design Tokens
      ------------------------------------------------------------------------ */
-  --bg-app: #fffff8;              /* Tufte warm paper cream */
-  --bg-surface-1: #ffffff;        /* Surface 1: Pure white card shells */
-  --bg-surface-2: #fcfbf7;        /* Surface 2: Card cores & sub-containers */
-  --bg-surface-3: #f4f3ec;        /* Surface 3: Elevated, active, inputs & controls */
-  --bg-surface-elevated: #ffffff; /* Elevated overlays & popovers */
-  --bg-glass: rgba(255, 255, 248, 0.92); /* Frosted warm paper header glass */
+  --color-slate-dark: #141413;
+  --color-ivory-medium: #f0eee6;
+  --color-ivory-light: #faf9f5;
+  --color-cloud-medium: #b0aea5;
+  --color-cloud-dark: #87867f;
+  --color-stone: #cccbc8;
+  --color-slate-medium: #3d3d3a;
+  --color-oat-warm: #e3dacc;
+  --color-manilla: #f5e3c7;
+  --color-clay: #d97757;
+  --color-clay-deep: #c6613f;
+
+  /* Semantic Aliases */
+  --clay: var(--color-clay);
+  --clay-deep: var(--color-clay-deep);
 
   /* ------------------------------------------------------------------------
-     2. Typography & High-Contrast Ink Text Hierarchy
+     2. Default Theme: Claude.ai Dark Mode (#141413 Canvas)
      ------------------------------------------------------------------------ */
-  --text-primary: #111111;        /* Deep ink black - headers & primary content */
-  --text-secondary: #2c2c2c;      /* Rich dark slate - body paragraphs & descriptions */
-  --text-muted: #666666;          /* Editorial charcoal - captions, labels, metadata */
-  --text-dim: #888888;            /* Warm grey - timestamps, counters, hints */
+  --bg-app: var(--color-slate-dark);
+  --bg-surface-1: #1f1f1d;
+  --bg-surface-2: #242421;
+  --bg-surface-3: #282825;
+  --bg-surface-elevated: #282825;
+  --bg-glass: rgba(20, 20, 19, 0.90);
+  --bg-code: #1a1a18;
 
-  /* Architectural Hairline Borders */
-  --border-subtle: #e5e5dc;       /* Subtle dividing lines */
-  --border-medium: #d6d6ca;       /* Standard container & card borders */
-  --border-highlight: #b0b09f;    /* Interactive hover & active borders */
-  --border-glass: rgba(229, 229, 220, 0.85);
+  --text-primary: var(--color-ivory-medium);
+  --text-secondary: var(--color-stone);
+  --text-muted: var(--color-cloud-dark);
+  --text-dim: #63625d;
 
-  /* ------------------------------------------------------------------------
-     3. Official Inteli Brand Identity Triad (Editorialized High-Contrast)
-     ------------------------------------------------------------------------ */
-  /* Inteli Coral Flame (Primary Brand Accent) */
-  --inteli-coral: #c0392b;
-  --inteli-coral-hover: #a93226;
-  --inteli-coral-subtle: rgba(192, 57, 43, 0.08);
-  --inteli-coral-glow: rgba(192, 57, 43, 0.18);
-  --inteli-coral-border: rgba(192, 57, 43, 0.35);
+  --border-subtle: #333330;
+  --border-medium: var(--color-slate-medium);
+  --border-highlight: #5a5954;
+  --border-glass: rgba(51, 51, 48, 0.85);
 
-  /* Inteli Tech Blue (Engineering, Data & Logic) */
+  --inteli-coral: var(--color-clay);
+  --inteli-coral-hover: var(--color-clay-deep);
+  --inteli-coral-subtle: rgba(217, 119, 87, 0.15);
+  --inteli-coral-glow: rgba(217, 119, 87, 0.28);
+  --inteli-coral-border: rgba(217, 119, 87, 0.40);
+
+  --inteli-blue: #7bb2db;
+  --inteli-blue-hover: #5d9ecb;
+  --inteli-blue-subtle: rgba(123, 178, 219, 0.12);
+  --inteli-blue-glow: rgba(123, 178, 219, 0.22);
+  --inteli-blue-border: rgba(123, 178, 219, 0.35);
+
+  --inteli-violet: #b592e8;
+  --inteli-violet-hover: #a178db;
+  --inteli-violet-subtle: rgba(181, 146, 232, 0.12);
+  --inteli-violet-glow: rgba(181, 146, 232, 0.22);
+  --inteli-violet-border: rgba(181, 146, 232, 0.35);
+
+  --success: #34a853;
+  --success-subtle: rgba(52, 168, 83, 0.12);
+  --success-border: rgba(52, 168, 83, 0.35);
+  --warning: #f5a623;
+  --warning-subtle: rgba(245, 166, 35, 0.12);
+  --warning-border: rgba(245, 166, 35, 0.35);
+  --danger: #e05252;
+  --danger-subtle: rgba(224, 82, 82, 0.12);
+  --danger-border: rgba(224, 82, 82, 0.35);
+
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+  --font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --radius-outer: 20px;
+  --radius-inner: 14px;
+  --radius-btn: 9999px;
+  --radius-tag: 9999px;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.55);
+  --shadow-coral-glow: 0 4px 16px rgba(217, 119, 87, 0.35);
+  --shadow-blue-glow: 0 4px 16px rgba(123, 178, 219, 0.25);
+  --shadow-violet-glow: 0 4px 16px rgba(181, 146, 232, 0.25);
+
+  --grid-line-color: rgba(255, 255, 255, 0.03);
+  --ambient-opacity: 0.12;
+
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 0.15s;
+  --duration-normal: 0.25s;
+}
+
+/* Explicit Dark Theme Selector */
+html.dark,
+html[data-theme="dark"],
+:root[data-theme="dark"] {
+  --bg-app: var(--color-slate-dark);
+  --bg-surface-1: #1f1f1d;
+  --bg-surface-2: #242421;
+  --bg-surface-3: #282825;
+  --bg-surface-elevated: #282825;
+  --bg-glass: rgba(20, 20, 19, 0.90);
+  --bg-code: #1a1a18;
+
+  --text-primary: var(--color-ivory-medium);
+  --text-secondary: var(--color-stone);
+  --text-muted: var(--color-cloud-dark);
+  --text-dim: #63625d;
+
+  --border-subtle: #333330;
+  --border-medium: var(--color-slate-medium);
+  --border-highlight: #5a5954;
+  --border-glass: rgba(51, 51, 48, 0.85);
+
+  --inteli-coral: var(--color-clay);
+  --inteli-coral-hover: var(--color-clay-deep);
+  --inteli-coral-subtle: rgba(217, 119, 87, 0.15);
+  --inteli-coral-glow: rgba(217, 119, 87, 0.28);
+  --inteli-coral-border: rgba(217, 119, 87, 0.40);
+
+  --inteli-blue: #7bb2db;
+  --inteli-blue-hover: #5d9ecb;
+  --inteli-blue-subtle: rgba(123, 178, 219, 0.12);
+  --inteli-blue-glow: rgba(123, 178, 219, 0.22);
+  --inteli-blue-border: rgba(123, 178, 219, 0.35);
+
+  --inteli-violet: #b592e8;
+  --inteli-violet-hover: #a178db;
+  --inteli-violet-subtle: rgba(181, 146, 232, 0.12);
+  --inteli-violet-glow: rgba(181, 146, 232, 0.22);
+  --inteli-violet-border: rgba(181, 146, 232, 0.35);
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.55);
+
+  --grid-line-color: rgba(255, 255, 255, 0.03);
+  --ambient-opacity: 0.12;
+}
+
+/* Light Theme: Anthropic Editorial Parchment (#f0eee6 Canvas, #faf9f5 Cards) */
+html.light,
+html[data-theme="light"],
+:root[data-theme="light"] {
+  --bg-app: var(--color-ivory-medium);
+  --bg-surface-1: var(--color-ivory-light);
+  --bg-surface-2: #f4f2ea;
+  --bg-surface-3: #eae7dd;
+  --bg-surface-elevated: #ffffff;
+  --bg-glass: rgba(240, 238, 230, 0.92);
+  --bg-code: #eae7dd;
+
+  --text-primary: var(--color-slate-dark);
+  --text-secondary: var(--color-slate-medium);
+  --text-muted: var(--color-cloud-dark);
+  --text-dim: var(--color-cloud-medium);
+
+  --border-subtle: var(--color-oat-warm);
+  --border-medium: var(--color-stone);
+  --border-highlight: var(--color-cloud-medium);
+  --border-glass: rgba(227, 218, 204, 0.85);
+
+  --inteli-coral: var(--color-clay);
+  --inteli-coral-hover: var(--color-clay-deep);
+  --inteli-coral-subtle: rgba(217, 119, 87, 0.12);
+  --inteli-coral-glow: rgba(217, 119, 87, 0.20);
+  --inteli-coral-border: rgba(217, 119, 87, 0.35);
+
   --inteli-blue: #1a5276;
   --inteli-blue-hover: #154360;
   --inteli-blue-subtle: rgba(26, 82, 118, 0.08);
   --inteli-blue-glow: rgba(26, 82, 118, 0.18);
   --inteli-blue-border: rgba(26, 82, 118, 0.35);
 
-  /* Inteli Violet (AI, Leadership & Systems) */
   --inteli-violet: #6B449B;
   --inteli-violet-hover: #593582;
   --inteli-violet-subtle: rgba(107, 68, 155, 0.08);
   --inteli-violet-glow: rgba(107, 68, 155, 0.18);
   --inteli-violet-border: rgba(107, 68, 155, 0.35);
 
-  /* Functional Semantics */
   --success: #1e824c;
   --success-subtle: rgba(30, 130, 76, 0.08);
   --success-border: rgba(30, 130, 76, 0.32);
@@ -64,33 +195,35 @@
   --danger-subtle: rgba(192, 57, 43, 0.08);
   --danger-border: rgba(192, 57, 43, 0.35);
 
-  /* ------------------------------------------------------------------------
-     4. Typography & Metrics
-     ------------------------------------------------------------------------ */
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-serif: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
-  --font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-
-  /* Double-Bezel Radius Architecture */
-  --radius-outer: 20px;
-  --radius-inner: 14px;
-  --radius-btn: 9999px;
-  --radius-tag: 9999px;
-
-  /* Editorial Shadows & Depth */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
   --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.07), 0 2px 6px rgba(0, 0, 0, 0.04);
   --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.09), 0 4px 10px rgba(0, 0, 0, 0.04);
-  --shadow-coral-glow: 0 4px 14px rgba(192, 57, 43, 0.22);
+  --shadow-coral-glow: 0 4px 14px rgba(217, 119, 87, 0.22);
   --shadow-blue-glow: 0 4px 14px rgba(26, 82, 118, 0.2);
   --shadow-violet-glow: 0 4px 14px rgba(107, 68, 155, 0.2);
 
-  /* Physics & Transitions */
-  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
-  --duration-fast: 0.15s;
-  --duration-normal: 0.25s;
+  --grid-line-color: rgba(0, 0, 0, 0.025);
+  --ambient-opacity: 0.08;
 }
 
+/* System dark mode fallback when no class/attribute set */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not(.light) {
+    --bg-app: var(--color-slate-dark);
+    --bg-surface-1: #1f1f1d;
+    --bg-surface-2: #242421;
+    --bg-surface-3: #282825;
+    --bg-surface-elevated: #282825;
+    --bg-glass: rgba(20, 20, 19, 0.90);
+    --bg-code: #1a1a18;
+    --text-primary: var(--color-ivory-medium);
+    --text-secondary: var(--color-stone);
+    --text-muted: var(--color-cloud-dark);
+    --border-subtle: #333330;
+    --border-medium: var(--color-slate-medium);
+    --border-highlight: #5a5954;
+  }
+}
 /* ==========================================================================
    RESET & THEMED BROWSER SURFACES
    ========================================================================== */
@@ -164,7 +297,7 @@ body {
   pointer-events: none;
   z-index: 0;
   filter: blur(120px);
-  opacity: 0.14;
+  opacity: var(--ambient-opacity, 0.12);
   overflow: hidden;
 }
 
@@ -185,8 +318,8 @@ body {
   position: fixed;
   inset: 0;
   background-image: 
-    linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+    linear-gradient(var(--grid-line-color, rgba(255, 255, 255, 0.03)) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line-color, rgba(255, 255, 255, 0.03)) 1px, transparent 1px);
   background-size: 48px 48px;
   pointer-events: none;
   z-index: 0;
@@ -479,7 +612,7 @@ body {
   gap: 0.55rem;
   padding: 0.55rem 1.1rem;
   border-radius: var(--radius-btn);
-  background: #ffffff;
+  background: var(--bg-surface-1);
   border: 1px solid var(--border-medium);
   color: var(--text-primary);
   font-family: var(--font-sans);
@@ -489,6 +622,19 @@ body {
   text-decoration: none;
   box-shadow: var(--shadow-sm);
   transition: all var(--duration-fast) var(--ease-spring);
+}
+
+.btn-theme-switch {
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn-theme-switch .theme-switch-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  line-height: 1;
 }
 
 .btn-secondary-bezel:hover {
@@ -720,7 +866,7 @@ body {
 
 .tab-nav-btn.active {
   color: var(--text-primary);
-  background: #ffffff;
+  background: var(--bg-surface-1);
   border-color: var(--inteli-coral);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
 }
@@ -846,7 +992,7 @@ body {
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: #ffffff;
+  background: var(--bg-surface-1);
   border: 1px solid var(--border-medium);
   display: flex;
   align-items: center;
@@ -900,7 +1046,7 @@ body {
   width: 100%;
   padding: 0.85rem 1.25rem;
   border-radius: 14px;
-  background: #ffffff;
+  background: var(--bg-surface-1);
   border: 1px solid var(--border-medium);
   color: var(--text-primary);
   font-family: var(--font-sans);
@@ -964,7 +1110,7 @@ body {
 .bezel-select {
   width: 100%;
   padding: 0.75rem 1rem;
-  background: #ffffff;
+  background: var(--bg-surface-1);
   border: 1px solid var(--border-medium);
   border-radius: 12px;
   color: var(--text-primary);
@@ -1095,7 +1241,7 @@ body {
 .bezel-input {
   width: 100%;
   padding: 0.95rem 1.25rem 0.95rem 3rem;
-  background-color: #ffffff;
+  background-color: var(--bg-surface-1);
   border: 1px solid var(--border-medium);
   border-radius: 14px;
   color: var(--text-primary);
@@ -1121,7 +1267,7 @@ body {
   border-radius: 9999px;
   font-size: 0.82rem;
   font-weight: 600;
-  background-color: #ffffff;
+  background-color: var(--bg-surface-1);
   color: var(--text-secondary);
   border: 1px solid var(--border-medium);
   cursor: pointer;
@@ -1288,7 +1434,7 @@ body {
 }
 
 .doc-nav-item.active {
-  background-color: #ffffff;
+  background-color: var(--bg-surface-1);
   border-color: var(--border-medium);
   box-shadow: var(--shadow-sm);
 }
@@ -1595,7 +1741,7 @@ body {
   width: 100%;
   padding: 0.8rem;
   border-radius: 12px;
-  background: #ffffff;
+  background: var(--bg-surface-1);
   border: 1px solid var(--border-medium);
   color: var(--text-primary);
   font-size: 0.9rem;
@@ -1747,7 +1893,7 @@ body {
   gap: 0.45rem;
   padding: 0.45rem 0.85rem;
   border-radius: var(--radius-btn);
-  background: #ffffff;
+  background: var(--bg-surface-1);
   border: 1px solid var(--border-medium);
   color: var(--text-primary);
   font-size: 0.8rem;
@@ -1874,7 +2020,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  background: #ffffff;
+  background: var(--bg-surface-1);
   border: 1px solid var(--border-medium);
   border-radius: var(--radius-btn);
   padding: 0.35rem 0.75rem;
@@ -1932,7 +2078,7 @@ body {
   gap: 1rem;
   padding: 1.15rem 1.4rem;
   border-radius: 14px;
-  background: #ffffff;
+  background: var(--bg-surface-1);
   border: 1px solid var(--border-medium);
   cursor: pointer;
   box-shadow: var(--shadow-sm);
@@ -2039,7 +2185,7 @@ body {
 .dot-current { background: var(--inteli-coral); box-shadow: 0 0 6px var(--inteli-coral); }
 .dot-answered { background: var(--success); }
 .dot-flagged { background: var(--warning); }
-.dot-empty { background: #ffffff; border: 1px solid var(--border-medium); }
+.dot-empty { background: var(--bg-surface-1); border: 1px solid var(--border-medium); }
 
 .matrix-grid {
   display: grid;
@@ -2053,7 +2199,7 @@ body {
 .matrix-q-btn {
   aspect-ratio: 1;
   border-radius: 10px;
-  background: #ffffff;
+  background: var(--bg-surface-1);
   border: 1px solid var(--border-medium);
   color: var(--text-primary);
   font-family: var(--font-mono);
@@ -2079,7 +2225,7 @@ body {
   border-color: var(--inteli-coral);
   border-width: 2px;
   color: var(--inteli-coral);
-  background: #ffffff;
+  background: var(--bg-surface-1);
   box-shadow: 0 0 0 1px var(--inteli-coral), var(--shadow-coral-glow);
 }
 
@@ -2145,7 +2291,7 @@ body {
 }
 
 .tool-btn {
-  background: #ffffff;
+  background: var(--bg-surface-1);
   border: 1px solid var(--border-medium);
   color: var(--text-muted);
   width: 28px;
@@ -2184,7 +2330,7 @@ body {
 .swatch-white { background: #111111; }
 
 .canvas-wrapper {
-  background: #ffffff;
+  background: var(--bg-surface-1);
   border: 1px solid var(--border-medium);
   border-radius: 12px;
   overflow: hidden;
@@ -2407,7 +2553,7 @@ body {
 .weak-topic-item {
   padding: 1.25rem;
   border-radius: 14px;
-  background: #ffffff;
+  background: var(--bg-surface-1);
   border: 1px solid var(--border-medium);
   display: flex;
   flex-direction: column;
@@ -2458,7 +2604,7 @@ body {
 .modal-bezel {
   width: 100%;
   max-width: 520px;
-  background: #ffffff;
+  background: var(--bg-surface-1);
   border: 1px solid var(--border-medium);
   border-radius: var(--radius-outer);
   padding: 6px;
@@ -2515,7 +2661,7 @@ body {
   pointer-events: auto;
   padding: 0.75rem 1.25rem;
   border-radius: 12px;
-  background: #ffffff;
+  background: var(--bg-surface-elevated);
   border: 1px solid var(--border-medium);
   box-shadow: var(--shadow-lg);
   font-size: 0.88rem;

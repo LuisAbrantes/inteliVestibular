@@ -1668,26 +1668,44 @@ export function renderLessonHtml(lessonData) {
   <!-- KaTeX Math Rendering -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}, {left: '\\(', right: '\\)', display: false}, {left: '\\[', right: '\\]', display: true}], throwOnError: false})"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="initKaTeX()"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    function initKaTeX() {
       if (window.renderMathInElement) {
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},
-            {left: '$', right: '$', display: false},
-            {left: '\\(', right: '\\)', display: false},
-            {left: '\\[', right: '\\]', display: true}
+            {left: '$', right: '$', display: false}
           ],
           throwOnError: false
         });
       }
-    });
+    }
+    document.addEventListener("DOMContentLoaded", initKaTeX);
+    window.addEventListener("load", initKaTeX);
   </script>
 </head>
 <body>
+  <nav class="lesson-top-nav">
+    <div class="nav-content">
+      <a href="/" class="btn-nav-back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        <span>Voltar ao Portal de Estudos</span>
+      </a>
+      <div class="nav-lesson-badge">
+        <span class="dot-active"></span>
+        <span>Vestibular Inteli 2027 • Trilha Oficial</span>
+      </div>
+      <div class="nav-quick-links">
+        <a href="#conteudo">Conteúdo</a>
+        <a href="#quiz">Quiz</a>
+        <button class="btn-theme-toggle" id="btn-theme-toggle" title="Alternar Modo Escuro / Claro">◐</button>
+      </div>
+    </div>
+  </nav>
+
   <div class="lesson-container">
-    <article class="lesson">
+    <article class="lesson" id="conteudo">
       <header class="lesson-header">
         <span class="lesson-badge">Lição ${lessonNumber}</span>
         <h1 class="lesson-title">${escapeHtml(title)}</h1>
@@ -1699,9 +1717,9 @@ export function renderLessonHtml(lessonData) {
           <span class="meta-track">📈 ${escapeHtml(targetTrack)}</span>
         </div>
         <div class="lesson-meta" style="margin-top: 0.5rem;">
-          <a href="../MISSION.md">← Voltar para a Missão</a>
+          <a href="/?tab=docs&doc=mission">← Voltar para a Missão</a>
           <span>•</span>
-          <a href="../GLOSSARY.md">📖 Glossário de Conceitos</a>
+          <a href="/?tab=docs&doc=glossary">📖 Glossário de Conceitos</a>
         </div>
       </header>
 
@@ -1760,9 +1778,10 @@ export function renderLessonHtml(lessonData) {
           <span>${escapeHtml(primarySource)}</span>
         </div>
         <div class="footer-nav">
-          <a href="../MISSION.md">← Sumário da Missão</a>
-          <a href="../GLOSSARY.md">📖 Glossário Técnico</a>
+          <a href="/?tab=docs&doc=mission">← Sumário da Missão</a>
+          <a href="/?tab=docs&doc=glossary">📖 Glossário Técnico</a>
           <a href="#quiz">↑ Repetir Questões</a>
+          <a href="/" class="btn-back-hub">← Voltar à Tela Principal do Portal</a>
         </div>
       </footer>
     </article>
@@ -1773,6 +1792,28 @@ export function renderLessonHtml(lessonData) {
 
   <!-- Script Fallback Autônomo de Quiz (Zero Dependências) -->
   <script>
+    // Suporte a alternância de tema (Modo Escuro / Claro)
+    (function() {
+      try {
+        const saved = localStorage.getItem('theme');
+        if (saved) {
+          document.documentElement.setAttribute('data-theme', saved);
+        }
+      } catch (e) {}
+      document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.getElementById('btn-theme-toggle');
+        if (btn) {
+          btn.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme') ||
+              (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            const next = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            try { localStorage.setItem('theme', next); } catch (e) {}
+          });
+        }
+      });
+    })();
+
     document.addEventListener('DOMContentLoaded', () => {
       const questions = document.querySelectorAll('.quiz-question');
 

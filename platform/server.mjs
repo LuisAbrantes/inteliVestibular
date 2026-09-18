@@ -570,6 +570,7 @@ export async function handleRequest(req, res) {
       { id: 'trilha-inteligente', title: 'Trilha Inteligente Oficial Inteli 2027 (Muse-spark 1.3)', file: 'docs/trilha-inteligente-2027.md', category: 'Trilha Oficial' },
       { id: 'edital-vestibular', title: 'Edital do Vestibular Inteli 2027 & Regras Oficiais', file: 'docs/edital-vestibular.md', category: 'Vestibular' },
       { id: 'edital-bolsa', title: 'Edital do Programa de Bolsas Inteli 2027 & Auxílios', file: 'docs/edital-bolsa.md', category: 'Bolsas' },
+      { id: 'dossie-openfinance', title: 'Dossiê Open Finance & Checklist da Bolsa 2027', file: 'docs/dossie-openfinance-bolsa.md', category: 'Bolsas' },
       { id: 'mapeamento-questoes', title: 'Mapeamento Exaustivo das 148 Questões Anteriores', file: 'docs/mapeamento-completo-questoes.md', category: 'Provas' },
       { id: 'analise-conteudos-provas', title: 'Análise Estatística de Provas Anteriores', file: 'docs/analise-conteudos-provas.md', category: 'Provas' },
       { id: 'guia-preparacao', title: 'Guia Estratégico do Candidato 2027 (8 Semanas)', file: 'docs/guia-preparacao.md', category: 'Estratégia' },

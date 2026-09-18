@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="dark" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,6 +20,15 @@
 
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="style.css">
+  <!-- Theme Initialization Script (Avoids Flash of Unstyled Theme) -->
+  <script>
+    (function() {
+      const saved = localStorage.getItem('inteli_theme') || 'dark';
+      document.documentElement.classList.remove('dark', 'light');
+      document.documentElement.classList.add(saved);
+      document.documentElement.setAttribute('data-theme', saved);
+    })();
+  </script>
 </head>
 <body>
   <!-- Ambient Glow Gradients -->
@@ -85,6 +94,10 @@
         </button>
 
         <div id="header-home-links" class="header-home-links">
+          <button class="btn-secondary-bezel btn-theme-switch" id="btn-theme-switch" title="Alternar Modo Escuro / Claro (Tema Anthropic)" aria-label="Alternar Tema">
+            <span class="theme-switch-icon" id="theme-switch-icon">◐</span>
+            <span class="btn-text" id="theme-switch-text">Tema</span>
+          </button>
           <button class="btn-secondary-bezel" id="btn-header-health-badge" title="Índice de Saúde do Harness">
             <span class="health-dot"></span>
             <span class="btn-text" id="header-health-score-text">Saúde: 85%</span>

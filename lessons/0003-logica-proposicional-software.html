@@ -18,9 +18,7 @@
         renderMathInElement(document.body, {
           delimiters: [
             {left: '$$', right: '$$', display: true},
-            {left: '$', right: '$', display: false},
-            {left: '\(', right: '\)', display: false},
-            {left: '\[', right: '\]', display: true}
+            {left: '$', right: '$', display: false}
           ],
           throwOnError: false
         });
@@ -31,8 +29,26 @@
   </script>
 </head>
 <body>
+  <nav class="lesson-top-nav">
+    <div class="nav-content">
+      <a href="/" class="btn-nav-back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        <span>Voltar ao Portal de Estudos</span>
+      </a>
+      <div class="nav-lesson-badge">
+        <span class="dot-active"></span>
+        <span>Vestibular Inteli 2027 • Trilha Oficial</span>
+      </div>
+      <div class="nav-quick-links">
+        <a href="#conteudo">Conteúdo</a>
+        <a href="#quiz">Quiz</a>
+        <button class="btn-theme-toggle" id="btn-theme-toggle" title="Alternar Modo Escuro / Claro">◐</button>
+      </div>
+    </div>
+  </nav>
+
   <div class="lesson-container">
-    <article class="lesson">
+    <article class="lesson" id="conteudo">
       <header class="lesson-header">
         <span class="lesson-badge">Lição 0003</span>
         <h1 class="lesson-title">Lógica Proposicional: Implicação, Tabela-Verdade e Auditoria de Software</h1>
@@ -44,9 +60,9 @@
           <span class="meta-track">📈 Trilha Mediana e Superior</span>
         </div>
         <div class="lesson-meta" style="margin-top: 0.5rem;">
-          <a href="../MISSION.md">← Voltar para a Missão</a>
+          <a href="/?tab=docs&doc=mission">← Voltar para a Missão</a>
           <span>•</span>
-          <a href="../GLOSSARY.md">📖 Glossário de Conceitos</a>
+          <a href="/?tab=docs&doc=glossary">📖 Glossário de Conceitos</a>
         </div>
       </header>
 
@@ -240,9 +256,10 @@
           <span>Processo Seletivo Inteli 2022.1 (Questão 24 - Análise Forense); Kenneth Rosen, &quot;Discrete Mathematics and Its Applications&quot;, 8th Edition (Capítulo 1: Propositional Logic).</span>
         </div>
         <div class="footer-nav">
-          <a href="../MISSION.md">← Sumário da Missão</a>
-          <a href="../GLOSSARY.md">📖 Glossário Técnico</a>
+          <a href="/?tab=docs&doc=mission">← Sumário da Missão</a>
+          <a href="/?tab=docs&doc=glossary">📖 Glossário Técnico</a>
           <a href="#quiz">↑ Repetir Questões</a>
+          <a href="/" class="btn-back-hub">← Voltar à Tela Principal do Portal</a>
         </div>
       </footer>
     </article>
@@ -253,6 +270,28 @@
 
   <!-- Script Fallback Autônomo de Quiz (Zero Dependências) -->
   <script>
+    // Suporte a alternância de tema (Modo Escuro / Claro)
+    (function() {
+      try {
+        const saved = localStorage.getItem('theme');
+        if (saved) {
+          document.documentElement.setAttribute('data-theme', saved);
+        }
+      } catch (e) {}
+      document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.getElementById('btn-theme-toggle');
+        if (btn) {
+          btn.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme') ||
+              (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            const next = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            try { localStorage.setItem('theme', next); } catch (e) {}
+          });
+        }
+      });
+    })();
+
     document.addEventListener('DOMContentLoaded', () => {
       const questions = document.querySelectorAll('.quiz-question');
 

@@ -246,7 +246,60 @@ const AppState = {
 // ============================================================================
 // 3. INITIALIZATION & DATA LOADING
 // ============================================================================
+// ============================================================================
+// THEME MANAGEMENT (ANTHROPIC DESIGN SYSTEM: DARK & LIGHT MODES)
+// ============================================================================
+function initTheme() {
+  const savedTheme = localStorage.getItem('inteli_theme') || 'dark';
+  applyTheme(savedTheme);
+}
+
+function applyTheme(theme) {
+  const root = document.documentElement;
+  if (theme === 'light') {
+    root.classList.remove('dark');
+    root.classList.add('light');
+    root.setAttribute('data-theme', 'light');
+  } else {
+    root.classList.remove('light');
+    root.classList.add('dark');
+    root.setAttribute('data-theme', 'dark');
+  }
+  localStorage.setItem('inteli_theme', theme);
+  updateThemeSwitchUI(theme);
+}
+
+function toggleTheme() {
+  const root = document.documentElement;
+  const isLight = root.classList.contains('light') || root.getAttribute('data-theme') === 'light';
+  const newTheme = isLight ? 'dark' : 'light';
+  applyTheme(newTheme);
+  if (typeof showToast === 'function') {
+    showToast(newTheme === 'dark' ? 'Modo Escuro (Claude.ai) ativado.' : 'Modo Claro (Anthropic Editorial) ativado.', 'info');
+  }
+}
+
+function updateThemeSwitchUI(theme) {
+  const icon = document.getElementById('theme-switch-icon');
+  const text = document.getElementById('theme-switch-text');
+  if (icon) {
+    icon.textContent = theme === 'dark' ? '☀️' : '🌙';
+  }
+  if (text) {
+    text.textContent = theme === 'dark' ? 'Claro' : 'Escuro';
+  }
+  const btn = document.getElementById('btn-theme-switch');
+  if (btn) {
+    btn.setAttribute('title', theme === 'dark' ? 'Mudar para Modo Claro (Anthropic Parchment)' : 'Mudar para Modo Escuro (Claude.ai Dark)');
+    btn.setAttribute('aria-label', theme === 'dark' ? 'Mudar para Modo Claro' : 'Mudar para Modo Escuro');
+  }
+}
+
+window.toggleTheme = toggleTheme;
+window.applyTheme = applyTheme;
+
 async function initApp() {
+  initTheme();
   console.log('[DEBUG] initApp started');
   initScratchpad();
   console.log('[DEBUG] initScratchpad passed');
@@ -306,6 +359,12 @@ async function loadQuestionBank() {
 // 4. EVENT LISTENERS & NAVIGATION
 // ============================================================================
 function setupEventListeners() {
+  // Theme Switcher Toggle
+  const themeSwitchBtn = document.getElementById('btn-theme-switch');
+  if (themeSwitchBtn) {
+    themeSwitchBtn.addEventListener('click', toggleTheme);
+  }
+
   // Mode Cards & Launch Buttons
   document.querySelectorAll('.btn-launch-mode').forEach(btn => {
     btn.addEventListener('click', (e) => {
@@ -1767,6 +1826,23 @@ const DOC_EXECUTIVE_SUMMARIES = {
       '<strong>Etapas da Bolsa:</strong> 1) Análise Documental Rigorosa; 2) Entrevista Social com Assistente Social e Responsável; 3) Entrevista com a Banca do Comitê de Bolsas.'
     ],
     warning: 'A causa #1 de desclassificação é a omissão de contas bancárias no Open Finance ou movimentações financeiras sem comprovação prévia.'
+  },
+  'dossie-openfinance': {
+    badge: 'CHECKLIST OPERACIONAL • OPEN FINANCE 2027',
+    title: 'Dossiê Open Finance & Comprovação Socioeconômica — Pontos Essenciais',
+    chips: [
+      { label: 'Plataforma', val: 'EducaOpen (Open Finance Bacen)' },
+      { label: 'Histórico', val: 'Últimos 90 Dias de Contas' },
+      { label: 'Abrangência', val: 'Todos os Adultos do Domicílio' },
+      { label: 'Moradia', val: 'Prioridade Fora de São Paulo' }
+    ],
+    takeaways: [
+      '<strong>Conexão Digital Direta:</strong> Em vez de dezenas de PDFs avulsos, a integradora oficial EducaOpen audita diretamente as contas bancárias autorizadas via Open Finance.',
+      '<strong>Contas Inativas e Digitais:</strong> Não omita contas sem uso, contas poupança antigas ou contas em bancos digitais (Nubank, Inter, PagBank). O sistema cruza os CPFs com o Banco Central.',
+      '<strong>Declaração de Moradia Fora de SP:</strong> Para garantir a concessão do Auxílio-Moradia (vaga em acomodação estudantil no Butantã ou subsídio financeiro), comprove residência fora da Grande SP com contas de consumo no nome do responsável.',
+      '<strong>Rendimentos Informais:</strong> Rendimentos autônomos ou sem carteira assinada devem ser declarados com autodeclaração assinada digitalmente pelo portal GOV.BR.'
+    ],
+    warning: 'A divergência entre movimentações bancárias no Open Finance e as declarações preenchidas é a maior causa de indeferimento de bolsas. Mantenha total transparência.'
   },
   'analise-conteudos-provas': {
     badge: 'MATRIZ DE CONTEÚDO VESTIBULAR 2027',
