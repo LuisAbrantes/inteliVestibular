@@ -337,7 +337,7 @@ async function loadQuestionBank() {
   }
 
   try {
-    const staticRes = await fetch('data/questions.json');
+    const staticRes = await fetch('/platform/data/questions.json');
     if (staticRes.ok) {
       const data = await staticRes.json();
       if (Array.isArray(data) && data.length > 0) {
