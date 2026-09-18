@@ -248,6 +248,14 @@ async function runSelfTest(serverInstance) {
     if (!json.success || !json.health) throw new Error('health esperado');
   });
 
+  // Test 12: GET /api/trilha-inteligente
+  await testRoute('GET /api/trilha-inteligente (Trilha Oficial Muse-spark 1.3)', async () => {
+    const res = await fetch(`${url}api/trilha-inteligente`);
+    if (res.status !== 200) throw new Error(`Status esperado 200, obteve ${res.status}`);
+    const json = await res.json();
+    if (!json.success || !json.trilha) throw new Error('trilha esperada');
+  });
+
   // Stop server
   await stop();
 

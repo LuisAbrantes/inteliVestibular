@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lição 0019: Trigonometria, Vetores e Produto Escalar em Motores de Física e Robótica | Inteli Vestibular</title>
+  
+  <!-- Estilos Oficiais -->
+  <link rel="stylesheet" href="../assets/lesson.css">
+  
+  <!-- KaTeX Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="initKaTeX()"></script>
+  <script>
+    function initKaTeX() {
+      if (window.renderMathInElement) {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+          ],
+          throwOnError: false
+        });
+      }
+    }
+    document.addEventListener("DOMContentLoaded", initKaTeX);
+    window.addEventListener("load", initKaTeX);
+  </script>
+</head>
+<body>
+  <div class="lesson-container">
+    <article class="lesson">
+      <header class="lesson-header">
+        <span class="lesson-badge">Lição 0019</span>
+        <h1 class="lesson-title">Trigonometria, Vetores e Produto Escalar em Motores de Física e Robótica</h1>
+        <div class="lesson-meta">
+          <span class="meta-time">⏱️ Tempo Estimado: 10 min</span>
+          <span>•</span>
+          <span class="meta-topic">🎯 Eixo: Geometria Analítica, Trigonometria e Vetores</span>
+          <span>•</span>
+          <span class="meta-track">📈 Trilha Mediana e Superior</span>
+        </div>
+        <div class="lesson-meta" style="margin-top: 0.5rem;">
+          <a href="../MISSION.md">← Voltar para a Missão</a>
+          <span>•</span>
+          <a href="../GLOSSARY.md">📖 Glossário de Conceitos</a>
+        </div>
+      </header>
+
+      <!-- 1. CENÁRIO CONTEXTUAL INTELI -->
+      <section class="scenario">
+        <h2>Cenário Real Inteli</h2>
+        <div class="scenario-box">
+          <div class="scenario-tag">🏢 AgroBotics AI (Robótica Autônoma e Visão Computacional) | Navegação de Rovers e Motores de Física</div>
+          <p>A startup <strong>AgroBotics AI</strong> desenvolve rovers autônomos para colheita de precisão. O software embarcado integra sensores LiDAR, acelerômetros e atuadores baseados em álgebra vetorial:</p>
+          <ul>
+            <li><strong>Decomposição de Trajetória:</strong> Os motores geram um vetor de velocidade $\vec{v}$ com ângulo $\theta$. O sistema decompõe o movimento em componentes cartesianas ($v_x = |\vec{v}|\cos\theta$ e $v_y = |\vec{v}|\sin\theta$) para sincronizar os eixos.</li>
+            <li><strong>Inspeção do Campo de Visão (FOV):</strong> Para desviar de obstáculos, o robô calcula o produto escalar entre seu vetor frontal $\vec{u}$ e o obstáculo $\vec{v}$. Se $\vec{u} \cdot \vec{v} &gt; 0$, o obstáculo está à frente; se nulo, a trajetória é ortogonal; e se negativo, o obstáculo ficou para trás.</li>
+            <li><strong>Simulação Física:</strong> A dinâmica do veículo (atrito, gravidade e colisões) é simulada com projeções vetoriais e trigonometria básica.</li>
+          </ul>
+          <p>O domínio vetorial e trigonométrico é essencial para desenvolver robótica inteligente e simulações de alta fidelidade no Inteli.</p>
+        </div>
+      </section>
+
+      <!-- 2. NÚCLEO CONCEITUAL -->
+      <section class="core-knowledge">
+        <h2>Núcleo Conceitual</h2>
+        <p class="lead-summary">A física de jogos e robótica modela entidades espaciais por vetores no $\mathbb{R}^2$ e $\mathbb{R}^3$. No Inteli, o estudante deve dominar normas euclidianas e produto escalar.</p>
+        
+        <div class="concepts-list">
+          <div class="concept-item">
+            <h3 class="concept-term">Grandezas Vetoriais e Decomposição Cartesiana</h3>
+            <p class="concept-def">Ao contrário de escalares puros (tempo, massa), um vetor $\vec{v}$ possui módulo (comprimento), direção (reta suporte) e sentido. Em coordenadas cartesianas, um vetor de módulo $|\vec{v}|$ inclinado de um ângulo $\theta$ com o semieixo positivo $x$ possui componentes $v_x = |\vec{v}|\cos\theta$ e $v_y = |\vec{v}|\sin\theta$, com norma euclidiana dada pelo Teorema de Pitágoras: $|\vec{v}| = \sqrt{v_x^2 + v_y^2}$.</p>
+            <aside class="sidenote"><strong>Nota lateral:</strong> Um vetor unitário $\hat{v} = \vec{v} / |\vec{v}|$ preserva a direção e o sentido com comprimento exatamente 1, essencial para apontar direções no espaço.</aside>
+          </div>
+
+          <div class="concept-item">
+            <h3 class="concept-term">Produto Escalar (Dot Product): Algébrico e Geométrico</h3>
+            <p class="concept-def">O produto escalar entre dois vetores $\vec{u} = (u_x, u_y)$ e $\vec{v} = (v_x, v_y)$ admite duas formulações estritamente equivalentes: a forma algébrica $\vec{u} \cdot \vec{v} = u_x v_x + u_y v_y$ e a forma geométrica $\vec{u} \cdot \vec{v} = |\vec{u}| |\vec{v}| \cos\theta$, onde $\theta$ é o ângulo formado entre eles ($0 \le \theta \le \pi$).</p>
+            <aside class="sidenote"><strong>Nota lateral:</strong> O produto escalar é a operação matemática mais executada em GPUs para cálculo de sombreamento (iluminação Phong) e busca por similaridade em IA.</aside>
+          </div>
+
+          <div class="concept-item">
+            <h3 class="concept-term">Condição de Ortogonalidade e Cosseno do Ângulo</h3>
+            <p class="concept-def">Dois vetores não nulos são perpendiculares (ortogonais, $\theta = 90^\circ$) se e somente se o produto escalar for nulo: $\vec{u} \cdot \vec{v} = 0$, uma vez que $\cos(90^\circ) = 0$. Além disso, o cosseno do ângulo entre quaisquer dois vetores é obtido normalizando o produto escalar por seus módulos: $\cos\theta = \frac{\vec{u} \cdot \vec{v}}{|\vec{u}| |\vec{v}|}$.</p>
+          </div>
+        </div>
+
+        <div class="formula-card">
+          <div class="formula-card-title">📌 Formulações de Vetores e Trigonometria</div>
+          
+          <div class="formula-row">
+            <span class="formula-name">Decomposição no Plano:</span>
+            <div class="formula-math">$$\vec{v} = (|\vec{v}|\cos\theta, |\vec{v}|\sin\theta), \quad |\vec{v}| = \sqrt{v_x^2 + v_y^2}$$</div>
+          </div>
+
+          <div class="formula-row">
+            <span class="formula-name">Produto Escalar Duplo:</span>
+            <div class="formula-math">$$\vec{u} \cdot \vec{v} = u_x v_x + u_y v_y = |\vec{u}| |\vec{v}| \cos\theta$$</div>
+          </div>
+
+          <div class="formula-row">
+            <span class="formula-name">Cosseno do Ângulo:</span>
+            <div class="formula-math">$$\cos\theta = \frac{\vec{u} \cdot \vec{v}}{|\vec{u}| |\vec{v}|} = \frac{u_x v_x + u_y v_y}{\sqrt{u_x^2 + u_y^2}\sqrt{v_x^2 + v_y^2}}$$</div>
+          </div>
+
+          <div class="formula-tip">💡 <strong>Dica de Ouro:</strong> O sinal do produto escalar define o ângulo: positivo indica $\theta &lt; 90^\circ$, zero indica ortogonalidade ($\theta = 90^\circ$) e negativo indica $\theta &gt; 90^\circ$.</div>
+        </div>
+
+        <div class="callout callout-trap">
+          <h4>⚠️ Armadilha da Normalização no Produto Escalar</h4>
+          <p>O erro comum no Inteli é esquecer de dividir o produto escalar pelo produto dos módulos ao calcular o cosseno. Confundir $\vec{u} \cdot \vec{v}$ diretamente com $\cos\theta$ invalida toda a resolução!</p>
+        </div>
+      </section>
+
+      <!-- 3. PRÁTICA DE RECUPERAÇÃO ATIVA (QUIZ) -->
+      <section class="retrieval-quiz" id="quiz">
+        <h2>Prática de Recuperação Ativa (Retrieval Practice)</h2>
+        <p class="quiz-intro">Resolva as questões a seguir de forma autônoma. As opções possuem tamanho simétrico e oferecem justificativa imediata para cada distrator da prova.</p>
+        
+        <div class="quiz-question" data-question-id="q1">
+          <div class="question-header">
+            <span class="question-number">Questão 1 de 2</span>
+          </div>
+          <p class="question-stem">Um robô autônomo está localizado na origem com vetor de orientação frontal u = (3, 4). Um sensor detecta um obstáculo na direção do vetor v = (-4, 3). Qual é o ângulo formado entre a orientação frontal do robô e o obstáculo detectado?</p>
+          <div class="quiz-answers">
+            <button class="quiz-option" type="button" data-correct="true" data-feedback="Correto! O produto escalar algébrico é 3*(-4) + 4*3 = -12 + 12 = 0. Como u . v = 0, os vetores são ortogonais (90 graus).">
+              <span class="option-label">A</span>
+              <span class="option-text">Ângulo reto de exatamente 90 graus (ortogonais).</span>
+            </button>
+            <button class="quiz-option" type="button" data-correct="false" data-feedback="Incorreto. 45 graus exigiria que o cosseno fosse igual a raiz(2)/2, mas o produto escalar resultou exatamente zero.">
+              <span class="option-label">B</span>
+              <span class="option-text">Ângulo agudo de exatamente 45 graus (inclinadas).</span>
+            </button>
+            <button class="quiz-option" type="button" data-correct="false" data-feedback="Incorreto. 60 graus exigiria que o cosseno fosse igual a 1/2, o que não ocorre quando o produto escalar é nulo.">
+              <span class="option-label">C</span>
+              <span class="option-text">Ângulo agudo de exatamente 60 graus (inclinadas).</span>
+            </button>
+            <button class="quiz-option" type="button" data-correct="false" data-feedback="Incorreto. Um ângulo nulo de 0 graus indicaria paralelismo no mesmo sentido, exigindo produto escalar máximo |u||v|.">
+              <span class="option-label">D</span>
+              <span class="option-text">Ângulo nulo de exatamente 0 graus (alinhamento).</span>
+            </button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+          <div class="quiz-resolution hidden">
+            <div class="resolution-title">🔍 Resolução Oficial Comentada</div>
+            <div class="resolution-content">
+              <strong>Resolução Passo a Passo:</strong><br>
+              1. Identificamos as coordenadas dos vetores:<br>
+              $$\vec{u} = (3, 4), \quad \vec{v} = (-4, 3)$$
+              2. Calculamos o produto escalar algébrico multiplicando componentes correspondentes:<br>
+              $$\vec{u} \cdot \vec{v} = (u_x \times v_x) + (u_y \times v_y) = (3 \times (-4)) + (4 \times 3) = -12 + 12 = 0$$
+              3. Aplicamos a definição geométrica do produto escalar:<br>
+              $$\vec{u} \cdot \vec{v} = |\vec{u}| |\vec{v}| \cos\theta = 0$$
+              Como os módulos dos vetores são não nulos ($|\vec{u}| = \sqrt{3^2+4^2} = 5$ e $|\vec{v}| = \sqrt{(-4)^2+3^2} = 5$):<br>
+              $$\cos\theta = 0 \implies \theta = 90^\circ = \frac{\pi}{2} \text{ rad}$$
+              4. <em>Análise dos distratores:</em> B (45°) e C (60°) sugerem ângulos não ortogonais, incompatíveis com produto escalar nulo; D (0°) confunde ortogonalidade com paralelismo.
+            </div>
+          </div>
+        </div>
+
+        <div class="quiz-question" data-question-id="q2">
+          <div class="question-header">
+            <span class="question-number">Questão 2 de 2</span>
+          </div>
+          <p class="question-stem">Dois drones de inspeção possuem vetores de velocidade v1 = (6, 0) e v2 = (3, 3√3) em m/s. Qual é o ângulo θ formado entre as duas direções de deslocamento?</p>
+          <div class="quiz-answers">
+            <button class="quiz-option" type="button" data-correct="false" data-feedback="Incorreto. 30 graus resultaria se o cosseno fosse igual a raiz(3)/2, confundindo as funções seno e cosseno.">
+              <span class="option-label">A</span>
+              <span class="option-text">Exatamente 30 graus entre as trajetórias de voo.</span>
+            </button>
+            <button class="quiz-option" type="button" data-correct="true" data-feedback="Excelente! |v1| = 6, |v2| = 6 e v1 . v2 = 18. O cosseno é 18 / (6 * 6) = 18 / 36 = 1/2, correspondendo a 60 graus.">
+              <span class="option-label">B</span>
+              <span class="option-text">Exatamente 60 graus entre as trajetórias de voo.</span>
+            </button>
+            <button class="quiz-option" type="button" data-correct="false" data-feedback="Incorreto. 45 graus decorreria de calcular incorretamente o módulo do segundo vetor como 6*raiz(2).">
+              <span class="option-label">C</span>
+              <span class="option-text">Exatamente 45 graus entre as trajetórias de voo.</span>
+            </button>
+            <button class="quiz-option" type="button" data-correct="false" data-feedback="Incorreto. 90 graus indicaria produto escalar nulo, porém o produto escalar entre v1 e v2 resultou 18.">
+              <span class="option-label">D</span>
+              <span class="option-text">Exatamente 90 graus entre as trajetórias de voo.</span>
+            </button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+          <div class="quiz-resolution hidden">
+            <div class="resolution-title">🔍 Resolução Oficial Comentada</div>
+            <div class="resolution-content">
+              <strong>Resolução Passo a Passo:</strong><br>
+              1. Calculamos o módulo de cada vetor de velocidade:<br>
+              $$|\vec{v}_1| = \sqrt{6^2 + 0^2} = \sqrt{36} = 6 \text{ m/s}$$
+              $$|\vec{v}_2| = \sqrt{3^2 + (3\sqrt{3})^2} = \sqrt{9 + (9 \times 3)} = \sqrt{9 + 27} = \sqrt{36} = 6 \text{ m/s}$$
+              2. Calculamos o produto escalar algébrico:<br>
+              $$\vec{v}_1 \cdot \vec{v}_2 = (6 \times 3) + (0 \times 3\sqrt{3}) = 18 + 0 = 18$$
+              3. Determinamos o cosseno do ângulo entre os vetores de velocidade:<br>
+              $$\cos\theta = \frac{\vec{v}_1 \cdot \vec{v}_2}{|\vec{v}_1| |\vec{v}_2|} = \frac{18}{6 \times 6} = \frac{18}{36} = \frac{1}{2}$$
+              4. Como $\cos\theta = \frac{1}{2}$ no intervalo $[0, 180^\circ]$, temos:<br>
+              $$\theta = 60^\circ = \frac{\pi}{3} \text{ rad}$$
+              5. <em>Análise dos distratores:</em> A (30°) inverte seno e cosseno ($\sin(30^\circ) = 1/2$); C (45°) erra a simplificação da raiz; e D (90°) ignora o valor positivo de 18.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. REPETIÇÃO ESPAÇADA (STORAGE STRENGTH) -->
+      <section class="spaced-repetition">
+        <h2>Desafio de 48 Horas (Storage Strength)</h2>
+        <div class="spaced-prompt">
+          <p class="prompt-question"><strong>Em 48 horas: explique mentalmente por que em embeddings de LLMs utiliza-se a similaridade por cosseno em vez da distância euclidiana direta.</strong></p>
+          <p style="font-size:0.9rem; color:#666; margin-top:0.5rem;"><em>Dica da Ciência Cognitiva:</em> O cosseno mede puramente a orientação e a correlação semântica entre tópicos, tornando a busca imune ao tamanho do texto ou à magnitude absoluta do vetor de embedding.</p>
+        </div>
+      </section>
+
+      <!-- 5. FONTE PRIMÁRIA -->
+      <footer class="lesson-footer">
+        <div class="source-citation">
+          <strong>📚 Fonte Primária e Referência Acadêmica:</strong><br>
+          <span>Processo Seletivo Inteli 2024; Gilbert Strang, &quot;Introduction to Linear Algebra&quot;, 5th Edition; David H. Eberly, &quot;3D Game Engine Design&quot;, 2nd Edition; Halliday, Resnick &amp; Walker, &quot;Fundamentals of Physics&quot;, 10th Edition.</span>
+        </div>
+        <div class="footer-nav">
+          <a href="../MISSION.md">← Sumário da Missão</a>
+          <a href="../GLOSSARY.md">📖 Glossário Técnico</a>
+          <a href="#quiz">↑ Repetir Questões</a>
+        </div>
+      </footer>
+    </article>
+  </div>
+
+  <!-- Script Externo Oficial -->
+  <script src="../assets/quiz.js" defer></script>
+
+  <!-- Script Fallback Autônomo de Quiz (Zero Dependências) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const questions = document.querySelectorAll('.quiz-question');
+
+      questions.forEach((q) => {
+        const options = q.querySelectorAll('.quiz-option');
+        const feedbackBox = q.querySelector('.quiz-feedback');
+        const resolutionBox = q.querySelector('.quiz-resolution');
+
+        options.forEach(opt => {
+          opt.addEventListener('click', () => {
+            // Desativa botões da pergunta atual
+            options.forEach(b => {
+              b.disabled = true;
+              if (b.getAttribute('data-correct') === 'true') {
+                b.classList.add('correct');
+              }
+            });
+
+            const isCorrect = opt.getAttribute('data-correct') === 'true';
+            const feedbackText = opt.getAttribute('data-feedback');
+
+            if (!isCorrect) {
+              opt.classList.add('incorrect');
+              if (feedbackBox) {
+                feedbackBox.className = 'quiz-feedback danger';
+                feedbackBox.innerHTML = '<strong>❌ Incorreto.</strong> ' + feedbackText;
+                feedbackBox.classList.remove('hidden');
+              }
+            } else {
+              if (feedbackBox) {
+                feedbackBox.className = 'quiz-feedback success';
+                feedbackBox.innerHTML = '<strong>✅ Correto!</strong> ' + feedbackText;
+                feedbackBox.classList.remove('hidden');
+              }
+            }
+
+            // Exibe resolução passo a passo
+            if (resolutionBox) {
+              resolutionBox.classList.remove('hidden');
+            }
+
+            // Dispara evento para telemetria ou integração
+            document.dispatchEvent(new CustomEvent('quiz:answered', {
+              detail: {
+                questionId: q.getAttribute('data-question-id'),
+                isCorrect: isCorrect
+              }
+            }));
+          });
+        });
+      });
+      // Garante scroll horizontal responsivo para todas as tabelas
+      document.querySelectorAll('table').forEach(function(table) {
+        if (!table.parentElement.classList.contains('table-wrapper')) {
+          const wrapper = document.createElement('div');
+          wrapper.className = 'table-wrapper';
+          table.parentNode.insertBefore(wrapper, table);
+          wrapper.appendChild(table);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

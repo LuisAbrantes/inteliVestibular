@@ -1704,6 +1704,38 @@ function renderDocsSidebar(docs) {
 }
 
 const DOC_EXECUTIVE_SUMMARIES = {
+  'trilha-inteligente': {
+    badge: 'PARECER TÉCNICO MUSE-SPARK 1.3 • INTELI 2027',
+    title: 'Trilha Inteligente Oficial Inteli 2027 — Parecer & 5 Módulos',
+    chips: [
+      { label: 'Auditor', val: 'Muse-spark 1.3 Sênior' },
+      { label: 'Estrutura', val: '5 Módulos Progressivos' },
+      { label: 'Critério Ordenador', val: 'Pesos TRI + Dependência' },
+      { label: 'Total de Lições', val: '19 Lições Tufte (100% Cobertura)' }
+    ],
+    takeaways: [
+      '<strong>Arquitetura por Blocos TRI:</strong> A trilha inicia com Fundamentos Quant-Tech (Bloco 1) para garantir nota piso alta e calibração imediata na régua superior da prova.',
+      '<strong>Módulo 2 como Coração da Prova:</strong> Dedicado aos 22% de Funções e Otimização de Lucro em startups (resolução em < 4min para afim e < 6min para quadrática).',
+      '<strong>Trilha Superior (Módulos 3 a 5):</strong> Combinatória com repetição, Teorema de Bayes cumulativo, Rastreamento de loops Big-O e Geometria com eixos invertidos.',
+      '<strong>Testes de Retenção Obrigatórios:</strong> Cada módulo possui um checkpoint de avaliação antes da liberação do próximo nível.'
+    ],
+    warning: 'Pular para tópicos avançados sem antes garantir acurácia de 100% em Lógica, Conjuntos e Funções básicas derruba severamente o escore adaptativo na prova real.'
+  },
+  'mapeamento-questoes': {
+    badge: 'BANCO EMPÍRICO HISTÓRICO',
+    title: 'Mapeamento das 148 Questões Anteriores — Pontos Essenciais',
+    chips: [
+      { label: 'Acervo Total', val: '148 Questões Oficiais' },
+      { label: 'Exames Mapeados', val: '2022.1, 2022.2, 2023.1, 2025.1' },
+      { label: 'Conformidade', val: '100% Anexo II' }
+    ],
+    takeaways: [
+      '<strong>Validação Histórica:</strong> Todas as 148 questões foram catalogadas por habilidade matemática e contexto tecnológico de aplicação.',
+      '<strong>Cenários Tech Recorrentes:</strong> Startups e Finanças (28%), Cibersegurança e Senhas (16%), Games e Latência (14%), Algoritmos (12%), Computação Gráfica (10%).',
+      '<strong>O que Usar do Passado:</strong> O estilo da banca e o perfil de questões são a única herança do passado a ser estudada; regras e datas devem ser estritamente 2027.'
+    ],
+    warning: 'A banca do Inteli nunca cobra teoria pura: você precisa saber traduzir enunciados de negócios digitais em modelos matemáticos rapidamente.'
+  },
   'edital-vestibular': {
     badge: 'PROCESSO SELETIVO 2027 • REGRAS OFICIAIS',
     title: 'Edital do Vestibular Inteli 2027 — Pontos Essenciais',

@@ -1,0 +1,430 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "versao": "2027.1",
+  "data_atualizacao": "2026-09-18",
+  "autor": "Muse-spark 1.3 & IntelligentTrackArchitect",
+  "titulo": "Trilha Inteligente de Estudos - Vestibular Inteli 2027",
+  "descricao": "Matriz pedagógica de 5 módulos progressivos alinhada estritamente aos 17 objetos de conhecimento do ANEXO II (Edital Oficial Inteli) e calibrada para o motor adaptativo de Teoria de Resposta ao Item (TRI).",
+  "meta_global": "Garantir pontuação inicial de topo de régua no Bloco 1 (>=8/10), fixação na Trilha Superior no Bloco 2 e imunidade contra armadilhas conceituais e distratores de cálculo nos Blocos 3 e 4 via descarte estratégico.",
+  "estrategia_blocos_tri": {
+    "bloco_1": {
+      "tempo_minutos": 35,
+      "questoes_total": 5,
+      "questoes_responder": 4,
+      "descartes_obrigatorios": 1,
+      "foco_estrategico": "Calibragem do piso de proficiência TRI. O motor adaptativo utiliza as respostas deste bloco para posicionar o candidato entre a Trilha de Nivelamento, Mediana ou Superior. Erros neste bloco rebaixam o teto da régua.",
+      "meta_desempenho": "Gabaritar ou errar no máximo 1 questão (>= 3/4 acertos nas respondidas)",
+      "regra_descarte": "Descartar a questão com maior volume de cálculo braçal ou texto narrativo excessivamente convoluto que consumiria mais de 8 minutos."
+    },
+    "bloco_2": {
+      "tempo_minutos": 30,
+      "questoes_total": 5,
+      "questoes_responder": 4,
+      "descartes_obrigatorios": 1,
+      "foco_estrategico": "Consolidação e fixação na Trilha Superior. Bloco com o maior peso relativo na nota base. Acertar mais de 50% das questões respondidas (>= 3 de 4) garante acesso às questões de maior valor unitário nos blocos seguintes.",
+      "meta_desempenho": ">= 3/4 acertos nas respondidas (garantir transição para o topo)",
+      "regra_descarte": "Descartar a questão que envolva acoplamento de três conceitos simultâneos (ex.: polinômio cúbico com matriz e probabilidade) sem vislumbre de resolução direta."
+    },
+    "bloco_3": {
+      "tempo_minutos": 25,
+      "questoes_total": 5,
+      "questoes_responder": 4,
+      "descartes_obrigatorios": 1,
+      "foco_estrategico": "Diferenciação de alta proficiência. Questões avançadas com alto poder discriminatório (parâmetro 'a' da TRI). Cada acerto aqui confere ganho estatístico decisivo para a nota de corte de Bolsas Integrais.",
+      "meta_desempenho": ">= 3/4 acertos nas respondidas",
+      "regra_descarte": "Descartar problema com risco de armadilha sutil de contagem ou cascatas de condicionais onde o risco de inversão P(A|B) é elevado."
+    },
+    "bloco_4": {
+      "tempo_minutos": 25,
+      "questoes_total": 5,
+      "questoes_responder": 4,
+      "descartes_obrigatorios": 1,
+      "foco_estrategico": "Fechamento de prova e consolidação da proficiência máxima (theta >= 2.5 na escala TRI). Geometria tridimensional, vetores, produto escalar e matrizes aplicadas a pipelines gráficos.",
+      "meta_desempenho": ">= 3/4 acertos nas respondidas",
+      "regra_descarte": "Descartar item com geometria espacial de difícil visualização mental ou fórmulas não memorizadas de sólidos truncados."
+    }
+  },
+  "modulos": {
+    "modulo_1": {
+      "id": "modulo_1",
+      "nome": "Fundamentos Quant-Tech & Calibragem TRI (Bloco 1)",
+      "bloco_alvo": "Bloco 1 (Q01 a Q05)",
+      "peso_estrategico": "Crítico (calibra a régua TRI inicial)",
+      "meta_retencao": ">= 8/10 no Bloco 1 (calibrar piso alto na TRI)",
+      "tempo_alvo_questao_min": 3.5,
+      "licoes": [
+        "0003",
+        "0013",
+        "0016",
+        "0017"
+      ],
+      "topicos": [
+        {
+          "nome": "Lógica Proposicional & Software",
+          "edital_anexo_ii": "Raciocínio Lógico Matemático: problemas de lógica, conectivos e percepção de padrões",
+          "cenario_tech": "Auditoria de regras de negócio, testes de asserção em código e verificação formal de contratos",
+          "conceitos_chave": [
+            "Conectivos lógicos (conjunção ∧, disjunção ∨, disjunção exclusiva ⊻, negação ¬)",
+            "Condicional (p → q) e equivalência lógica da contrapositiva (¬q → ¬p)",
+            "Falácia da afirmação do consequente (assumir que q → p quando apenas p → q é válido)",
+            "Tabela-verdade, tautologia, contradição e contingência",
+            "Negação de proposições compostas (Leis de De Morgan: ¬(p ∧ q) ≡ ¬p ∨ ¬q)"
+          ]
+        },
+        {
+          "nome": "Finanças Tech & Juros",
+          "edital_anexo_ii": "Aritmética básica: operações, razões e proporções, porcentagem e juros",
+          "cenario_tech": "Valuation de startups, burn rate, custo de aquisição (CAC), payback e juros compostos em investimentos de venture capital",
+          "conceitos_chave": [
+            "Juros simples vs juros compostos: M = C · (1 + i)^t",
+            "Taxa nominal vs taxa efetiva e equivalência de taxas periódicas",
+            "Valor Presente Líquido (VPL) e taxa de desconto intertemporal",
+            "Unit Economics de SaaS: Lifetime Value (LTV), CAC, Churn Rate e margem bruta"
+          ]
+        },
+        {
+          "nome": "Conjuntos & Diagramas de Venn",
+          "edital_anexo_ii": "Conjuntos: relações, operações e diagrama de Venn",
+          "cenario_tech": "Cohorts de usuários em produto, análise de churn, segmentação de base de clientes e modelagem de queries SQL (INNER JOIN, LEFT JOIN, FULL OUTER JOIN)",
+          "conceitos_chave": [
+            "Relações de pertinência (∈) e inclusão (⊂, ⊆)",
+            "Operações fundamentais: união (A ∪ B), interseção (A ∩ B) e diferença (A \\ B)",
+            "Princípio da Inclusão-Exclusão para 2 conjuntos: n(A ∪ B) = n(A) + n(B) - n(A ∩ B)",
+            "Princípio da Inclusão-Exclusão para 3 conjuntos: n(A ∪ B ∪ C) = n(A) + n(B) + n(C) - [interseções duplas] + n(A ∩ B ∩ C)",
+            "Construção de Diagramas de Venn de dentro para fora (começando pela interseção tripla)"
+          ]
+        },
+        {
+          "nome": "Bases Numéricas (Binário e Hexadecimal)",
+          "edital_anexo_ii": "Aritmética básica: bases de numeração, ordem de grandeza, operações",
+          "cenario_tech": "Arquitetura de sistemas operacionais, máscaras de sub-rede IP (CIDR), manipulação de bits (bitwise operations), canais de cores RGB (#RRGGBB) e endereçamento de memória",
+          "conceitos_chave": [
+            "Notação posicional polinomial em base b: N = d_k · b^k + ... + d_1 · b^1 + d_0 · b^0",
+            "Conversão de decimal para binário (divisões sucessivas por 2) e binário para decimal",
+            "Conversão direta binário-hexadecimal via agrupamento de nibbles (4 bits = 1 dígito hex de 0 a F)",
+            "Operadores bitwise: AND (&), OR (|), XOR (^), NOT (~), Left Shift (<<) e Right Shift (>>)",
+            "Cálculo de capacidade de endereçamento com n bits: 2^n estados possíveis"
+          ]
+        }
+      ],
+      "habilidades_esperadas": [
+        "Identificar conectivos lógicos e refutar inferências inválidas em enunciados com regras de negócio em menos de 2 minutos",
+        "Efetuar cálculos de juros compostos e fatores multiplicativos (1 + i)^t simplificando frações e produtos notáveis",
+        "Preencher diagramas de Venn de 3 conjuntos iniciando invariavelmente pela região central para evitar contagens duplicadas",
+        "Converter valores entre as bases 2, 10 e 16 sem escrever a tabela completa, operando de cabeça com as potências de 2 (1, 2, 4, 8, 16, 32, 64, 128)"
+      ],
+      "testes_retencao": [
+        "Teste de Mesa de Negação: Negar a proposição 'Se o servidor falhar, então o alerta é disparado e o log é gravado'",
+        "Teste de Venn Triplo: Dado 100 usuários com 50 usando feature A, 40 feature B, 30 feature C, 20 A e B, 15 A e C, 10 B e C, e 5 as três, calcular quantos usam exatamente uma feature",
+        "Teste de Conversão Rápida: Converter o endereço IP 192.168.1.105 e o código de cor hexadecimal #3F8A0C para base 2 em menos de 90 segundos",
+        "Teste de Finanças: Calcular o montante acumulado após 3 anos com aporte inicial de R$ 10.000 a 10% a.a. sob regime de juros compostos"
+      ]
+    },
+    "modulo_2": {
+      "id": "modulo_2",
+      "nome": "Funções e Otimização de Startups (22% da Prova)",
+      "bloco_alvo": "Blocos 1 e 2",
+      "peso_estrategico": "22% da prova total (maior volume absoluto de questões)",
+      "meta_retencao": "Resolver funções afim em < 4 min e quadrática em < 6 min",
+      "tempo_alvo_questao_min": 4.5,
+      "licoes": [
+        "0002",
+        "0010",
+        "0011"
+      ],
+      "topicos": [
+        {
+          "nome": "Polinômios e Raízes Racionais",
+          "edital_anexo_ii": "Álgebra básica: produtos notáveis, fatoração, expressões algébricas e polinômios",
+          "cenario_tech": "Curvas de tração de produtos, curvas de saturação de servidores e modelagem polinomial de latência",
+          "conceitos_chave": [
+            "Teorema das Raízes Racionais (p/q, onde p divide o termo independente e q divide o coeficiente líder)",
+            "Dispositivo Prático de Briot-Ruffini para divisão de polinômios por (x - a)",
+            "Teorema do Resto e Teorema de D'Alembert (P(a) = 0 ↔ x - a é fator de P(x))",
+            "Relações de Girard para polinômios de 2º e 3º grau (soma e produto de raízes)"
+          ]
+        },
+        {
+          "nome": "Funções Quadráticas & Vértice de Lucro",
+          "edital_anexo_ii": "Principais funções: Quadrática; Funções: conceitos, cálculos de f(x), gráficos",
+          "cenario_tech": "Precificação dinâmica de SaaS, elasticidade-preço da demanda, maximização de receita e minimização de custo de servidores",
+          "conceitos_chave": [
+            "Forma canônica: f(x) = ax² + bx + c (a ≠ 0)",
+            "Coordenadas do vértice da parábola: x_v = -b/(2a), y_v = -Δ/(4a)",
+            "Interpretação econômica do vértice: x_v é o preço/quantidade de equilíbrio e y_v é o lucro/receita máxima",
+            "Estudo de sinais, concavidade (a > 0 ponto de mínimo, a < 0 ponto de máximo) e discriminante Δ = b² - 4ac"
+          ]
+        },
+        {
+          "nome": "Break-Even de SaaS & Função Afim",
+          "edital_anexo_ii": "Principais funções: Afim; Funções: conceitos e gráficos",
+          "cenario_tech": "Ponto de equilíbrio contábil e operacional em planos de assinatura, custo fixo de infraestrutura cloud vs custo marginal por usuário ativo",
+          "conceitos_chave": [
+            "Função afim f(x) = mx + b (taxa de variação constante m, coeficiente linear b)",
+            "Equação de break-even: Receita Total R(x) = Custo Total C(x) ↔ P · x = F + c_var · x",
+            "Margem de contribuição unitária: MC = P - c_var e volume de equilíbrio x* = F / MC",
+            "Interseção de retas no plano e interpretação do coeficiente angular como taxa marginal"
+          ]
+        },
+        {
+          "nome": "Funções Exponenciais e Logarítmicas",
+          "edital_anexo_ii": "Principais funções: Exponencial e Logarítmica; Funções: inversa e gráficos",
+          "cenario_tech": "Adoção viral de produtos (Lei de Metcalfe), decaimento de retenção de usuários (churn exponencial), complexidade de algoritmos e Lei de Moore",
+          "conceitos_chave": [
+            "Definição de logaritmo e propriedades operatórias: log(a·b) = log a + log b, log(a/b) = log a - log b, log(a^k) = k · log a",
+            "Mudança de base: log_b a = (log_c a) / (log_c b)",
+            "Função exponencial f(t) = N_0 · e^(k·t) e cálculo de tempo de duplicação (half-life / doubling time)",
+            "Inversão de funções: f(x) = y ↔ f⁻¹(y) = x relacionando logaritmos e exponenciais"
+          ]
+        }
+      ],
+      "habilidades_esperadas": [
+        "Escrever a função de receita quadrática R(p) = p · q(p) a partir de uma relação linear de demanda e achar o preço de lucro máximo pelo vértice em menos de 5 minutos",
+        "Identificar raízes de polinômios cúbicos testando divisores inteiros do termo independente e reduzindo de grau com Briot-Ruffini",
+        "Calcular o ponto de equilíbrio de SaaS em função afim isolando x sem desenvolver fórmulas prontas",
+        "Manipular logaritmos com agilidade aplicando propriedades para isolar variáveis no expoente em problemas de crescimento"
+      ],
+      "testes_retencao": [
+        "Teste do Vértice de Lucro: Uma startup vende software a preço p, com demanda q(p) = 600 - 5p e custo unitário de R$ 20. Determinar o preço p que maximiza o lucro líquido",
+        "Teste de Briot-Ruffini: Encontrar todas as raízes do polinômio P(x) = x³ - 6x² + 11x - 6 sabendo que x = 1 é uma raiz",
+        "Teste de Break-Even: Custo fixo de AWS de R$ 15.000/mês, custo marginal de R$ 5/usuário, mensalidade de R$ 25. Determinar o número mínimo de usuários pagantes para não ter prejuízo",
+        "Teste Logarítmico: Determinar após quantos meses uma base de 1.000 usuários atinge 16.000 usuários crescendo a uma taxa de duplicação a cada 4 meses"
+      ]
+    },
+    "modulo_3": {
+      "id": "modulo_3",
+      "nome": "Contagem Avançada e Incerteza (Trilha Superior)",
+      "bloco_alvo": "Blocos 2 e 3",
+      "peso_estrategico": "Diferenciador de alta proficiência (seletor de Bolsas 100%)",
+      "meta_retencao": "Identificar modelo combinatório em < 60s; nunca inverter P(A|B)",
+      "tempo_alvo_questao_min": 5.0,
+      "licoes": [
+        "0001",
+        "0004",
+        "0007",
+        "0015"
+      ],
+      "topicos": [
+        {
+          "nome": "Análise Combinatória: Chaves, Hashes e PFC",
+          "edital_anexo_ii": "Análise combinatória: princípio fundamental da contagem, princípio aditivo, combinação simples e com repetição, arranjos e permutações",
+          "cenario_tech": "Geração de chaves de API, senhas alfanuméricas criptográficas, hashes com dígitos em ordem pré-fixada e espaço de busca para ataques de força bruta",
+          "conceitos_chave": [
+            "Princípio Fundamental da Contagem (PFC) com restrições posicionais",
+            "Arranjos simples A(n, k) = n! / (n - k)! (ordem importa, sem repetição)",
+            "Combinações simples C(n, k) = n! / (k! · (n - k)!) (ordem não importa)",
+            "Permutações com elementos repetidos: P_n^(a, b, c) = n! / (a! · b! · c!)",
+            "Combinações com Repetição / Partição de Inteiros (Stars and Bars): CR(n, k) = C(n + k - 1, k) para escolhas onde a ordem é fixa e admite repetições"
+          ]
+        },
+        {
+          "nome": "Probabilidade Condicional & Teorema de Bayes",
+          "edital_anexo_ii": "Probabilidade: propriedades, princípio multiplicativo, princípio aditivo e probabilidade condicional",
+          "cenario_tech": "Classificadores de spam Naive Bayes, testes diagnósticos em saúde digital, sistemas de detecção de fraude e monitoramento de falhas de rede",
+          "conceitos_chave": [
+            "Definição de probabilidade condicional: P(A|B) = P(A ∩ B) / P(B)",
+            "Teorema da Probabilidade Total: P(B) = ∑ P(B|A_i) · P(A_i)",
+            "Teorema de Bayes: P(A|B) = [P(B|A) · P(A)] / P(B)",
+            "Espaço amostral reduzido e probabilidade a priori vs a posteriori",
+            "Matriz de confusão: sensibilidade (taxa de verdadeiros positivos), especificidade e taxa de falsos positivos"
+          ]
+        },
+        {
+          "nome": "Estatística Descritiva & Métricas em Nuvem",
+          "edital_anexo_ii": "Estatística: medidas de tendência, medidas de dispersão e gráficos",
+          "cenario_tech": "Monitoramento de latência em datacenters multi-cloud, SLAs contratuais, distribuição de tempos de resposta e análise de estabilidade com outliers",
+          "conceitos_chave": [
+            "Média aritmética simples vs média ponderada: x̄ = (∑ w_i · x_i) / (∑ w_i)",
+            "Mediana (p50): elemento central que divide 50% da amostra e robustez absoluta a outliers extremos",
+            "Moda e assimetria de distribuição (média > mediana indica cauda longa à direita)",
+            "Medidas de dispersão: variância amostral/populacional, desvio padrão e amplitude interquartil",
+            "Percentis de cauda em software: p90, p95 e p99 para garantia de SLAs críticos"
+          ]
+        }
+      ],
+      "habilidades_esperadas": [
+        "Classificar qualquer problema de contagem em menos de 60 segundos entre Arranjo, Combinação, Permutação ou Partição de Inteiros",
+        "Calcular a probabilidade condicional inversa P(A|B) desenhando uma árvore de probabilidades sem errar o denominador total",
+        "Simplificar os pesos da média ponderada antes da multiplicação para efetuar a conta em menos de 2 minutos sem calculadora",
+        "Explicar e calcular por que a remoção de um outlier altera drasticamente a média mas mantém a mediana praticamente estável"
+      ],
+      "testes_retencao": [
+        "Teste do Hash Ordenado: Calcular o total de identificadores de 8 dígitos compostos por {0..9} dispostos sempre em ordem não-decrescente (ex.: 00124789)",
+        "Teste de Bayes Anti-Spam: Sabendo que 5% dos emails são phishing, um filtro acerta 98% dos phishings e dá falso positivo em 2% dos legítimos, calcular a probabilidade de um email marcado ser realmente phishing",
+        "Teste de Latência Ponderada: Três servidores processam 50k, 30k e 20k requisições com latências médias de 40ms, 60ms e 120ms. Calcular a latência média global",
+        "Teste de Outlier: Dada a série [10, 12, 14, 15, 18, 20, 950], calcular a mediana e o impacto percentual de descartar o valor 950 sobre a média"
+      ]
+    },
+    "modulo_4": {
+      "id": "modulo_4",
+      "nome": "Pensamento Algorítmico, Loops e Sequências",
+      "bloco_alvo": "Blocos 2, 3 e 4",
+      "peso_estrategico": "Matemática discreta aplicada (DNA exclusivo da prova do Inteli)",
+      "meta_retencao": "Gabaritar somatórios e rastreamentos em teste de mesa",
+      "tempo_alvo_questao_min": 4.0,
+      "licoes": [
+        "0005",
+        "0009",
+        "0012"
+      ],
+      "topicos": [
+        {
+          "nome": "Rastreamento de Loops & Soma de Gauss",
+          "edital_anexo_ii": "Sequências: progressões aritmética e geométrica, somatórios e recorrências de 1ª ordem",
+          "cenario_tech": "Rastreamento de laços em pseudocódigo, acumuladores de variáveis, otimização de loops aninhados e invariantes de iteração",
+          "conceitos_chave": [
+            "Teste de mesa: rastreamento metódico passo a passo das variáveis a cada iteração de for/while",
+            "Soma dos primeiros n inteiros positivos (Soma de Gauss): ∑_{i=1}^n i = [n · (n + 1)] / 2",
+            "Laços aninhados com índices dependentes: for i de 1 até n; for j de 1 até i (executa n(n+1)/2 vezes)",
+            "Identificação de padrões de paridade e alternância de sinais (-1)^k em acumuladores"
+          ]
+        },
+        {
+          "nome": "Complexidade de Algoritmos & Busca Binária",
+          "edital_anexo_ii": "Sequências: progressões geométricas; Principais funções: Logarítmica",
+          "cenario_tech": "Algoritmos de divisão e conquista, busca binária em vetores ordenados e árvores de decisão binárias",
+          "conceitos_chave": [
+            "Comportamento assintótico de divisões sucessivas por 2: n, n/2, n/4, ..., 1",
+            "Número máximo de comparações na busca binária: ⌈log_2(n + 1)⌉",
+            "Comparação de complexidade: O(1) < O(log n) < O(n) < O(n log n) < O(n²)",
+            "Modelagem geométrica da redução do espaço de busca: PG decrescente de razão q = 1/2"
+          ]
+        },
+        {
+          "nome": "Progressões PA/PG e Recorrências de 1ª Ordem",
+          "edital_anexo_ii": "Sequências: progressões aritmética e geométrica, somatórios e recorrências de 1ª ordem",
+          "cenario_tech": "Planilhas eletrônicas com alça de preenchimento, projeção de séries temporais de custos e modelos de amortização recorrente",
+          "conceitos_chave": [
+            "Progressão Aritmética (PA): a_n = a_1 + (n - 1)·r e Soma S_n = [(a_1 + a_n) · n] / 2",
+            "Progressão Geométrica (PG): a_n = a_1 · q^(n - 1) e Soma finita S_n = a_1 · (q^n - 1) / (q - 1)",
+            "Soma da PG infinita (|q| < 1): S_∞ = a_1 / (1 - q)",
+            "Recorrência linear de 1ª ordem: x_{n+1} = a · x_n + b (resolução via ponto fixo ou expansão telescópica)"
+          ]
+        }
+      ],
+      "habilidades_esperadas": [
+        "Montar tabelas de teste de mesa sem cometer erros de off-by-one (<= vs < nos limites de laço)",
+        "Substituir laços acumuladores de complexidade O(n) ou O(n²) pela fórmula fechada da Soma de Gauss",
+        "Calcular instantaneamente o número de comparações de busca binária para potências de 2 (ex.: n = 1.024 → 10 comparações, n = 1.000.000 → 20 comparações)",
+        "Identificar se uma sequência em planilha gerada por alça de preenchimento é PA, PG ou recorrência mista e calcular o centésimo termo"
+      ],
+      "testes_retencao": [
+        "Teste de Mesa: Rastrear um laço de 1 a 5 onde uma variável acc inicia em 0 e recebe acc = acc + 2*i - 1, determinando o valor final",
+        "Teste da Soma de Gauss: Calcular o valor final de uma variável de soma após a execução de dois loops aninhados com n = 100",
+        "Teste de Busca Binária: Um banco de dados com 2.000.000 de clientes ordenados por CPF precisa encontrar um registro. Determinar o número máximo de comparações",
+        "Teste de Recorrência: Resolver a recorrência a_{n+1} = 2 · a_n + 3 com a_1 = 1 e encontrar o valor de a_5"
+      ]
+    },
+    "modulo_5": {
+      "id": "modulo_5",
+      "nome": "Geometria Computacional e Álgebra Linear (Fechamento TRI)",
+      "bloco_alvo": "Blocos 3 e 4",
+      "peso_estrategico": "Maior concentração no final da prova (36.5% das questões mapeadas historicamente envolvem Geometria Analítica e Vetores)",
+      "meta_retencao": "Imunidade a distratores de referencial invertido e dot product",
+      "tempo_alvo_questao_min": 5.0,
+      "licoes": [
+        "0006",
+        "0008",
+        "0014",
+        "0018",
+        "0019"
+      ],
+      "topicos": [
+        {
+          "nome": "Coordenadas de Telas com Y Invertido & Geometria Analítica",
+          "edital_anexo_ii": "Geometria Analítica: ponto, reta e circunferência",
+          "cenario_tech": "Computação gráfica, renderização de telas digitais (HTML5 Canvas, engines de jogos 2D), coordenadas de pixels com origem no canto superior esquerdo e bounding boxes",
+          "conceitos_chave": [
+            "Referencial de tela: origem (0,0) no canto superior esquerdo, eixo X apontando para a direita e eixo Y apontando para BAIXO",
+            "Inversão do sinal do coeficiente angular: retas visualmente decrescentes possuem m > 0 em coordenadas de tela!",
+            "Distância euclidiana entre dois pixels: d = √[(x_2 - x_1)² + (y_2 - y_1)²]",
+            "Equação da circunferência em tela: (x - x_c)² + (y - y_c)² = r² para detecção de colisão circular",
+            "Equação fundamental da reta: y - y_0 = m · (x - x_0) e condições de paralelismo (m_1 = m_2) e perpendicularismo (m_1 · m_2 = -1)"
+          ]
+        },
+        {
+          "nome": "Matrizes & Transformações de Cores RGB/YUV",
+          "edital_anexo_ii": "Matrizes e determinantes: operações, propriedades, transposta e inversa, determinantes 2x2 e 3x3; Sistemas Lineares",
+          "cenario_tech": "Filtros de processamento de imagem, conversão entre espaços de cores (RGB para YUV/Grayscale), rotação e escala 2D por multiplicação matricial",
+          "conceitos_chave": [
+            "Multiplicação matricial A_{m×k} · B_{k×p} = C_{m×p} (linha por coluna)",
+            "Determinante de ordem 2 (ad - bc) e ordem 3 (Regra de Sarrus ou Teorema de Laplace)",
+            "Matriz inversa A⁻¹: condição de existência (det A ≠ 0) e fórmula A⁻¹ = (1/det A) · adj(A)",
+            "Transformações lineares 2D: matrizes de escala, rotação e cisalhamento",
+            "Resolução e classificação de Sistemas Lineares via Regra de Cramer ou Escalonamento"
+          ]
+        },
+        {
+          "nome": "Geometria Plana, Espacial 3D e Relação de Euler",
+          "edital_anexo_ii": "Geometria Plana: triângulos, quadriláteros, polígonos e circunferência; Geometria Espacial: poliedros de Platão, prismas, pirâmides, cilindros, cones e esferas",
+          "cenario_tech": "Modelagem 3D, fatiamento de malhas poligonais (STL) para impressão 3D (manufatura aditiva), cálculo de volume de filamento e poliedros topológicos",
+          "conceitos_chave": [
+            "Relação de Euler para poliedros convexos: V - A + F = 2",
+            "Relação de arestas e faces: 2A = ∑ (n_i · F_i), onde cada face de n lados contribui com n arestas compartilhadas",
+            "Cálculo volumétrico de prismas (V = A_b · h), pirâmides (V = 1/3 · A_b · h), cilindros (V = π r² h) e cones (V = 1/3 · π r² h)",
+            "Cálculo de volume de esfera (V = 4/3 π r³) e área superficial (A = 4 π r²)",
+            "Cálculo de massa de filamento para impressão 3D: m = densidade · Volume Total"
+          ]
+        },
+        {
+          "nome": "Trigonometria, Vetores e Produto Escalar",
+          "edital_anexo_ii": "Trigonometria: no triângulo retângulo, círculo trigonométrico, relações trigonométricas; Vetores: soma, decomposição, produto escalar e ângulo entre vetores",
+          "cenario_tech": "Similaridade de cosseno em embeddings de inteligência artificial (LLMs/RAG), iluminação difusa (Lei de Lambert), raycasting em games e cálculo de campo de visão (FOV)",
+          "conceitos_chave": [
+            "Relações métricas e trigonométricas no triângulo retângulo: sen θ = op/hip, cos θ = adj/hip, tg θ = op/adj",
+            "Círculo trigonométrico e identidade fundamental: sen² θ + cos² θ = 1",
+            "Vetores no plano e no espaço: soma vetorial, subtração e produto por escalar",
+            "Produto Escalar algébrico: u · v = u_x · v_x + u_y · v_y + u_z · v_z",
+            "Produto Escalar geométrico: u · v = |u| · |v| · cos θ",
+            "Similaridade de Cosseno em embeddings: cos θ = (u · v) / (|u| · |v|)",
+            "Condição de ortogonalidade vetorial: u · v = 0 ↔ vetores perpendiculares (θ = 90°)"
+          ]
+        }
+      ],
+      "habilidades_esperadas": [
+        "Inverter mentalmente a orientação do eixo Y em problemas de computação gráfica sem errar o sinal da equação da reta",
+        "Multiplicar matrizes 3x3 e calcular determinantes por Sarrus em menos de 3 minutos",
+        "Determinar o número de vértices, arestas e faces de uma malha 3D aplicando V - A + F = 2 e 2A = ∑ n_i F_i",
+        "Calcular o produto escalar de dois vetores de embeddings e extrair o cosseno do ângulo sem confundir produto escalar com produto vetorial"
+      ],
+      "testes_retencao": [
+        "Teste de Tela Invertida: Uma linha de renderização parte do pixel (100, 200) até (400, 50). Calcular a equação da reta em coordenadas de tela e seu coeficiente angular",
+        "Teste de Matriz de Cor: Multiplicar a matriz de luminância YUV [0.3, 0.59, 0.11] por um vetor de cor RGB [200, 150, 50] para encontrar o valor de brilho Y",
+        "Teste de Euler 3D: Uma malha de objeto 3D fechado é composta exclusivamente por 12 faces triangulares e 6 faces quadrangulares. Determinar o número de arestas e vértices",
+        "Teste de Similaridade de Embeddings: Dados os vetores u = (3, 4) e v = (4, 3), calcular a norma de cada um, o produto escalar u · v e o cosseno do ângulo entre eles"
+      ]
+    }
+  },
+  "cronograma_sugerido_estudos": {
+    "semana_1": {
+      "modulo": "modulo_1",
+      "meta": "Dominar tabela-verdade, juros e finanças, teoria dos conjuntos em SQL e bases binário/hexadecimal",
+      "horas_recomendadas": 10
+    },
+    "semana_2": {
+      "modulo": "modulo_2",
+      "meta": "Dominar equações de 2º grau, vértice de parábola, break-even de startups e fatoração de polinômios",
+      "horas_recomendadas": 12
+    },
+    "semana_3": {
+      "modulo": "modulo_3",
+      "meta": "Consolidar análise combinatória sem hesitação, probabilidade condicional bayesiana e estatística em nuvem",
+      "horas_recomendadas": 12
+    },
+    "semana_4": {
+      "modulo": "modulo_4",
+      "meta": "Gabaritar teste de mesa de algoritmos, somas de Gauss e progressões PA/PG em planilhas",
+      "horas_recomendadas": 10
+    },
+    "semana_5": {
+      "modulo": "modulo_5",
+      "meta": "Dominar referenciais de tela Y invertido, produto escalar de vetores, matrizes e geometria 3D com Euler",
+      "horas_recomendadas": 14
+    },
+    "semana_6": {
+      "modulo": "simulados_completos",
+      "meta": "Realização de simulados cronometrados em 4 blocos de 5 questões aplicando a estratégia de 1 descarte por bloco",
+      "horas_recomendadas": 16
+    }
+  }
+}

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lição 0018: Geometria Plana, Espacial e Relação de Euler na Manufatura Aditiva e CAD 3D | Inteli Vestibular</title>
+  
+  <!-- Estilos Oficiais -->
+  <link rel="stylesheet" href="../assets/lesson.css">
+  
+  <!-- KaTeX Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="initKaTeX()"></script>
+  <script>
+    function initKaTeX() {
+      if (window.renderMathInElement) {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+          ],
+          throwOnError: false
+        });
+      }
+    }
+    document.addEventListener("DOMContentLoaded", initKaTeX);
+    window.addEventListener("load", initKaTeX);
+  </script>
+</head>
+<body>
+  <div class="lesson-container">
+    <article class="lesson">
+      <header class="lesson-header">
+        <span class="lesson-badge">Lição 0018</span>
+        <h1 class="lesson-title">Geometria Plana, Espacial e Relação de Euler na Manufatura Aditiva e CAD 3D</h1>
+        <div class="lesson-meta">
+          <span class="meta-time">⏱️ Tempo Estimado: 10 min</span>
+          <span>•</span>
+          <span class="meta-topic">🎯 Eixo: Geometria Espacial e Modelagem 3D</span>
+          <span>•</span>
+          <span class="meta-track">📈 Trilha Mediana e Superior</span>
+        </div>
+        <div class="lesson-meta" style="margin-top: 0.5rem;">
+          <a href="../MISSION.md">← Voltar para a Missão</a>
+          <span>•</span>
+          <a href="../GLOSSARY.md">📖 Glossário de Conceitos</a>
+        </div>
+      </header>
+
+      <!-- 1. CENÁRIO CONTEXTUAL INTELI -->
+      <section class="scenario">
+        <h2>Cenário Real Inteli</h2>
+        <div class="scenario-box">
+          <div class="scenario-tag">🏢 AeroMesh 3D (Engenharia e Manufatura Aditiva) | Validação Topológica CAD e Escala de Prototipagem</div>
+          <p>A startup <strong>AeroMesh 3D</strong> desenvolve peças estruturais e aerodinâmicas para veículos aéreos não tripulados (drones). Os projetos mecânicos são modelados em software CAD e convertidos para malhas poligonais nos formatos STL e OBJ para fatiamento de impressão 3D:</p>
+          <ul>
+            <li><strong>Validação Topológica:</strong> O pipeline verifica se a malha do poliedro é fechada aplicando a Relação de Euler para poliedros convexos e malhas triangulares.</li>
+            <li><strong>Consumo de Material:</strong> O custo unitário do protótipo depende do volume de filamento injetado, exigindo a decomposição da peça em cilindros e prismas regulares.</li>
+            <li><strong>Escalonamento de Modelos:</strong> Em testes de túnel de vento, a equipe produz protótipos reduzidos. A relação entre razão linear $k$, área ($k^2$) e volume ($k^3$) determina a economia real de massa.</li>
+          </ul>
+          <p>O domínio da geometria tridimensional permite aos engenheiros otimizar algoritmos de corte e estimar custos de prototipagem com precisão.</p>
+        </div>
+      </section>
+
+      <!-- 2. NÚCLEO CONCEITUAL -->
+      <section class="core-knowledge">
+        <h2>Núcleo Conceitual</h2>
+        <p class="lead-summary">A computação gráfica e a impressão 3D discretizam volumes do mundo físico em entidades geométricas fundamentais. No vestibular Inteli, o candidato deve conectar propriedades de poliedros, cálculo de áreas, volumes e leis de escala geométrica.</p>
+        
+        <div class="concepts-list">
+          <div class="concept-item">
+            <h3 class="concept-term">Relação de Euler e Contagem de Arestas</h3>
+            <p class="concept-def">Para todo poliedro convexo fechado com $V$ vértices, $A$ arestas e $F$ faces, vigora a Relação de Euler: $V - A + F = 2$. Ademais, cada aresta é compartilhada por exatamente duas faces contíguas, estabelecendo que $2A = \sum n_i F_i$, onde $n_i$ é o número de lados da face $i$.</p>
+            <aside class="sidenote"><strong>Nota lateral:</strong> Arquivos STL decompõem qualquer superfície contínua em centenas de triângulos planos que obedecem à topologia de Euler.</aside>
+          </div>
+
+          <div class="concept-item">
+            <h3 class="concept-term">Cálculo de Volumes dos Sólidos de Revolução</h3>
+            <p class="concept-def">Cilindros retos possuem volume $V = \pi r^2 h$ e área lateral $2\pi r h$. Cones retos e pirâmides ocupam um terço do volume do prisma ou cilindro circunscrito: $V = \frac{1}{3} A_{\text{base}} h$. Já a esfera possui volume $V = \frac{4}{3}\pi r^3$ e área superficial $A = 4\pi r^2$.</p>
+            <aside class="sidenote"><strong>Nota lateral:</strong> Na impressão 3D (FDM), o tempo de percurso do bico extrusor é proporcional à área das camadas, enquanto a massa é proporcional ao volume.</aside>
+          </div>
+
+          <div class="concept-item">
+            <h3 class="concept-term">Semelhança Geométrica e Escala Cúbica</h3>
+            <p class="concept-def">Se dois sólidos são geometricamente semelhantes com razão de proporção linear $k$ entre seus comprimentos, a razão entre quaisquer de suas áreas é $k^2$, e a razão entre seus volumes (e portanto massas homogêneas) é $k^3$.</p>
+          </div>
+        </div>
+
+        <div class="formula-card">
+          <div class="formula-card-title">📌 Formulações de Geometria Espacial e Manufatura</div>
+          
+          <div class="formula-row">
+            <span class="formula-name">Teorema de Euler para Poliedros:</span>
+            <div class="formula-math">$$V - A + F = 2$$</div>
+          </div>
+
+          <div class="formula-row">
+            <span class="formula-name">Relação Arestas-Faces:</span>
+            <div class="formula-math">$$2A = \sum n_i F_i \implies A = \frac{3F_3 + 4F_4 + 5F_5 + \dots}{2}$$</div>
+          </div>
+
+          <div class="formula-row">
+            <span class="formula-name">Lei da Escala Geométrica:</span>
+            <div class="formula-math">$$\frac{L'}{L} = k \implies \frac{\text{Área}'}{\text{Área}} = k^2 \implies \frac{\text{Volume}'}{\text{Volume}} = k^3$$</div>
+          </div>
+
+          <div class="formula-tip">💡 <strong>Dica de Ouro:</strong> Em redução homogênea em escala $k$ (alterando raio e altura juntos), o volume varia estritamente com $k^3$.</div>
+        </div>
+
+        <div class="callout callout-trap">
+          <h4>⚠️ Armadilha da Escala Cúbica de Volume</h4>
+          <p>O engano mais comum é supor que reduzir as dimensões lineares pela metade ($k = 1/2$) reduzirá o material pela metade. O volume é proporcional ao cubo: $(1/2)^3 = 1/8$, isto é, o consumo cai para 12,5% do original!</p>
+        </div>
+      </section>
+
+      <!-- 3. PRÁTICA DE RECUPERAÇÃO ATIVA (QUIZ) -->
+      <section class="retrieval-quiz" id="quiz">
+        <h2>Prática de Recuperação Ativa (Retrieval Practice)</h2>
+        <p class="quiz-intro">Resolva os problemas abaixo de forma independente. As opções apresentam formulações equilibradas e feedback detalhado sobre distratores típicos da banca Inteli.</p>
+        
+        <div class="quiz-question" data-question-id="q1">
+          <div class="question-header">
+            <span class="question-number">Questão 1 de 2</span>
+          </div>
+          <p class="question-stem">Uma peça poliédrica convexa desenvolvida em CAD possui 12 vértices e é delimitada por 8 faces triangulares e 6 faces quadrangulares. Quantas arestas compõem a malha estrutural dessa peça?</p>
+          <div class="quiz-answers">
+            <button class="quiz-option" type="button" data-correct="true" data-feedback="Correto! 2A = 8*3 + 6*4 = 24 + 24 = 48, logo A = 24. Pela relação de Euler: V - A + F = 12 - 24 + 14 = 2.">
+              <span class="option-label">A</span>
+              <span class="option-text">Exatamente 24 arestas na malha estrutural da peça.</span>
+            </button>
+            <button class="quiz-option" type="button" data-correct="false" data-feedback="Incorreto. Este distrator calcula a soma simples dos lados sem dividir por 2 o compartilhamento das arestas.">
+              <span class="option-label">B</span>
+              <span class="option-text">Exatamente 28 arestas na malha estrutural da peça.</span>
+            </button>
+            <button class="quiz-option" type="button" data-correct="false" data-feedback="Incorreto. Este distrator decorre de troca de sinal na equação de Euler V - A + F = 2.">
+              <span class="option-label">C</span>
+              <span class="option-text">Exatamente 20 arestas na malha estrutural da peça.</span>
+            </button>
+            <button class="quiz-option" type="button" data-correct="false" data-feedback="Incorreto. 18 arestas resultaria de considerar erroneamente todas as 14 faces como triangulares.">
+              <span class="option-label">D</span>
+              <span class="option-text">Exatamente 18 arestas na malha estrutural da peça.</span>
+            </button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+          <div class="quiz-resolution hidden">
+            <div class="resolution-title">🔍 Resolução Oficial Comentada</div>
+            <div class="resolution-content">
+              <strong>Resolução Passo a Passo:</strong><br>
+              1. Identificamos o número e tipo de faces da peça:<br>
+              - Faces triangulares ($F_3$): 8 faces (3 lados cada).<br>
+              - Faces quadrangulares ($F_4$): 6 faces (4 lados cada).<br>
+              - Total de faces: $F = 8 + 6 = 14$ faces.<br>
+              2. Como cada aresta é comum a duas faces vizinhas, aplicamos o princípio de contagem dupla:<br>
+              $$2A = 3F_3 + 4F_4 = (3 \times 8) + (4 \times 6) = 24 + 24 = 48 \implies A = \frac{48}{2} = 24$$
+              3. Validação pelo Teorema de Euler com $V = 12$ vértices:<br>
+              $$V - A + F = 12 - 24 + 14 = 2 \quad \text{(válido e consistente!)}$$
+              4. <em>Análise dos distratores:</em> O distrator B (28) decorre de erro na soma dos produtos; o distrator C (20) tenta isolar $A$ com sinal trocado na relação de Euler ($A = V + F = 26$); e o distrator D (18) aproxima incorretamente a geometria para um poliedro puramente triangular.
+            </div>
+          </div>
+        </div>
+
+        <div class="quiz-question" data-question-id="q2">
+          <div class="question-header">
+            <span class="question-number">Questão 2 de 2</span>
+          </div>
+          <p class="question-stem">Um protótipo de carcaça cilíndrica de drone com raio de 4 cm e altura de 10 cm consome 160π cm³ de polímero. Se a equipe produzir uma versão reduzida em escala linear 1:2 (metade do raio e da altura), qual será o novo volume de polímero consumido?</p>
+          <div class="quiz-answers">
+            <button class="quiz-option" type="button" data-correct="false" data-feedback="Incorreto. 80π cm³ decorre do erro clássico de aplicar a razão linear (k = 1/2) diretamente ao volume.">
+              <span class="option-label">A</span>
+              <span class="option-text">Exatamente 80π cm³ de polímero plástico consumido.</span>
+            </button>
+            <button class="quiz-option" type="button" data-correct="false" data-feedback="Incorreto. 40π cm³ decorre de aplicar a razão quadrática de área (k² = 1/4) ao cálculo de volume.">
+              <span class="option-label">B</span>
+              <span class="option-text">Exatamente 40π cm³ de polímero plástico consumido.</span>
+            </button>
+            <button class="quiz-option" type="button" data-correct="true" data-feedback="Excelente! O volume varia com o cubo da escala k: V' = 160π * (1/2)³ = 160π * (1/8) = 20π cm³.">
+              <span class="option-label">C</span>
+              <span class="option-text">Exatamente 20π cm³ de polímero plástico consumido.</span>
+            </button>
+            <button class="quiz-option" type="button" data-correct="false" data-feedback="Incorreto. 10π cm³ resultaria de aplicar uma divisão arbitrária por 16 sem fundamento físico.">
+              <span class="option-label">D</span>
+              <span class="option-text">Exatamente 10π cm³ de polímero plástico consumido.</span>
+            </button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+          <div class="quiz-resolution hidden">
+            <div class="resolution-title">🔍 Resolução Oficial Comentada</div>
+            <div class="resolution-content">
+              <strong>Resolução Passo a Passo:</strong><br>
+              1. A razão de semelhança linear entre o modelo reduzido e o original é $k = \frac{1}{2}$.<br>
+              2. Método 1 (Propriedade de Escala Geométrica):<br>
+              O volume varia com o cubo da razão linear:<br>
+              $$V' = V \times k^3 = 160\pi \times \left(\frac{1}{2}\right)^3 = 160\pi \times \frac{1}{8} = 20\pi \text{ cm}^3$$
+              3. Método 2 (Cálculo Direto com as Novas Dimensões):<br>
+              - Novo raio: $r' = \frac{4}{2} = 2 \text{ cm}$.<br>
+              - Nova altura: $h' = \frac{10}{2} = 5 \text{ cm}$.<br>
+              $$V' = \pi (r')^2 h' = \pi (2^2) \times 5 = \pi \times 4 \times 5 = 20\pi \text{ cm}^3$$
+              4. <em>Análise dos distratores:</em> O distrator A ($80\pi$) comete o erro de supor variação linear de volume ($V/2$); o distrator B ($40\pi$) confunde com redução superficial de área ($k^2 = 1/4$); e o distrator D ($10\pi$) divide por potências incorretas.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. REPETIÇÃO ESPAÇADA (STORAGE STRENGTH) -->
+      <section class="spaced-repetition">
+        <h2>Desafio de 48 Horas (Storage Strength)</h2>
+        <div class="spaced-prompt">
+          <div class="spaced-tag">🧠 Teste de Fixação e Evocação Tardia</div>
+          <p class="prompt-question"><strong>Em 48 horas: deduza sem olhar referências o número de vértices de um icosaedro truncado (a geometria clássica de uma bola de futebol composta por 12 pentágonos e 20 hexágonos regulares).</strong></p>
+          <p style="font-size:0.9rem; color:#666; margin-top:0.5rem;"><em>Dica da Ciência Cognitiva:</em> Calcule primeiro o total de arestas via $2A = 12 \times 5 + 20 \times 6 = 180 \implies A = 90$ e aplique $V = A - F + 2$ para chegar aos 60 vértices da molécula de fulereno C60.</p>
+        </div>
+      </section>
+
+      <!-- 5. FONTE PRIMÁRIA -->
+      <footer class="lesson-footer">
+        <div class="source-citation">
+          <strong>📚 Fonte Primária e Referência Acadêmica:</strong><br>
+          <span>Processo Seletivo Inteli 2024; Elon Lages Lima, &quot;Geometria e Medidas&quot;, SBM; H.S.M. Coxeter, &quot;Regular Polytopes&quot;, 3rd Edition; Mario Salvadori, &quot;Why Buildings Stand Up&quot;.</span>
+        </div>
+        <div class="footer-nav">
+          <a href="../MISSION.md">← Sumário da Missão</a>
+          <a href="../GLOSSARY.md">📖 Glossário Técnico</a>
+          <a href="#quiz">↑ Repetir Questões</a>
+        </div>
+      </footer>
+    </article>
+  </div>
+
+  <!-- Script Externo Oficial -->
+  <script src="../assets/quiz.js" defer></script>
+
+  <!-- Script Fallback Autônomo de Quiz (Zero Dependências) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const questions = document.querySelectorAll('.quiz-question');
+
+      questions.forEach((q) => {
+        const options = q.querySelectorAll('.quiz-option');
+        const feedbackBox = q.querySelector('.quiz-feedback');
+        const resolutionBox = q.querySelector('.quiz-resolution');
+
+        options.forEach(opt => {
+          opt.addEventListener('click', () => {
+            // Desativa botões da pergunta atual
+            options.forEach(b => {
+              b.disabled = true;
+              if (b.getAttribute('data-correct') === 'true') {
+                b.classList.add('correct');
+              }
+            });
+
+            const isCorrect = opt.getAttribute('data-correct') === 'true';
+            const feedbackText = opt.getAttribute('data-feedback');
+
+            if (!isCorrect) {
+              opt.classList.add('incorrect');
+              if (feedbackBox) {
+                feedbackBox.className = 'quiz-feedback danger';
+                feedbackBox.innerHTML = '<strong>❌ Incorreto.</strong> ' + feedbackText;
+                feedbackBox.classList.remove('hidden');
+              }
+            } else {
+              if (feedbackBox) {
+                feedbackBox.className = 'quiz-feedback success';
+                feedbackBox.innerHTML = '<strong>✅ Correto!</strong> ' + feedbackText;
+                feedbackBox.classList.remove('hidden');
+              }
+            }
+
+            // Exibe resolução passo a passo
+            if (resolutionBox) {
+              resolutionBox.classList.remove('hidden');
+            }
+
+            // Dispara evento para telemetria ou integração
+            document.dispatchEvent(new CustomEvent('quiz:answered', {
+              detail: {
+                questionId: q.getAttribute('data-question-id'),
+                isCorrect: isCorrect
+              }
+            }));
+          });
+        });
+      });
+      // Garante scroll horizontal responsivo para todas as tabelas
+      document.querySelectorAll('table').forEach(function(table) {
+        if (!table.parentElement.classList.contains('table-wrapper')) {
+          const wrapper = document.createElement('div');
+          wrapper.className = 'table-wrapper';
+          table.parentNode.insertBefore(wrapper, table);
+          wrapper.appendChild(table);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

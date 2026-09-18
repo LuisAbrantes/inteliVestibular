@@ -898,6 +898,504 @@ export const BLUEPRINTS = {
     spacedRepetition: 'Em 48 horas: explique sem olhar fórmulas por que uma empresa de software prefere exibir aos clientes a latência mediana (p50) e a latência de 99% dos usuários (p99) em vez da média aritmética tradicional.',
     primarySource: 'Processo Seletivo Inteli 2023; Morris H. DeGroot & Mark J. Schervish, "Probability and Statistics", 4th Edition.'
   }
+  ,
+  'conjuntos-venn': {
+    slug: 'conjuntos-diagramas-venn-tech',
+    title: 'Teoria dos Conjuntos: Diagramas de Venn, SQL e Análise de Coortes em SaaS',
+    topic: 'Conjuntos e Diagramas de Venn',
+    estimatedMinutes: 8,
+    targetTrack: 'Trilha Mediana e Superior',
+    contextScenario: {
+      company: 'DataFlow SaaS (Plataforma de Product Analytics e CRM)',
+      problem: 'Segmentação de Coortes de Usuários Ativos e Otimização de Consultas SQL',
+      narrativa: `A <strong>DataFlow SaaS</strong> audita o engajamento mensal de 10.000 usuários cadastrados em sua plataforma. O time de Growth rastreia três recursos essenciais:
+      <ul>
+        <li><strong>Módulo A (Dashboard de BI):</strong> utilizado por 4.500 contas.</li>
+        <li><strong>Módulo B (Automação de Marketing):</strong> utilizado por 3.800 contas.</li>
+        <li><strong>Módulo C (Pipeline de Vendas):</strong> utilizado por 2.700 contas.</li>
+      </ul>
+      Além disso, os relatórios indicam que 1.400 contas usam A e B; 1.100 usam A e C; 900 usam B e C; e 400 utilizam todos os três módulos. O engenheiro de dados precisa calcular exatamente quantas contas utilizam <em>pelo menos um</em> dos três módulos para dimensionar o pool de conexões do banco de dados e quantificar a coorte que usa <em>exatamente dois</em> recursos.`
+    },
+    coreKnowledge: {
+      summary: 'Teoria dos conjuntos no vestibular do Inteli conecta a álgebra booleana e diagramas de Venn com segmentações de produto e modelagem de queries relacionais (INNER JOIN, LEFT JOIN e FULL OUTER JOIN). O princípio fundamental é a correta aplicação do Princípio da Inclusão-Exclusão para evitar duplicação ou omissão de intersecções.',
+      concepts: [
+        {
+          term: 'Princípio da Inclusão-Exclusão (3 Conjuntos)',
+          definition: '$$n(A \\cup B \\cup C) = n(A) + n(B) + n(C) - [n(A \\cap B) + n(A \\cap C) + n(B \\cap C)] + n(A \\cap B \\cap C)$$',
+          sidenote: 'Ao somar os conjuntos isoladamente, as interseções duplas são contadas duas vezes e a interseção tripla é contada três vezes; por isso é necessário subtrair as duplas e somar a tripla ao final.'
+        },
+        {
+          term: 'Preenchimento de Dentro para Fora (Inside-Out)',
+          definition: 'Para resolver qualquer diagrama de Venn de 3 variáveis sem errar sinais, SEMPRE inicie o preenchimento pela região central comum às três partes ($A \\cap B \\cap C$). Em seguida, deduza as interseções exclusivas de dois a dois e, por fim, as regiões estritamente exclusivas.',
+          sidenote: 'Essa regra algorítmica reduz a zero o risco de contagem redundante sob pressão de tempo.'
+        }
+      ],
+      formulaCard: {
+        title: 'Formulário Essencial de Conjuntos',
+        formulas: [
+          { name: 'Inclusão-Exclusão (2 Conjuntos)', math: '$$n(A \\cup B) = n(A) + n(B) - n(A \\cap B)$$' },
+          { name: 'Inclusão-Exclusão (3 Conjuntos)', math: '$$n(A \\cup B \\cup C) = \\sum n(A) - \\sum n(A \\cap B) + n(A \\cap B \\cap C)$$' },
+          { name: 'Regiões Exclusivas a Exatamente Dois', math: '$$n_{\\text{exat. 2}} = [n(A \\cap B) - n_3] + [n(A \\cap C) - n_3] + [n(B \\cap C) - n_3]$$' }
+        ],
+        tip: 'Se o enunciado diz "usam A e B", isso INCLUI quem usa os três módulos. Se diz "usam APENAS A e B", já é a interseção exclusiva sem os três.'
+      },
+      examTrap: {
+        title: 'Armadilha do "A e B" vs "Apenas A e B"',
+        description: 'O distrator clássico da banca consiste em subtrair n(A ∩ B ∩ C) de um dado que o enunciado já forneceu como exclusivo ("apenas A e B"), ou esquecer de subtrair quando o dado fornecido era a interseção ampla ("usam A e B"). Preste atenção cirúrgica no advérbio "apenas" ou "somente".'
+      }
+    },
+    quiz: [
+      {
+        id: 'q1',
+        stem: 'Com base nos dados da DataFlow SaaS (4.500 em A, 3.800 em B, 2.700 em C, 1.400 em A e B, 1.100 em A e C, 900 em B e C, e 400 nos três), quantas contas utilizam PELO MENOS UM dos três módulos?',
+        options: [
+          {
+            label: 'A',
+            text: '11.000 contas',
+            isCorrect: false,
+            feedback: '11.000 é a soma simples n(A) + n(B) + n(C) = 4.500 + 3.800 + 2.700, que desconsidera as sobreposições de contas que usam múltiplos módulos.'
+          },
+          {
+            label: 'B',
+            text: '7.600 contas',
+            isCorrect: false,
+            feedback: '7.600 decorre de subtrair as interseções duplas (11.000 - 3.400 = 7.600), mas esquecer de somar a interseção tripla de 400 ao final.'
+          },
+          {
+            label: 'C',
+            text: '8.000 contas',
+            isCorrect: true,
+            feedback: 'Exato! n(A ∪ B ∪ C) = 4.500 + 3.800 + 2.700 - (1.400 + 1.100 + 900) + 400 = 11.000 - 3.400 + 400 = 8.000 contas ativas.'
+          },
+          {
+            label: 'D',
+            text: '8.400 contas',
+            isCorrect: false,
+            feedback: '8.400 resultou de somar a interseção tripla duas vezes ou errar a soma das interseções duplas.'
+          }
+        ],
+        resolution: `<strong>Resolução Passo a Passo:</strong><br>
+        1. Aplicamos o Princípio da Inclusão-Exclusão:<br>
+        <code>n(A &cup; B &cup; C) = n(A) + n(B) + n(C) - [n(A &cap; B) + n(A &cap; C) + n(B &cap; C)] + n(A &cap; B &cap; C)</code>.<br>
+        2. Soma dos conjuntos individuais: <code>4.500 + 3.800 + 2.700 = 11.000</code>.<br>
+        3. Soma das interseções duplas: <code>1.400 + 1.100 + 900 = 3.400</code>.<br>
+        4. Interseção tripla: <code>400</code>.<br>
+        5. Cálculo final: <code>11.000 - 3.400 + 400 = 8.000</code> contas utilizam ao menos um recurso.<br>
+        6. As 2.000 contas restantes (10.000 - 8.000) estão inativas ou utilizam recursos básicos fora desses três módulos.`
+      },
+      {
+        id: 'q2',
+        stem: 'Quantas contas da DataFlow SaaS utilizam EXATAMENTE DOIS dos três módulos analisados?',
+        options: [
+          {
+            label: 'A',
+            text: '3.400 contas',
+            isCorrect: false,
+            feedback: '3.400 é a soma direta 1.400 + 1.100 + 900, que conta as 400 contas que usam os três módulos três vezes repetidas.'
+          },
+          {
+            label: 'B',
+            text: '2.200 contas',
+            isCorrect: true,
+            feedback: 'Perfeito! Cada interseção exclusiva de dois módulos subtrai a tripla: (1.400 - 400) + (1.100 - 400) + (900 - 400) = 1.000 + 700 + 500 = 2.200 contas.'
+          },
+          {
+            label: 'C',
+            text: '3.000 contas',
+            isCorrect: false,
+            feedback: '3.000 subtraiu a interseção tripla apenas uma vez (3.400 - 400), em vez de subtrair de cada uma das três interseções duplas.'
+          },
+          {
+            label: 'D',
+            text: '1.800 contas',
+            isCorrect: false,
+            feedback: '1.800 decorre de subtrair a interseção tripla quatro vezes por equívoco algébrico.'
+          }
+        ],
+        resolution: `<strong>Resolução Passo a Passo:</strong><br>
+        1. As interseções dadas incluem os usuários que usam os 3 módulos (<code>n_3 = 400</code>).<br>
+        2. Usuários que usam <em>apenas A e B</em>: <code>1.400 - 400 = 1.000</code>.<br>
+        3. Usuários que usam <em>apenas A e C</em>: <code>1.100 - 400 = 700</code>.<br>
+        4. Usuários que usam <em>apenas B e C</em>: <code>900 - 400 = 500</code>.<br>
+        5. Total que utiliza exatamente dois módulos: <code>1.000 + 700 + 500 = 2.200</code> contas.`
+      }
+    ],
+    spacedRepetition: 'Em 48 horas: desenhe em um rascunho de papel um diagrama de Venn com 3 círculos e preencha as 8 regiões disjuntas utilizando os números deste problema começando rigorosamente pela região central (400).',
+    primarySource: 'Processo Seletivo Inteli 2024; Paul R. Halmos, "Naive Set Theory"; Edital Oficial Inteli (Anexo II - Conjuntos).'
+  },
+  'bases-numericas': {
+    slug: 'bases-numericas-binario-hexadecimal',
+    title: 'Sistemas de Numeração: Binário, Hexadecimal, Bits e Máscaras de Rede',
+    topic: 'Aritmética Básica e Sistemas de Numeração',
+    estimatedMinutes: 8,
+    targetTrack: 'Trilha Mediana e Superior',
+    contextScenario: {
+      company: 'PacketCore Networks (Infraestrutura de Roteamento de Alta Velocidade)',
+      problem: 'Auditoria de Máscaras de Sub-Rede IPv4 e Decodificação de Flags Hexadecimais',
+      narrativa: `Na <strong>PacketCore Networks</strong>, um firewall de alta performance inspeciona pacotes IP em tempo real. Cada cabeçalho possui dois campos cruciais:
+      <ol>
+        <li>Uma <strong>máscara de sub-rede</strong> CIDR <code>/26</code> que determina o range de hosts de um cluster de microsserviços em um bloco IPv4 (ex.: <code>192.168.10.0/26</code>).</li>
+        <li>Um <strong>byte de status de telemetria</strong> codificado em hexadecimal como <code>0xB6</code>, onde cada bit individual atua como uma flag de sinalização de hardware (do bit 0 menos significativo ao bit 7 mais significativo).</li>
+      </ol>
+      O engenheiro de redes precisa calcular rapidamente a quantidade de endereços de hosts utilizáveis na sub-rede e identificar quais flags binárias específicas estão ativas no byte <code>0xB6</code>.`
+    },
+    coreKnowledge: {
+      summary: 'Sistemas de numeração no Inteli exigem domínio prático da notação posicional em potências de 2 e 16, além de compreensão da arquitetura de dados (bits, bytes, nibbles e máscaras lógicas). Não perca tempo dividindo por 2 repetidas vezes: domine o agrupamento de 4 bits (nibble) para hexadecimal e a subtração de potências de 2.',
+      concepts: [
+        {
+          term: 'Notação Posicional em Base b',
+          definition: '$$N = d_k b^k + d_{k-1} b^{k-1} + \\dots + d_1 b^1 + d_0 b^0$$ Em binário ($b=2$), cada dígito vale 0 ou 1. Em hexadecimal ($b=16$), dígitos de 0 a 9 e A(10), B(11), C(12), D(13), E(14), F(15).',
+          sidenote: '1 dígito hexadecimal mapeia perfeitamente para 4 bits binários (2^4 = 16).'
+        },
+        {
+          term: 'Máscaras de Sub-rede e Capacidade de Hosts',
+          definition: 'Em uma máscara IPv4 CIDR /k, os k bits mais à esquerda identificam a rede e os 32 - k bits identificam hosts. A quantidade total de endereços é 2^(32-k), e a de hosts úteis é 2^(32-k) - 2 (excluindo endereço de rede e broadcast).',
+          sidenote: 'Regra de ouro: subtrair 2 endereços reservados (todos os bits de host em 0 e todos em 1).'
+        }
+      ],
+      formulaCard: {
+        title: 'Tabela Rápida de Potências e Nibbles',
+        formulas: [
+          { name: 'Potências de 2', math: '$$2^0=1, 2^1=2, 2^2=4, 2^3=8, 2^4=16, 2^5=32, 2^6=64, 2^7=128$$' },
+          { name: 'Hosts Úteis (/k)', math: '$$N_{\\text{hosts}} = 2^{32 - k} - 2$$' },
+          { name: 'Conversão Hex-Bin', math: '$$\\text{0xB} = 11 = 1011_2, \\quad \\text{0x6} = 6 = 0110_2$$' }
+        ],
+        tip: 'Para converter qualquer hex para binário, converta cada dígito separadamente em um grupo de 4 bits: 0xB6 = 1011 0110₂.'
+      },
+      examTrap: {
+        title: 'Esquecer os 2 Endereços Reservados em Sub-redes',
+        description: 'Em problemas de redes e dimensionamento de servidores, 2^(32-k) é o total de endereços IP teóricos. O número de máquinas/hosts reais utilizáveis é SEMPRE 2^(32-k) - 2. A banca SEMPRE coloca 2^(32-k) como distrator!'
+      }
+    },
+    quiz: [
+      {
+        id: 'q1',
+        stem: 'Um cluster de microsserviços da PacketCore opera sob uma máscara de sub-rede IPv4 com prefixo CIDR /26. Quantos endereços IP válidos estão disponíveis exclusivamente para atribuição a servidores (hosts úteis) nessa sub-rede?',
+        options: [
+          {
+            label: 'A',
+            text: '64 endereços',
+            isCorrect: false,
+            feedback: '64 é o total absoluto de endereços (2^(32-26) = 2^6 = 64). É obrigatório subtrair os 2 endereços reservados (rede e broadcast).'
+          },
+          {
+            label: 'B',
+            text: '62 endereços',
+            isCorrect: true,
+            feedback: 'Correto! Com /26, restam 32 - 26 = 6 bits para hosts. 2^6 = 64 endereços no total, menos 2 reservados = 62 hosts utilizáveis.'
+          },
+          {
+            label: 'C',
+            text: '30 endereços',
+            isCorrect: false,
+            feedback: '30 endereços corresponderia a uma sub-rede /27 (2^5 - 2 = 30).'
+          },
+          {
+            label: 'D',
+            text: '126 endereços',
+            isCorrect: false,
+            feedback: '126 endereços corresponderia a uma sub-rede /25 (2^7 - 2 = 126).'
+          }
+        ],
+        resolution: `<strong>Resolução Passo a Passo:</strong><br>
+        1. O endereço IPv4 possui 32 bits no total.<br>
+        2. O prefixo <code>/26</code> reserva 26 bits para o identificador da rede.<br>
+        3. Os bits restantes para identificação de máquinas (hosts) são: <code>32 - 26 = 6 bits</code>.<br>
+        4. O número total de combinações de endereços é: <code>2^6 = 64</code>.<br>
+        5. Subtrai-se 1 endereço para identificação da rede (todos os bits de host em 0) e 1 endereço para broadcast (todos os bits em 1):<br>
+        <code>64 - 2 = 62</code> endereços úteis para hosts.`
+      },
+      {
+        id: 'q2',
+        stem: 'O byte de telemetria recebido pelo firewall é 0xB6 (hexadecimal). Convertendo esse valor para o sistema binário de 8 bits e para o sistema decimal, quais valores representam rigorosamente esse byte?',
+        options: [
+          {
+            label: 'A',
+            text: 'Binário: 10110110 e Decimal: 182',
+            isCorrect: true,
+            feedback: 'Exato! 0xB = 11 = 1011₂ e 0x6 = 6 = 0110₂, logo 0xB6 = 10110110₂. Em decimal: 128 + 32 + 16 + 4 + 2 = 182.'
+          },
+          {
+            label: 'B',
+            text: 'Binário: 10100110 e Decimal: 166',
+            isCorrect: false,
+            feedback: '1010₂ é 0xA (10 decimal), não 0xB (11 decimal).'
+          },
+          {
+            label: 'C',
+            text: 'Binário: 10110110 e Decimal: 178',
+            isCorrect: false,
+            feedback: 'A conversão binária está correta, mas a soma decimal foi calculada incorretamente (128 + 32 + 16 + 4 + 2 = 182, não 178).'
+          },
+          {
+            label: 'D',
+            text: 'Binário: 11010110 e Decimal: 214',
+            isCorrect: false,
+            feedback: '1101₂ corresponde a 0xD (13 decimal), e não 0xB (11 decimal).'
+          }
+        ],
+        resolution: `<strong>Resolução Passo a Passo:</strong><br>
+        1. Decomposição em dois nibbles (4 bits cada):<br>
+           - Primeiro dígito: <code>0xB = 11</code> decimal = <code>8 + 2 + 1 = 1011_2</code>.<br>
+           - Segundo dígito: <code>0x6 = 6</code> decimal = <code>4 + 2 = 0110_2</code>.<br>
+        2. Concatenação dos nibbles: <code>1011 0110_2</code>.<br>
+        3. Conversão para base 10 pela notação posicional:<br>
+           <code>N = 11 &times; 16^1 + 6 &times; 16^0 = 11 &times; 16 + 6 = 176 + 6 = 182</code>.<br>
+           Ou somando as potências de 2 dos bits ativos: <code>128 + 32 + 16 + 4 + 2 = 182</code>.`
+      }
+    ],
+    spacedRepetition: 'Em 48 horas: converta sem calculadora o endereço IP 192.168.1.1 para binário e o código hexadecimal 0x4F para binário e decimal.',
+    primarySource: 'Processo Seletivo Inteli 2023; David A. Patterson & John L. Hennessy, "Computer Organization and Design"; Edital Oficial Inteli (Anexo II - Aritmética Básica).'
+  },
+  'geometria-plana-espacial': {
+    slug: 'geometria-plana-espacial-3d',
+    title: 'Geometria Plana e Espacial: Relação de Euler, Volumes e Impressão 3D',
+    topic: 'Geometria Plana e Espacial',
+    estimatedMinutes: 8,
+    targetTrack: 'Trilha Mediana e Superior',
+    contextScenario: {
+      company: 'Forge3D Labs (Startup de Prototipagem Rápida e Manufatura Aditiva)',
+      problem: 'Dimensionamento Volumétrico de Filamento PLA e Auditoria Topológica de Malhas',
+      narrativa: `A <strong>Forge3D Labs</strong> produz carcaças ergonômicas para dispositivos IoT via impressão 3D (FDM). Uma nova peça para sensores automotivos é modelada geometricamente por um <strong>cilindro reto</strong> de raio $r = 3\\text{ cm}$ e altura $h = 10\\text{ cm}$, encimado por uma <strong>semiesfera superior</strong> de mesmo raio ($r = 3\\text{ cm}$).
+      Adicionalmente, a malha poligonal de fatiamento digital (STL) é um poliedro convexo fechado composto exclusivamente por 20 faces triangulares e 12 faces pentagonais. O engenheiro precisa calcular o volume total da peça (para prever o consumo de filamento termoplástico com $\\pi \\approx 3,14$) e verificar a integridade da malha calculando o número de vértices pela Relação de Euler.`
+    },
+    coreKnowledge: {
+      summary: 'Geometria espacial no Inteli é aplicada a modelagens de hardware, CAD e consumo de materiais. É indispensável dominar as relações de volume dos sólidos de revolução (cilindros, cones e esferas) e o teorema topológico de Euler para poliedros convexos fechados.',
+      concepts: [
+        {
+          term: 'Relação de Euler e Contagem de Arestas',
+          definition: 'Em todo poliedro convexo: $$V - A + F = 2$$ e a soma dos lados de todas as faces é igual ao dobro do número de arestas: $$2A = \\sum (n_i \\cdot F_i)$$',
+          sidenote: 'Cada aresta é compartilhada por exatamente duas faces contíguas; logo, somar os lados das faces conta cada aresta duas vezes.'
+        },
+        {
+          term: 'Volumes de Sólidos Fundamentais',
+          definition: 'Cilindro: $V_{\\text{cil}} = \\pi r^2 h$. Esfera: $V_{\\text{esf}} = \\frac{4}{3} \\pi r^3$ (semiesfera: $\\frac{2}{3} \\pi r^3$). Cone: $V_{\\text{cone}} = \\frac{1}{3} \\pi r^2 h$. Prisma: $V = A_{\\text{base}} \\cdot h$.',
+          sidenote: 'Em peças compostas, decomponha o sólido nas partes elementares e some os volumes.'
+        }
+      ],
+      formulaCard: {
+        title: 'Formulário de Geometria Espacial',
+        formulas: [
+          { name: 'Euler', math: '$$V - A + F = 2$$' },
+          { name: 'Arestas por Faces', math: '$$2A = 3F_3 + 4F_4 + 5F_5 + \\dots$$' },
+          { name: 'Volume Cilindro', math: '$$V = \\pi r^2 h$$' },
+          { name: 'Volume Semiesfera', math: '$$V = \\frac{2}{3} \\pi r^3$$' }
+        ],
+        tip: 'Primeiro calcule A através de 2A = ∑ n_i F_i, depois ache V isolando na relação de Euler: V = A + 2 - F.'
+      },
+      examTrap: {
+        title: 'Confundir Volume de Esfera com Semiesfera',
+        description: 'Quando a peça for uma cúpula ou semiesfera, lembre-se de usar 2/3 π r³ e não 4/3 π r³. Esse é um dos distratores numéricos mais comuns da banca.'
+      }
+    },
+    quiz: [
+      {
+        id: 'q1',
+        stem: 'Uma malha digital STL de um protótipo 3D é um poliedro convexo fechado constituído exclusivamente por 20 faces triangulares e 12 faces pentagonais. Quantos VÉRTICES possui essa malha poligonal?',
+        options: [
+          {
+            label: 'A',
+            text: '30 vértices',
+            isCorrect: true,
+            feedback: 'Perfeito! 2A = 20×3 + 12×5 = 60 + 60 = 120 ⇒ A = 60. F = 20 + 12 = 32. Pela Relação de Euler: V = A + 2 - F = 60 + 2 - 32 = 30 vértices.'
+          },
+          {
+            label: 'B',
+            text: '32 vértices',
+            isCorrect: false,
+            feedback: '32 é o número de faces (20 + 12 = 32), não o número de vértices.'
+          },
+          {
+            label: 'C',
+            text: '60 vértices',
+            isCorrect: false,
+            feedback: '60 é o número de arestas A do poliedro, não de vértices.'
+          },
+          {
+            label: 'D',
+            text: '28 vértices',
+            isCorrect: false,
+            feedback: '28 decorre de subtrair o termo +2 em vez de somar na relação de Euler (60 - 32 - 2 = 26 ou erro semelhante).'
+          }
+        ],
+        resolution: `<strong>Resolução Passo a Passo:</strong><br>
+        1. Total de faces: <code>F = 20 + 12 = 32 faces</code>.<br>
+        2. Cada triângulo tem 3 lados e cada pentágono tem 5 lados. Como cada aresta pertence a duas faces:<br>
+        <code>2A = 20 &times; 3 + 12 &times; 5 = 60 + 60 = 120 &rArr; A = 60 arestas</code>.<br>
+        3. Aplicando a Relação de Euler para poliedros convexos:<br>
+        <code>V - A + F = 2</code><br>
+        <code>V - 60 + 32 = 2</code><br>
+        <code>V - 28 = 2 &rArr; V = 30 vértices</code>.`
+      },
+      {
+        id: 'q2',
+        stem: 'A peça sólida para o sensor é composta por um cilindro reto (raio 3 cm e altura 10 cm) encimado por uma semiesfera (raio 3 cm). Adotando π = 3,14, qual é o volume total aproximado de filamento necessário para imprimir a peça sólida?',
+        options: [
+          {
+            label: 'A',
+            text: '339,12 cm³',
+            isCorrect: true,
+            feedback: 'Exato! V_cilindro = π·3²·10 = 90π ≈ 282,6 cm³. V_semiesfera = (2/3)·π·3³ = 18π ≈ 56,52 cm³. Volume Total = 108π ≈ 339,12 cm³.'
+          },
+          {
+            label: 'B',
+            text: '282,60 cm³',
+            isCorrect: false,
+            feedback: '282,60 cm³ corresponde apenas ao volume do cilindro, omitindo a semiesfera superior.'
+          },
+          {
+            label: 'C',
+            text: '395,64 cm³',
+            isCorrect: false,
+            feedback: '395,64 cm³ utilizou a fórmula da esfera completa (4/3 π r³ = 36π) em vez da semiesfera (18π).'
+          },
+          {
+            label: 'D',
+            text: '452,16 cm³',
+            isCorrect: false,
+            feedback: '452,16 cm³ utilizou o diâmetro (6 cm) como raio no cálculo do cilindro.'
+          }
+        ],
+        resolution: `<strong>Resolução Passo a Passo:</strong><br>
+        1. <em>Volume do Cilindro:</em><br>
+        <code>V_cil = &pi; &times; r^2 &times; h = &pi; &times; 3^2 &times; 10 = 90&pi; cm^3</code>.<br>
+        2. <em>Volume da Semiesfera:</em><br>
+        <code>V_semi = (2/3) &times; &pi; &times; r^3 = (2/3) &times; &pi; &times; 27 = 18&pi; cm^3</code>.<br>
+        3. <em>Volume Total da Peça:</em><br>
+        <code>V_total = 90&pi; + 18&pi; = 108&pi; cm^3</code>.<br>
+        4. Substituindo <code>&pi; = 3,14</code>:<br>
+        <code>V_total = 108 &times; 3,14 = 339,12 cm^3</code> de filamento PLA.`
+      }
+    ],
+    spacedRepetition: 'Em 48 horas: calcule de cabeça a relação de Euler para um icosaedro regular (20 faces triangulares) e determine quantas arestas e vértices ele possui.',
+    primarySource: 'Processo Seletivo Inteli 2025.1; H.S.M. Coxeter, "Regular Polytopes"; Edital Oficial Inteli (Anexo II - Geometria Espacial).'
+  },
+  'trigonometria-vetores': {
+    slug: 'trigonometria-vetores-computacao',
+    title: 'Trigonometria e Vetores: Produto Escalar, Projeção e Similaridade de Cosseno em IA',
+    topic: 'Trigonometria e Vetores',
+    estimatedMinutes: 8,
+    targetTrack: 'Trilha Superior e Mediana',
+    contextScenario: {
+      company: 'Vectura AI (Motor de Busca Semântica e Recuperação Vetorial - RAG)',
+      problem: 'Similaridade Angular de Embeddings e Otimização de Raycasting Gráfico',
+      narrativa: `A <strong>Vectura AI</strong> desenvolve um mecanismo de busca vetorial para modelos de linguagem (LLMs). Quando um usuário faz uma pergunta, tanto a query quanto os documentos na base de conhecimento são representados por vetores de alta dimensão no espaço euclidiano.
+      Para ranquear os documentos mais relevantes sem sofrer distorção pelo comprimento do texto, o sistema calcula a <strong>Similaridade de Cosseno</strong> entre o vetor da query $\\vec{u}$ e o vetor do documento $\\vec{v}$, baseada no <strong>Produto Escalar</strong>:
+      $$\\cos \\theta = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{u}| |\\vec{v}|}$$
+      Simultaneamente, a engine gráfica da interface projeta raios de câmera (raycasting) para verificar o campo de visão (FOV) e ortogonalidade em um plano 2D com ângulos trigonométricos de $30^\\circ, 45^\\circ$ e $60^\\circ$. O arquiteto do sistema deve calcular a similaridade vetorial e o ângulo entre trajetórias.`
+    },
+    coreKnowledge: {
+      summary: 'Trigonometria e vetores no Inteli são instrumentos de computação linear: produto escalar, normas euclidianas, ortogonalidade e projeções angulares. O conceito central em IA e computação gráfica é que vetores ortogonais possuem produto escalar zero (cos 90° = 0) e vetores colineares no mesmo sentido possuem similaridade máxima (cos 0° = 1).',
+      concepts: [
+        {
+          term: 'Produto Escalar Algébrico e Geométrico',
+          definition: 'No plano/espaço: $$\\vec{u} \\cdot \\vec{v} = u_x v_x + u_y v_y + u_z v_z = |\\vec{u}| |\\vec{v}| \\cos \\theta$$',
+          sidenote: 'O produto escalar de dois vetores resulta em um número escalar (não em um vetor).'
+        },
+        {
+          term: 'Similaridade de Cosseno em IA (Embeddings)',
+          definition: 'A proximidade semântica entre dois vetores de embeddings normaliza o produto escalar pela magnitude (norma) de cada vetor: $$\\text{cos-sim}(\\vec{u}, \\vec{v}) = \\frac{\\sum u_i v_i}{\\sqrt{\\sum u_i^2} \\cdot \\sqrt{\\sum v_i^2}}$$',
+          sidenote: 'Varia entre -1 (vetores diametralmente opostos) e +1 (vetores exatamente alinhados). Zero indica ortogonalidade absoluta (sem correlação).'
+        }
+      ],
+      formulaCard: {
+        title: 'Formulário de Vetores e Trigonometria',
+        formulas: [
+          { name: 'Norma Euclidiana', math: '$$|\\vec{u}| = \\sqrt{u_x^2 + u_y^2 + u_z^2}$$' },
+          { name: 'Produto Escalar', math: '$$\\vec{u} \\cdot \\vec{v} = u_x v_x + u_y v_y + u_z v_z$$' },
+          { name: 'Cosseno do Ângulo', math: '$$\\cos \\theta = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{u}| |\\vec{v}|}$$' },
+          { name: 'Condição de Ortogonalidade', math: '$$\\vec{u} \\perp \\vec{v} \\iff \\vec{u} \\cdot \\vec{v} = 0$$' }
+        ],
+        tip: 'Se o produto escalar der zero, os vetores são estritamente perpendiculares (ângulo de 90°), dispensando calcular as normas.'
+      },
+      examTrap: {
+        title: 'Confundir Produto Escalar com Multiplicação Componente a Componente',
+        description: 'O produto escalar NÃO gera um vetor (ux*vx, uy*vy), ele gera a SOMA dos produtos escalares: ux*vx + uy*vy. Além disso, jamais esqueça de dividir pelo produto das normas quando a questão pedir o cosseno ou a similaridade angular.'
+      }
+    },
+    quiz: [
+      {
+        id: 'q1',
+        stem: 'No sistema de busca semântica da Vectura AI, a query de um usuário gerou o vetor de embedding u = (1, 2, 2) e um documento relevante no banco de dados gerou o vetor v = (2, 2, 1). Qual é a Similaridade de Cosseno entre a query e esse documento?',
+        options: [
+          {
+            label: 'A',
+            text: 'cos θ = 8 / 9 ≈ 0,889',
+            isCorrect: true,
+            feedback: 'Excelente! u · v = 1·2 + 2·2 + 2·1 = 2 + 4 + 2 = 8. Norma |u| = √(1² + 2² + 2²) = √9 = 3. Norma |v| = √(2² + 2² + 1²) = √9 = 3. cos θ = 8 / (3 · 3) = 8/9.'
+          },
+          {
+            label: 'B',
+            text: 'cos θ = 8 / 3 ≈ 2,667',
+            isCorrect: false,
+            feedback: 'O cosseno de qualquer ângulo real jamais pode ser superior a 1! Aqui você dividiu por apenas uma das normas em vez de multiplicar ambas (|u| · |v| = 9).'
+          },
+          {
+            label: 'C',
+            text: 'cos θ = 6 / 9 ≈ 0,667',
+            isCorrect: false,
+            feedback: '6/9 decorreu de erro aritmético no produto escalar (1·2 + 2·2 + 2·1 = 8, e não 6).'
+          },
+          {
+            label: 'D',
+            text: 'cos θ = 0 (vetores ortogonais)',
+            isCorrect: false,
+            feedback: 'O produto escalar resultou em 8 ≠ 0, logo os vetores não são ortogonais.'
+          }
+        ],
+        resolution: `<strong>Resolução Passo a Passo:</strong><br>
+        1. <em>Cálculo do Produto Escalar:</em><br>
+        <code>u &middot; v = u_x v_x + u_y v_y + u_z v_z = (1)(2) + (2)(2) + (2)(1) = 2 + 4 + 2 = 8</code>.<br>
+        2. <em>Cálculo das Normas Euclidianas:</em><br>
+        <code>|u| = &radic;(1^2 + 2^2 + 2^2) = &radic;(1 + 4 + 4) = &radic;9 = 3</code>.<br>
+        <code>|v| = &radic;(2^2 + 2^2 + 1^2) = &radic;(4 + 4 + 1) = &radic;9 = 3</code>.<br>
+        3. <em>Similaridade de Cosseno:</em><br>
+        <code>cos &theta; = (u &middot; v) / (|u| &times; |v|) = 8 / (3 &times; 3) = 8/9 &approx; 0,889</code>.<br>
+        4. O valor elevado (próximo de 1) indica alta afinidade semântica entre a pesquisa e o documento no RAG.`
+      },
+      {
+        id: 'q2',
+        stem: 'Um raio de câmera 2D na interface é emitido pelo vetor diretor r = (3, k). Para que esse raio seja estritamente ortogonal (perpendicular) à trajetória de um objeto definida pelo vetor w = (-4, 6), qual deve ser o valor de k?',
+        options: [
+          {
+            label: 'A',
+            text: 'k = 2',
+            isCorrect: true,
+            feedback: 'Correto! Dois vetores são perpendiculares se e somente se o produto escalar for nulo: r · w = 3·(-4) + k·6 = 0 ⇒ -12 + 6k = 0 ⇒ 6k = 12 ⇒ k = 2.'
+          },
+          {
+            label: 'B',
+            text: 'k = -2',
+            isCorrect: false,
+            feedback: 'Com k = -2, r · w = -12 + (-12) = -24 ≠ 0, não caracterizando perpendicularismo.'
+          },
+          {
+            label: 'C',
+            text: 'k = 4,5',
+            isCorrect: false,
+            feedback: 'k = 4,5 tornaria os vetores paralelos com sentidos opostos, não ortogonais.'
+          },
+          {
+            label: 'D',
+            text: 'k = 0',
+            isCorrect: false,
+            feedback: 'Com k = 0, r · w = -12 ≠ 0.'
+          }
+        ],
+        resolution: `<strong>Resolução Passo a Passo:</strong><br>
+        1. A condição fundamental de ortogonalidade geométrica entre dois vetores é que o ângulo formado entre eles seja de 90°:<br>
+        <code>cos 90&deg; = 0 &rArr; r &middot; w = 0</code>.<br>
+        2. Expandimos o produto escalar em suas componentes cartesianas:<br>
+        <code>r_x &times; w_x + r_y &times; w_y = 0</code><br>
+        <code>3 &times; (-4) + k &times; 6 = 0</code>.<br>
+        3. Resolvemos a equação linear:<br>
+        <code>-12 + 6k = 0</code><br>
+        <code>6k = 12 &rArr; k = 2</code>.`
+      }
+    ],
+    spacedRepetition: 'Em 48 horas: calcule o produto escalar dos vetores (2, 5) e (-5, 2) e comprove imediatamente por que eles formam um ângulo de 90 graus sem calcular nenhuma raiz.',
+    primarySource: 'Processo Seletivo Inteli 2024; Gilbert Strang, "Introduction to Linear Algebra", 5th Edition; Edital Oficial Inteli (Anexo II - Trigonometria e Vetores).'
+  }
 };
 
 // Aliases for user-friendly slugs
@@ -911,6 +1409,20 @@ BLUEPRINTS['pseudocodigo'] = BLUEPRINTS['algoritmos-pseudocodigo'];
 BLUEPRINTS['geometria'] = BLUEPRINTS['geometria-metricas'];
 BLUEPRINTS['estatistica'] = BLUEPRINTS['estatistica-dados'];
 
+BLUEPRINTS['conjuntos-diagramas-venn-tech'] = BLUEPRINTS['conjuntos-venn'];
+BLUEPRINTS['conjuntos'] = BLUEPRINTS['conjuntos-venn'];
+BLUEPRINTS['venn'] = BLUEPRINTS['conjuntos-venn'];
+BLUEPRINTS['bases-numericas-binario-hexadecimal'] = BLUEPRINTS['bases-numericas'];
+BLUEPRINTS['binario'] = BLUEPRINTS['bases-numericas'];
+BLUEPRINTS['hexadecimal'] = BLUEPRINTS['bases-numericas'];
+BLUEPRINTS['geometria-plana-espacial-3d'] = BLUEPRINTS['geometria-plana-espacial'];
+BLUEPRINTS['geometria-espacial'] = BLUEPRINTS['geometria-plana-espacial'];
+BLUEPRINTS['geometria-plana'] = BLUEPRINTS['geometria-plana-espacial'];
+BLUEPRINTS['euler'] = BLUEPRINTS['geometria-plana-espacial'];
+BLUEPRINTS['trigonometria-vetores-computacao'] = BLUEPRINTS['trigonometria-vetores'];
+BLUEPRINTS['trigonometria'] = BLUEPRINTS['trigonometria-vetores'];
+BLUEPRINTS['vetores'] = BLUEPRINTS['trigonometria-vetores'];
+BLUEPRINTS['produto-escalar'] = BLUEPRINTS['trigonometria-vetores'];
 /**
  * Scans lessons/ directory and returns the next 4-digit formatted lesson number (e.g. "0001", "0002").
  */

@@ -843,7 +843,8 @@ tbody tr:hover {
   color: var(--text-color);
 }
 
-.quiz-options {
+.quiz-options,
+.quiz-answers {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -1146,7 +1147,8 @@ tbody tr:hover {
     margin-bottom: 1.8rem;
   }
 
-  .quiz-options {
+  .quiz-options,
+  .quiz-answers {
     gap: 0.65rem;
   }
 

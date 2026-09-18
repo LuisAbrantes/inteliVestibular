@@ -39,3 +39,42 @@ Este documento registra as diretrizes pedagógicas, preferências de estudo e an
   - Tempo médio por questão (meta: $\le 5\text{ min } 30\text{ s}$).
   - Erros por distrator simétrico (meta: zero incidência de inversão de coordenadas de tela ou troca de base).
   - Status do Dossiê de Bolsas: validação documental de renda familiar e Open Finance antes do encerramento das inscrições.
+
+---
+
+## 4. Auditoria Curricular Oficial & Parecer Muse-spark 1.3
+
+- **Verificação Formal contra o Anexo II:**
+  O conteúdo do harness foi submetido a auditoria automatizada contra o texto oficial do Anexo II do edital (17 tópicos formais). Quatro lições faltantes foram identificadas e geradas (`0016` Conjuntos/Venn, `0017` Bases Numéricas, `0018` Geometria 3D/Impressão CAD, `0019` Trigonometria/Vetores), atingindo **100% de conformidade estrita**.
+- **Trilha Inteligente de 5 Módulos:**
+  Estruturada conforme o parecer do Muse-spark 1.3, orientando a ordem de estudo pelos pesos da TRI e dependências conceituais:
+  - Módulo 1: Fundamentos Quant-Tech & Calibragem TRI (Bloco 1)
+  - Módulo 2: Funções e Otimização de Startups (22% da Prova)
+  - Módulo 3: Contagem Avançada e Incerteza (Trilha Superior)
+  - Módulo 4: Pensamento Algorítmico, Loops e Sequências
+  - Módulo 5: Geometria Computacional e Álgebra Linear (Fechamento TRI)
+
+---
+
+## 5. Pendências & Próximas Decisões do Candidato (Anotadas para seu Retorno)
+
+Como você se ausentou por alguns minutos, deixamos os seguintes pontos práticos anotados para alinharmos quando você voltar:
+
+1. **Definição do Curso de 1ª Opção:**
+   Qual dos 5 cursos do Inteli é o seu foco principal?
+   - Ciência da Computação
+   - Engenharia de Computação
+   - Engenharia de Software
+   - Sistemas de Informação
+   - Administração (ADM Tech)
+   *Por que importa:* O peso dos tópicos no Eixo Prova e o foco da dinâmica do Eixo Projeto variam sutilmente entre engenharia e negócios.
+
+2. **Elegibilidade Geográfica do Auxílio-Moradia (Bolsa 2027):**
+   Você reside fora da Região Metropolitana de São Paulo?
+   *Por que importa:* O Edital de Bolsas 2027 dá prioridade absoluta para candidatos de outras cidades/estados para as vagas na moradia estudantil parceira do Inteli próxima ao campus no Butantã.
+
+3. **Mapeamento Prévio das Contas para o Open Finance (EducaOpen):**
+   No processo de 2027, todos os membros adultos do domicílio precisarão conectar suas contas bancárias via Open Finance. Vale listar com antecedência quem são os membros da sua família com renda formal (holerite/CLT) e informal (PIX/autônomo) para evitarmos qualquer divergência na análise socioeconômica.
+
+4. **Escolha do Projeto Base para o Ensaio do Eixo Perfil:**
+   Qual conquista pessoal, projeto de programação, feira de ciências, olimpíada ou desafio comunitário você gostaria de usar na redação de liderança? Quando você voltar, podemos estruturar o primeiro rascunho completo juntos pelo método STAR.

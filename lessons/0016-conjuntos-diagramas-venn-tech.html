@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lição 0016: Teoria dos Conjuntos, Diagramas de Venn e Análise de Cohorts em SQL | Inteli Vestibular</title>
+  
+  <!-- Estilos Oficiais -->
+  <link rel="stylesheet" href="../assets/lesson.css">
+  
+  <!-- KaTeX Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="initKaTeX()"></script>
+  <script>
+    function initKaTeX() {
+      if (window.renderMathInElement) {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+          ],
+          throwOnError: false
+        });
+      }
+    }
+    document.addEventListener("DOMContentLoaded", initKaTeX);
+    window.addEventListener("load", initKaTeX);
+  </script>
+</head>
+<body>
+  <div class="lesson-container">
+    <article class="lesson">
+      <header class="lesson-header">
+        <span class="lesson-badge">Lição 0016</span>
+        <h1 class="lesson-title">Teoria dos Conjuntos, Diagramas de Venn e Análise de Cohorts em SQL</h1>
+        <div class="lesson-meta">
+          <span class="meta-time">⏱️ Tempo Estimado: 9 min</span>
+          <span>•</span>
+          <span class="meta-topic">🎯 Eixo: Lógica e Teoria dos Conjuntos</span>
+          <span>•</span>
+          <span class="meta-track">📈 Trilha Fundamental e Transição</span>
+        </div>
+        <div class="lesson-meta" style="margin-top: 0.5rem;">
+          <a href="../MISSION.md">← Voltar para a Missão</a>
+          <span>•</span>
+          <a href="../GLOSSARY.md">📖 Glossário de Conceitos</a>
+        </div>
+      </header>
+
+      <!-- 1. CENÁRIO CONTEXTUAL INTELI -->
+      <section class="scenario">
+        <h2>Cenário Real Inteli</h2>
+        <div class="scenario-box">
+          <div class="scenario-tag">🏢 DataPulse Analytics (SaaS B2B) | Segmentação de Cohorts e Otimização de Consultas SQL</div>
+          <p>A startup <strong>DataPulse</strong> desenvolveu uma plataforma de software para monitorar o engajamento e a retenção de 10.000 clientes empresariais ativos em sua infraestrutura cloud. A equipe de engenharia de dados analisa três cohorts específicas de adoção de produtos:</p>
+          <ul>
+            <li><strong>Conjunto A (Feature Analytics):</strong> 4.200 empresas utilizam dashboards analíticos avançados.</li>
+            <li><strong>Conjunto B (Automação de Pipelines):</strong> 3.500 empresas executam pipelines de integração contínua.</li>
+            <li><strong>Conjunto C (Alertas Inteligentes):</strong> 2.800 empresas têm webhooks e bots de alerta configurados.</li>
+            <li><strong>Interseções de Duas Features:</strong> 1.200 empresas usam A e B; 900 usam A e C; 800 usam B e C.</li>
+            <li><strong>Interseção Global:</strong> 400 empresas utilizam simultaneamente as três ferramentas (A, B e C).</li>
+          </ul>
+          <p>Para otimizar o banco de dados e orientar a tomada de decisão sobre precificação de pacotes, a liderança técnica precisa calcular com exatidão a cardinalidade da união dos clientes ativos, o grupo de churn potencial (empresas inativas que não utilizam nenhuma das três ferramentas) e a conversão de conjuntos em operadores relacionais SQL (<code>INNER JOIN</code>, <code>UNION</code> e <code>EXCEPT</code>).</p>
+        </div>
+      </section>
+
+      <!-- 2. NÚCLEO CONCEITUAL -->
+      <section class="core-knowledge">
+        <h2>Núcleo Conceitual</h2>
+        <p class="lead-summary">A modelagem de dados moderna apoia-se diretamente na teoria dos conjuntos. Na avaliação do Inteli, o estudante deve transitar com agilidade entre diagramas de Venn, equações de cardinalidade e operações de junção de dados relacionais.</p>
+        
+        <div class="concepts-list">
+          <div class="concept-item">
+            <h3 class="concept-term">Princípio da Inclusão-Exclusão</h3>
+            <p class="concept-def">Ao calcular a união de múltiplos conjuntos, a simples adição de suas cardinalidades gera sobreposições indevidas. O princípio determina que somamos os conjuntos isolados, subtraímos as interseções de ordem par e somamos as interseções de ordem ímpar para evitar dupla ou tripla contagem.</p>
+            <aside class="sidenote"><strong>Nota lateral:</strong> A cardinalidade $|A \cup B|$ é equivalente ao operador SQL <code>FULL OUTER JOIN</code> ou <code>UNION</code> com deduplicação de registros.</aside>
+          </div>
+
+          <div class="concept-item">
+            <h3 class="concept-term">Partição Disjunta em Diagramas de Venn</h3>
+            <p class="concept-def">Qualquer diagrama de 3 conjuntos decompõe o universo amostral em 8 regiões mutuamente exclusivas: as que pertencem exclusivamente a um único conjunto (3 regiões), as que pertencem a exatamente dois conjuntos (3 regiões), a interseção tripla central (1 região) e o complemento exterior (1 região).</p>
+            <aside class="sidenote"><strong>Nota lateral:</strong> Para encontrar quem usa apenas a Feature A, subtraem-se as interseções que contêm A: $|A_{\text{exclusivo}}| = |A| - |A \cap B| - |A \cap C| + |A \cap B \cap C|$.</aside>
+          </div>
+
+          <div class="concept-item">
+            <h3 class="concept-term">Álgebra Booleana e Mapeamento SQL</h3>
+            <p class="concept-def">Operações lógicas de conjuntos mapeiam consultas de backend: interseção $A \cap B$ corresponde a <code>INNER JOIN</code>; diferença $A \setminus B$ traduz-se em <code>LEFT JOIN ... WHERE B.id IS NULL</code>; e as Leis de De Morgan $(A \cup B)^c = A^c \cap B^c$ regem a simplificação de cláusulas <code>WHERE NOT (...)</code>.</p>
+          </div>
+        </div>
+
+        <div class="formula-card">
+          <div class="formula-card-title">📌 Formulações Matemáticas de Conjuntos</div>
+          
+          <div class="formula-row">
+            <span class="formula-name">Inclusão-Exclusão (2 Conjuntos):</span>
+            <div class="formula-math">$$|A \cup B| = |A| + |B| - |A \cap B|$$</div>
+          </div>
+
+          <div class="formula-row">
+            <span class="formula-name">Inclusão-Exclusão (3 Conjuntos):</span>
+            <div class="formula-math">$$|A \cup B \cup C| = |A| + |B| + |C| - (|A \cap B| + |A \cap C| + |B \cap C|) + |A \cap B \cap C|$$</div>
+          </div>
+
+          <div class="formula-row">
+            <span class="formula-name">Complementar e Churn:</span>
+            <div class="formula-math">$$|(A \cup B \cup C)^c| = |U| - |A \cup B \cup C|$$</div>
+          </div>
+
+          <div class="formula-tip">💡 <strong>Dica de Ouro:</strong> Em problemas de três conjuntos no vestibular Inteli, sempre preencha o diagrama de Venn de dentro para fora, começando pela interseção tripla central $|A \cap B \cap C|$.</div>
+        </div>
+
+        <div class="callout callout-trap">
+          <h4>⚠️ Armadilha da Sobreposição Tripla</h4>
+          <p>Um erro clássico cometido por candidatos é subtrair as interseções de dois a dois sem somar novamente a interseção tripla ao final. Como $|A \cap B \cap C|$ está contida em todas as três interseções pares, subtraí-la três vezes consecutivas elimina totalmente esses elementos do cálculo, distorcendo o volume de clientes ativos!</p>
+        </div>
+      </section>
+
+      <!-- 3. PRÁTICA DE RECUPERAÇÃO ATIVA (QUIZ) -->
+      <section class="retrieval-quiz" id="quiz">
+        <h2>Prática de Recuperação Ativa (Retrieval Practice)</h2>
+        <p class="quiz-intro">Teste sua retenção conceitual resolvendo os desafios abaixo sem recorrer a anotações. O feedback pedagógico analisa as causas comuns de erro da banca Inteli.</p>
+        
+        <div class="quiz-question" data-question-id="q1">
+          <div class="question-header">
+            <span class="question-number">Questão 1 de 2</span>
+          </div>
+          <p class="question-stem">Considerando a base total de 10.000 clientes da DataPulse com os dados do cenário, qual é a quantidade exata de clientes que NÃO utilizam nenhuma das três ferramentas analíticas monitoradas?</p>
+          <div class="quiz-answers">
+            <button class="quiz-option" type="button" data-correct="false" data-feedback="Incorreto. Este valor de 2.400 clientes esquece de reincorporar a interseção tripla na inclusão-exclusão.">
+              <span class="option-label">A</span>
+              <span class="option-text">Exatamente 2.400 empresas inativas.</span>
+            </button>
+            <button class="quiz-option" type="button" data-correct="true" data-feedback="Correto! Pelo Princípio da Inclusão-Exclusão, a união possui 8.000 clientes, resultando em 10.000 - 8.000 = 2.000 inativos.">
+              <span class="option-label">B</span>
+              <span class="option-text">Exatamente 2.000 empresas inativas.</span>
+            </button>
+            <button class="quiz-option" type="button" data-correct="false" data-feedback="Incorreto. Este distrator calcula a soma simples dos três conjuntos sem subtrair as interseções pares.">
+              <span class="option-label">C</span>
+              <span class="option-text">Exatamente 1.600 empresas inativas.</span>
+            </button>
+            <button class="quiz-option" type="button" data-correct="false" data-feedback="Incorreto. Este valor decorre de subtração indevida da interseção global sem considerar a totalidade do universo.">
+              <span class="option-label">D</span>
+              <span class="option-text">Exatamente 2.800 empresas inativas.</span>
+            </button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+          <div class="quiz-resolution hidden">
+            <div class="resolution-title">🔍 Resolução Oficial Comentada</div>
+            <div class="resolution-content">
+              <strong>Resolução Passo a Passo:</strong><br>
+              1. Aplicamos a fórmula da união de 3 conjuntos:<br>
+              $$|A \cup B \cup C| = |A| + |B| + |C| - (|A \cap B| + |A \cap C| + |B \cap C|) + |A \cap B \cap C|$$
+              2. Substituindo os valores numéricos coletados:<br>
+              $$|A \cup B \cup C| = 4.200 + 3.500 + 2.800 - (1.200 + 900 + 800) + 400$$
+              $$|A \cup B \cup C| = 10.500 - 2.900 + 400 = 7.600 + 400 = 8.000$$
+              3. O número de empresas que não utilizam nenhuma das ferramentas corresponde ao complementar da união:<br>
+              $$|(A \cup B \cup C)^c| = |U| - |A \cup B \cup C| = 10.000 - 8.000 = 2.000$$
+              4. <em>Análise dos distratores:</em> O distrator A (2.400) é o erro clássico que subtrai 2.900 e não adiciona os 400 da interseção tripla central; o distrator C (1.600) decorre de dupla contagem de clientes; e o distrator D (2.800) confunde o complementar com a cardinalidade do conjunto C.
+            </div>
+          </div>
+        </div>
+
+        <div class="quiz-question" data-question-id="q2">
+          <div class="question-header">
+            <span class="question-number">Questão 2 de 2</span>
+          </div>
+          <p class="question-stem">Em uma coorte de desenvolvimento com 1.200 programadores, 750 programam em Python, 600 programam em JavaScript e 250 programam em ambas as linguagens. Quantos programadores programam EXCLUSIVAMENTE em Python?</p>
+          <div class="quiz-answers">
+            <button class="quiz-option" type="button" data-correct="false" data-feedback="Incorreto. 750 é a quantidade total de programadores que utilizam Python, incluindo aqueles que também usam JavaScript.">
+              <span class="option-label">A</span>
+              <span class="option-text">Exatamente 750 desenvolvedores Python.</span>
+            </button>
+            <button class="quiz-option" type="button" data-correct="false" data-feedback="Incorreto. 350 é o número de programadores que programam exclusivamente em JavaScript (600 - 250).">
+              <span class="option-label">C</span>
+              <span class="option-text">Exatamente 350 desenvolvedores Python.</span>
+            </button>
+            <button class="quiz-option" type="button" data-correct="true" data-feedback="Excelente! O número de desenvolvedores exclusivos em Python é |Python| - |Python ∩ JS| = 750 - 250 = 500.">
+              <span class="option-label">B</span>
+              <span class="option-text">Exatamente 500 desenvolvedores Python.</span>
+            </button>
+            <button class="quiz-option" type="button" data-correct="false" data-feedback="Incorreto. 250 é o tamanho da interseção dos programadores que conhecem ambas as ferramentas de software.">
+              <span class="option-label">D</span>
+              <span class="option-text">Exatamente 250 desenvolvedores Python.</span>
+            </button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+          <div class="quiz-resolution hidden">
+            <div class="resolution-title">🔍 Resolução Oficial Comentada</div>
+            <div class="resolution-content">
+              <strong>Resolução Passo a Passo:</strong><br>
+              1. Identificamos o conjunto de desenvolvedores Python: $|P| = 750$.<br>
+              2. Identificamos a interseção com JavaScript: $|P \cap JS| = 250$.<br>
+              3. Para encontrar quem programa <em>exclusivamente</em> em Python, calculamos a diferença de conjuntos:<br>
+              $$|P_{\text{exclusivo}}| = |P \setminus JS| = |P| - |P \cap JS| = 750 - 250 = 500$$
+              4. <em>Análise dos distratores:</em> O distrator A (750) comete o erro de ignorar a interseção; o distrator C (350) inverte e calcula os desenvolvedores exclusivos de JavaScript ($600 - 250 = 350$); o distrator D (250) representa apenas a interseção mútua.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. REPETIÇÃO ESPAÇADA (STORAGE STRENGTH) -->
+      <section class="spaced-repetition">
+        <h2>Desafio de 48 Horas (Storage Strength)</h2>
+        <div class="spaced-prompt">
+          <div class="spaced-tag">🧠 Teste de Fixação e Evocação Tardia</div>
+          <p class="prompt-question"><strong>Em 48 horas: feche os olhos e deduza no papel por que a interseção tripla $|A \cap B \cap C|$ precisa ser adicionada novamente na fórmula de Inclusão-Exclusão após a subtração das três interseções duplas.</strong></p>
+          <p style="font-size:0.9rem; color:#666; margin-top:0.5rem;"><em>Dica da Ciência Cognitiva:</em> Explicar a lógica visual das regiões disjuntas reforça os caminhos neurais de raciocínio lógico-matemático e evita memorização mecânica para o vestibular Inteli.</p>
+        </div>
+      </section>
+
+      <!-- 5. FONTE PRIMÁRIA -->
+      <footer class="lesson-footer">
+        <div class="source-citation">
+          <strong>📚 Fonte Primária e Referência Acadêmica:</strong><br>
+          <span>Processo Seletivo Inteli 2024; Kenneth H. Rosen, &quot;Discrete Mathematics and Its Applications&quot;, 8th Edition; C.J. Date, &quot;An Introduction to Database Systems&quot;, 8th Edition.</span>
+        </div>
+        <div class="footer-nav">
+          <a href="../MISSION.md">← Sumário da Missão</a>
+          <a href="../GLOSSARY.md">📖 Glossário Técnico</a>
+          <a href="#quiz">↑ Repetir Questões</a>
+        </div>
+      </footer>
+    </article>
+  </div>
+
+  <!-- Script Externo Oficial -->
+  <script src="../assets/quiz.js" defer></script>
+
+  <!-- Script Fallback Autônomo de Quiz (Zero Dependências) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const questions = document.querySelectorAll('.quiz-question');
+
+      questions.forEach((q) => {
+        const options = q.querySelectorAll('.quiz-option');
+        const feedbackBox = q.querySelector('.quiz-feedback');
+        const resolutionBox = q.querySelector('.quiz-resolution');
+
+        options.forEach(opt => {
+          opt.addEventListener('click', () => {
+            // Desativa botões da pergunta atual
+            options.forEach(b => {
+              b.disabled = true;
+              if (b.getAttribute('data-correct') === 'true') {
+                b.classList.add('correct');
+              }
+            });
+
+            const isCorrect = opt.getAttribute('data-correct') === 'true';
+            const feedbackText = opt.getAttribute('data-feedback');
+
+            if (!isCorrect) {
+              opt.classList.add('incorrect');
+              if (feedbackBox) {
+                feedbackBox.className = 'quiz-feedback danger';
+                feedbackBox.innerHTML = '<strong>❌ Incorreto.</strong> ' + feedbackText;
+                feedbackBox.classList.remove('hidden');
+              }
+            } else {
+              if (feedbackBox) {
+                feedbackBox.className = 'quiz-feedback success';
+                feedbackBox.innerHTML = '<strong>✅ Correto!</strong> ' + feedbackText;
+                feedbackBox.classList.remove('hidden');
+              }
+            }
+
+            // Exibe resolução passo a passo
+            if (resolutionBox) {
+              resolutionBox.classList.remove('hidden');
+            }
+
+            // Dispara evento para telemetria ou integração
+            document.dispatchEvent(new CustomEvent('quiz:answered', {
+              detail: {
+                questionId: q.getAttribute('data-question-id'),
+                isCorrect: isCorrect
+              }
+            }));
+          });
+        });
+      });
+      // Garante scroll horizontal responsivo para todas as tabelas
+      document.querySelectorAll('table').forEach(function(table) {
+        if (!table.parentElement.classList.contains('table-wrapper')) {
+          const wrapper = document.createElement('div');
+          wrapper.className = 'table-wrapper';
+          table.parentNode.insertBefore(wrapper, table);
+          wrapper.appendChild(table);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

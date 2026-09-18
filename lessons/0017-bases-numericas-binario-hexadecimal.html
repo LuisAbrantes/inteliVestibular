@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lição 0017: Bases Numéricas, Álgebra Booleana e Máscaras de Rede em Sistemas Digitais | Inteli Vestibular</title>
+  
+  <!-- Estilos Oficiais -->
+  <link rel="stylesheet" href="../assets/lesson.css">
+  
+  <!-- KaTeX Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="initKaTeX()"></script>
+  <script>
+    function initKaTeX() {
+      if (window.renderMathInElement) {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+          ],
+          throwOnError: false
+        });
+      }
+    }
+    document.addEventListener("DOMContentLoaded", initKaTeX);
+    window.addEventListener("load", initKaTeX);
+  </script>
+</head>
+<body>
+  <div class="lesson-container">
+    <article class="lesson">
+      <header class="lesson-header">
+        <span class="lesson-badge">Lição 0017</span>
+        <h1 class="lesson-title">Bases Numéricas, Álgebra Booleana e Máscaras de Rede em Sistemas Digitais</h1>
+        <div class="lesson-meta">
+          <span class="meta-time">⏱️ Tempo Estimado: 9 min</span>
+          <span>•</span>
+          <span class="meta-topic">🎯 Eixo: Aritmética e Sistemas de Computação</span>
+          <span>•</span>
+          <span class="meta-track">📈 Trilha Fundamental e Transição</span>
+        </div>
+        <div class="lesson-meta" style="margin-top: 0.5rem;">
+          <a href="../MISSION.md">← Voltar para a Missão</a>
+          <span>•</span>
+          <a href="../GLOSSARY.md">📖 Glossário de Conceitos</a>
+        </div>
+      </header>
+
+      <!-- 1. CENÁRIO CONTEXTUAL INTELI -->
+      <section class="scenario">
+        <h2>Cenário Real Inteli</h2>
+        <div class="scenario-box">
+          <div class="scenario-tag">🏢 NetShield Sentinel (Infraestrutura de Nuvem e Cibersegurança) | Segmentação CIDR e Permissões Bitwise</div>
+          <p>A startup <strong>NetShield Sentinel</strong> gerencia a segurança perimetral de microsserviços em nuvem para fintechs. Na arquitetura de software da empresa, problemas fundamentais de baixo nível exigem domínio aritmético de bases numéricas:</p>
+          <ul>
+            <li><strong>Endereçamento IPv4 (CIDR):</strong> Os clusters de contêineres são alocados em blocos privados sob a máscara <code>/27</code>. A equipe precisa determinar a máscara decimal (<code>255.255.255.224</code>), sua forma hexadecimal (<code>0xFFFFFFE0</code>) e a quantidade exata de nós utilizáveis.</li>
+            <li><strong>Mapeamento de Memória:</strong> Os registradores de auditoria gravam flags de privilégio em hexadecimal (como <code>0x2E</code>). Cada bit representa um interruptor booleano independente (leitura, escrita, execução, criptografia).</li>
+            <li><strong>Filtros Bitwise:</strong> O firewall inspeciona pacotes executando operações lógicas bit a bit (<code>AND</code>, <code>OR</code>, <code>XOR</code>) em microssegundos para filtrar ameaças sem latência.</li>
+          </ul>
+          <p>Compreender a transição entre a notação humana (decimal), compacta (hexadecimal) e física (binária) é essencial para projetar sistemas de alta escala.</p>
+        </div>
+      </section>
+
+      <!-- 2. NÚCLEO CONCEITUAL -->
+      <section class="core-knowledge">
+        <h2>Núcleo Conceitual</h2>
+        <p class="lead-summary">A computação digital opera sob aritmética de base 2. No processo seletivo do Inteli, o estudante deve converter números entre as bases 2, 10 e 16 com velocidade mental, dominar a álgebra de Boole e calcular espaços de endereçamento de rede.</p>
+        
+        <div class="concepts-list">
+          <div class="concept-item">
+            <h3 class="concept-term">Notação Posicional em Base Arbitrária</h3>
+            <p class="concept-def">Qualquer número inteiro em base $b$ é a soma ponderada dos seus dígitos pelas potências da base: $N = \sum_{k=0}^{n-1} d_k \cdot b^k$. Na base decimal $b=10$; na binária $b=2$; e na hexadecimal $b=16$, onde os algarismos de 10 a 15 são representados pelas letras A até F.</p>
+            <aside class="sidenote"><strong>Nota lateral:</strong> Cada dígito hexadecimal agrupa exatamente 4 bits (1 nibble): $0\text{xFF} = 11111111_2 = 255_{10}$.</aside>
+          </div>
+
+          <div class="concept-item">
+            <h3 class="concept-term">Conversão Rápida Binário-Hexadecimal</h3>
+            <p class="concept-def">Como $16 = 2^4$, a conversão entre binário e hexadecimal não exige passar pela base decimal. Basta particionar o número binário em blocos de 4 bits da direita para a esquerda e converter cada nibble isoladamente em seu símbolo hexadecimal.</p>
+            <aside class="sidenote"><strong>Nota lateral:</strong> Em linguagens de baixo nível como C e Rust, o prefixo <code>0x</code> indica a base 16.</aside>
+          </div>
+
+          <div class="concept-item">
+            <h3 class="concept-term">Cálculo de Sub-redes IPv4 e Hosts Úteis</h3>
+            <p class="concept-def">Um endereço IPv4 possui 32 bits. Sob prefixo CIDR $/p$, restam $h = 32 - p$ bits de host. O total de combinações é $2^h$, subtraindo sempre 2 endereços reservados: o identificador da rede (bits de host em 0) e o broadcast (bits de host em 1).</p>
+          </div>
+        </div>
+
+        <div class="formula-card">
+          <div class="formula-card-title">📌 Formulações de Sistemas Digitais e Redes</div>
+          
+          <div class="formula-row">
+            <span class="formula-name">Notação Posicional Geral:</span>
+            <div class="formula-math">$$N_b = d_{n-1} b^{n-1} + \dots + d_1 b^1 + d_0 b^0$$</div>
+          </div>
+
+          <div class="formula-row">
+            <span class="formula-name">Hexadecimal para Decimal:</span>
+            <div class="formula-math">$$0\text{x}D_1 D_0 = (D_1 \times 16^1) + (D_0 \times 16^0)$$</div>
+          </div>
+
+          <div class="formula-row">
+            <span class="formula-name">Hosts Válidos em Sub-rede IPv4:</span>
+            <div class="formula-math">$$H = 2^{32 - p} - 2$$</div>
+          </div>
+
+          <div class="formula-tip">💡 <strong>Dica de Ouro:</strong> Memorize os nibbles: $\text{A}=10$ a $\text{F}=15$. Em potências de 2: $2^5 = 32$, $2^6 = 64$, $2^7 = 128$ e $2^8 = 256$.</div>
+        </div>
+
+        <div class="callout callout-trap">
+          <h4>⚠️ Armadilha dos Endereços Reservados de Rede</h4>
+          <p>O erro mais comum é esquecer de subtrair os 2 endereços reservados. Em 5 bits de host ($2^5 = 32$), o primeiro IP (rede) e o último (broadcast) não podem ser atribuídos a servidores ou nós de cluster!</p>
+        </div>
+      </section>
+
+      <!-- 3. PRÁTICA DE RECUPERAÇÃO ATIVA (QUIZ) -->
+      <section class="retrieval-quiz" id="quiz">
+        <h2>Prática de Recuperação Ativa (Retrieval Practice)</h2>
+        <p class="quiz-intro">Responda aos problemas abaixo de forma independente. Cada opção possui tamanho balanceado e oferece feedback conceitual imediato.</p>
+        
+        <div class="quiz-question" data-question-id="q1">
+          <div class="question-header">
+            <span class="question-number">Questão 1 de 2</span>
+          </div>
+          <p class="question-stem">Qual é o valor decimal do número hexadecimal 0x2E gravado no registrador de memória e qual é a sua representação em binário de 8 bits?</p>
+          <div class="quiz-answers">
+            <button class="quiz-option" type="button" data-correct="true" data-feedback="Correto! Na base 16: 2 * 16 + 14 = 46. Em binário de 8 bits: 2 = 0010 e E = 1110, formando 00101110.">
+              <span class="option-label">A</span>
+              <span class="option-text">Exatamente 46 em decimal e 00101110 em binário de 8 bits.</span>
+            </button>
+            <button class="quiz-option" type="button" data-correct="false" data-feedback="Incorreto. Este distrator atribui o valor 12 à letra E (que na verdade é o caractere C na base 16).">
+              <span class="option-label">B</span>
+              <span class="option-text">Exatamente 44 em decimal e 00101100 em binário de 8 bits.</span>
+            </button>
+            <button class="quiz-option" type="button" data-correct="false" data-feedback="Incorreto. Este distrator soma incorretamente 16 ao valor sem considerar o peso da letra E.">
+              <span class="option-label">C</span>
+              <span class="option-text">Exatamente 48 em decimal e 00110000 em binário de 8 bits.</span>
+            </button>
+            <button class="quiz-option" type="button" data-correct="false" data-feedback="Incorreto. Este distrator calcula 2 * 10 + 14 = 34 ou erra a conversão binária do nibble mais significativo.">
+              <span class="option-label">D</span>
+              <span class="option-text">Exatamente 38 em decimal e 00100110 em binário de 8 bits.</span>
+            </button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+          <div class="quiz-resolution hidden">
+            <div class="resolution-title">🔍 Resolução Oficial Comentada</div>
+            <div class="resolution-content">
+              <strong>Resolução Passo a Passo:</strong><br>
+              1. Decomposição do número hexadecimal $0\text{x}2E$:<br>
+              - O dígito mais significativo é $2$ (posição $16^1$).<br>
+              - O dígito menos significativo é $E$ (posição $16^0$), cujo valor decimal é $14$.<br>
+              2. Conversão para a base decimal:<br>
+              $$N_{10} = (2 \times 16^1) + (14 \times 16^0) = 32 + 14 = 46$$
+              3. Conversão direta para binário por nibbles de 4 bits:<br>
+              - Dígito $2_{16} = 0010_2$<br>
+              - Dígito $E_{16} = 14_{10} = 8 + 4 + 2 + 0 = 1110_2$<br>
+              - Justapondo os dois blocos de 4 bits: $00101110_2$.<br>
+              4. <em>Análise dos distratores:</em> O distrator B (44) comete o erro de confundir $E$ com $C$ ($12_{10}$); o distrator C (48) introduz erro aritmético na soma; e o distrator D (38) calcula erroneamente a ponderação dos bits.
+            </div>
+          </div>
+        </div>
+
+        <div class="quiz-question" data-question-id="q2">
+          <div class="question-header">
+            <span class="question-number">Questão 2 de 2</span>
+          </div>
+          <p class="question-stem">Um cluster Kubernetes de infraestrutura foi provisionado sob a máscara de sub-rede IPv4 em notação CIDR /27. Quantos nós de servidores (IPs de hosts válidos) podem ser configurados simultaneamente?</p>
+          <div class="quiz-answers">
+            <button class="quiz-option" type="button" data-correct="false" data-feedback="Incorreto. 32 é o total bruto de combinações binárias (2^5), mas não desconta a rede e o broadcast.">
+              <span class="option-label">A</span>
+              <span class="option-text">Exatamente 32 nós com IPs válidos para contêineres.</span>
+            </button>
+            <button class="quiz-option" type="button" data-correct="true" data-feedback="Excelente! Com 32 - 27 = 5 bits de host, temos 2^5 = 32 combinações. Subtraindo rede e broadcast: 32 - 2 = 30.">
+              <span class="option-label">B</span>
+              <span class="option-text">Exatamente 30 nós com IPs válidos para contêineres.</span>
+            </button>
+            <button class="quiz-option" type="button" data-correct="false" data-feedback="Incorreto. Este distrator subtrai 4 endereços arbitrariamente sem base na especificação IPv4.">
+              <span class="option-label">C</span>
+              <span class="option-text">Exatamente 28 nós com IPs válidos para contêineres.</span>
+            </button>
+            <button class="quiz-option" type="button" data-correct="false" data-feedback="Incorreto. 26 resultaria de cálculo incorreto do número de bits de host ou de dupla subtração.">
+              <span class="option-label">D</span>
+              <span class="option-text">Exatamente 26 nós com IPs válidos para contêineres.</span>
+            </button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+          <div class="quiz-resolution hidden">
+            <div class="resolution-title">🔍 Resolução Oficial Comentada</div>
+            <div class="resolution-content">
+              <strong>Resolução Passo a Passo:</strong><br>
+              1. O protocolo IPv4 utiliza exatamente 32 bits de endereçamento total.<br>
+              2. Com a máscara CIDR $/27$, a porção destinada à identificação da sub-rede é de 27 bits.<br>
+              3. Determinamos a quantidade de bits destinados aos hosts ($h$):<br>
+              $$h = 32 - 27 = 5 \text{ bits}$$
+              4. Calculamos o total de combinações binárias possíveis:<br>
+              $$2^h = 2^5 = 32 \text{ endereços}$$
+              5. Aplicamos a regra fundamental de redes que reserva o primeiro endereço (identificador de sub-rede) e o último endereço (difusão/broadcast):<br>
+              $$H_{\text{válidos}} = 2^h - 2 = 32 - 2 = 30 \text{ nós utilizáveis}$$
+              6. <em>Análise dos distratores:</em> O distrator A (32) é a clássica pegadinha que esquece de subtrair os dois IPs reservados; os distratores C (28) e D (26) derivam de erros aritméticos na potência de 2.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. REPETIÇÃO ESPAÇADA (STORAGE STRENGTH) -->
+      <section class="spaced-repetition">
+        <h2>Desafio de 48 Horas (Storage Strength)</h2>
+        <div class="spaced-prompt">
+          <div class="spaced-tag">🧠 Teste de Fixação e Evocação Tardia</div>
+          <p class="prompt-question"><strong>Em 48 horas: converta mentalmente o número binário 11011010 para a base hexadecimal agrupando em nibbles e verifique se o resultado corresponde a 0xDA. Em seguida, deduza quantos hosts válidos possui uma rede /29.</strong></p>
+          <p style="font-size:0.9rem; color:#666; margin-top:0.5rem;"><em>Dica da Ciência Cognitiva:</em> Praticar conversão de bases e cálculo de potências de 2 mentalmente constrói fluência numérica automática, economizando tempo precioso no vestibular do Inteli.</p>
+        </div>
+      </section>
+
+      <!-- 5. FONTE PRIMÁRIA -->
+      <footer class="lesson-footer">
+        <div class="source-citation">
+          <strong>📚 Fonte Primária e Referência Acadêmica:</strong><br>
+          <span>Processo Seletivo Inteli 2024; David A. Patterson &amp; John L. Hennessy, &quot;Computer Organization and Design: The Hardware/Software Interface&quot;, 6th Edition; Andrew S. Tanenbaum, &quot;Computer Networks&quot;, 5th Edition.</span>
+        </div>
+        <div class="footer-nav">
+          <a href="../MISSION.md">← Sumário da Missão</a>
+          <a href="../GLOSSARY.md">📖 Glossário Técnico</a>
+          <a href="#quiz">↑ Repetir Questões</a>
+        </div>
+      </footer>
+    </article>
+  </div>
+
+  <!-- Script Externo Oficial -->
+  <script src="../assets/quiz.js" defer></script>
+
+  <!-- Script Fallback Autônomo de Quiz (Zero Dependências) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const questions = document.querySelectorAll('.quiz-question');
+
+      questions.forEach((q) => {
+        const options = q.querySelectorAll('.quiz-option');
+        const feedbackBox = q.querySelector('.quiz-feedback');
+        const resolutionBox = q.querySelector('.quiz-resolution');
+
+        options.forEach(opt => {
+          opt.addEventListener('click', () => {
+            // Desativa botões da pergunta atual
+            options.forEach(b => {
+              b.disabled = true;
+              if (b.getAttribute('data-correct') === 'true') {
+                b.classList.add('correct');
+              }
+            });
+
+            const isCorrect = opt.getAttribute('data-correct') === 'true';
+            const feedbackText = opt.getAttribute('data-feedback');
+
+            if (!isCorrect) {
+              opt.classList.add('incorrect');
+              if (feedbackBox) {
+                feedbackBox.className = 'quiz-feedback danger';
+                feedbackBox.innerHTML = '<strong>❌ Incorreto.</strong> ' + feedbackText;
+                feedbackBox.classList.remove('hidden');
+              }
+            } else {
+              if (feedbackBox) {
+                feedbackBox.className = 'quiz-feedback success';
+                feedbackBox.innerHTML = '<strong>✅ Correto!</strong> ' + feedbackText;
+                feedbackBox.classList.remove('hidden');
+              }
+            }
+
+            // Exibe resolução passo a passo
+            if (resolutionBox) {
+              resolutionBox.classList.remove('hidden');
+            }
+
+            // Dispara evento para telemetria ou integração
+            document.dispatchEvent(new CustomEvent('quiz:answered', {
+              detail: {
+                questionId: q.getAttribute('data-question-id'),
+                isCorrect: isCorrect
+              }
+            }));
+          });
+        });
+      });
+      // Garante scroll horizontal responsivo para todas as tabelas
+      document.querySelectorAll('table').forEach(function(table) {
+        if (!table.parentElement.classList.contains('table-wrapper')) {
+          const wrapper = document.createElement('div');
+          wrapper.className = 'table-wrapper';
+          table.parentNode.insertBefore(wrapper, table);
+          wrapper.appendChild(table);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

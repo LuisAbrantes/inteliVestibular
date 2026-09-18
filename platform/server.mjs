@@ -567,15 +567,29 @@ export async function handleRequest(req, res) {
   // GET /api/docs-catalog
   if (pathname === '/api/docs-catalog' && method === 'GET') {
     const docs = [
-      { id: 'edital-vestibular', title: 'Edital do Vestibular & Regras Oficiais', file: 'docs/edital-vestibular.md', category: 'Vestibular' },
-      { id: 'edital-bolsa', title: 'Edital de Bolsas Integrais & Auxílios', file: 'docs/edital-bolsa.md', category: 'Bolsas' },
+      { id: 'trilha-inteligente', title: 'Trilha Inteligente Oficial Inteli 2027 (Muse-spark 1.3)', file: 'docs/trilha-inteligente-2027.md', category: 'Trilha Oficial' },
+      { id: 'edital-vestibular', title: 'Edital do Vestibular Inteli 2027 & Regras Oficiais', file: 'docs/edital-vestibular.md', category: 'Vestibular' },
+      { id: 'edital-bolsa', title: 'Edital do Programa de Bolsas Inteli 2027 & Auxílios', file: 'docs/edital-bolsa.md', category: 'Bolsas' },
+      { id: 'mapeamento-questoes', title: 'Mapeamento Exaustivo das 148 Questões Anteriores', file: 'docs/mapeamento-completo-questoes.md', category: 'Provas' },
       { id: 'analise-conteudos-provas', title: 'Análise Estatística de Provas Anteriores', file: 'docs/analise-conteudos-provas.md', category: 'Provas' },
-      { id: 'guia-preparacao', title: 'Guia Estratégico do Candidato (8 Semanas)', file: 'docs/guia-preparacao.md', category: 'Estratégia' },
-      { id: 'mission', title: 'Missão do Candidato (Framework Matt Pocock)', file: 'MISSION.md', category: 'Pedagogia' },
-      { id: 'glossary', title: 'Glossário Canônico Inteli', file: 'GLOSSARY.md', category: 'Pedagogia' },
-      { id: 'agent-guide', title: 'Manual do Agente Especialista Inteli', file: 'AGENT.md', category: 'Agente OMP' }
+      { id: 'guia-preparacao', title: 'Guia Estratégico do Candidato 2027 (8 Semanas)', file: 'docs/guia-preparacao.md', category: 'Estratégia' },
+      { id: 'mission', title: 'Missão do Candidato 2027 (Framework Matt Pocock)', file: 'MISSION.md', category: 'Pedagogia' },
+      { id: 'glossary', title: 'Glossário Canônico Inteli 2027', file: 'GLOSSARY.md', category: 'Pedagogia' },
+      { id: 'agent-guide', title: 'Manual do Agente Especialista Inteli 2027', file: 'AGENT.md', category: 'Agente OMP' }
     ];
     sendJson(res, 200, { success: true, docs });
+    return;
+  }
+
+  // GET /api/trilha-inteligente
+  if (pathname === '/api/trilha-inteligente' && method === 'GET') {
+    const trilhaFile = path.join(REPO_ROOT, 'src', 'lessons', 'trilha-inteligente.json');
+    if (fs.existsSync(trilhaFile)) {
+      const data = JSON.parse(fs.readFileSync(trilhaFile, 'utf8'));
+      sendJson(res, 200, { success: true, trilha: data });
+    } else {
+      sendError(res, 404, 'Trilha inteligente não encontrada');
+    }
     return;
   }
 
