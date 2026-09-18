@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lição 0009: Pensamento Computacional: Rastreamento de Loops, Busca Binária e Gauss | Inteli Vestibular</title>
+  
+  <!-- Estilos Externos Oficiais -->
+  <link rel="stylesheet" href="../assets/lesson.css">
+  
+  <!-- Estilos Integrados Fallback (Garante renderização Tufte standalone impecável) -->
+  <style>
+    :root {
+      --bg-color: #fffff8;
+      --text-color: #111111;
+      --accent-color: #8b0000;
+      --accent-secondary: #0a4b78;
+      --card-bg: #f8f8f2;
+      --border-color: #e5e5dc;
+      --sidenote-color: #555555;
+      --success-color: #1e7e34;
+      --error-color: #b21f2d;
+      --font-serif: "Charter", "Bitstream Charter", "Sitka Text", "Cambria", serif;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: "Fira Code", Menlo, Monaco, Consolas, monospace;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      line-height: 1.65;
+      margin: 0;
+      padding: 2rem 1rem;
+      text-rendering: optimizeLegibility;
+    }
+
+    .lesson-container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      position: relative;
+    }
+
+    .lesson-header {
+      border-bottom: 2px solid var(--text-color);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .lesson-badge {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background-color: var(--accent-color);
+      color: #ffffff;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: 0.75rem;
+    }
+
+    .lesson-title {
+      font-size: 2.2rem;
+      line-height: 1.2;
+      font-weight: normal;
+      margin: 0.5rem 0 1rem 0;
+      color: var(--text-color);
+    }
+
+    .lesson-meta {
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      color: var(--sidenote-color);
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .lesson-meta a {
+      color: var(--accent-secondary);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--accent-secondary);
+    }
+
+    .lesson-meta a:hover {
+      border-bottom-style: solid;
+    }
+
+    section {
+      margin-bottom: 3.5rem;
+    }
+
+    h2 {
+      font-family: var(--font-sans);
+      font-size: 1.4rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--accent-color);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.4rem;
+      margin-top: 2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .scenario-box {
+      background-color: var(--card-bg);
+      border-left: 4px solid var(--accent-secondary);
+      padding: 1.5rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0;
+    }
+
+    .scenario-tag {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: var(--accent-secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .concept-item {
+      margin-bottom: 2rem;
+    }
+
+    .concept-term {
+      font-family: var(--font-sans);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-color);
+      margin-bottom: 0.4rem;
+    }
+
+    aside.sidenote {
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      line-height: 1.45;
+      color: var(--sidenote-color);
+      background: #f0f4f8;
+      border-left: 3px solid var(--accent-secondary);
+      padding: 0.6rem 0.9rem;
+      margin: 0.8rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .formula-card {
+      background: #fafaf5;
+      border: 1px solid #dcdcd0;
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    }
+
+    .formula-card-title {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: bold;
+      color: var(--accent-color);
+      margin-bottom: 0.8rem;
+    }
+
+    .formula-row {
+      margin-bottom: 0.6rem;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+    }
+
+    .formula-math {
+      font-family: var(--font-mono);
+      background: #eef2f5;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-weight: bold;
+      color: #0b3d60;
+      display: inline-block;
+      margin-left: 0.3rem;
+    }
+
+    .formula-tip {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      color: #555;
+      margin-top: 0.8rem;
+      border-top: 1px dashed #d5d5c8;
+      padding-top: 0.5rem;
+      font-style: italic;
+    }
+
+    .callout-trap {
+      background-color: #fdf2f2;
+      border: 1px solid #f5c6cb;
+      border-left: 5px solid var(--error-color);
+      border-radius: 4px;
+      padding: 1.2rem;
+      margin: 1.8rem 0;
+    }
+
+    .callout-trap h4 {
+      font-family: var(--font-sans);
+      color: var(--error-color);
+      margin: 0 0 0.4rem 0;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .quiz-question {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+
+    .question-header {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: bold;
+      color: var(--accent-secondary);
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+
+    .question-stem {
+      font-size: 1.15rem;
+      line-height: 1.5;
+      margin-bottom: 1.2rem;
+      font-weight: 500;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .quiz-option {
+      background: #fafaf8;
+      border: 1px solid #d0d0c8;
+      border-radius: 6px;
+      padding: 0.85rem 1rem;
+      text-align: left;
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      line-height: 1.4;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      transition: all 0.15s ease-in-out;
+      color: var(--text-color);
+    }
+
+    .quiz-option:hover:not(:disabled) {
+      background: #f0f0e8;
+      border-color: #999;
+      transform: translateX(3px);
+    }
+
+    .option-label {
+      font-family: var(--font-sans);
+      font-weight: bold;
+      background: #e2e2da;
+      color: #333;
+      padding: 0.1rem 0.45rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .quiz-option.correct {
+      background-color: #e8f5e9 !important;
+      border-color: var(--success-color) !important;
+      color: #145a24 !important;
+    }
+
+    .quiz-option.correct .option-label {
+      background-color: var(--success-color);
+      color: #fff;
+    }
+
+    .quiz-option.incorrect {
+      background-color: #ffebee !important;
+      border-color: var(--error-color) !important;
+      color: #721c24 !important;
+      opacity: 0.85;
+    }
+
+    .quiz-option.incorrect .option-label {
+      background-color: var(--error-color);
+      color: #fff;
+    }
+
+    .quiz-feedback {
+      margin-top: 1rem;
+      padding: 0.8rem 1rem;
+      border-radius: 6px;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+
+    .quiz-feedback.success {
+      background-color: #e8f5e9;
+      color: #145a24;
+      border-left: 4px solid var(--success-color);
+    }
+
+    .quiz-feedback.danger {
+      background-color: #ffebee;
+      color: #721c24;
+      border-left: 4px solid var(--error-color);
+    }
+
+    .quiz-resolution {
+      margin-top: 1.2rem;
+      background-color: #f8f9fa;
+      border: 1px solid #e9ecef;
+      border-radius: 6px;
+      padding: 1.2rem;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .resolution-title {
+      font-weight: bold;
+      color: var(--accent-secondary);
+      margin-bottom: 0.6rem;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .spaced-prompt {
+      background: #fbfbf6;
+      border: 2px dashed #b5b5a0;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .spaced-tag {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: var(--accent-color);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .lesson-footer {
+      border-top: 1px solid var(--border-color);
+      padding-top: 1.5rem;
+      margin-top: 4rem;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      color: var(--sidenote-color);
+    }
+
+    .source-citation {
+      margin-bottom: 1rem;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .footer-nav a {
+      color: var(--accent-secondary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer-nav a:hover {
+      text-decoration: underline;
+    }
+
+    @media (min-width: 1024px) {
+      .lesson-container {
+        padding-right: 180px;
+      }
+      aside.sidenote {
+        position: absolute;
+        right: 10px;
+        width: 150px;
+        margin-top: -1.5rem;
+        background: transparent;
+        border-left: 2px solid var(--accent-secondary);
+        padding-left: 0.6rem;
+        font-size: 0.82rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="lesson-container">
+    <article class="lesson">
+      <header class="lesson-header">
+        <span class="lesson-badge">Lição 0009</span>
+        <h1 class="lesson-title">Pensamento Computacional: Rastreamento de Loops, Busca Binária e Gauss</h1>
+        <div class="lesson-meta">
+          <span class="meta-time">⏱️ Tempo Estimado: 8 min</span>
+          <span>•</span>
+          <span class="meta-topic">🎯 Eixo: Pensamento Computacional e Algoritmos</span>
+          <span>•</span>
+          <span class="meta-track">📈 Trilha Superior e Mediana</span>
+        </div>
+        <div class="lesson-meta" style="margin-top: 0.5rem;">
+          <a href="../MISSION.md">← Voltar para a Missão</a>
+          <span>•</span>
+          <a href="../GLOSSARY.md">📖 Glossário de Conceitos</a>
+        </div>
+      </header>
+
+      <!-- 1. CENÁRIO CONTEXTUAL INTELI -->
+      <section class="scenario">
+        <h2>Cenário Real Inteli</h2>
+        <div class="scenario-box">
+          <div class="scenario-tag">🏢 LogStream (Motor de Busca de Logs em Alta Escala) | Otimização de Índices e Pior Caso em Arquivos de 500k Registros</div>
+          <p>A <strong>LogStream</strong> processa registros de auditoria ordenados cronologicamente.
+      Em uma atualização crítica de arquitetura, o time substituiu um mecanismo de busca linear por <strong>Busca Binária</strong> em uma base com <strong>N = 524.288 registros ordenados</strong> sem duplicatas.
+      Paralelamente, para ordenar lotes de auditoria em memória, uma rotina legada de <em>Selection Sort</em> executa comparações sucessivas entre elementos para posicionar o menor item a cada passagem.
+      A diretoria técnica solicitou a comprovação matemática do número exato de comparações no pior caso de cada algoritmo.</p>
+        </div>
+      </section>
+
+      <!-- 2. NÚCLEO CONCEITUAL -->
+      <section class="core-knowledge">
+        <h2>Núcleo Conceitual</h2>
+        <p class="lead-summary">O vestibular do Inteli não exige saber sintaxe de Python ou Java, mas exige saber <strong>rastrear a lógica de execução passo a passo</strong>: identificar quantas vezes um laço de repetição (for/while) itera e somar progressões aritméticas ou geométricas.</p>
+        
+        <div class="concepts-list">
+          
+    <div class="concept-item">
+      <h3 class="concept-term">Busca Binária e Escala Logarítmica</h3>
+      <p class="concept-def">A cada comparação no meio da lista ordenada, metade dos elementos é descartada. O número de divisões necessárias para reduzir N a 1 elemento no pior caso é dado por <code>k = &lceil;log₂(N)&rceil;</code>.</p>
+      <aside class="sidenote"><strong>Nota lateral:</strong> Lembre-se das potências de 2: 2¹⁰ = 1.024, 2¹⁹ = 524.288, 2²⁰ &approx; 1 milhão.</aside>
+    </div>
+  
+
+    <div class="concept-item">
+      <h3 class="concept-term">Soma de Gauss em Laços Aninhados</h3>
+      <p class="concept-def">Algoritmos de ordenação por comparação simples (como Selection Sort) realizam (N-1) comparações na 1ª passagem, (N-2) na 2ª, ..., até 1 comparação na última, totalizando uma Progressão Aritmética.</p>
+      <aside class="sidenote"><strong>Nota lateral:</strong> Soma da PA: S_n = [n &times; (n + 1)] / 2. Isso gera complexidade quadrática O(N²).</aside>
+    </div>
+  
+        </div>
+
+        <div class="formula-card">
+          <div class="formula-card-title">📌 Fórmulas Computacionais Essenciais</div>
+          
+    <div class="formula-row">
+      <span class="formula-name">Pior caso da Busca Binária:</span>
+      <code class="formula-math">p_b = log₂(N)</code>
+    </div>
+  
+
+    <div class="formula-row">
+      <span class="formula-name">Soma de Gauss (1 a n):</span>
+      <code class="formula-math">S_n = n(n + 1) / 2</code>
+    </div>
+  
+
+    <div class="formula-row">
+      <span class="formula-name">Potência Binária Chave:</span>
+      <code class="formula-math">2¹⁰ = 1.024; 2¹⁹ = 524.288; 2²⁰ = 1.048.576</code>
+    </div>
+  
+          <div class="formula-tip">💡 <strong>Dica de Ouro:</strong> Se N = 524.288, não tente dividir por 2 repetidamente no rascunho: fatore usando potências conhecidas: 524.288 = 1.024 &times; 512 = 2¹⁰ &times; 2⁹ = 2¹⁹.</div>
+        </div>
+
+        
+        <div class="callout callout-trap">
+          <h4>⚠️ Armadilha do &quot;Off-by-One&quot; em Laços</h4>
+          <p>Contar o número de comparações esquecendo se o loop vai de 1 até n-1 ou de 1 até n. Para 10 elementos, o Selection Sort faz 9 + 8 + ... + 1 = 45 comparações, e não 10 + 9 + ... + 1 = 55.</p>
+        </div>
+      </section>
+
+      <!-- 3. PRÁTICA DE RECUPERAÇÃO ATIVA (QUIZ) -->
+      <section class="retrieval-quiz" id="quiz">
+        <h2>Prática de Recuperação Ativa (Retrieval Practice)</h2>
+        <p class="quiz-intro">Responda às questões abaixo sem consultar materiais. O feedback é instantâneo e calibrado com os distratores da banca Inteli.</p>
+        
+      <div class="quiz-question" data-question-id="q1">
+        <div class="question-header">
+          <span class="question-number">Questão 1 de 2</span>
+        </div>
+        <p class="question-stem">(Vestibular Inteli 2022.1 - Questão 03) Uma empresa de telecomunicações atualizou seu algoritmo de busca em um banco de dados ordenado alfabeticamente contendo exatamente N = 524.288 usuários. Em vez de busca sequencial, o novo sistema emprega busca binária, dividindo a base pela metade a cada etapa. Quantas comparações, no máximo (pior caso), esse algoritmo realizará para localizar um usuário ou concluir que ele não existe no banco?</p>
+        <div class="quiz-options">
+          
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="262.144 é apenas N/2 (o pior caso da busca sequencial na média), desconsiderando a divisão sucessiva da busca binária.">
+        <span class="option-label">A</span>
+        <span class="option-text">262.144 comparações</span>
+      </button>
+    
+
+      <button class="quiz-option" type="button" data-correct="true" data-feedback="Perfeito! Pior caso = log₂(524.288). Como 524.288 = 1.024 &amp;times; 512 = 2¹⁰ &amp;times; 2⁹ = 2¹⁹, log₂(2¹⁹) = 19 processos de busca.">
+        <span class="option-label">B</span>
+        <span class="option-text">19 comparações</span>
+      </button>
+    
+
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="10 comparações seria log₂(1.024), suficiente para apenas 1.024 registros.">
+        <span class="option-label">C</span>
+        <span class="option-text">10 comparações</span>
+      </button>
+    
+
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="524 é uma aproximação visual incorreta dos primeiros dígitos do número 524.288.">
+        <span class="option-label">D</span>
+        <span class="option-text">524 comparações</span>
+      </button>
+    
+        </div>
+        <div class="quiz-feedback hidden"></div>
+        <div class="quiz-resolution hidden">
+          <div class="resolution-title">🔍 Resolução Oficial Comentada</div>
+          <div class="resolution-content"><strong>Resolução Passo a Passo:</strong><br>
+        1. A fórmula do número de passos da busca binária no pior caso é <code>p_b = log₂(N)</code>.<br>
+        2. Temos <code>N = 524.288</code>.<br>
+        3. Decompomos em potências conhecidas de 2:<br>
+           <code>2¹⁰ = 1.024</code><br>
+           <code>2¹⁹ = 2¹⁰ &times; 2⁹ = 1.024 &times; 512 = 524.288</code>.<br>
+        4. Portanto, <code>p_b = log₂(2¹⁹) = 19</code>.<br>
+        5. No pior cenário possível, são necessárias apenas <strong>19 comparações</strong> para encontrar qualquer registro entre mais de meio milhão de usuários.</div>
+        </div>
+      </div>
+    
+
+      <div class="quiz-question" data-question-id="q2">
+        <div class="question-header">
+          <span class="question-number">Questão 2 de 2</span>
+        </div>
+        <p class="question-stem">(Vestibular Inteli 2023 - Questão 17) Para ordenar um array desordenado contendo n = 10 elementos distintos através do algoritmo Selection Sort, o programa compara o 1º elemento com os outros 9 para selecionar o menor (9 comparações). Em seguida, compara o 2º com os outros 8 (8 comparações), e assim por diante até restar 1 elemento (1 comparação). Qual é o número total de operações de comparação realizadas?</p>
+        <div class="quiz-options">
+          
+      <button class="quiz-option" type="button" data-correct="true" data-feedback="Correto! A soma é 9 + 8 + 7 + ... + 1 = (9 &amp;times; 10) / 2 = 45 operações.">
+        <span class="option-label">A</span>
+        <span class="option-text">45 comparações</span>
+      </button>
+    
+
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="55 é a soma de 10 até 1 (10 &amp;times; 11 / 2). O Selection Sort para 10 elementos não compara um elemento consigo mesmo na primeira passagem, fazendo 9 comparações iniciais.">
+        <span class="option-label">B</span>
+        <span class="option-text">55 comparações</span>
+      </button>
+    
+
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="90 comparações corresponderia a n &amp;times; (n - 1), caso comparasse todos os pares em ambas as direções.">
+        <span class="option-label">C</span>
+        <span class="option-text">90 comparações</span>
+      </button>
+    
+
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="100 comparações seria n² simples, sem aproveitar que os elementos anteriores já foram ordenados e fixados.">
+        <span class="option-label">D</span>
+        <span class="option-text">100 comparações</span>
+      </button>
+    
+        </div>
+        <div class="quiz-feedback hidden"></div>
+        <div class="quiz-resolution hidden">
+          <div class="resolution-title">🔍 Resolução Oficial Comentada</div>
+          <div class="resolution-content"><strong>Resolução Passo a Passo:</strong><br>
+        1. O número de operações de comparação é a sequência decrescente: <code>9 + 8 + 7 + 6 + 5 + 4 + 3 + 2 + 1</code>.<br>
+        2. Trata-se de uma Progressão Aritmética de 9 termos com primeiro termo 1 e último termo 9.<br>
+        3. Pela fórmula de Gauss: <code>S = (n &times; (n + 1)) / 2</code> onde <code>n = 9</code>.<br>
+        4. <code>S = (9 &times; 10) / 2 = 90 / 2 = 45</code> comparações.</div>
+        </div>
+      </div>
+    
+      </section>
+
+      <!-- 4. REPETIÇÃO ESPAÇADA (STORAGE STRENGTH) -->
+      <section class="spaced-repetition">
+        <h2>Desafio de 48 Horas (Storage Strength)</h2>
+        <div class="spaced-prompt">
+          <div class="spaced-tag">🧠 Teste de Fixação e Evocação Tardia</div>
+          <p class="prompt-question"><strong>Em 48 horas, sem calculadora: determine mentalmente quantas comparações uma busca binária precisa realizar no pior caso para vasculhar um índice contendo exatamente 1 milhão de itens. (Dica: pense na potência de 2 mais próxima de 1.000.000).</strong></p>
+          <p style="font-size:0.9rem; color:#666; margin-top:0.5rem;"><em>Dica da Ciência Cognitiva:</em> Responder a esta pergunta mentalmente após 2 dias consolida o aprendizado na memória de longo prazo (efeito de recuperação espaçada de Bjork).</p>
+        </div>
+      </section>
+
+      <!-- 5. FONTE PRIMÁRIA -->
+      <footer class="lesson-footer">
+        <div class="source-citation">
+          <strong>📚 Fonte Primária e Referência Acadêmica:</strong><br>
+          <span>Processo Seletivo Inteli 2022.1 (Questão 03) e 2023 (Questão 17); Thomas Cormen et al., &quot;Introduction to Algorithms (CLRS)&quot;, 4th Edition (Capítulo 2: Getting Started).</span>
+        </div>
+        <div class="footer-nav">
+          <a href="../MISSION.md">← Sumário da Missão</a>
+          <a href="../GLOSSARY.md">📖 Glossário Técnico</a>
+          <a href="#quiz">↑ Repetir Questões</a>
+        </div>
+      </footer>
+    </article>
+  </div>
+
+  <!-- Script Externo Oficial -->
+  <script src="../assets/quiz.js" defer></script>
+
+  <!-- Script Fallback Autônomo de Quiz (Zero Dependências) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const questions = document.querySelectorAll('.quiz-question');
+
+      questions.forEach((q) => {
+        const options = q.querySelectorAll('.quiz-option');
+        const feedbackBox = q.querySelector('.quiz-feedback');
+        const resolutionBox = q.querySelector('.quiz-resolution');
+
+        options.forEach(opt => {
+          opt.addEventListener('click', () => {
+            // Desativa botões da pergunta atual
+            options.forEach(b => {
+              b.disabled = true;
+              if (b.getAttribute('data-correct') === 'true') {
+                b.classList.add('correct');
+              }
+            });
+
+            const isCorrect = opt.getAttribute('data-correct') === 'true';
+            const feedbackText = opt.getAttribute('data-feedback');
+
+            if (!isCorrect) {
+              opt.classList.add('incorrect');
+              if (feedbackBox) {
+                feedbackBox.className = 'quiz-feedback danger';
+                feedbackBox.innerHTML = '<strong>❌ Incorreto.</strong> ' + feedbackText;
+                feedbackBox.classList.remove('hidden');
+              }
+            } else {
+              if (feedbackBox) {
+                feedbackBox.className = 'quiz-feedback success';
+                feedbackBox.innerHTML = '<strong>✅ Correto!</strong> ' + feedbackText;
+                feedbackBox.classList.remove('hidden');
+              }
+            }
+
+            // Exibe resolução passo a passo
+            if (resolutionBox) {
+              resolutionBox.classList.remove('hidden');
+            }
+
+            // Dispara evento para telemetria ou integração
+            document.dispatchEvent(new CustomEvent('quiz:answered', {
+              detail: {
+                questionId: q.getAttribute('data-question-id'),
+                isCorrect: isCorrect
+              }
+            }));
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

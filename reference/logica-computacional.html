@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Referência Lógica Computacional - Vestibular Inteli</title>
+  <link rel="stylesheet" href="../assets/lesson.css">
+</head>
+<body>
+  <div class="container">
+    <div class="lesson-meta">Documento de Referência Rápida • Vestibular Inteli • Trilha Superior</div>
+    <h1>Lógica Formal, Computacional & Algoritmos</h1>
+
+    <p>Resumo operacional de conectivos proposicionais, álgebra booleana, máscaras de bits, rastreamento de laços e heurísticas de dedução para questões de cyber security no Vestibular Inteli.</p>
+
+    <aside class="sidenote">
+      <strong>Heurística de Teste de Mesa:</strong> Em questões com fluxogramas ou loops, monte uma tabela de 3 colunas: Iteração, Estado das Variáveis e Condição de Parada. Nunca calcule de cabeça.
+    </aside>
+
+    <!-- SEÇÃO 1: CONECTIVOS E TABELA-VERDADE -->
+    <h2>1. Conectivos Lógicos e Tabela-Verdade Mestre</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>$P$</th>
+          <th>$Q$</th>
+          <th>$\neg P$ (NÃO)</th>
+          <th>$P \wedge Q$ (E)</th>
+          <th>$P \vee Q$ (OU)</th>
+          <th>$P \oplus Q$ (XOR)</th>
+          <th>$P \to Q$ (SE... ENTÃO)</th>
+          <th>$P \leftrightarrow Q$ (SE E SOMENTE SE)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>V</td><td>V</td><td>F</td><td><strong>V</strong></td><td>V</td><td>F</td><td><strong>V</strong></td><td><strong>V</strong></td></tr>
+        <tr><td>V</td><td>F</td><td>F</td><td>F</td><td>V</td><td><strong>V</strong></td><td><strong>F</strong> (Falso!)</td><td>F</td></tr>
+        <tr><td>F</td><td>V</td><td>V</td><td>F</td><td>V</td><td><strong>V</strong></td><td><strong>V</strong> (Vacuamente V)</td><td>F</td></tr>
+        <tr><td>F</td><td>F</td><td>V</td><td>F</td><td>F</td><td>F</td><td><strong>V</strong> (Vacuamente V)</td><td><strong>V</strong></td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout-trap">
+      <strong>Cuidado com a Condicional ($P \to Q$):</strong> A condicional SÓ é falsa quando a premissa é Verdadeira e a conclusão é Falsa ($V \to F$). Se a premissa $P$ for Falsa, a implicação é automaticamente <strong>VERDADEIRA</strong> ("Vera Fischer é Falsa").
+    </div>
+
+    <!-- SEÇÃO 2: EQUIVALÊNCIAS E DE MORGAN -->
+    <h2>2. Equivalências Fundamentais & Leis de De Morgan</h2>
+
+    <div class="formula-card">
+      <h3>Transformação da Condicional</h3>
+      <div class="math-block">P \to Q \equiv \neg P \vee Q \quad\text{(Equivalência da Disjunção)}</div>
+      <div class="math-block">P \to Q \equiv \neg Q \to \neg P \quad\text{(Contrapositiva - Mesma Tabela Verdade!)}</div>
+      <div class="math-block">\neg(P \to Q) \equiv P \wedge \neg Q \quad\text{(Negação: mantém a primeira E nega a segunda)}</div>
+    </div>
+
+    <div class="formula-card">
+      <h3>Leis de De Morgan (Álgebra de Circuitos e Filtros)</h3>
+      <div class="math-block">\neg(P \wedge Q) \equiv \neg P \vee \neg Q \quad\text{(Negação do 'E' vira 'OU')}</div>
+      <div class="math-block">\neg(P \vee Q) \equiv \neg P \wedge \neg Q \quad\text{(Negação do 'OU' vira 'E')}</div>
+      <p><em>Exemplo em Código:</em> `!(auth && hasAccess)` equivale a `!auth || !hasAccess`.</p>
+    </div>
+
+    <!-- SEÇÃO 3: OPERAÇÕES BITWISE E MÁSCARAS -->
+    <h2>3. Aritmética Binária & Operadores Bitwise</h2>
+
+    <div class="formula-card">
+      <h3>Operadores Bit a Bit (C, Python, JavaScript)</h3>
+      <ul>
+        <li><code>AND (&amp;)</code>: <code>1 &amp; 1 = 1</code>, qualquer outro caso é <code>0</code> (extração e filtros de máscara).</li>
+        <li><code>OR (|)</code>: <code>0 | 0 = 0</code>, qualquer <code>1</code> resulta em <code>1</code> (ativação de flags de permissão).</li>
+        <li><code>XOR (^)</code>: <code>1 ^ 0 = 1</code>, bits iguais resultam em <code>0</code> (criptografia simétrica e paridade).</li>
+        <li><code>Deslocamento à Esquerda (x &lt;&lt; k)</code>: Multiplica $x$ por $2^k$ (ex.: <code>5 &lt;&lt; 2 = 5 * 4 = 20</code>).</li>
+        <li><code>Deslocamento à Direita (x &gt;&gt; k)</code>: Divisão inteira por $2^k$ (ex.: <code>40 &gt;&gt; 3 = 40 // 8 = 5</code>).</li>
+      </ul>
+    </div>
+
+    <div class="formula-card">
+      <h3>Conversão Rápida Hexadecimal $\leftrightarrow$ Binário</h3>
+      <table>
+        <thead><tr><th>Hex</th><th>Bin</th><th>Dec</th><th>Hex</th><th>Bin</th><th>Dec</th></tr></thead>
+        <tbody>
+          <tr><td>0x0 .. 0x3</td><td>0000 .. 0011</td><td>0 .. 3</td><td>0x8 .. 0xB</td><td>1000 .. 1011</td><td>8 .. 11</td></tr>
+          <tr><td>0x4 .. 0x7</td><td>0100 .. 0111</td><td>4 .. 7</td><td>0xC .. 0xF</td><td>1100 .. 1111</td><td>12 .. 15</td></tr>
+        </tbody>
+      </table>
+      <p><em>Heurística:</em> Cada dígito hexadecimal decompõe-se exatamente em um bloco de 4 bits (nibble). Exemplo: <code>0x2F = 0010 1111</code>.</p>
+    </div>
+
+    <!-- SEÇÃO 4: RASTREAMENTO DE LOOPS E ALGORITMOS -->
+    <h2>4. Rastreamento de Pseudocódigo e Invariantes de Laço</h2>
+
+    <div class="formula-card">
+      <h3>Somatórios em Algoritmos Quadráticos ($O(n^2)$)</h3>
+      <p>Em algoritmos de ordenação por seleção (Selection Sort com vetor de tamanho $N$), o número total de comparações é a soma dos primeiros inteiros:</p>
+      <div class="math-block">S = (N - 1) + (N - 2) + \dots + 2 + 1 = \frac{N(N - 1)}{2}</div>
+      <p>Para $N = 10$ elementos: $S = \frac{10 \cdot 9}{2} = 45$ comparações.</p>
+    </div>
+
+    <!-- SEÇÃO 5: HEURÍSTICA FORENSE -->
+    <h2>5. Heurística para Quebra-Cabeças de Segurança & Verdade/Mentira</h2>
+
+    <div class="callout">
+      <strong>Algoritmo Mental de 3 Passos para Problemas de Suspeitos:</strong>
+      <ol>
+        <li><strong>Identifique Contradições Diretas:</strong> Se o suspeito A diz "O hacker foi C" e o suspeito B diz "O hacker NÃO foi C", exatamente um dos dois fala a verdade e o outro mente.</li>
+        <li><strong>Fixe a Hipótese do Culpado:</strong> Em vez de testar quem mente, teste diretamente quem é o culpado. Se apenas 1 pessoa diz a verdade, assuma cada suspeito sucessivamente e conte quantas afirmações tornam-se verdadeiras.</li>
+        <li><strong>Bifurcação Única:</strong> A hipótese que gerar rigorosamente o número de verdades estipulado no enunciado é a solução única do item.</li>
+      </ol>
+    </div>
+  </div>
+</body>
+</html>

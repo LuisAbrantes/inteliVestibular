@@ -1,0 +1,34 @@
+{
+  "name": "inteli-vestibular-harness",
+  "version": "1.0.0",
+  "description": "Harness completo de estudos e simulados para o Vestibular e Programa de Bolsas Inteli",
+  "type": "module",
+  "main": "bin/inteli.mjs",
+  "bin": {
+    "inteli": "./bin/inteli.mjs",
+    "serve-platform": "./bin/serve-platform.mjs",
+    "generate-lesson": "./bin/generate-lesson.mjs",
+    "eval-lesson": "./bin/eval-lesson.mjs"
+  },
+  "scripts": {
+    "start": "node bin/serve-platform.mjs",
+    "sim": "node bin/serve-platform.mjs",
+    "test": "node bin/serve-platform.mjs --test && node bin/eval-lesson.mjs --all",
+    "eval": "node bin/eval-lesson.mjs --all",
+    "lesson": "node bin/generate-lesson.mjs",
+    "inteli": "node bin/inteli.mjs",
+    "status": "node bin/inteli.mjs status"
+  },
+  "keywords": [
+    "inteli",
+    "vestibular",
+    "bolsa-de-estudos",
+    "simulados",
+    "matematica",
+    "logica",
+    "tufte",
+    "pedagogical-evals"
+  ],
+  "author": "Luis Abrantes",
+  "license": "MIT"
+}

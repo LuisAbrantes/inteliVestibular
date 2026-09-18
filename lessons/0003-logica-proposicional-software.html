@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lição 0003: Lógica Proposicional: Implicação, Tabela-Verdade e Auditoria de Software | Inteli Vestibular</title>
+  
+  <!-- Estilos Externos Oficiais -->
+  <link rel="stylesheet" href="../assets/lesson.css">
+  
+  <!-- Estilos Integrados Fallback (Garante renderização Tufte standalone impecável) -->
+  <style>
+    :root {
+      --bg-color: #fffff8;
+      --text-color: #111111;
+      --accent-color: #8b0000;
+      --accent-secondary: #0a4b78;
+      --card-bg: #f8f8f2;
+      --border-color: #e5e5dc;
+      --sidenote-color: #555555;
+      --success-color: #1e7e34;
+      --error-color: #b21f2d;
+      --font-serif: "Charter", "Bitstream Charter", "Sitka Text", "Cambria", serif;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: "Fira Code", Menlo, Monaco, Consolas, monospace;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      line-height: 1.65;
+      margin: 0;
+      padding: 2rem 1rem;
+      text-rendering: optimizeLegibility;
+    }
+
+    .lesson-container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      position: relative;
+    }
+
+    .lesson-header {
+      border-bottom: 2px solid var(--text-color);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .lesson-badge {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background-color: var(--accent-color);
+      color: #ffffff;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: 0.75rem;
+    }
+
+    .lesson-title {
+      font-size: 2.2rem;
+      line-height: 1.2;
+      font-weight: normal;
+      margin: 0.5rem 0 1rem 0;
+      color: var(--text-color);
+    }
+
+    .lesson-meta {
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      color: var(--sidenote-color);
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .lesson-meta a {
+      color: var(--accent-secondary);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--accent-secondary);
+    }
+
+    .lesson-meta a:hover {
+      border-bottom-style: solid;
+    }
+
+    section {
+      margin-bottom: 3.5rem;
+    }
+
+    h2 {
+      font-family: var(--font-sans);
+      font-size: 1.4rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--accent-color);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.4rem;
+      margin-top: 2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .scenario-box {
+      background-color: var(--card-bg);
+      border-left: 4px solid var(--accent-secondary);
+      padding: 1.5rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0;
+    }
+
+    .scenario-tag {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: var(--accent-secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .concept-item {
+      margin-bottom: 2rem;
+    }
+
+    .concept-term {
+      font-family: var(--font-sans);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-color);
+      margin-bottom: 0.4rem;
+    }
+
+    aside.sidenote {
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      line-height: 1.45;
+      color: var(--sidenote-color);
+      background: #f0f4f8;
+      border-left: 3px solid var(--accent-secondary);
+      padding: 0.6rem 0.9rem;
+      margin: 0.8rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .formula-card {
+      background: #fafaf5;
+      border: 1px solid #dcdcd0;
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    }
+
+    .formula-card-title {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: bold;
+      color: var(--accent-color);
+      margin-bottom: 0.8rem;
+    }
+
+    .formula-row {
+      margin-bottom: 0.6rem;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+    }
+
+    .formula-math {
+      font-family: var(--font-mono);
+      background: #eef2f5;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-weight: bold;
+      color: #0b3d60;
+      display: inline-block;
+      margin-left: 0.3rem;
+    }
+
+    .formula-tip {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      color: #555;
+      margin-top: 0.8rem;
+      border-top: 1px dashed #d5d5c8;
+      padding-top: 0.5rem;
+      font-style: italic;
+    }
+
+    .callout-trap {
+      background-color: #fdf2f2;
+      border: 1px solid #f5c6cb;
+      border-left: 5px solid var(--error-color);
+      border-radius: 4px;
+      padding: 1.2rem;
+      margin: 1.8rem 0;
+    }
+
+    .callout-trap h4 {
+      font-family: var(--font-sans);
+      color: var(--error-color);
+      margin: 0 0 0.4rem 0;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .quiz-question {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+
+    .question-header {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: bold;
+      color: var(--accent-secondary);
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+
+    .question-stem {
+      font-size: 1.15rem;
+      line-height: 1.5;
+      margin-bottom: 1.2rem;
+      font-weight: 500;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .quiz-option {
+      background: #fafaf8;
+      border: 1px solid #d0d0c8;
+      border-radius: 6px;
+      padding: 0.85rem 1rem;
+      text-align: left;
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      line-height: 1.4;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      transition: all 0.15s ease-in-out;
+      color: var(--text-color);
+    }
+
+    .quiz-option:hover:not(:disabled) {
+      background: #f0f0e8;
+      border-color: #999;
+      transform: translateX(3px);
+    }
+
+    .option-label {
+      font-family: var(--font-sans);
+      font-weight: bold;
+      background: #e2e2da;
+      color: #333;
+      padding: 0.1rem 0.45rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .quiz-option.correct {
+      background-color: #e8f5e9 !important;
+      border-color: var(--success-color) !important;
+      color: #145a24 !important;
+    }
+
+    .quiz-option.correct .option-label {
+      background-color: var(--success-color);
+      color: #fff;
+    }
+
+    .quiz-option.incorrect {
+      background-color: #ffebee !important;
+      border-color: var(--error-color) !important;
+      color: #721c24 !important;
+      opacity: 0.85;
+    }
+
+    .quiz-option.incorrect .option-label {
+      background-color: var(--error-color);
+      color: #fff;
+    }
+
+    .quiz-feedback {
+      margin-top: 1rem;
+      padding: 0.8rem 1rem;
+      border-radius: 6px;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+
+    .quiz-feedback.success {
+      background-color: #e8f5e9;
+      color: #145a24;
+      border-left: 4px solid var(--success-color);
+    }
+
+    .quiz-feedback.danger {
+      background-color: #ffebee;
+      color: #721c24;
+      border-left: 4px solid var(--error-color);
+    }
+
+    .quiz-resolution {
+      margin-top: 1.2rem;
+      background-color: #f8f9fa;
+      border: 1px solid #e9ecef;
+      border-radius: 6px;
+      padding: 1.2rem;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .resolution-title {
+      font-weight: bold;
+      color: var(--accent-secondary);
+      margin-bottom: 0.6rem;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .spaced-prompt {
+      background: #fbfbf6;
+      border: 2px dashed #b5b5a0;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .spaced-tag {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: var(--accent-color);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .lesson-footer {
+      border-top: 1px solid var(--border-color);
+      padding-top: 1.5rem;
+      margin-top: 4rem;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      color: var(--sidenote-color);
+    }
+
+    .source-citation {
+      margin-bottom: 1rem;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .footer-nav a {
+      color: var(--accent-secondary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer-nav a:hover {
+      text-decoration: underline;
+    }
+
+    @media (min-width: 1024px) {
+      .lesson-container {
+        padding-right: 180px;
+      }
+      aside.sidenote {
+        position: absolute;
+        right: 10px;
+        width: 150px;
+        margin-top: -1.5rem;
+        background: transparent;
+        border-left: 2px solid var(--accent-secondary);
+        padding-left: 0.6rem;
+        font-size: 0.82rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="lesson-container">
+    <article class="lesson">
+      <header class="lesson-header">
+        <span class="lesson-badge">Lição 0003</span>
+        <h1 class="lesson-title">Lógica Proposicional: Implicação, Tabela-Verdade e Auditoria de Software</h1>
+        <div class="lesson-meta">
+          <span class="meta-time">⏱️ Tempo Estimado: 7 min</span>
+          <span>•</span>
+          <span class="meta-topic">🎯 Eixo: Lógica Matemática e Computacional</span>
+          <span>•</span>
+          <span class="meta-track">📈 Trilha Mediana e Superior</span>
+        </div>
+        <div class="lesson-meta" style="margin-top: 0.5rem;">
+          <a href="../MISSION.md">← Voltar para a Missão</a>
+          <span>•</span>
+          <a href="../GLOSSARY.md">📖 Glossário de Conceitos</a>
+        </div>
+      </header>
+
+      <!-- 1. CENÁRIO CONTEXTUAL INTELI -->
+      <section class="scenario">
+        <h2>Cenário Real Inteli</h2>
+        <div class="scenario-box">
+          <div class="scenario-tag">🏢 CyberInteli (Unidade de Resposta a Incidentes Digitais) | Investigação Forense de Fraude Interna em Transações Bancárias</div>
+          <p>Uma vulnerabilidade de dia zero foi explorada em um contrato inteligente corporativo. Quatro desenvolvedores sêniores da equipe (Fraga, Guedes, Ibiapina e Jota) foram interrogados pela auditoria de segurança interna.
+      Cada um emitiu exatamente uma declaração formal registrada em log:
+      <ul>
+        <li><strong>Fraga:</strong> "Não foi o Jota quem executou o script." (&not;J)</li>
+        <li><strong>Guedes:</strong> "Foi o Ibiapina quem executou o script." (I)</li>
+        <li><strong>Ibiapina:</strong> "Foi o Jota quem executou o script." (J)</li>
+        <li><strong>Jota:</strong> "O Fraga mentiu ao dizer que não fui eu." (&not;(&not;J) &equiv; J)</li>
+      </ul>
+      A perícia do sistema comprovou que <strong>apenas um dos quatro falou a verdade</strong> e que exatamente um deles foi o autor do script.</p>
+        </div>
+      </section>
+
+      <!-- 2. NÚCLEO CONCEITUAL -->
+      <section class="core-knowledge">
+        <h2>Núcleo Conceitual</h2>
+        <p class="lead-summary">Questões de lógica no Inteli utilizam cenários de depuração de código, auditoria de segurança ou análise de regras booleanas. O segredo de ouro é buscar <strong>pares contraditórios</strong>: se duas declarações são mutuamente excludentes, exatamente uma delas deve ser verdadeira.</p>
+        
+        <div class="concepts-list">
+          
+    <div class="concept-item">
+      <h3 class="concept-term">Contradição Lógica (P &and; &not;P)</h3>
+      <p class="concept-def">Duas proposições em que a afirmação de uma é a negação exata da outra não podem ser simultaneamente verdadeiras nem falsas. Se o problema diz que "apenas uma é verdadeira", essa única verdade ESTÁ necessariamente nesse par contraditório.</p>
+      <aside class="sidenote"><strong>Nota lateral:</strong> Identificar a contradição reduz o tempo de resolução de 6 minutos para menos de 90 segundos!</aside>
+    </div>
+  
+
+    <div class="concept-item">
+      <h3 class="concept-term">Equivalência da Implicação (P &rarr; Q)</h3>
+      <p class="concept-def">A condicional <code>P &rarr; Q</code> equivale logicamente a <code>&not;P &lor; Q</code>. Ela só é FALSA quando a premissa é verdadeira e a conclusão é falsa (V &rarr; F = F).</p>
+      <aside class="sidenote"><strong>Nota lateral:</strong> Em regras de software: "IF auth THEN grant" equivale a "NOT auth OR grant".</aside>
+    </div>
+  
+        </div>
+
+        <div class="formula-card">
+          <div class="formula-card-title">📌 Álgebra Booleana Essencial para Prova Inteli</div>
+          
+    <div class="formula-row">
+      <span class="formula-name">Leis de De Morgan (Negação Conjunta):</span>
+      <code class="formula-math">&not;(P &and; Q) &equiv; &not;P &lor; &not;Q</code>
+    </div>
+  
+
+    <div class="formula-row">
+      <span class="formula-name">Leis de De Morgan (Negação Disjunta):</span>
+      <code class="formula-math">&not;(P &lor; Q) &equiv; &not;P &and; &not;Q</code>
+    </div>
+  
+
+    <div class="formula-row">
+      <span class="formula-name">Equivalência Contrapositiva:</span>
+      <code class="formula-math">(P &rarr; Q) &equiv; (&not;Q &rarr; &not;P)</code>
+    </div>
+  
+
+    <div class="formula-row">
+      <span class="formula-name">Negação da Implicação:</span>
+      <code class="formula-math">&not;(P &rarr; Q) &equiv; P &and; &not;Q</code>
+    </div>
+  
+          <div class="formula-tip">💡 <strong>Dica de Ouro:</strong> A negação de "Se programo, logo passo" NÃO É "Se não programo, não passo", e sim "Programo e não passo" (P &and; &not;Q).</div>
+        </div>
+
+        
+        <div class="callout callout-trap">
+          <h4>⚠️ Armadilha Típica do Inteli: Confundir Condicional com Bicondicional</h4>
+          <p>Assumir que P &rarr; Q significa que &not;P &rarr; &not;Q. Se "todos os servidores lentos têm alto uso de CPU", NÃO se conclui que um servidor rápido tenha baixo uso de CPU.</p>
+        </div>
+      </section>
+
+      <!-- 3. PRÁTICA DE RECUPERAÇÃO ATIVA (QUIZ) -->
+      <section class="retrieval-quiz" id="quiz">
+        <h2>Prática de Recuperação Ativa (Retrieval Practice)</h2>
+        <p class="quiz-intro">Responda às questões abaixo sem consultar materiais. O feedback é instantâneo e calibrado com os distratores da banca Inteli.</p>
+        
+      <div class="quiz-question" data-question-id="q1">
+        <div class="question-header">
+          <span class="question-number">Questão 1 de 2</span>
+        </div>
+        <p class="question-stem">(Vestibular Inteli 2022.1 - Questão 24) No caso dos quatro desenvolvedores da CyberInteli (Fraga, Guedes, Ibiapina e Jota), sabendo que apenas um deles disse a verdade e apenas um executou o script malicioso, quem é o culpado e quem falou a verdade?</p>
+        <div class="quiz-options">
+          
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="Se Jota fosse o culpado, tanto Ibiapina (&quot;Foi o Jota&quot;) quanto Jota (&quot;Fraga mentiu ao dizer que não fui eu&quot;) teriam dito a verdade, violando a premissa de que apenas UM falou a verdade.">
+        <span class="option-label">A</span>
+        <span class="option-text">O culpado é Jota e quem disse a verdade foi Ibiapina.</span>
+      </button>
+    
+
+      <button class="quiz-option" type="button" data-correct="true" data-feedback="Brilhante! Fraga e Jota são contraditórios estritos, logo a única verdade está entre eles. Guedes mentiu (não foi Ibiapina) e Ibiapina mentiu (não foi Jota). Se não foi Jota, Fraga falou a verdade. Sobram Fraga e Guedes, e como Fraga apenas disse que não foi Jota, o culpado é Guedes!">
+        <span class="option-label">B</span>
+        <span class="option-text">O culpado é Guedes e quem disse a verdade foi Fraga.</span>
+      </button>
+    
+
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="Se Guedes disse a verdade, Fraga e Jota teriam que mentir simultaneamente. Mas Fraga e Jota têm proposições opostas: é impossível ambos mentirem!">
+        <span class="option-label">C</span>
+        <span class="option-text">O culpado é Ibiapina e quem disse a verdade foi Guedes.</span>
+      </button>
+    
+
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="Se Jota disse a verdade, então Jota seria o culpado (&quot;não é verdade que não foi Jota&quot;). Mas a alternativa afirma que o culpado é Fraga.">
+        <span class="option-label">D</span>
+        <span class="option-text">O culpado é Fraga e quem disse a verdade foi Jota.</span>
+      </button>
+    
+        </div>
+        <div class="quiz-feedback hidden"></div>
+        <div class="quiz-resolution hidden">
+          <div class="resolution-title">🔍 Resolução Oficial Comentada</div>
+          <div class="resolution-content"><strong>Resolução Passo a Passo:</strong><br>
+        1. Analise as declarações de Fraga e Jota:<br>
+           - Fraga afirma: <code>&not;J</code> ("Não foi o Jota").<br>
+           - Jota afirma: "O Fraga mentiu", logo <code>&not;(&not;J) &equiv; J</code> ("Foi o Jota").<br>
+        2. Fraga e Jota formam uma <strong>contradição lógica exata</strong>. Obrigatoriamente um fala a verdade e o outro mente.<br>
+        3. Como o enunciado garante que <em>apenas UM dos quatro disse a verdade</em>, essa verdade é de Fraga OU de Jota.<br>
+        4. Logo, <strong>Guedes e Ibiapina mentiram categoricamente</strong>.<br>
+        5. Como Guedes mentiu ("Foi o Ibiapina"), concluímos: <strong>NÃO foi o Ibiapina</strong>.<br>
+        6. Como Ibiapina mentiu ("Foi o Jota"), concluímos: <strong>NÃO foi o Jota</strong>.<br>
+        7. Como NÃO foi o Jota, a declaração de Fraga ("Não foi o Jota") é <strong>VERDADEIRA</strong>!<br>
+        8. Portanto, quem disse a verdade foi <strong>Fraga</strong>. E como não foram Ibiapina nem Jota, e Fraga não se autoincrimina, o autor do script foi <strong>Guedes</strong>.</div>
+        </div>
+      </div>
+    
+
+      <div class="quiz-question" data-question-id="q2">
+        <div class="question-header">
+          <span class="question-number">Questão 2 de 2</span>
+        </div>
+        <p class="question-stem">Um arquiteto de software define uma regra de acesso: "Se a requisição vem de IP externo (E) e não possui token corporativo (&not;T), então deve ser bloqueada imediatamente (B)". Qual das proposições abaixo expressa uma condição logicamente EQUIVALENTE à negação dessa regra de segurança?</p>
+        <div class="quiz-options">
+          
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="Esta proposição é a contrapositiva (&amp;not;B &amp;rarr; &amp;not;(E &amp;and; &amp;not;T)), que é equivalente à regra original, e NÃO à sua negação!">
+        <span class="option-label">A</span>
+        <span class="option-text">Se a requisição não for bloqueada, então ela não veio de IP externo ou tem token corporativo.</span>
+      </button>
+    
+
+      <button class="quiz-option" type="button" data-correct="true" data-feedback="Exato! A negação de uma condicional P &amp;rarr; Q é dada por P &amp;and; &amp;not;Q. Aqui, P = (E &amp;and; &amp;not;T) e &amp;not;Q = &amp;not;B. Portanto: E &amp;and; &amp;not;T &amp;and; &amp;not;B.">
+        <span class="option-label">B</span>
+        <span class="option-text">A requisição veio de IP externo, não possui token corporativo e NÃO foi bloqueada.</span>
+      </button>
+    
+
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="Isso nega as premissas, incorrendo no erro comum de transformar P &amp;rarr; Q em &amp;not;P &amp;and; Q.">
+        <span class="option-label">C</span>
+        <span class="option-text">A requisição não veio de IP externo ou tem token corporativo, e foi bloqueada.</span>
+      </button>
+    
+
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="Altera o escopo condicional sem demonstrar a quebra estrita da regra de segurança.">
+        <span class="option-label">D</span>
+        <span class="option-text">Se a requisição possui token corporativo, ela não pode ser bloqueada.</span>
+      </button>
+    
+        </div>
+        <div class="quiz-feedback hidden"></div>
+        <div class="quiz-resolution hidden">
+          <div class="resolution-title">🔍 Resolução Oficial Comentada</div>
+          <div class="resolution-content"><strong>Resolução Passo a Passo:</strong><br>
+        1. A regra de acesso tem a forma condicional: <code>P &rarr; B</code>, onde <code>P = E &and; &not;T</code>.<br>
+        2. A negação de qualquer implicação lógica <code>X &rarr; Y</code> é dada por: <code>&not;(X &rarr; Y) &equiv; X &and; &not;Y</code>.<br>
+        3. Aplicando diretamente: <code>&not;( (E &and; &not;T) &rarr; B ) &equiv; (E &and; &not;T) &and; &not;B</code>.<br>
+        4. Traduzindo de volta para linguagem natural: "A requisição veio de IP externo (E), NÃO possui token corporativo (&not;T) e NÃO foi bloqueada (&not;B)".</div>
+        </div>
+      </div>
+    
+      </section>
+
+      <!-- 4. REPETIÇÃO ESPAÇADA (STORAGE STRENGTH) -->
+      <section class="spaced-repetition">
+        <h2>Desafio de 48 Horas (Storage Strength)</h2>
+        <div class="spaced-prompt">
+          <div class="spaced-tag">🧠 Teste de Fixação e Evocação Tardia</div>
+          <p class="prompt-question"><strong>Em 48 horas, sem usar anotações: reescreva mentalmente a declaração "Se você não fizer o teste automatizado, seu deploy falhará" usando apenas conectivos OU e NÃO, e deduza sua negação estrita.</strong></p>
+          <p style="font-size:0.9rem; color:#666; margin-top:0.5rem;"><em>Dica da Ciência Cognitiva:</em> Responder a esta pergunta mentalmente após 2 dias consolida o aprendizado na memória de longo prazo (efeito de recuperação espaçada de Bjork).</p>
+        </div>
+      </section>
+
+      <!-- 5. FONTE PRIMÁRIA -->
+      <footer class="lesson-footer">
+        <div class="source-citation">
+          <strong>📚 Fonte Primária e Referência Acadêmica:</strong><br>
+          <span>Processo Seletivo Inteli 2022.1 (Questão 24 - Análise Forense); Kenneth Rosen, &quot;Discrete Mathematics and Its Applications&quot;, 8th Edition (Capítulo 1: Propositional Logic).</span>
+        </div>
+        <div class="footer-nav">
+          <a href="../MISSION.md">← Sumário da Missão</a>
+          <a href="../GLOSSARY.md">📖 Glossário Técnico</a>
+          <a href="#quiz">↑ Repetir Questões</a>
+        </div>
+      </footer>
+    </article>
+  </div>
+
+  <!-- Script Externo Oficial -->
+  <script src="../assets/quiz.js" defer></script>
+
+  <!-- Script Fallback Autônomo de Quiz (Zero Dependências) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const questions = document.querySelectorAll('.quiz-question');
+
+      questions.forEach((q) => {
+        const options = q.querySelectorAll('.quiz-option');
+        const feedbackBox = q.querySelector('.quiz-feedback');
+        const resolutionBox = q.querySelector('.quiz-resolution');
+
+        options.forEach(opt => {
+          opt.addEventListener('click', () => {
+            // Desativa botões da pergunta atual
+            options.forEach(b => {
+              b.disabled = true;
+              if (b.getAttribute('data-correct') === 'true') {
+                b.classList.add('correct');
+              }
+            });
+
+            const isCorrect = opt.getAttribute('data-correct') === 'true';
+            const feedbackText = opt.getAttribute('data-feedback');
+
+            if (!isCorrect) {
+              opt.classList.add('incorrect');
+              if (feedbackBox) {
+                feedbackBox.className = 'quiz-feedback danger';
+                feedbackBox.innerHTML = '<strong>❌ Incorreto.</strong> ' + feedbackText;
+                feedbackBox.classList.remove('hidden');
+              }
+            } else {
+              if (feedbackBox) {
+                feedbackBox.className = 'quiz-feedback success';
+                feedbackBox.innerHTML = '<strong>✅ Correto!</strong> ' + feedbackText;
+                feedbackBox.classList.remove('hidden');
+              }
+            }
+
+            // Exibe resolução passo a passo
+            if (resolutionBox) {
+              resolutionBox.classList.remove('hidden');
+            }
+
+            // Dispara evento para telemetria ou integração
+            document.dispatchEvent(new CustomEvent('quiz:answered', {
+              detail: {
+                questionId: q.getAttribute('data-question-id'),
+                isCorrect: isCorrect
+              }
+            }));
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

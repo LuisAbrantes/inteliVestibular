@@ -1,0 +1,2075 @@
+--- PAGE 1 OF 86 ---
+PROCESSO SELETIVO
+Graduação
+2022.1
+
+
+--- PAGE 2 OF 86 ---
+Página 2
+QUESTÃO 01 | Determinada instituição financeira solicita ao seu cliente que crie uma senha, chamada Chave de 
+Segurança, para a autorização de transações financeiras.
+O campo para a criação dessa Chave disponibiliza cinco botões, indicados pelos caracteres A, B, C, D e E, conforme figura 
+a seguir:
+O cliente, portanto, deve criar uma senha com exatamente 4 desses caracteres, podendo ou não ter repetições. Dessa 
+forma, a senha poderia ser ABDE ou CDCC, por exemplo.
+Nessas condições, o total de possibilidades de Chaves de Segurança criadas corresponde a
+A 20.
+B 120.
+C 625.
+D 1 024.
+E 15 000.
+RASCUNHO
+RESOLUÇÃO
+ALTERNATIVA CORRETA: C
+Página 2
+
+
+--- PAGE 3 OF 86 ---
+Página 4
+QUESTÃO 02 | Para um programador, a tela de um computador é feita de pixels. Cada pixel tem sua localização (x,y) 
+semelhante a um ponto no plano cartesiano, mas a origem se situa no canto superior esquerdo da tela. O eixo x tem seus 
+valores aumentados para a direita, e o eixo y tem seus valores aumentados para baixo, conforme apresentado nesta 
+figura.
+Certa tela mostrada nessa figura tem dimensões 800 x 600 pixels, ou seja, seu ponto mais à direita tem coordenada
+x = 800 e seu ponto mais abaixo tem coordenada y = 600. Um programador desenha uma linha reta que sai da origem e 
+chega até o ponto médio M da parte inferior da tela. Dessa forma, pode-se afirmar que a equação da reta descrita é:
+A ݕൌݔ
+B ݕൌെݔ
+C ݕൌെ
+ଷ
+ଶݔ
+D ݕൌ
+ଶ
+ଷݔ
+E ݕൌ
+ଷ
+ଶݔ
+RASCUNHO
+RESOLUÇÃO
+ALTERNATIVA CORRETA: E
+Página 3
+
+
+--- PAGE 4 OF 86 ---
+Página 6
+QUESTÃO 03 | Objetivando otimizar seus processos, uma operadora de internet decidiu atualizar seu algoritmo de busca 
+por usuários ao aproveitar a ordem alfabética dos nomes no banco de dados da companhia. 
+Em vez de o programa buscar usuário por usuário, o novo algoritmo dividirá o banco de dados em dois blocos textuais 
+com a mesma quantidade de usuários. Assim, o computador analisará o primeiro nome do segundo bloco. A partir disso 
+e por meio do ordenamento alfabético, torna-se possível afirmar se o usuário procurado se encontra no primeiro ou no 
+segundo bloco do banco de dados. Dessa forma, descarta-se um dos blocos e segue-se analisando o outro, sendo que 
+esse processo será repetido sucessivas vezes até que reste apenas o usuário inserido na ferramenta de busca.
+Sabe-se que a modelagem matemática que atende à situação descrita é dada por:
+࢖࢈ൌܔܗ܏૛ܖ
+em que n é a quantidade de usuários, e ࢖࢈é a quantidade máxima de processos de busca realizados para encontrar algum 
+nome. 
+Sendo assim, considere que essa operadora de internet possui 524 288 usuários e não há nomes homônimos em seu 
+banco de dados. Para que o algoritmo encontre qualquer usuário, qual a maior quantidade de processos de busca ele 
+fará?
+A 5.
+B 6.
+C 17.
+D 18.
+E 19.
+RASCUNHO
+RESOLUÇÃO
+ALTERNATIVA CORRETA: E
+Página 4
+
+
+--- PAGE 5 OF 86 ---
+Página 8
+QUESTÃO 04 | Um recurso muito utilizado nas planilhas eletrônicas é chamado de "alça de preenchimento'', em que é 
+possível preencher células a partir de padrões. Esse recurso é indicado por uma “cruzinha” preta que aparece ao 
+posicionar o cursor do mouse no canto inferior direito das células. Para utilizá-lo, basta selecionar as células que possuem 
+determinado padrão, clicar na “cruzinha” e arrastar o cursor do mouse para baixo ou para o lado, dependendo de como 
+elas estão preenchidas, para que, assim, as células sejam completadas automaticamente seguindo esse mesmo padrão.
+Considere os sete números apresentados na coluna B de uma planilha eletrônica:
+A partir das células selecionadas nessa imagem, ao clicar na “cruzinha” e arrastá-la para baixo, o número encontrado na 
+linha 230 dessa planilha eletrônica será
+A 904.
+B 909.
+C 920.
+D 925.
+E 933.
+RASCUNHO
+RESOLUÇÃO
+ALTERNATIVA CORRETA: B
+Página 5
+
+
+--- PAGE 6 OF 86 ---
+Página 10
+QUESTÃO 05 | Softwares matemáticos, como o Geogebra, permitem o estudo de funções matemáticas por meio da 
+análise de gráficos. Os alunos podem utilizar esses softwares de várias maneiras, como escrever a lei de uma função e 
+observar qual seria o seu gráfico, variar os parâmetros da fórmula e visualizar em tempo real como isso impacta o gráfico 
+ou traçar um gráfico e descobrir qual função melhor se ajusta ao desenho realizado.
+Cristiane utilizou um desses softwares matemáticos e obteve esta parábola:
+A partir da imagem desse gráfico, é possível concluir que a expressão da função apresentada pelo software é:
+A ݕൌെʹݔଶെͷݔെͳ
+B ݕൌെ͵ݔെͳ
+C ݕൌʹݔଶ൅ͷݔെͳ
+D ݕൌെ
+ଶ
+ଷݔଶെ
+ଵଵ
+ଷ൅͵
+E ݕൌʹݔଶെͷݔെͳ
+RASCUNHO
+RESOLUÇÃO
+ALTERNATIVA CORRETA: E
+Página 6
+
+
+--- PAGE 7 OF 86 ---
+Página 12
+QUESTÃO 06 | Uma medida utilizada para avaliar o desempenho de um processador, o qual é um componente de 
+celulares ou computadores, é a densidade de transistores, definida como o número de transistores por centímetro 
+quadrado. Em 1965, Gordon Earle Moore profetizou que, a cada 18 meses, a quantidade de transistores colocados em 
+uma mesma área poderia ser dobrada mantendo-se o mesmo custo de fabricação.
+Considerando-se verdadeira essa lei, conhecida como Lei de Moore, e que em determinado período a densidade seja de 
+ݔtransistores por cm2 de área, após quantos anos essa densidade passará para ʹͷ͸ݔtransistores por cm2 de área?
+A 8.
+B 9.
+C 12.
+D 13,5.
+E 144.
+RASCUNHO
+RESOLUÇÃO
+ALTERNATIVA CORRETA: C
+Página 7
+
+
+--- PAGE 8 OF 86 ---
+Página 14
+QUESTÃO 07 | Para imprimir em uma impressora 3D, um estudante, utilizando um software de modelagem 3D, projetará 
+um dock station em formato de tronco de pirâmide quadrangular regular maciço, cujas arestas das bases medirão 22 cm 
+e 10 cm e o apótema lateral medirá 10 cm, conforme indicado nesta figura.
+Para que o celular possa ser encaixado, o dock station será impresso com uma abertura no formato de um paralelepípedo
+retângulo na face superior com 8 cm de comprimento, 2 cm de largura e 2 cm de profundidade, conforme indicado nesta 
+figura.
+Considerando as informações anteriores, o volume de filamento utilizado para imprimir o dock station será de:
+A 2 648 cm3
+B 2 176 cm3
+C 2 168 cm3
+D 2 144 cm3
+E 2 112 cm3
+RASCUNHO
+RESOLUÇÃO
+ALTERNATIVA CORRETA: E
+Página 8 
+
+
+--- PAGE 9 OF 86 ---
+Página 16
+QUESTÃO 08 | No universo de jogos digitais, um bot é um software, geralmente ilegal, dotado de inteligência artificial, 
+cujo objetivo primário é substituir as ações humanas e realizar a tomada de decisões de modo autônomo. Dessa forma, 
+uma das preocupações fundamentais de um desenvolvedor é que seu programa seja veloz, o que garante a agilidade de 
+um bom jogador.
+Suponha que um desenvolvedor esteja adicionando ao bot um sistema de decisão para formar a melhor equipe a partir 
+de jogadores que estão utilizando a busca por times no jogo. Para isso, o software deve simular todas as possibilidades 
+de equipe e optar por aquela que possui a maior quantidade de status somados.
+Para testar o programa, configura-se o bot para que a equipe possua, obrigatoriamente, um jogador da classe clérigo e 
+três magos.
+Supondo que havia 4 clérigos e 8 magos procurando equipe durante a testagem do bot e que o programa gastou 16 
+segundos para tomar a decisão, é correto afirmar que a velocidade do software foi de
+A 2 equipes por segundo.
+B 3 equipes por segundo.
+C 12 equipes por segundo.
+D 14 equipes por segundo.
+E 84 equipes por segundo.
+RASCUNHO
+RESOLUÇÃO
+ALTERNATIVA CORRETA: D
+Página 9
+
+
+--- PAGE 10 OF 86 ---
+Página 18
+QUESTÃO 09 | Uma jovem investidora, pensando em expandir seus negócios, decide estudar um pouco sobre 
+criptomoedas. Essas moedas digitais são compradas e vendidas em todo o mundo por meio de um sistema eletrônico, no 
+entanto seus valores são muito oscilantes ao longo do dia.
+Pensando nisso, a investidora decidiu analisar os valores máximos atingidos por uma criptomoeda a cada duas horas ao 
+longo de um dia.
+Hora
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+22
+24
+Valor máximo da
+criptomoeda em reais (R$) 6,68 6,62 6,55 6,54 6,62 6,66 6,74 6,65 6,86 6,94 6,92 6,98
+Diante dessas informações, a mediana dos valores máximos da criptomoeda apresentados nessa tabela corresponde a
+A R$ 6,62.
+B R$ 6,66.
+C R$ 6,67.
+D R$ 6,70.
+E R$ 6,73.
+RASCUNHO
+RESOLUÇÃO
+ALTERNATIVA CORRETA: C
+Página 10
+
+
+--- PAGE 11 OF 86 ---
+Página 20
+QUESTÃO 10 | Almejando expandir seu alcance comercial, uma empresa de investimentos digitais estuda a possibilidade 
+de aplicar capital em advertising, para alcançar pessoas que possuem interesse em criptomoedas e Axie Infinity.
+Para verificar a viabilidade do investimento, realizou-se uma simulação em um banco de dados da plataforma de anúncios, 
+a fim de verificar a cobertura e o alcance do advertising. Após o procedimento, observou-se que, de 15 mil pessoas, 3 600 
+não possuem interesse em nenhum dos temas, 9 175 se interessam por criptomoedas e 6 175 têm interesse em Axie 
+Infinity.
+Considerando as informações apresentadas, é correto afirmar que a quantidade de pessoas que atendem 
+simultaneamente às características buscadas pela empresa é de
+A 3 250.
+B 3 950.
+C 5 225.
+D 7 450.
+E 7 675.
+RASCUNHO
+RESOLUÇÃO
+ALTERNATIVA CORRETA: B
+Página 11
+
+
+--- PAGE 12 OF 86 ---
+Página 22
+QUESTÃO 11 | Um instrumento eletrônico topográfico de medição de ângulos e distâncias, chamado de Estação Total,
+foi desenvolvido para automatizar os processos de medição. Seus dados são compartilhados num software, gerando 
+automaticamente os gráficos e as medições. Esse aparelho inclusive foi utilizado em algumas provas de atletismo dos 
+Jogos Olímpicos de Tóquio 2020.
+Nesta imagem, gerada por uma Estação Total localizada na origem do plano cartesiano, os pontos A e B representam 
+lançamentos em uma prova de arremesso de peso: 
+Considere que a distância entre os pontos A e B é ʹξͺʹ m. De acordo com essas informações e com as indicações no 
+plano cartesiano, a distância da Estação Total até o ponto B, em metros, é
+A ʹξͻͳ.
+B ʹξͳͲͻ.
+C ʹξͳͳ͹.
+D ʹξͳͺͳ.
+E ͳͲξͳ͵.
+RASCUNHO
+RESOLUÇÃO
+ALTERNATIVA CORRETA: B
+Página 12
+
+
+--- PAGE 13 OF 86 ---
+Página 24
+QUESTÃO 12 | Por intermédio da tecnologia Lidar (Laser Imaging Detection and Ranging), é possível obter pontos 
+tridimensionais por meio da diferença de tempo entre a emissão do pulso e a recepção do sinal refletido. Os pulsos 
+conseguem penetrar pela vegetação e, com isso, é possível criar um modelo digital 3D do terreno a partir da remoção da 
+vegetação por softwares.
+Em 2017, acoplado numa aeronave, um sensor Lidar identificou o maior e mais antigo monumento da civilização maia, 
+uma plataforma de base retangular no sítio arqueológico de Aguada Fénix, no México, de cerca de três mil anos, que 
+estava encoberto por vegetação, conforme apresenta imagem:
+Disponível em: https://www.natgeo.pt/historia/2020/06/complexo-cerimonial-enorme-com-3000-anos-descoberto-a-vista-de-todos. 
+Acesso em: 30 ago. 2021 (Adaptado).
+Considere que, nesse modelo digital 3D, a escala utilizada foi 1 : 40 000. A medida real, em metros, do comprimento da 
+base do monumento indicado na figura é
+A 140.
+B 1 400.
+C 14 000.
+D 140 000.
+E 14 000 000.
+RASCUNHO
+RESOLUÇÃO
+ALTERNATIVA CORRETA: B
+Página 13
+
+
+--- PAGE 14 OF 86 ---
+Página 26
+QUESTÃO 13 | Neste quadro, há a correspondência de números da base decimal para a base hexadecimal.
+Base 
+decimal
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+Base 
+hexadecimal
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+A
+B
+C
+D
+E
+F
+Veja como é a feita a conversão do sistema hexadecimal, que é posicional e de base 16, para o sistema decimal:
+ͳʹሺ௛௘௫ሻൌ૚൉ͳ͸ଵ൅૛൉ͳ͸଴ൌͳͺ   
+ʹܣͳሺ௛௘௫ሻൌ૛൉ͳ͸ଶ൅૚૙൉ͳ͸ଵ൅૚൉ͳ͸଴ൌ͸͹͵   
+ͶܨͷͲሺ௛௘௫ሻൌ૝൉ͳ͸ଷ൅૚૞൉ͳ͸ଶ൅૞൉ͳ͸ଵ൅૙൉ͳ͸଴ൌʹͲ ͵ͲͶ   
+A sequência de números decimais 15, 16, 17, 18, 19, 20, ao ser convertida para o sistema hexadecimal, será escrita como:
+A 10, 11, 12, 13, 14, 15.
+B F, 11, 12, 13, 14, 15.
+C F, 1F, 2F, 3F, 4F, 5F.
+D F, F1, F2, F3, F4, F5.
+E F, 10, 11, 12, 13, 14.
+RASCUNHO
+RESOLUÇÃO
+ALTERNATIVA CORRETA: E
+Página 14
+
+
+--- PAGE 15 OF 86 ---
+Página 28
+QUESTÃO 14 | Uma cidade está enfrentando problemas de alagamentos e de drenagem pluvial. Para tanto, a prefeitura 
+contratou uma empresa de monitoramento aéreo, via drones, a fim de avaliar se os munícipes estão regularizados em 
+relação ao Plano Diretor de Drenagem Urbana. De acordo com esse documento, é necessário que cada terreno possua 
+pelo menos 14% de sua área destinada à drenagem.
+Durante um sobrevoo em um condomínio urbano, um drone gerou alerta para determinada residência, que contém como 
+únicas áreas de drenagem um jardim frontal, próximo aos carros, e dois gramados aos fundos, conforme a imagem a 
+seguir:
+Considerando-se que as medidas apresentadas pelo drone estão em decímetros e ߨൌ͵ǡͳͶ, é correto afirmar que esse é
+um terreno
+A em situação irregular, com área de drenagem aproximadamente igual a 13,76%.
+B em situação irregular, com área de drenagem aproximadamente igual a 13,83%.
+C em situação regular, com área de drenagem aproximadamente igual a 14,22%.
+D em situação regular, com área de drenagem aproximadamente igual a 14,81%.
+E em situação regular, com área de drenagem aproximadamente igual a 20,31%.
+RASCUNHO
+RESOLUÇÃO
+ALTERNATIVA CORRETA: D
+Página 15
+
+
+--- PAGE 16 OF 86 ---
+Página 30
+QUESTÃO 15 | Uma possibilidade de codificação e decodificação de mensagens via software ocorre a partir do produto 
+de matrizes. Primeiramente, no processo de codificação, converte-se a mensagem para o formato matricial, utilizando o 
+quadro de referência para conversão de mensagens, e, posteriormente, multiplica-se uma matriz aleatória pela matriz 
+obtida, obtendo-se, dessa forma, a matriz codificada.
+A matriz aleatória gerada é armazenada no sistema para que o processo de decodificação seja possível. A mensagem será 
+decodificada ao realizar o produto entre a matriz inversa da matriz aleatória e a matriz codificada.
+Observe este quadro de referência de conversão de mensagens:
+A
+1
+B
+2
+C
+3
+D
+4
+E
+5
+F
+6
+G
+7
+H
+8
+I
+9
+J
+10
+K
+11
+L
+12
+M
+13
+N
+14
+O
+15
+P
+16
+Q
+17
+R
+18
+S
+19
+T
+20
+U
+21
+V
+22
+W
+23
+X
+24
+Y
+25
+Z
+26
+Se considerarmos a matriz aleatória como:
+ቂͶ
+͵
+͵
+ʹቃ,
+a mensagem “LUXO” pode ser codificada da seguinte forma:
+L
+U
+X
+O
+12
+21
+24
+15
+A partir disso, reescreve-se a mensagem no formato matricial:
+ቂͳʹ
+ʹͳ
+ʹͶ
+ͳͷቃ
+A codificação ocorrerá realizando o produto da matriz aleatória pela matriz que representa a mensagem a ser codificada, 
+resultando na seguinte matriz codificada:
+ቂͶ
+͵
+͵
+ʹቃǤ ቂͳʹ
+ʹͳ
+ʹͶ
+ͳͷቃൌቂͳʹͲ
+ͳʹͻ
+ͺͶ
+ͻ͵ ቃ
+Por fim, para decodificá-la, basta que o receptor da mensagem multiplique a matriz inversa da matriz aleatória pela matriz 
+codificada.
+Considere a matriz aleatória A e a matriz codificada B:
+ܣൌቂ͸
+െͷ
+ͷ
+െͶቃ
+e    ܤൌቂ͵Ͳ
+െʹͳ
+ʹͺ
+െͳͷቃ
+Diante disso, é correto afirmar que a mensagem codificada é
+A TIRO.
+B FEED.
+C DEUS.
+D RITO.
+E TRIO.
+RESOLUÇÃO
+ALTERNATIVA CORRETA: A
+Página 16
+
+
+--- PAGE 17 OF 86 ---
+Página 32
+QUESTÃO 16 |
+Tempo em redes sociais aumenta 40% na pandemia
+O Brasil é o segundo país que passa mais tempo nas redes sociais. Os brasileiros perdem apenas para as Filipinas, 
+que tem uma média diária de 241 minutos por dia (...). Esse foi o dado levantado pela GlobalWebIndex em 2019.
+Em 2020, com a pandemia da covid-19, uma pesquisa feita pela consultoria Kantar apontou que o tempo de uso 
+das redes sociais aumentou 40%.
+Disponível em: https://primeirapauta.ielusc.br/2020/12/15/tempo-em-redes-sociais-aumenta-40-na-pandemia/. Acesso em: 16 set. 2021. (Adaptado)
+Os dados da pesquisa mostraram que, em 2020, no contexto da pandemia, o tempo médio diário de acesso às redes 
+sociais no Brasil chegou a 315 minutos. A partir dessas informações, é correto afirmar que o tempo de acesso diário dos 
+brasileiros em 2019, antes do aumento percentual registrado na pesquisa, era de
+A 189 minutos.
+B 225 minutos.
+C 275 minutos.
+D 337,4 minutos.
+E 441 minutos.
+RASCUNHO
+RESOLUÇÃO
+ALTERNATIVA CORRETA: B
+Página 17
+
+
+--- PAGE 18 OF 86 ---
+Página 34
+QUESTÃO 17 | Uma estudante de algoritmos precisa escrever um programa que, ao receber quatro valores distintos, 
+identifique o maior valor numérico entre os quatro dados. Para isso, ela deverá fazer comparações entre dois valores por 
+vez. Após cada comparação, é possível saber qual é o maior e qual é o menor dos dois valores comparados.
+Para garantir que o sistema dela sempre retorne corretamente ao maior valor, o mínimo de comparações necessárias
+corresponde a
+A 2.
+B 3.
+C 4.
+D 6.
+E 24.
+RASCUNHO
+RESOLUÇÃO
+ALTERNATIVA CORRETA: B
+Página 18
+
+
+--- PAGE 19 OF 86 ---
+Página 36
+QUESTÃO 18 | Insatisfeito com a velocidade de sua internet, um cliente realiza um teste on-line para detectar seu valor 
+atual e verifica que está 20% abaixo do valor contratado. Ao ligar para o serviço de atendimento ao consumidor, o 
+atendente promete que aumentará a velocidade atual em 40% a fim de que o cliente fique satisfeito. Ao realizar 
+novamente o teste, ele obteve o seguinte resultado:
+Com base nessas informações, é correto afirmar que a velocidade de internet contratada pelo cliente era de
+A 32 Mbps.
+B 40 Mbps.
+C 42 Mbps.
+D 48 Mbps.
+E 50 Mbps.
+RASCUNHO
+RESOLUÇÃO
+ALTERNATIVA CORRETA: E
+Página 19
+
+
+--- PAGE 20 OF 86 ---
+Página 38
+QUESTÃO 19 | Existem vários softwares disponíveis que são capazes de detectar se um chip de memória RAM tem 
+defeitos. Um dos mais comuns é o MemTest86:
+Considere que, caso exista defeito em um chip, um único ciclo de testes possui 95% de probabilidade de encontrá-lo.
+Utilizando um desses softwares, uma loja de componentes executa quatro ciclos de testes em cada chip antes de revendê-
+lo e, caso seja detectado defeito em qualquer um dos ciclos, ele será devolvido ao fabricante. 
+Se essa loja recebeu um chip defeituoso, a probabilidade de ele ser devolvido ao fabricante é de:
+A ሺͲǡͻͷሻସ.
+B ͳ െሺͲǡͻͷሻସǤ  
+C ሺͲǡͲͷሻସ.  
+D ͳ െሺͲǡͲͷሻସǤ   
+E Ͷ ൉ሺͲǡͻͷሻ.   
+RASCUNHO
+RESOLUÇÃO
+ALTERNATIVA CORRETA: D
+Página 20
+
+
+--- PAGE 21 OF 86 ---
+Página 40
+QUESTÃO 20 | Uma das maneiras de reduzir o aquecimento excessivo de um processador é o underclocking, termo usado 
+para descrever a redução proposital da velocidade de processamento.
+Por estar com problemas de aquecimento, um técnico decide reduzir a velocidade do processador de uma máquina para 
+80% de sua velocidade máxima. Considere que essa máquina necessita de 1 hora para que o processamento de 
+determinada tarefa seja concluído na velocidade máxima. 
+Após a redução adotada pelo técnico, o tempo de processamento dessa mesma tarefa passará a ser de
+A 12 minutos.
+B 48 minutos.
+C 1 hora e 12 minutos.
+D 1 hora e 15 minutos.
+E 1 hora e 25 minutos.
+RASCUNHO
+RESOLUÇÃO
+ALTERNATIVA CORRETA: D
+Página 21 
+
+
+--- PAGE 22 OF 86 ---
+Página 42
+QUESTÃO 21 | Um fabricante de hardware combina discos rígidos de HDD e SSD para poder vender um produto com 
+velocidade e espaço de armazenamento satisfatórios. Ele sabe que um terabyte de armazenamento HDD custa 100 
+dólares e que um terabyte de armazenamento SSD custa 300 dólares.
+Para um modelo específico, esse fabricante busca oferecer 2 terabytes de armazenamento total, os quais custarão 250 
+dólares. 
+Sendo X a capacidade de armazenamento HDD e Y a capacidade de armazenamento SSD que o fabricante usará nesse 
+modelo, o sistema de equações que representa essa situação é:
+A ቄܺ൅ܻൌʹ
+ͳͲͲܺ൅͵ͲͲܻൌʹͷͲ
+B ቄܺ൅ܻൌʹ
+͵ͲͲܺ൅ͳͲͲܻൌʹͷͲ
+C ቄܺ൅ܻൌʹͷͲ
+ͳͲͲܺ൅͵ͲͲܻൌͶͲͲ
+D ቄܺ൅ܻൌʹ
+ͳͲͲܺ൅͵ͲͲܻൌͶͲͲ
+E ቊ
+ܺ൅ܻൌʹ
+௑
+௒ൌ
+ଵ
+ଷ
+RASCUNHO
+RESOLUÇÃO
+ALTERNATIVA CORRETA: A
+Página 22 
+
+
+--- PAGE 23 OF 86 ---
+Página 44
+QUESTÃO 22 | Certa empresa foi contratada para avaliar três marcas de telefones celulares quanto à qualidade e à 
+durabilidade de cada uma. Para isso, foram selecionados cinco exemplares de aparelhos de cada marca e foram 
+registrados a quantidade de dias de funcionamento contínuo que seriam necessários até o aparelho apresentar seu 
+primeiro defeito. Veja os dias de funcionamento contínuo de cada exemplar:
+Exemplar 01
+Exemplar 02
+Exemplar 03
+Exemplar 04
+Exemplar 05
+Orange
+519
+481
+475
+492
+528
+Sumsang
+513
+517
+466
+489
+500
+Motorallo
+504
+500
+480
+471
+Dessa forma, será considerada a melhor marca aquela que obtiver a maior média de dias de funcionamento contínuo sem 
+apresentar defeito.
+O exemplar 05 da marca Motorallo começou a ser testado, mas ainda não apresentou seu primeiro defeito. Quantos dias, 
+no mínimo, deve durar o período total de teste desse aparelho para que a Motorallo seja considerada a melhor entre as 
+três?
+A 529.
+B 530.
+C 531.
+D 540.
+E 541.
+RASCUNHO
+RESOLUÇÃO
+ALTERNATIVA CORRETA: E
+Página 23 
+
+
+--- PAGE 24 OF 86 ---
+Página 46
+QUESTÃO 23 | Determinada empresa de tecnologia, em multiparceria publicitária com algumas marcas de hardware, 
+realizará o sorteio virtual de um computador. No ato da inscrição, recebe-se um Ticket de participação, entretanto, se o 
+participante cumprir determinadas condições, receberá mais Tickets, elevando sua probabilidade de seleção. 
+As condições são as seguintes:
+Condição
+Quantidade de
+dŝĐŬĞƚƐ recebidos
+Seguir a página da empresa nas redes sociais
++ 4
+Seguir a página da marca do Processador nas redes sociais
++ 1
+Seguir a página da marca da Placa Mãe nas redes sociais
++ 1
+Seguir a página da marca da Placa de Vídeo nas redes sociais
++ 1
+Seguir a página da marca da Memória RAM nas redes sociais
++ 1
+Seguir a página da marca da Fonte nas redes sociais
++ 1
+Considerando-se que a probabilidade de um participante, que cumpriu todas as condições após se inscrever, ganhar o 
+sorteio é de 0,005%, é correto afirmar que a quantidade total de Tickets distribuídos é igual a
+A 1 800.
+B 2 000.
+C 20 000.
+D 180 000.
+E 200 000.
+RASCUNHO
+RESOLUÇÃO
+ALTERNATIVA CORRETA: E
+Página 24 
+
+
+--- PAGE 25 OF 86 ---
+Página 48
+QUESTÃO 24 | A chefe de uma equipe de quatro programadores desconfia que um deles invadiu o site da empresa e 
+obteve informações sigilosas sobre acesso às contas bancárias empresariais. Diante disso, ela solicitou a presença dos 
+quatro simultaneamente para confrontá-los sobre o ocorrido. As declarações ouvidas pela chefe foram as seguintes:
+Fraga: “Não foi o Jota”. 
+Jota: “Foi o Siqueira”. 
+Lima: “Não fui eu”. 
+Siqueira: “Jota está mentindo”. 
+Conduzindo as investigações, a chefe conseguiu concluir que apenas uma dessas afirmações é falsa e que o culpado não 
+é o mentiroso.
+Nesse caso, quem seria o culpado pela invasão ao site da empresa?
+A Fraga.
+B Jota.
+C Lima.
+D Siqueira.
+E Não é possível determinar o culpado apenas com essas afirmações.
+RASCUNHO
+RESOLUÇÃO
+ALTERNATIVA CORRETA: A
+Página 25 
+
+
+--- PAGE 26 OF 86 ---
+PROCESSO SELETIVO
+Graduação
+2022.2
+
+
+--- PAGE 27 OF 86 ---
+Página | 1
+usualmente – online, multijogador e compartilhado. Diante disso, uma ferramenta indispensável para esses espaços é a
+possibilidade de criar e personalizar determinado personagem, adicionando variedade, representatividade e unicidade
+no universo ficcional.
+Ademais, um projeto embrionário de um metaverso tem as seguintes possibilidades para personalização do personagem
+no ato de sua criação:
+Tipo de personalização
+Quantidade de possibilidades
+Cabelo
+8
+Cor dos olhos
+5
+Formato de rosto
+4
+Blusa
+5
+Calça
+8
+Sapato
+7
+A 4 possibilidades.
+B 5 possibilidades.
+C 22 possibilidades.
+D 23 possibilidades.
+E 41 possibilidades.
+RESOLUÇÃO
+ALTERNATIVA CORRETA: B
+QUESTÃO 01 | Os metaversos são espaços virtuais cujo objetivo é criar uma realidade por meio de um mundo virtual –
+Considerando que os desenvolvedores decidam adicionar um novo tipo de personalização para que existam, no mínimo,
+200 000 combinações distintas, qual a menor quantidade de possibilidades que deve haver para essa nova categoria?
+
+
+--- PAGE 28 OF 86 ---
+Página | 2
+QUESTÃO 02 | Um programador gera uma lista de todos os anagramas da palavra INTELI e, em seguida, exibe-os um a
+um, em ordem alfabética, em um letreiro na entrada da faculdade.
+A intenção do programador é exibir todos os anagramas, um de cada vez e em intervalos iguais, em um prazo de 6 horas.
+Para isso, cada anagrama deverá ficar exposto por
+A 1 segundo.
+B 30 segundos.
+C 60 segundos.
+D 360 segundos.
+E 720 segundos.
+RESOLUÇÃO
+ALTERNATIVA CORRETA: C
+
+
+--- PAGE 29 OF 86 ---
+Página | 3
+e com as preferências de busca. Recentemente, determinada profissional, responsável pela administração de um banco
+de dados publicitários, percebeu que seu acervo estava categorizado e configurado para exibição de acordo com duas
+características do usuário: sexo, masculino ou feminino, e idade, jovem ou sênior. A profissional, no entanto, notou que
+parte do acervo se encontrava em duplicidade, pois havia propagandas que possuíam requisitos de exibição tanto para
+idades quanto para sexos específicos.
+Sabendo que existem 375 anúncios distintos nesse banco de dados, sendo 258 propagandas catalogadas de acordo com
+o sexo e 217 publicidades indexadas de acordo com a idade, pode-se afirmar que a quantidade de anúncios em
+duplicidade é igual a
+A 21.
+B 41.
+C 50.
+D 82.
+E 100.
+RESOLUÇÃO
+ALTERNATIVA CORRETA: E
+QUESTÃO 03 | Sabe-se que as publicidades online são exibidas para os usuários de acordo com as informações pessoais
+
+
+--- PAGE 30 OF 86 ---
+Página | 4
+digitais como foto de perfil em suas redes sociais.
+Para mapear o comportamento de mercado, o investidor acessou uma plataforma de negociação de diferentes NFT’s e
+organizou o seguinte quadro:
+Preço
+(em Ether)
+50 ETH
+100 ETH
+150 ETH
+200 ETH
+250 ETH
+300 ETH
+350 ETH
+Quantidade de
+exemplares
+2
+212
+174
+90
+64
+53
+20
+Com base nas informações e no espaço amostral apresentados, qual é o preço médio aproximado de uma peça dessa
+coleção?
+A 88 ETH.
+B 144 ETH.
+C 158 ETH.
+D 170 ETH.
+E 200 ETH.
+RESOLUÇÃO
+ALTERNATIVA CORRETA: D
+QUESTÃO 04 | Impulsionado pela euforia de mercado acerca das NFT’s, um investidor decidiu direcionar seu dinheiro
+para a coleção Bored Ape, devido à divulgação realizada por diversas celebridades brasileiras que colocaram essas artes
+
+
+--- PAGE 31 OF 86 ---
+Página | 5
+QUESTÃO 05 | Leia este texto e, em seguida, faça o que se pede.
+Comparando-se os diversos países apresentados no gráfico, qual é, aproximadamente, a média aritmética entre as
+velocidades de download (em Mbps) para a tecnologia 5G?
+A 5,2.
+B 38.
+C 161.
+D 180.
+E 232.
+Com média de 50 Mbps, conexão 5G nos EUA perde para nações asiáticas
+Recentes análises da qualidade de conexão da tecnologia 5G evidenciaram disparidades entre nações
+desenvolvidas. Os EUA apresentaram uma média de velocidade de download consideravelmente menor que
+de países como a Arábia Saudita e a Coreia do Sul, por exemplo.
+De acordo com o estudo apresentado pela OpenSignal, empresa de análise e estatística de
+tecnologia, as melhores métricas foram registradas principalmente na Ásia e no Oriente Médio.
+Comparação da velocidade de download no 4G e no 5G
+Disponível em: https://olhardigital.com.br/2020/08/27/noticias/com-media-de-50-mbps-conexao-5g-
+nos-eua-perde-para-nacoes-asiaticas/. Acesso em: 30 mar. 2022.
+
+
+--- PAGE 32 OF 86 ---
+Página | 6
+RESOLUÇÃO
+ALTERNATIVA CORRETA: D
+
+
+--- PAGE 33 OF 86 ---
+Página | 7
+QUESTÃO 06 | Muitas aeronaves utilizam um sistema de propulsão eletromecânico constituído por uma hélice, um motor
+elétrico do tipo Brushless e um controlador eletrônico de velocidade. Ademais, um dos itens analisados para estudar a
+performance de um sistema como esse é a velocidade de rotação do motor.
+Considere que, para certo sistema, o gráfico da velocidade angular do motor (rpm) em função do tempo de
+funcionamento é dado por esta parábola:
+A partir dessas informações, é possível concluir que a fórmula de uma função quadrática associada a esse gráfico é
+A
+y 1 x2 5 x 7 .
+4
+2
+4
+B
+y 1 x2 5 x 1 .
+2
+4
+4
+C
+y x2 10x 7 .
+D
+y 1 x2 5 x 7 .
+4
+2
+4
+E
+y x 3 .
+RESOLUÇÃO
+ALTERNATIVA CORRETA: A
+
+
+--- PAGE 34 OF 86 ---
+Página | 8
+seja pelo espaço necessário para gerá-lo.
+Suponha que um algoritmo possua seu tempo de execução regido de forma exponencial. Ademais, considere que, para
+uma entrada numérica ݊, o tempo de execução T(n) do programa seja T(n) = 10n, dado em milissegundos. Devido ao
+rápido crescimento da função exponencial, se a entrada for consideravelmente grande, o período de execução do
+programa pode se tornar inviável.
+Dessa forma, considerando uma entrada n = 9, pode-se afirmar que o período de execução do programa será de,
+aproximadamente,
+A 2 dias.
+B 12 dias.
+C 28 dias.
+D 278 dias.
+E 11 574 dias.
+RESOLUÇÃO
+ALTERNATIVA CORRETA: B
+QUESTÃO 07 | No universo de problemas da computação, existem aqueles considerados intratáveis, que são
+caracterizados por não admitirem um algoritmo eficiente, seja pelo tempo gasto para a execução completa do programa,
+
+
+--- PAGE 35 OF 86 ---
+Página | 9
+QUESTÃO 08 | Painéis de LED possuem centenas ou milhares de pequenas luzes que podem ser comandadas
+individualmente para serem acesas ou apagadas. Um desses painéis permite controle individual de cada LED por software
+mediante a indicação de linha e de coluna e a ação desejada (acender ou apagar).
+Neste esquema, cada retângulo simboliza um LED, que pode ser identificado por sua linha y e coluna x.
+Em um teste de configuração, o acendimento de todas as luzes foi programado para que ocorresse obedecendo a y = x2
+ou y = x – 3. Dessa forma, indicando uma luz acesa por um retângulo colorido, o resultado esperado será
+A
+B
+
+
+--- PAGE 36 OF 86 ---
+Página | 10
+C
+D
+E
+
+
+--- PAGE 37 OF 86 ---
+Página | 11
+RESOLUÇÃO
+ALTERNATIVA CORRETA: E
+
+
+--- PAGE 38 OF 86 ---
+Página | 12
+QUESTÃO 09 | A Agência Nacional de Aviação Civil (ANAC) concedeu, em janeiro deste ano, a primeira autorização para
+entregas comerciais no Brasil por meio de drones para cargas de até 2,5 kg. Ao saber disso, determinada empresa de
+delivery operou seu primeiro teste realizando duas entregas, em pontos diferentes, antes de retornar à sua sede.
+Nesta imagem, gerada pelo programa que orienta o drone, é possível localizar a sede da empresa indicada por S e os
+pontos de entrega por A e B:
+Considere que o drone, percorrendo a menor distância possível, saiu da sede S e fez sua primeira entrega no ponto A. Em
+seguida, foi até o ponto B fazer a segunda entrega e, por fim, retornou à sede. De acordo com essas informações e com
+as indicações na imagem, a distância horizontal total percorrida pelo drone, em quilômetros, é
+A 3,10.
+B 3,30.
+C 4,40.
+D 6,20.
+E 6,79.
+RESOLUÇÃO
+ALTERNATIVA CORRETA: C
+
+
+--- PAGE 39 OF 86 ---
+Página | 13
+
+
+--- PAGE 40 OF 86 ---
+Página | 14
+produção de US$ 0,34/m3 de água.
+As usinas de dessalinização são chamadas de “domo solar” e tem o formato esférico. Em cada processo de dessalinização,
+metade do volume da esfera, que fica acima do solo, recebe luz solar, e a outra metade, que fica enterrada, é preenchida
+pela água do mar a ser dessalinizada, conforme demonstrado nesta imagem:
+Considere = 3,14 e despreze a espessura da estrutura do domo.
+A partir dessas informações e considerando que a área dessa esfera é 2 826 m2, o custo de produção de água doce potável
+em cada processo de dessalinização, em dólares, será de
+A 480,42.
+B 2 402,10.
+C 4 804,20.
+D 7 065,00.
+E 14 130,00.
+QUESTÃO 10 | Para tentar solucionar o problema da falta de água doce potável, a Arábia Saudita está testando uma nova
+tecnologia, neutra em carbono e livre de produtos químicos poluentes, para dessalinizar a água do mar a um custo de
+Disponível em: https://www.youtube.com/watch?v=KdFIHecZDfc.
+Acesso em 18 mar. 2022 (adaptado)
+
+
+--- PAGE 41 OF 86 ---
+Página | 15
+RESOLUÇÃO
+ALTERNATIVA CORRETA: B
+
+
+--- PAGE 42 OF 86 ---
+Página | 16
+forma orgânica, pois a estética não é alterada e o custo é mais baixo em relação aos painéis solares.
+Analise as medidas deste telhado, considerando que suas duas “águas” possuem as mesmas dimensões e que todas as
+telhas serão trocadas pelas telhas fotovoltaicas:
+De acordo com a inclinação do telhado, com a quantidade de horas de Sol por dia e com a localização do imóvel,
+determinado software calculou que, para esse telhado, cada metro quadrado das telhas fotovoltaicas será capaz de
+produzir 0,55 kWh por mês.
+Sendo assim, a produção de energia desse telhado, por mês, nessas condições, será de
+A 71,5 kWh.
+B 132,0 kWh.
+C 134,8 kWh.
+D 143,0 kWh.
+E 260,0 kWh.
+RESOLUÇÃO
+ALTERNATIVA CORRETA: D
+QUESTÃO 11 | Para finalizar seu projeto de tentar conter o aumento do aquecimento global causado pela queima de
+combustíveis fósseis, Elon Musk lançou a telha fotovoltaica da Tesla. Seu projeto inovador substitui o telhado comum de
+
+
+--- PAGE 43 OF 86 ---
+Página | 17
+cada modelo, pode ser instalado um tipo de ventoinha de resfriamento, cujos tamanhos disponíveis podem ser estes três:
+P, M, G. A matriz [ventoinha – computador] indica a quantidade de unidades de ventoinhas instaladas em cada modelo:
+A quantidade Q de computadores produzidos em certo mês é dada por esta matriz [computador – quantidade]:
+O produto da matriz [ventoinha – computador] pela matriz [computador – quantidade] é:
+Com base nessas informações, pode-se afirmar que, nesse mês, a quantidade de unidades de computadores produzida
+por essa montadora foi
+A 120.
+B 150.
+C 200.
+D 470.
+E 493.
+QUESTÃO 12 | Uma montadora produz computadores de três categorias diferentes: Profissional, Iniciante e Gamer. Em
+
+
+--- PAGE 44 OF 86 ---
+Página | 18
+RESOLUÇÃO
+ALTERNATIVA CORRETA: D
+
+
+--- PAGE 45 OF 86 ---
+Página | 19
+QUESTÃO 13 | Leia este texto e, em seguida, faça o que se pede.
+Com base nessas informações, o número de vagas abertas na área de tecnologia no ano de 2019, logo antes do início da
+pandemia, foi de, aproximadamente,
+A 126.
+B 11 000.
+C 12 685.
+D 84 330.
+E 654 000.
+Procura por profissionais de tecnologia cresce 670% durante a pandemia
+A procura por profissionais de tecnologia cresceu cerca de 670% em 2020, em relação a 2019. Um
+dos profissionais mais procurados é o desenvolvedor, fundamental para o avanço da revolução tecnológica
+em curso.
+(...) No Brasil, durante o primeiro ano da pandemia, houve 85 mil novas vagas para quem lida com
+tecnologia.
+“Todas as empresas de tecnologia estão recrutando. Ao mesmo tempo, a gente também tem uma
+revisão do que é o formato de empresa do mundo de hoje”, diz o co-fundador da 99 Jobs, Eduardo Migliano.
+Essa revolução digital colocou os profissionais de tecnologia em um novo mundo. Entre as 10
+profissões que mais cresceram no Brasil estão analista de sistemas, analista de suporte, analista de business
+intelligence e desenvolvedor.
+Disponível em: https://www.cnnbrasil.com.br/business/procura-por-profissionais-de-tecnologia-cresce-671-durante-a-pandemia/
+Acesso: 24 mar. 2022 (Adaptada).
+
+
+--- PAGE 46 OF 86 ---
+Página | 20
+RESOLUÇÃO
+ALTERNATIVA CORRETA: B
+
+
+--- PAGE 47 OF 86 ---
+Página | 21
+informações. Ela se constitui como uma rede de inúmeros computadores que constantemente verificam a procedência
+de transações protegidas por criptografia de ponta a ponta. Com isso, essa rede tecnológica é fundamental para o
+funcionamento da bitcoin e de outras criptomoedas. Entretanto, o fato de o valor da moeda e a necessidade de força
+computacional aumentarem, o que resulta em um alto nível de poluição devido à alta exigência de consumo de energia
+elétrica, é uma preocupação que recentemente se intensifica.
+O Centro de Finanças Alternativas da Universidade de Cambridge estimou que, em fevereiro de 2021, época de um dos
+picos de valores da bitcoin, a rede blockchain demandava uma quantia energética de, aproximadamente, 130 Terawatt-
+hora (TWh). A título de comparação, segundo informações da Empresa de Pesquisa Energética (EPE), o consumo de
+energia elétrica anual de toda região Norte do Brasil em 2014 foi de, aproximadamente, 32,5 mil Gigawatt-hora (GWh).
+Sabendo que 1 TWh equivale a 1 000 GWh, o percentual de consumo energético da blockchain, em fevereiro de 2021,
+corresponde a
+A  4% da demanda energética da região Norte em 2014.
+B  40% da demanda energética da região Norte em 2014.
+C 400% da demanda energética da região Norte em 2014.
+D 4 000% da demanda energética da região Norte em 2014.
+E
+40 000% da demanda energética da região Norte em 2014.
+RESOLUÇÃO
+ALTERNATIVA CORRETA: C
+QUESTÃO 14 | A blockchain é uma ferramenta de conexão, validação e segurança para negociações online e tráfego de
+
+
+--- PAGE 48 OF 86 ---
+Página | 22
+confidenciais, como CPF, senhas e números de cartões. Um esquema bastante comum consiste em registrar sites com
+domínios parecidos aos originais e, neles, é feita a alteração de uma letra ou a adição de um caractere. Diante desses sites
+maliciosos, as pessoas acreditam acessar os domínios corretos, porém a eles são enviados milhares de e-mails com links.
+Como a interface dos sites falsos é muito parecida com a dos domínios originais, o usuário acredita na idoneidade da
+plataforma, porém todas as informações registradas por ele são enviadas para um computador que armazenará e
+disponibilizará essas informações a terceiros. Portanto, para adicionar segurança e proteção aos seus usuários, é natural
+que provedores de e-mail se organizem de modo a detectar automaticamente mensagens relacionadas a esquemas de
+phishing como spam.
+Considere que os provedores tenham 98% de probabilidade de detectar um e-mail malicioso antes de ele chegar ao
+usuário e que, se esse e-mail conseguir contornar a proteção do provedor, a chance de o usuário abri-lo e divulgar suas
+informações pessoais seja de 90%. Dessa forma, pode-se afirmar que a probabilidade de o usuário receber um e-mail de
+phishing, sem este ser detectado como spam, e divulgar suas informações pessoais é de
+A 1,8%.
+B 2%.
+C 2,22%.
+D 88,2%.
+E 92%.
+RESOLUÇÃO
+ALTERNATIVA CORRETA: A
+QUESTÃO 15 | Phishing é uma técnica fortemente utilizada para enganar usuários, cuja intenção é obter informações
+
+
+--- PAGE 49 OF 86 ---
+Página | 23
+QUESTÃO 16 | Leia este texto e, em seguida, faça o que se pede.
+Considere a possibilidade de edição do DNA de uma célula eucariota acarretando a substituição, no RNA mensageiro de
+uma proteína, da 3ª base nitrogenada de cada códon. Um códon é uma sequência de três bases, escolhidas entre quatro
+possíveis, representadas por U, A, C ou G.
+A disposição de bases da porção inicial do RNA mensageiro da célula, antes de suas edições, é apresentada a seguir:
+início da tradução
+U U C – U U G – ...
+Observe que a terceira base desses códons corresponde às bases C e G. Suponha que, nas edições, essas duas bases sejam
+substituídas por outra base diferente. Assim, por exemplo, a base C poderia ser substituída por U, A ou G.
+Nesta imagem, estão os códons correspondentes a dois aminoácidos:
+Qual a probabilidade de, após as duas edições, a proteína a ser traduzida apresente pelo menos uma alteração na
+disposição de seus aminoácidos?
+A
+1 .
+9
+B
+2 .
+9
+C
+4 .
+9
+D
+5 .
+9
+E
+8 .
+9
+Uma nova forma de editar o código genético humano pode corrigir até
+89% de erros no DNA que causam doenças, dizem cientistas americanos.
+A tecnologia, conhecida como “prime editing” (“edição de qualidade”, em tradução livre), foi descrita
+como uma espécie de “editor de texto genético” capaz de reescrever o DNA com precisão.
+Em teste de laboratórios, a nova tecnologia foi usada para corrigir mutações que causam doenças.
+Uma das mutações que a técnica conseguiu corrigir foi a da anemia falciforme.
+O método foi desenvolvido pela equipe do Instituto Broad, ligado à universidade de Harvard e ao MIT
+(Massachusetts Institute of Technology) nos Estados Unidos. A equipe de cientistas afirma que a tecnologia
+é “muito versátil e precisa”, mas destaca que a pesquisa está apenas começando.
+Disponível em: https://www.bbc.com/portuguese/geral-50133350. Acesso: 29 mar. 2022.
+
+
+--- PAGE 50 OF 86 ---
+Página | 24
+RESOLUÇÃO
+ALTERNATIVA CORRETA: E
+
+
+--- PAGE 51 OF 86 ---
+Página | 25
+QUESTÃO 17 | Leia este texto e, em seguida, faça o que se pede.
+Um exemplo de antena que faz uso da geometria fractal da curva de Koch pode ser criado a partir de um triângulo
+equilátero de lado 1. Então, no meio de cada lado desse triângulo, é colocado externamente um novo triângulo equilátero,
+cujo lado mede 1/3 do lado do triângulo original. Em seguida, no meio de cada lado desses novos triângulos, são colocados
+novos triângulos equiláteros, cujos lados medem 1/3 dos triângulos anteriores, e assim sucessivamente, como mostra
+esta figura:
+De acordo com as informações anteriores e com o padrão descrito, o número de lados do 10º floco de Koch é
+A 49.
+B 3 · 49.
+C 410.
+D 3 · 410.
+E 39.
+RESOLUÇÃO
+ALTERNATIVA CORRETA: B
+A geometria fractal para o desenvolvimento de antenas tem recebido grande atenção do campo da
+engenharia de antenas. As antenas fractais apresentam características que tornam o seu emprego
+vantajoso em relação ao modelo convencional de desenvolvimento de antenas. A Ilha Fractal de Von Koch
+é uma forma originada a partir de iterações do tipo curva de Koch, que são feitas em cada um dos lados de
+um triângulo equilátero. Essa geometria tem como uma das principais vantagens o aumento do perímetro
+de uma determinada antena, sem aumento de sua área.
+BARROS, Rafael Costa. MINIATURIZAÇÃO DE ANTENAS ATRAVÉS DO USO DA GEOMETRIA
+FRACTAL DA CURVA DE KOCH. O comunicante, Brasília, p. 45-47, 2019.
+
+
+--- PAGE 52 OF 86 ---
+Página | 26
+QUESTÃO 18 | Uma das inovações trazidas pela tecnologia 5G é o aumento na densidade de dispositivos conectados à
+rede. Enquanto uma rede 4G original admite 10 000 dispositivos conectados por quilômetro quadrado, a rede 5G permite
+a conexão de 1 milhão de dispositivos na mesma área. Isso será essencial para o desenvolvimento de casas inteligentes,
+com centenas de dispositivos conectados simultaneamente.
+De acordo com essas informações, a quantidade máxima de dispositivos conectados a uma rede 5G em um quarteirão
+quadrado, cujos lados medem 200 m, é de
+(Dado: 1 quilômetro quadrado é a área de um quadrado com lado medindo 1 000 m)
+A 400 dispositivos.
+B 2 000 dispositivos.
+C 40 000 dispositivos.
+D 200 000 dispositivos.
+E 40 000 000 dispositivos.
+RESOLUÇÃO
+ALTERNATIVA CORRETA: C
+
+
+--- PAGE 53 OF 86 ---
+Página | 27
+urbanos. Em ambientes fechados e automatizados, o cultivo é feito por hidroponia e aeroponia em camadas empilhadas
+verticalmente. Dessa forma, em uma fazenda vertical, foi possível plantar 36 000 mudas em 8 fileiras, com 3 andares em
+cada fileira.
+Mantendo-se essa mesma proporção em uma fazenda vertical composta por 10 fileiras, com 7 andares em cada, será
+possível plantar quantas mudas?
+A 12 343.
+B 45 000.
+C 67 200.
+D 84 000.
+E 105 000.
+QUESTÃO 19 | As fazendas verticais estão se tornando uma saída para a produção de alimentos nos grandes centros
+
+
+--- PAGE 54 OF 86 ---
+Página | 28
+RESOLUÇÃO
+ALTERNATIVA CORRETA: E
+
+
+--- PAGE 55 OF 86 ---
+Página | 29
+foi assistido e quando as perguntas foram respondidas.
+A todo momento, é exibida uma barra de progresso em que cada estudante pode verificar seu andamento no curso. Esse
+progresso é exibido como um número de 0 a 100, sendo “0”, para 0% concluído, e “100”, para curso 100% concluído.
+Sendo N o número de módulos já concluídos, a fórmula que calcula o número a ser exibido na barra de progresso é
+A
+B  40N .
+100
+C
+N .
+40
+D
+N .
+100 
+E
+RESOLUÇÃO
+ALTERNATIVA CORRETA: A
+QUESTÃO 20 | Um curso online é composto de 40 módulos e cada módulo é composto por um vídeo e por algumas
+perguntas de verificação de aprendizagem. Além disso, a plataforma registra o módulo como concluído quando o vídeo
+100 40 N .
+40
+100N .
+40
+
+
+--- PAGE 56 OF 86 ---
+Página | 30
+QUESTÃO 21 | Leia este texto e, em seguida, faça o que se pede.
+Em 2021, um terreno virtual, formado por 116 sublotes idênticos, foi comprado na Decentraland (MANA), que é uma
+plataforma de metaverso, em que é possível adquirir terrenos virtuais e participar de uma comunidade virtual por 618
+000 MANA. Considerando que 1 MANA é vendida a R$ 11,60 e que cada dólar é vendido a R$ 5,15, o valor pago nessa
+negociação, em dólares, por cada sublote, foi de
+A 2 365,26.
+B 12 000,00.
+C 27 437,07.
+D 61 800,00.
+E 1 392 000,00.
+RESOLUÇÃO
+ALTERNATIVA CORRETA: B
+O metaverso, utopia futurista que busca unir os mundos real e virtual, ainda está em construção. No
+entanto, algumas plataformas já começaram a desenhar essa nova camada de realidade e desenvolveram
+universos digitais, em que é possível comprar pedaços de terra para construir casas e negócios digitais, que
+ficaram conhecidos como “terrenos no metaverso”.
+Disponível em: https://www.infomoney.com.br/guias/terrenos-no-metaverso/.
+Acesso: 16 mar. 2022.
+
+
+--- PAGE 57 OF 86 ---
+Página | 31
+QUESTÃO 22 | Os asteroides possuem diversas matérias-primas que estão escassas no planeta Terra, como ferro, ouro,
+platina, lítio e água. Devido a essa escassez, a ideia da mineração de asteroides é cogitada desde a década de 80, mas
+nunca foi levada adiante por causa dos altos custos envolvidos no processo. Recentemente, vários empresários bilionários
+começaram a se interessar por essa possibilidade, o que poderá adiar o esgotamento desses elementos.
+Atualmente, as reservas mundiais de lítio parecem enormes: 14 milhões de toneladas. Cada carro elétrico, no entanto,
+que é grande esperança para reduzir o aquecimento global, usa cerca de 8 quilos de lítio e, no mundo, são produzidos, a
+cada ano, 71 milhões de carros.
+Nesse cenário, se todos os carros produzidos fossem elétricos, em quantos anos, aproximadamente, as reservas mundiais
+de lítio estariam totalmente consumidas?
+A 0,025.
+B 2,5.
+C 25.
+D 250.
+E 2500.
+RESOLUÇÃO
+ALTERNATIVA CORRETA: C
+
+
+--- PAGE 58 OF 86 ---
+Página | 32
+QUESTÃO 23 | Como forma de economizar banda e transmitir mais rapidamente as mensagens, um aplicativo de
+mensagens usará códigos numéricos para identificar emojis.
+Cada emoji será associado a um único número binário, cuja sequência está exemplificada a seguir:
+Base 10
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+...
+Binário
+1
+10
+11
+100
+101
+110
+111
+1000
+1001
+1010
+...
+Os desenvolvedores preveem que o aplicativo tenha 100 emojis. Assim, eles devem escolher um tamanho de código que
+seja capaz de enumerar a quantidade correta de emojis – por exemplo, para 10 emojis, seria necessário um código de 4
+dígitos.
+Dessa forma, o número de dígitos do código utilizado para esse aplicativo deve ser, no mínimo, de
+A 4 dígitos.
+B 6 dígitos.
+C 7 dígitos.
+D 8 dígitos.
+E 40 dígitos.
+RESOLUÇÃO
+ALTERNATIVA CORRETA: C
+
+
+--- PAGE 59 OF 86 ---
+Página | 33
+
+
+
+
+
+QUESTÃO 24 | A ideia de arcologia pode ser entendida como a construção de habitações humanas autossustentáveis e
+densamente povoadas. Seu desenvolvimento pode permitir acomodar confortavelmente grandes parcelas da população
+com economia de recursos e com padrão de vida superior ao atual, como mostra esta imagem:
+Disponível em: https://cuevadelobo.com/arcologias-y-ciudades-del-futuro/.
+Acesso em: 22 abr. 2022.
+Considere que uma dessas habitações deva obedecer às seguintes regras:
+I) A área verde total será composta por uma parcela fixa de 100 000 m2 mais 2 m2 de área verde por humano residente.
+II) O custo de construção é de R$ 1 000,00 por metro quadrado de área verde e de R$ 80 000,00 por humano residente.
+A partir dessas informações e considerando um orçamento disponível de um bilhão de reais, o sistema de equações que
+permite calcular a área verde total (A) em metros quadrados e o número N de humanos residentes é
+A
+A 100 002N
+1000A 80000N 1 000 000
+A 2N
+B
+1000 80000 1 000 000 000
+
+  A
+N
+A 100 000 2N
+C
+N 80A
+D
+A 100 000 2N
+1000A 80000N 1 000 000
+E
+A 100 000 2N
+1000A 80000N 1 000 000 000
+RESOLUÇÃO
+ALTERNATIVA CORRETA: E
+
+
+--- PAGE 60 OF 86 ---
+
+
+--- PAGE 61 OF 86 ---
+PROCESSO SELETIVO
+Graduação
+2023
+
+
+--- PAGE 62 OF 86 ---
+Página | 1
+QUESTÃO 01 | Ao ingressarem no Instituto de Tecnologia e Liderança (Inteli), os alunos deverão criar um login com senha 
+na plataforma Adalove, cujo nome é uma homenagem a Augusta Ada Byron King. Também conhecida como Ada Lovelace, 
+a matemática foi pioneira na programação ao desenvolver o primeiro algoritmo de computador capaz de calcular os 
+números de Bernoulli.
+Diante dessas informações, considere que um calouro deseja criar sua senha utilizando apenas as seis letras que compõem 
+a sigla INTELI, de tal forma que as duas letras “I” não fiquem juntas. Sendo assim, de quantas maneiras distintas esse 
+aluno poderá criar a própria senha?
+A 30.
+B 120.
+C 240.
+D 380.
+E 720.
+RASCUNHO
+RESULTADO
+ALTERNATIVA CORRETA: C
+Página 1
+
+
+--- PAGE 63 OF 86 ---
+Página | 3
+QUESTÃO 02 | Com o desenvolvimento da tecnologia, novas maneiras de fraude foram surgindo e, com isso, as 
+instituições financeiras tiveram que se adequar para garantir mais segurança aos seus clientes. Um sistema gerador de 
+senhas, chamado de token digital, foi criado para gerar senhas temporárias durante transações bancárias por meio da 
+internet ou de aplicativos, em que os clientes recebem um SMS para suas transações serem validadas.
+Diante dessas informações, considere que o token de um aplicativo bancário gere senhas de seis dígitos, formadas pelos 
+algarismos de 0 a 9, a cada nova transação bancária. Entretanto, para aumentar ainda mais a segurança, o token foi 
+habilitado para não gerar senhas com 5 ou mais dígitos repetidos. Nessas condições, quantas senhas o token poderá 
+gerar?
+A 999 450.
+B 999 630.
+C 999 900.
+D 999 936.
+E 1 000 000.
+RESULTADO
+ALTERNATIVA CORRETA: A
+Página 2
+
+
+--- PAGE 64 OF 86 ---
+Página | 5
+QUESTÃO 03 | Um estabelecimento de ensino oferece a seus alunos três opções de curso: robótica (R), desenvolvedor 
+de games (DG) e multimídia (M). Ao se matricular, o aluno deve optar por uma, duas ou pelas três opções disponíveis. A 
+quantidade de alunos matriculados está indicada neste quadro:
+Opções de curso
+Quantidade de alunos
+R
+46
+DG
+69
+M
+46
+R e DG
+19
+DG e M
+18
+M e R
+16
+R, DG e M
+12
+Dessa forma, os alunos, ao se matricularem, além das opções escolhidas, devem informar o gênero com o qual se 
+identificam, por exemplo, neutro, masculino ou feminino. No quadro a seguir, está indicada a porcentagem de alunos 
+desse estabelecimento conforme o gênero com o qual se identificam:
+Gênero
+Porcentagem
+Neutro
+5%
+Masculino
+60%
+Feminino
+35%
+Nesse estabelecimento, pode-se afirmar que a quantidade de alunos que informou se identificar com o gênero feminino 
+corresponde a
+A 120.
+B 72.
+C 70.
+D 42.
+E 6.
+RESULTADO
+ALTERNATIVA CORRETA: D
+Página 3
+
+
+--- PAGE 65 OF 86 ---
+Página | 7
+QUESTÃO 04 | Nos smartphones modernos, é comum a implementação de uma placa onboard de controle de 
+carregamento integrada que liga e desliga. O intuito dessa placa é evitar sobrecargas e prevenir, principalmente quando 
+o usuário deixa o celular carregando durante a noite, o desgaste da bateria e, consequentemente, a redução da vida útil 
+dela. Dessa forma, é cabível a inclusão de um software que analisa o comportamento do usuário para melhor administrar 
+os ciclos de carregamento do aparelho durante a noite.
+Para isso, um programador desenvolveu um algoritmo que registra os horários em que o usuário conectou o celular para 
+carregar e os horários em que ele acordou para interromper o carregamento, conforme apresentado neste quadro:
+Horário de conexão
+para carregamento
+Horário de interrupção
+do carregamento
+segunda-feira
+21h30
+05h30
+terça-feira
+23h20
+08h20
+quarta-feira
+00h18
+06h18
+quinta-feira
+22h
+06h
+sexta-feira
+00h
+05h
+Com isso, pode-se afirmar que os ciclos – de liga e desliga – devem considerar um tempo médio de carregamento igual a
+A 6 horas.
+B 7 horas e 12 minutos.
+C 8 horas.
+D 10 horas e 50 minutos.
+E 16 horas e 48 minutos.
+RESULTADO
+ALTERNATIVA CORRETA: B
+Página 4
+
+
+--- PAGE 66 OF 86 ---
+Página | 9
+QUESTÃO 05 | O eSport ou esporte eletrônico tem atraído milhares de espectadores em todo o mundo. O gráfico a seguir 
+apresenta o número de espectadores ocasionais e entusiastas de eSports no mundo entre os anos de 2016 e 2020.
+Disponível em: https://www.nicepng.com/ourpic/u2q8q8y3o0i1r5i1_newzoo-1-hitmarker-newzoo-esports-audience-
+growth/. Adaptado. Acesso em: 04 ago. 2022.
+O número de espectadores no período indicado teve um crescimento considerável, partindo de 161 milhões de 
+espectadores ocasionais para 303 milhões. Os entusiastas, por sua vez, saltaram de 162 milhões para 286 milhões.
+Considerando as informações apresentadas, qual é, aproximadamente, a média anual de espectadores ocasionais no 
+período indicado?
+A 221 milhões.
+B 222 milhões.
+C 229 milhões.
+D 230 milhões.
+E 260 milhões.
+RESULTADO
+ALTERNATIVA CORRETA: D
+Página 5
+
+
+--- PAGE 67 OF 86 ---
+Página | 11
+QUESTÃO 06 | A vida útil dos equipamentos da TI é extremamente importante para as empresas planejarem seus 
+investimentos de forma mais rentável. Conhecer o ciclo de vida desses equipamentos otimiza os negócios, o que favorece 
+a produtividade e possibilita investimentos mais eficazes. Portanto, procurar entender o que impacta na depreciação de 
+computadores, por exemplo, possibilita planejar por quanto tempo esse equipamento poderá ser usado. Um campo de 
+pesquisa bastante importante é o de produzir equipamentos com maior vida útil.
+Suponha que, ao testar a depreciação de um equipamento, tenha sido verificado que sua capacidade de atendimento, 
+calculado percentualmente em relação ao equipamento novo, variou, em função do tempo, de forma linear durante o 
+período de teste, conforme este gráfico:
+Considerando que essa depreciação se mantenha constante, em quantos dias, a partir de um equipamento novo, ele 
+estará completamente depreciado?
+A 2 100 dias.
+B 3 000 dias.
+C 4 500 dias.
+D 5 200 dias.
+E 6 300 dias.
+RESULTADO
+ALTERNATIVA CORRETA: B
+Página 6
+
+
+--- PAGE 68 OF 86 ---
+Página | 13
+QUESTÃO 07 | No âmbito do desenvolvimento de jogos digitais, mais especificamente no que se refere ao level design
+dentro de games multijogadores, há uma preocupação em que o jogador evolua cada vez mais devagar, sendo necessários 
+mais pontos de experiência a cada novo nível atingido. De modo simplório, pode-se afirmar que é mais fácil subir 5 níveis 
+no início de um jogo do que subir 1 nível quando se está mais próximo do fim. Para isso, um bom método de evolução e
+capaz de romper com a linearidade de evolução é o uso do logaritmo para calcular a quantidade de experiência necessária 
+para subir de nível.
+A título de exemplificação, considere uma função descrita como 
+
+f(x) = x + x  log(x) , em que f(x) é a quantidade de 
+experiência necessária para evoluir e x é o nível do jogador.
+Dessa forma, pode-se afirmar que a diferença de experiência necessária para subir do nível 1 000 e para subir do nível 
+100 é de
+A 900.
+B 2 700.
+C 3 000.
+D 3 700.
+E 9 000.
+RESULTADO
+ALTERNATIVA CORRETA: D
+Página 7
+
+
+--- PAGE 69 OF 86 ---
+Página | 15
+QUESTÃO 08 |No plano de coordenadas cartesianas abaixo, a localização de duas antenas emissoras de sinal está 
+representada pelos pontos (–2, 5) e (4, –6). Além deles, a localização de um receptor está representada no ponto (4, 1).
+Considere que uma terceira antena será posicionada de tal forma que o receptor ficará localizado no baricentro do 
+triângulo formado por essas três antenas. Dessa forma, pode-se afirmar que o par ordenado que indicará a posição da 
+terceira antena é
+A (2, 0).
+B (10, 4).
+C (2, 2).
+D (9, 7).
+E (6, 0).
+RESULTADO
+ALTERNATIVA CORRETA: B
+Página 8
+
+
+--- PAGE 70 OF 86 ---
+Página | 17
+QUESTÃO 09 | A entrega com drones já é realidade em algumas partes do mundo – mesmo para pedidos mundanos, 
+como uma pizza.
+A Pizzaria Siqueira tem o serviço Drone Delivery e promete entrega em até 30 minutos na porta da casa do cliente. Para 
+fazer um estudo da área que pode ser coberta pelo drone, a gerente Maitê coletou os seguintes dados:
+x
+São gastos 20 minutos, a partir do pedido, para que a pizza esteja embalada e seja colocada no drone.
+x
+O drone se desloca com velocidade de 300 metros por minuto e percorre uma linha reta pelos céus até a casa do 
+cliente.
+x
+A pizzaria sempre tem um drone disponível.
+x
+Considerando a cidade como um plano cartesiano, a partir da praça principal, a pizzaria se situa no ponto (8,0), com 
+unidades em quilômetros.
+Com base nesses dados e desconsiderando o tempo gasto na subida e na descida do drone, pode-se afirmar que o formato 
+da área, na qual é possível cumprir a promessa de delivery em 30 minutos, e a equação que limita essa área, considerando 
+as unidades de x e y em quilômetros, são
+A um quadrado, limitado por 
+d
+d
+5    x    11 e 
+d
+d
+3    y    3 .
+B um quadrado, limitado por 
+d
+d
+1    x    17 e 
+d
+d
+9    y    9 .
+C um triângulo equilátero, com baricentro em (8,0) e vértices que obedecem a 
+
+
+2
+2
+x  8
++ y
+= 3 .
+D um círculo, limitado por 
+
+2
+2
+2
+(x  8) + y
+= 9 .
+E um círculo, limitado por 
+
+2
+2
+2
+(x  8) + y
+= 3 .
+RESULTADO
+ALTERNATIVA CORRETA: E
+Página 9
+
+
+--- PAGE 71 OF 86 ---
+Página | 19
+QUESTÃO 10 | Devido à pandemia de Covid-19, que paralisou muitos serviços, e à escassez de algumas matérias-primas, 
+como o silício, surgiu a crise dos chips semicondutores. Muitos fabricantes alertam que essa crise deverá durar até 2024 
+e, com isso, os preços de produtos eletrônicos ficarão mais altos, atingindo principalmente as indústrias de carros e games.
+A partir de placas de silício cilíndricas, chamadas de wafer, os chips retangulares são recortados. O restante da placa de 
+silício que não é utilizada é desperdiçada.
+Considere que, nesta placa cilíndrica de 0,2 mm de espessura, serão recortados chips idênticos com 0,2 mm também de 
+espessura:
+De acordo com essas informações, com as indicações na imagem e considerando S = 3,14, pode-se afirmar que o volume 
+da placa de silício desperdiçado após os recortes, em cm3, é de, aproximadamente,
+A 20,97 cm3.
+B 12,56 cm3.
+C 6,11 cm3.
+D 4,15 cm3.
+E 2,13 cm3.
+RESULTADO
+ALTERNATIVA CORRETA: E
+Página 10
+
+
+--- PAGE 72 OF 86 ---
+Página | 21
+QUESTÃO 11 | O número de vendas de carros elétricos vem crescendo muito nos últimos anos. Esse mercado, no entanto, 
+ainda sofre com a desconfiança de consumidores que pretendem fazer viagens longas e que se preocupam com a baixa 
+autonomia, demora na recarga e quantidade de postos de abastecimento.
+Um veículo que se destaca nesse quesito é o sedã Lucid Air, que percorre cerca de 840 km com uma recarga de bateria 
+completa. Para competir com ele, uma startup norte-americana equipou um Tesla Model S com um protótipo de sua 
+bateria e realizou testes de autonomia.
+Suponha que, para determinar essas autonomias, ambos os veículos deram voltas nesta pista:
+Despreze a largura da pista e use 3 como aproximação para S. Considerando que o modelo Tesla Model S foi capaz de dar 
+148 voltas a mais que o Lucid Air, é possível concluir que, utilizando o protótipo de bateria da startup, a autonomia do 
+Tesla Model S durante o teste foi de
+A 1 075 km.
+B 1 210 km.
+C 1 267 km.
+D 1 390 km.
+E 1 419 km.
+RESULTADO
+ALTERNATIVA CORRETA: B
+Página 11
+
+
+--- PAGE 73 OF 86 ---
+Página | 23
+QUESTÃO 12 | Os processos de ampliação ou redução de imagens em computadores são oriundos de análises matriciais 
+realizadas via software.
+A seguir, considere a figura bidimensional localizada em um plano cartesiano. Para que haja a alteração de escala 
+proporcional da figura, determina-se, primeiramente, o vetor da imagem gerado a partir de início, indicado pelo ponto 
+de início (A) e seu ponto de fim (D):
+Com isso, realiza-se a multiplicação da matriz expansão ª
+º
+«
+»
+¬
+¼
+x
+y
+k
+0
+0
+k
+, em que kx é o coeficiente de ampliação horizontal e 
+kY é o coeficiente de ampliação vertical pela matriz do vetor ª º
+« »
+¬ ¼
+x
+y .
+Considerando que seja realizada uma ampliação que preserve a proporcionalidade da imagem, mantenha as coordenadas 
+do ponto A e na direção do vetor apresentado com o objetivo de ampliar a imagem em quatro vezes, pode-se afirmar que 
+as novas coordenadas do ponto D serão
+A (8, 8).
+B (10, 11).
+C (12, 13).
+D (16, 20).
+E (8, 20).
+RESULTADO
+ALTERNATIVA CORRETA: B
+Página 12
+
+
+--- PAGE 74 OF 86 ---
+Página | 25
+QUESTÃO 13 | Analisando o gráfico de variação de preço das ações da NanoTecPlis, empresa de nanotecnologia, é 
+possível observar um crescimento no valor dessas ações quando são comparados seus valores no final do ano de 2021 
+para o ano de 2022.
+Disponível em: https://br.tradingview.com/chart/?symbol=BMFBOVESPA%3APETR3. Acesso em: 24 ago.2022. (Adaptada)
+Apostando nessa valorização, um investidor comprou ações da NanoTecPlis no dia 22 de setembro de 2021 pelo valor 
+indicado na imagem. Caso esse investidor quisesse vender essas suas ações no dia 22 de agosto de 2022, qual seria, pelo 
+valor indicado, a valorização percentual dessas ações para ele?
+A 52%.
+B 91%.
+C 110%.
+D 182%.
+E 210%.
+RESULTADO
+ALTERNATIVA CORRETA: C
+Página 13
+
+
+--- PAGE 75 OF 86 ---
+Página | 27
+QUESTÃO 14 | Uma grande integralização entre o campo estatístico e o machine learning é a criação de bibliotecas, como 
+a scikit-learn, para Python, que possibilita algoritmos capazes de realizar a regressão linear. Ou seja, são criados códigos 
+que quantificam e interpretam uma relação existente entre uma ou mais variáveis dependentes com uma variável 
+independente.
+Para precificar terrenos de um condomínio particular que será construído, utilizou-se uma modelagem matemática por 
+meio da regressão linear de valores referentes aos preços a partir do preço por metro quadrado da região. O gráfico 
+expressa o preço futuro f(x) do terreno, em reais, em função de sua metragem, x, em metros quadrados, representada 
+por f(x) = 1 400x – 14 000.
+No escritório de vendas do referido condomínio, está catalogado um terreno com 300 m² cujo preço para venda atual é
+de R$ 350 000,00. Fazendo uma estimativa a partir da função obtida pela regressão linear, o preço desse terreno terá 
+uma variação percentual igual a
+A + 24% em relação à precificação catalogada.
+B + 20% em relação à precificação catalogada.
+C + 16% em relação à precificação catalogada.
+D – 20% em relação à precificação catalogada.
+E – 24% em relação à precificação catalogada.
+RESULTADO
+ALTERNATIVA CORRETA: C
+Página 14
+
+
+--- PAGE 76 OF 86 ---
+Página | 29
+QUESTÃO 15 | O aprendizado das máquinas – machine learning – é um dos ramos de desenvolvimento da inteligência 
+artificial mais importantes da última década. Uma exemplificação de aplicabilidade é o corretor ortográfico presente na 
+maioria dos smartphones para correção e ajuste de sentenças digitadas com grafias incorretas ou com vocábulos não 
+identificados nos dicionários da máquina. O processo de correção ortográfica se fundamenta, principalmente, em análises 
+probabilísticas feitas pela máquina e pela recorrência da correção realizada pelo usuário.
+Considere que um indivíduo tenha a correção ortográfica automática habilitada e digite esta frase:
+Aqui no Inteli, no lugar de discupilnas, há proets.
+Supondo que a correção ocorra somente após o término da digitação da frase, a máquina consultará seu banco de dados 
+para correção e verificará quatro possibilidades, junto às suas probabilidades de correção, para cada vocábulo incorreto. 
+Dessa forma, considera-se:
+Vocábulo
+Sugestão 1
+Sugestão 2
+Sugestão 3
+Sugestão 4
+discupilnas
+desculpinhas
+desculpas
+disciplinas
+discussões
+33%
+24%
+37%
+6%
+Vocábulo
+Sugestão 1
+Sugestão 2
+Sugestão 3
+Sugestão 4
+proets
+projetor
+profetas
+profeta
+projetos
+15%
+32%
+15%
+38%
+Dessa forma, pode-se afirmar que a probabilidade de correção para a frase “Aqui no Inteli, no lugar de disciplinas, há 
+projetos” é de
+A 11,84%.
+B 14,06%.
+C 37,50%.
+D 56,00%.
+E 75,00%.
+RESULTADO
+ALTERNATIVA CORRETA: B
+Página 15
+
+
+--- PAGE 77 OF 86 ---
+Página | 31
+QUESTÃO 16 | Softwares de recuperação física de dados tentam fazer a leitura de um mesmo setor danificado várias 
+vezes. Sob certas condições, é razoável assumir que leituras iguais correspondem ao conteúdo correto daquele setor, de 
+modo que aquela informação será, então, copiada para uma área não danificada de armazenamento.
+Considere que um setor, ao ser lido, tem 40% de probabilidade de ter sua leitura feita com sucesso (S) e 60% de 
+probabilidade de fracasso (F). Em um ciclo, o software tentará ler o setor danificado cinco vezes e necessita de três 
+sucessos, no mínimo, para considerar que a informação pode ser recuperada.
+Diante dessas informações, pode-se afirmar que a probabilidade de a informação ser recuperada em um ciclo é de
+A
+
+3
+2
+0,4   0,6 .
+B
+
+
+
+
+
+
+5
+1
+4
+2
+3
+3
+2
+0,6 + 5  0,4  0,6 +10  0,4   0,6 +10  0,4   0,6 .
+C
+
+
+3
+2
+10  0,4   0,6 .
+D
+
+
+
+
+3
+2
+4
+1
+5
+10  0,4   0,6 + 5  0,4   0,6 + 0,4 .
+E
+
+
+0,4  3+ 0,6  2 .
+RESULTADO
+ALTERNATIVA CORRETA: D
+Página 16
+
+
+--- PAGE 78 OF 86 ---
+Página | 33
+QUESTÃO 17 | Selection Sort é um método conhecido em programação para organizar uma lista de valores que, 
+inicialmente, pode estar toda desordenada. Para ordenar uma lista de 10 elementos, por exemplo, inicialmente são feitas 
+10 operações para identificar e separar o menor elemento da lista. Esse elemento é transferido para outro lugar da 
+memória e, então, resta uma lista com 9 elementos. Com mais 9 operações, seleciona-se o menor elemento dessa nova 
+lista, e assim por diante. Nesse exemplo, para ordenar a lista inteira, são necessárias 10 + 9 + 8 + 7 + 6 + 5 + 4 + 3 + 2 + 1 
+operações.
+Diante do exposto, para organizar uma lista com 1 000 elementos, a quantidade de operações necessárias é mais próxima 
+de
+A 55 operações.
+B 1 000 operações.
+C meio milhão de operações.
+D um milhão de operações.
+E meio bilhão de operações.
+RASCUNHO
+RESULTADO
+ALTERNATIVA CORRETA: C
+Página 17
+
+
+--- PAGE 79 OF 86 ---
+Página | 35
+QUESTÃO 18 | Em uma cidade inteligente, um semáforo pode calibrar seus próprios tempos de acordo com a demanda 
+de carros. Suponha, portanto, que um desses semáforos regula os fluxos de um cruzamento de duas ruas, ambas de mão 
+única. As figuras a seguir mostram o total de carros que pararam em dois sinais vermelhos sucessivos neste cruzamento.
+Com esses dados, o semáforo distribuirá os próximos 60 segundos de sinal verde de acordo com as seguintes regras:
+x
+Uma parcela fixa de 6 segundos de sinal verde para cada rua;
+x
+Os 48 segundos restantes, distribuídos em partes diretamente proporcionais à quantidade de carros que ficou parada 
+em cada rua.
+A partir dessas informações, é possível concluir que o tempo de sinal verde para cada rua será de
+A 20 segundos para a Rua A e 40 segundos para a Rua B.
+B 32 segundos para a Rua A e 16 segundos para a Rua B.
+C 38 segundos para a Rua A e 22 segundos para a Rua B.
+D 40 segundos para a Rua A e 20 segundos para a Rua B.
+E 45 segundos para a Rua A e 15 segundos para a Rua B.
+RESULTADO
+ALTERNATIVA CORRETA: C
+Página 18
+
+
+--- PAGE 80 OF 86 ---
+Página | 37
+QUESTÃO 19 | A Internet das Coisas (IoT) ganhará ainda mais notoriedade com o progresso da tecnologia 5G. A tendência 
+é que mais aparelhos estejam conectados, com maior volume de dados e aumento da velocidade. São incontáveis os 
+benefícios que o 5G trará para os diversos segmentos do mercado e impulsionará os sistemas de inteligência artificial. 
+Com o 5G, os dados poderão ser enviados com uma velocidade muito maior do que com a tecnologia 4G e, com isso, os 
+recursos da IoT serão mais eficientes.
+Nesta imagem, é possível observar a velocidade média de download e o tempo gasto para realizar o download de um 
+filme utilizando as tecnologias 4G e 5G:
+Fonte: BARROS, Marcelo. Tecnologia 5g made in Brazil. 2021.
+Disponível em: https://www.defesaemfoco.com.br/tecnologia-5g-made-in-brazil/.
+Acesso em: 10 ago. 2022. (Adaptado).
+A partir das informações anteriores, é possível concluir que o tempo gasto para realizar o download desse filme na 
+conexão 5G, em segundos, é de
+A 266,67.
+B 81,76.
+C 37,50.
+D 22,50.
+E 0,37.
+RESULTADO
+ALTERNATIVA CORRETA: D
+Página 19
+
+
+--- PAGE 81 OF 86 ---
+Página | 39
+QUESTÃO 20 | É no disco rígido que fica armazenada a maioria dos arquivos usados em um computador. Atualmente, os 
+discos rígidos podem ser de duas tecnologias, chamadas HDD e SSD. Leia, a seguir, um pequeno texto sobre as diferenças 
+entre elas.
+Qual é a diferença entre SSD e HDD?
+SSDs são dispositivos de armazenamento de dados mais recentes e rápidos. Assim como as 
+HDDs, elas podem conter terabytes de dados, mas, ao contrário das HDDs, todos os dados em 
+uma SSD podem ser acessados instantaneamente. Isso significa que, com uma SSD, você pode 
+carregar arquivos grandes em segundos em vez de minutos.
+(...)
+Em uma HDD típica, a cópia de um arquivo grande, como um filme ou um projeto de design 
+gráfico, é feita a uma taxa relativamente comum de 15 MB/s. Uma SSD SATA pode copiar o 
+mesmo arquivo a 500 MB/s, enquanto uma SSD NVMe mais recente atinge velocidades de 
+3.500 MB/s, ou seja, 3,5 GB por segundo.
+Disponível em :https://www.avg.com/pt/signal/ssd-hdd-which-is-best. Acesso em 22 ago. 2022 (Adaptado).
+Beatriz tinha em seu laptop um HDD. Com essa tecnologia mais antiga, ela fez a cópia de determinado arquivo em 4 
+minutos. Contudo, buscando maiores velocidades, ela fará a substituição de seu HDD por um SSD SATA.
+Para fazer a cópia desse mesmo arquivo, utilizando o novo dispositivo de armazenamento de dados e considerando as 
+velocidades médias apresentadas no texto, o tempo esperado será de, aproximadamente,
+A 1 segundo.
+B 7 segundos.
+C 12 segundos.
+D 15 minutos.
+E 133 minutos.
+RESULTADO
+ALTERNATIVA CORRETA: B
+Página 20
+
+
+--- PAGE 82 OF 86 ---
+Página | 41
+QUESTÃO 21 | A OpenAI é uma empresa que explora conceitos de manipulação da linguagem humana, desenvolvendo 
+modelos chamados de Generative Pre-Training Transformer (GPT).
+O GPT-3, algoritmo mais atual da empresa, é capaz de produzir textos muito semelhantes àquilo que os seres humanos 
+conseguem, sendo possível utilizá-lo para diálogo com o homem, para escrever artigos científicos, notícias e até mesmo 
+induzir o algoritmo à produção de fake news.
+Essa capacidade é resultado do treinamento da inteligência artificial, que foi submetida à análise de, aproximadamente,
+43 terabytes de texto.
+A título de comparação, uma versão textual da Bíblia possui apenas 4 megabytes. Dessa forma, considerando que um 
+terabyte possua 1012 bytes e um megabyte possua 106 bytes, pode-se afirmar que a GPT-3 foi treinada por um material
+A 1 075 vezes maior que a Bíblia.
+B 3 900 vezes maior que a Bíblia.
+C 1 000 000 vezes maior que a Bíblia.
+D 3 900 000 vezes maior que a Bíblia.
+E 10 750 000 vezes maior que a Bíblia.
+RASCUNHO
+RESULTADO
+ALTERNATIVA CORRETA: E
+Página 21
+
+
+--- PAGE 83 OF 86 ---
+Página | 43
+QUESTÃO 22 | Um CD antigo, gravado em formato de áudio (com arquivos .wav sem compactação), era capaz de 
+armazenar 720 MB de dados, o que correspondia a, aproximadamente, 64 minutos de música.
+Na época do lançamento, esses valores eram quase impensáveis para um mundo que vinha do disquete. Ademais, a 
+velocidade de leitura era bem maior do que a dos outros meios de armazenamento removíveis da época.
+Para que a música desse CD possa tocar sem interrupções, a capacidade de leitura de dados, em KB por segundo, do leitor 
+ótico deverá ser de:
+(Use: 1 MB = 1 000 KB)
+A no mínimo, 187,5 KB por segundo.
+B no máximo, 187,5 KB por segundo.
+C no mínimo, 11 250 KB por segundo.
+D no máximo, 11 250 KB por segundo.
+E no mínimo, 200 KB por segundo.
+RASCUNHO
+RESULTADO
+ALTERNATIVA CORRETA: A
+Página 22
+
+
+--- PAGE 84 OF 86 ---
+Página | 45
+QUESTÃO 23 | Telas flexíveis são realmente uma tecnologia inovadora, mas está surgindo uma tecnologia ainda mais 
+surpreendente: telas que se esticam ou se retraem, permitindo a criação de imagens em relevo. A novidade foi 
+apresentada na Global Tech Korea 2021 e promete revolucionar a experiência do usuário com a projeção de imagens.
+Como nas telas convencionais de OLED ou em outras tecnologias que produzem imagens por meio de emissão luminosa, 
+os controladores de vídeo trabalham com o padrão de cores RGB, que utiliza o sistema hexadecimal em sua 
+representação.
+Nesse sistema de cores, cada dois dígitos representam a intensidade de luz vermelha, verde ou azul, nessa ordem. A cor 
+mostarda, por exemplo, é representada por FFDB58, que, numa representação no sistema de numeração decimal, traduz-
+se por uma terna com valores (255, 219, 88), pois:
+(FF)16 = (15  161 + 15  160)10 = (240 + 15)10 = (255)10
+(DB)16 = (13  161 + 11  160)10 = (208 + 11)10 = (219)10
+(58)16 = (5  161 + 8  160)10 = (80 + 8)10 = (88)10
+Para isso, é utilizada uma correspondência entre os dígitos da base hexadecimal com os números da base decimal.
+Hex (16n)
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+A
+B
+C
+D
+E
+F
+Dec (10n)
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+Com base nessas informações, como seria a representação decimal da cor lightskyblue, que é um tom de azul, cuja 
+representação hexadecimal é 87CEFA?
+A (15, 26, 25).
+B (87, 35, 61).
+C (87, 1214, 1510).
+D (135, 206, 250).
+E (152, 255, 102).
+RESULTADO
+ALTERNATIVA CORRETA: D
+Página 23
+
+
+--- PAGE 85 OF 86 ---
+Página | 47
+QUESTÃO 24 | A segurança cibernética (cybersecurity em inglês) deve estar presente em vários níveis em redes físicas, 
+processamento de dados, servidores ou qualquer outro sistema informatizado, a fim de proteger ativos de uma empresa, 
+evitar o vazamento de dados, interromper operações, entre outros. Investir em cybersecurity, portanto, é uma forma de 
+manter uma rede ou um sistema em segurança.
+Uma empresa de segurança cibernética disponibiliza os planos mensais premium e master. Um de seus clientes contratou 
+2 planos premium e 1 plano master pelo valor mensal de U$ 280,00. Outro cliente contratou 1 plano premium e 2 planos 
+master pelo valor mensal de U$ 320,00.
+Como os preços mensais dos planos não são alterados de cliente para cliente, qual o valor mensal do plano master?
+A U$ 80,00.
+B U$ 100,00.
+C U$ 120,00.
+D U$ 200,00.
+E U$ 300,00.
+RESULTADO
+ALTERNATIVA CORRETA: C
+Página 24
+
+
+--- PAGE 86 OF 86 ---
+Página | 49

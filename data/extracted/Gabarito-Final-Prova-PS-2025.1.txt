@@ -1,0 +1,4358 @@
+--- PAGE 1 OF 77 ---
+BEM-VINDOS AO PRIMEIRO 
+PROCESSO SELETIVO ADAPTATIVO 
+DO BRASIL 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Este é um gabarito comentado de todas as questões 
+realizadas em nosso processo seletivo – eixo prova, que 
+ocorreu no dia 27/10/2024. 
+ 
+Lembrando que nosso processo é dividido em 4 blocos, onde o candidato percorre uma 
+trilha de acordo com seu desempenho durante a prova. Neste arquivo você irá encontrar 
+todas as questões que foram disponibilizadas, independente do caminho percorrido. Note 
+que, por conta disso, existirão questões parecidas, porém com grau de complexidade 
+diferente. 
+ 
+Além disso, para evitar possíveis fraudes, durante a aplicação da prova, as questões foram 
+embaralhadas randomicamente, por isso, dentro deste caderno solução, decidimos não as 
+numerar. O mesmo ocorreu com as alternativas de cada questão, que também foram 
+embaralhadas durante a prova. 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 2 OF 77 ---
+Uma empresa de tecnologia vende assinaturas de um software de gerenciamento. O custo 
+fixo mensal desta empresa é de R$ 50.000,00, e o custo adicional por assinatura é de 
+R$ 20,00.  
+Esta empresa vende cada assinatura por R$ 300,00, mas para o mês de janeiro de 2025, 
+decidiu que fará uma promoção. As 𝒏 primeiras pessoas que assinarem nesse período irão 
+ganhar um desconto de R$ 30,00. 
+Considerando que a venda dessas licenças é a sua única fonte de receita, e que a partir 
+da venda das 𝒏 primeiras licenças a empresa já não tem prejuízo, determine o valor de 
+𝒏. 
+166  
+185  
+200  
+225  
+250  
+ 
+Solução: Considerando o desconto e o custo por assinatura, cada venda irá gerar, em 
+reais, 
+ 
+300 −30 −20 = 250 
+ 
+Assim, para não haver prejuízo, o valor de 𝑛 será 
+ 
+𝑛= 50.000
+250
+= 200 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 3 OF 77 ---
+Uma corretora de valores utiliza modelos automatizados para estimar o preço de 
+fechamento das ações ao longo do dia, através de funções matemáticas. Para a ação 
+INTE3, o preço de fechamento 𝑷 é dado pela seguinte função: 
+  
+𝑃= −0,01𝑣2 + 4𝑣+ 100, 
+  
+onde v é o volume de transações realizadas, em milhares de ações. Por exemplo, se em um 
+dia foram realizadas 50 mil transações, o preço de fechamento estimado é de: 
+  
+𝑃= −0,01 × 502 + 4 × 50 + 100 = 275,00 
+  
+Se o preço de fechamento ao final do dia foi estimado em 𝐑$ 𝟓𝟗, 𝟎𝟎, qual foi o volume 
+de transações (em milhares de ações)? 
+ 
+400  
+410  
+420  
+430  
+440  
+ 
+Solução: Substituindo na expressão 𝑃= 59 
+ 
+59 = −0,01𝑣2 + 4𝑣+ 100 ⇒ 
+ 
+⇒0,01𝑣2 −4𝑣−41 = 0 ⇒ 
+ 
+⇒𝑣= −10 ou 𝑣= 410 
+ 
+Como o volume de transações deve ser positivo, devemos ter 410 mil transações. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 4 OF 77 ---
+O framework de desenvolvimento ágil chamado Scrum é um modelo considerado como 
+referência geral para o gerenciamento de projetos de tecnologia em muitas empresas. 
+Neste framework, o projeto é dividido em ciclos regulares de tempo, chamados sprints. 
+Uma startup está iniciando o desenvolvimento de um novo produto, e decidiu adotar o 
+Scrum para gerenciar o projeto, e foi definido que cada sprint vai demorar uma semana. 
+  
+A cada início de sprint, é definido o backlog de tarefas, ou seja, o número de atividades que 
+precisam ser executadas na sprint para que o projeto possa progredir. À medida que o 
+projeto vai evoluindo, há um aumento progressivo no número de tarefas do backlog. 
+  
+Sabe-se que a equipe de desenvolvimento teve o seguinte número de tarefas por sprint no 
+primeiro mês: 
+ 
+• 
+Sprint 1: 6 tarefas 
+• 
+Sprint 2: 10 tarefas 
+• 
+Sprint 3: 14 tarefas 
+• 
+Sprint 4: 18 tarefas 
+ 
+Considera-se que a progressão se mantém uniforme até que se atinja um backlog de 50 
+tarefas por sprint, onde a equipe estará com capacidade máxima de desenvolvimento.  
+ 
+Em qual sprint ocorrerá esse momento? 
+ 
+10  
+11  
+12  
+13  
+14  
+ 
+Solução: A sequência numérica apresentada é uma PA, com 𝑎1 = 6 e 𝑟= 4. 
+ 
+Queremos o 𝑛 tal que 𝑎𝑛= 50 
+ 
+Termo geral da PA, 
+ 
+𝑎𝑛= 𝑎1 + (𝑛−1)𝑟⇒ 
+ 
+⇒50 = 6 + (𝑛−1) × 4 ⇒ 
+ 
+⇒𝑛= 12 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 5 OF 77 ---
+Uma empresa do ramo de logística abriu um processo de seleção para contratar novos 
+profissionais para operarem os caminhões que transportam insumos dos mais variados 
+tipos. Esses caminhões são dotados de uma nova tecnologia, e precisam ser operados por 
+um tablet para realizar o processo de carga e descarga. Além disso, sendo uma empresa 
+multinacional, há uma necessidade dos profissionais dirigirem por diferentes países da 
+América Latina, portanto é necessário que o candidato possua um passaporte válido. 
+ 
+A empresa recebeu um total de 145 candidaturas. Dessas, foram levantadas as seguintes 
+informações: 
+ 
+• 
+68 candidatos possuem o conhecimento necessário para operar o tablet; 
+• 
+78 possuem carteira de habilitação compatível com os veículos da empresa; 
+• 
+40 estão com o passaporte em dia; 
+• 
+13 possuem conhecimento para operar o tablet e a habilitação necessária para 
+conduzir os caminhões; 
+• 
+18 possuem a habilitação para os caminhões e o passaporte em dia; 
+• 
+23 estão com o passaporte em dia e possuem o conhecimento em tecnologia 
+necessário para operar os caminhões; 
+• 
+3 candidatos possuem as três qualificações. 
+ 
+Dessa forma, o número de candidatos que não possui nenhuma das três qualificações 
+é: 
+ 
+10  
+15  
+20  
+25  
+30  
+ 
+Solução: O Diagrama de Venn abaixo representa a situação descrita pelo problema. 
+ 
+ 
+ 
+O problema poderia ser resolvido diretamente por inclusão-exclusão, 
+ 
+𝑛(𝐴∪𝐵∪𝐶) = 𝑛(𝐴) + 𝑛(𝐵) + 𝑛(𝐶) −𝑛(𝐴∩𝐵) −𝑛(𝐴∩𝐶) −𝑛(𝐵∩𝐶) + 𝑛(𝐴∩𝐵∩𝐶)
+⇒ 
+ 
+⇒𝑛(𝐴∪𝐵∪𝐶) = 68 + 78 + 40 −13 −18 −23 + 3 = 135 
+ 
+Como foram 145 candidatos, 10 candidatos não possuem nenhuma das qualificações. 
+
+
+--- PAGE 6 OF 77 ---
+A latência de um jogo refere-se ao tempo que um comando enviado pelo jogador leva para 
+ser processado e refletido no servidor do jogo, e para que a resposta seja enviada de volta 
+para o dispositivo do jogador. Em resumo, é o atras entre a ação do jogador e o momento 
+que a ação aparece na tela. 
+ 
+Diz-se que uma experiência de jogo é fluida quando a média de latência dos servidores 
+disponíveis é, no máximo, 30 ms. 
+  
+Durante alguns testes, foram registrados os seguintes tempos de latência para quatro de 
+cinco servidores disponíveis: 
+  
+28,  32,  27,  29 
+  
+No entanto, devido a uma falha técnica, o tempo de latência do quinto servidor não foi 
+registrado corretamente. 
+ 
+Considerando que queremos uma experiência de jogo fluida, qual é o valor máximo 
+permitido para a latência do quinto servidor? 
+ 
+30  
+31  
+32  
+34  
+35  
+ 
+Solução: Seja 𝑥 a média do quinto servidor, então, 
+ 
+28 + 32 + 27 + 29 + 𝑥
+5
+≤30 ⇒ 
+ 
+116 + 𝑥≤150 ⇒𝑥≤34 
+ 
+Logo, 𝑥𝑚á𝑥= 34. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 7 OF 77 ---
+Um IPO, ou Oferta Pública Inicial, é um evento em que uma empresa inicia a negociação 
+das suas ações em uma bolsa de valores. Uma startup altamente inovadora estava há um 
+ano desenvolvendo um produto no estado da arte, e finalmente anunciou o seu IPO na 
+Bolsa de Valores de São Paulo, a B3. A oferta das ações foi realizada inicialmente a um 
+preço de R$ 30 por ação e Pedro, um jovem investidor brasileiro, resolveu tomar a decisão 
+de adquirir 10 mil ações dessa startup. 
+  
+No entanto, meses depois do IPO, foi identificado que a nova tecnologia desenvolvida pela 
+empresa, tão antecipada pelo mercado, não foi bem-sucedida em cumprir os seus 
+objetivos de negócio. Em uma questão de dias, as ações despencaram, chegando a um 
+décimo do seu valor inicial. O CEO foi substituído, e um plano de ação foi traçado para que 
+a empresa voltasse a subir na bolsa. Neste momento, com a ação em baixa, Pedro resolveu 
+adquirir mais 5 mil ações da startup. 
+  
+Para que Pedro recupere todo o seu valor investido, a ação deve voltar a subir e chegar 
+a pelo menos 
+ 
+R$ 20  
+R$ 21  
+R$ 22  
+R$ 23  
+R$ 24  
+ 
+Solução: Investimento total 
+ 
+R$ 30 × 10.000 + 1
+10 × R$ 30 × 5.000 = R$ 315.000 
+ 
+Número de ações adquiridas ao final: 10.000 + 5.000 = 15.000 
+ 
+Valor por ação para retorno de investimento 
+ 
+R$ 315.000
+15.000
+= R$ 21 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 8 OF 77 ---
+Uma grande empresa de cosméticos está lançando um novo produto para o público de 
+jovens adultos, e decidiu concentrar todo o seu investimento em marketing em duas redes 
+sociais, A e B. A equipe de marketing da empresa realizou dois ciclos de testes de uma 
+semana cada, para verificar qual das redes sociais apresentava um maior engajamento a 
+uma determinada publicação, potencializando o resultado financeiro. 
+  
+No primeiro teste, investiu-se R$ 50 mil na plataforma A e R$ 25 mil na rede B, tendo 
+chegado a um total de 20 mil visualizações ao final da semana. Já no segundo teste, foram 
+invertidos os valores de investimento, ou seja, R$ 25 mil em A e R$ 50 mil na rede B, e, ao 
+final da semana, foi visto um resultado somado de 25 mil visualizações. 
+  
+De posse desses resultados, sabendo que o número de visualizações, em ambas as 
+redes sociais, é diretamente proporcional ao valor investido em publicidade, é 
+possível afirmar que cada mil reais investidos na rede social B gera um retorno de 
+ 
+200  
+300  
+400  
+500  
+600  
+ 
+Solução: Sejam 𝑎 e 𝑏 o retorno em visualizações gerados por mil reais de investimentos nas 
+redes sociais A e B, respectivamente, temos o seguinte sistema: 
+ 
+{50𝑎+ 25𝑏= 20.000
+25𝑎+ 50𝑏= 25.000 
+ 
+Multiplicando a 2ª equação por 2, e subtraindo uma da outra: 
+ 
+75𝑏= 30.000 ⇒𝑏= 400 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 9 OF 77 ---
+Para a gestão de grandes eventos, é de extrema importância que seja calculada a 
+capacidade máxima de pessoas do espaço selecionado, de forma a conseguir estimar a 
+receita potencial através da venda de ingressos. 
+ 
+Uma empresa de festivais de música está organizando um show em um salão que possui 
+as dimensões abaixo.  
+ 
+ 
+ 
+Sabendo que o município de São Paulo exige uma área mínima de ocupação de 0,4 metro 
+quadrado para cada pessoa no evento, e que cada ingresso será vendido a R$ 200, o valor 
+máximo que a empresa poderá arrecadar com a venda de ingressos é de 
+ 
+R$ 6,25 milhões 
+R$ 7 milhões 
+R$ 7,5 milhões 
+R$ 8,75 milhões 
+R$ 9,5 milhões 
+ 
+Solução: Área do salão 
+ 
+𝐴𝑡𝑟𝑎𝑝é𝑧𝑖𝑜= (𝐵+ 𝑏)
+2
+∙ℎ= (250 + 100)
+2
+∙100 = 17.500 m2 
+ 
+Como cada pessoa deve ter no mínimo 0,4 m2 disponível, a arrecadação máxima será 
+ 
+17.500
+0,4
+× R$ 200 = R$ 8.750.000 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 10 OF 77 ---
+Uma empresa de tecnologia distribui os seus lucros e resultados para os seus 
+colaboradores no formato de um multiplicador do salário base de cada colaborador 𝑀(𝑥), 
+onde 𝑥 é a sua nota da avaliação de desempenho individual, sendo uma função baseada 
+em dois critérios: 
+  
+• 
+Um componente constante, que é o mesmo para toda a empresa; 
+ 
+• 
+Um componente variável que é diretamente proporcional à 𝑥, onde 𝑥 pode variar 
+de 0 a 10. 
+  
+Portanto, o multiplicador final do bônus para cada colaborador é dado pela função 𝑀(𝑥) =
+𝑎𝑥+ 𝑏. 
+  
+Em 2023, a empresa teve um resultado positivo e realizou a distribuição de lucros e 
+resultados. Marta teve um desempenho excelente, com avaliação de nota 9,5, e recebeu 
+um bônus de 1,45 vezes o seu salário. Já André teve um desempenho um pouco menor, 
+tendo sua avaliação com nota 7,0, e recebeu um bônus de 1,2 vezes o seu salário. 
+  
+Júlia teve um ótimo desempenho, com sua avaliação ficando em 𝟖, 𝟓. Como base nos 
+critérios apresentados acima, pode-se afirmar que o seu bônus será de 
+ 
+1,05 vezes o seu salário 
+1,15 vezes o seu salário 
+1,25 vezes o seu salário 
+1,35 vezes o seu salário 
+1,45 vezes o seu salário 
+ 
+Solução: Substituindo os valores dados na função 
+ 
+{9,5𝑎+ 𝑏= 1,45
+7𝑎+ 𝑏= 1,2      
+ 
+Subtraindo as equações: 2,5𝑎= 0,25 ⇒𝑎= 0,1. Substituindo em uma equação, 𝑏= 0,5 
+ 
+𝑀(𝑥) = 0,1𝑎+ 0,5 ⇒𝑀(8,5) = 1,35 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 11 OF 77 ---
+O departamento de marketing de um shopping center decidiu instalar um arco decorativo 
+na entrada principal para um evento especial de promoção de um novo produto. O arco, 
+além de ser uma peça central da decoração, servirá para atrair a atenção dos visitantes e 
+criar um impacto visual marcante. 
+ 
+ 
+ 
+O arco tem a forma de uma parábola e terá 30 metros de largura na base e uma altura 
+máxima de 9 metros no centro.  
+ 
+Considerando o eixo 𝒙 sobre a base do arco e o eixo 𝒚 como o eixo de simetria da 
+parábola, determine a equação da parábola que representa o arco decorativo. 
+ 
+𝑦= −1
+5 𝑥2 + 9  
+ 𝑦= −1
+15 𝑥2 + 9 
+𝑦= −1
+25 𝑥2 + 9  
+𝑦= −
+1
+125 𝑥2 + 9  
+𝑦= −
+1
+225 𝑥2 + 9  
+ 
+Solução: Como a largura da base da parábola é 30 e 𝑦 é o eixo de simetria, as raízes da 
+função quadrática serão ±15.  
+ 
+Pela forma fatorada, 
+𝑦= 𝑎(𝑥−𝑟
+1)(𝑥−𝑟
+2) ⇒ 
+ 
+𝑦= 𝑎(𝑥+ 15)(𝑥−15) = 𝑎(𝑥2 −225) 
+ 
+Usando o vértice da parábola (0, 9), 
+ 
+9 = −225𝑎⇒𝑎= −1
+25 ⇒𝑦= −1
+25 𝑥2 + 9 
+ 
+Outra possibilidade para resolver o problema seria usar que se as raízes são ±15,  a soma 
+das raízes é −
+𝑏
+𝑎= 0 ⇒𝑏= 0 . Como a função corta o eixo 𝑦 no ponto (0,9) temos 𝑐= 9, 
+daí a função é dada por 𝑦= 𝑎𝑥2 + 9. Finalmente utilizar que 15 é raiz para determinar o 
+valor de 𝑎. 
+ 
+
+
+--- PAGE 12 OF 77 ---
+Uma empresa de logística está planejando expandir suas operações ao longo das próximas 
+semanas, com o objetivo de aumentar gradativamente a quantidade de entregas 
+realizadas. Com o crescimento acelerado do setor de e-commerce e a demanda crescente 
+por serviços rápidos e eficientes, a empresa adotou uma estratégia de ampliação linear no 
+número de entregas semanais. 
+  
+Assim, o número de entregas aumentará a cada semana de forma constante, seguindo 
+uma taxa de crescimento semanal que continuará até atingir a capacidade máxima 
+operacional da empresa. Esse aumento gradual, permitirá que a empresa se adapte aos 
+novos desafios logísticos e otimize seu processo de entrega. Na primeira semana foram 
+realizadas 50 entregas e na quinta semana, 70. 
+  
+Sabendo que na 𝟏𝟐ª semana a empresa alcançou sua capacidade máxima de 
+entregas, determine quantas entregas a empresa terá feito no total, durante todo o 
+período de crescimento. 
+ 
+105  
+320  
+465  
+930  
+1205  
+ 
+Solução: Como o número de entregas aumentará de forma constante e linear, o número de 
+entregas por semana formará uma progressão aritmética. 
+ 
+𝑎𝑛= 𝑎1 + (𝑛−1)𝑟⇒ 
+ 
+⇒𝑎5 = 𝑎1 + 4𝑟⇒70 = 50 + 4𝑟⇒𝑟= 5 
+ 
+Na 12ª semana, 
+ 
+𝑎12 = 𝑎1 + 11𝑟= 50 + 11 × 5 = 105 
+ 
+Para o cálculo de todas as entregas ao longo desse período podemos utilizar a soma da PA 
+ 
+𝑆𝑛=
+(𝑎1 + 𝑎𝑛)𝑛
+2
+⇒ 
+ 
+𝑆12 =
+(50 + 105) × 12
+2
+⇒𝑆12 = 930 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 13 OF 77 ---
+No cenário atual da educação, as plataformas de LMS (Learning Management System) 
+desempenham um papel crucial no apoio ao ensino e aprendizado digital. Esses sistemas 
+são projetados para facilitar o gerenciamento, distribuição e acompanhamento de 
+atividades educacionais online, oferecendo uma gama de recursos que incluem desde a 
+criação de cursos até a avaliação e feedback dos alunos. 
+  
+Uma pesquisa de mercado mostra que poucas são as instituições que possuem 
+plataforma própria, caso do Inteli e de sua plataforma Adalove. 
+ 
+A maioria é contratante das empresas 𝐴, 𝐵 ou 𝐶, existindo instituições que inclusive 
+contratam mais de uma dessas plataformas com o objetivo de utilizar as melhores 
+ferramentas de cada uma. 
+ 
+Considere que, nesta pesquisa, 
+ 
+I.    30% utilizam a plataforma 𝐴 
+II.   40% utilizam a plataforma 𝐵 
+III.  50% utilizam a plataforma 𝐶 
+IV.   20% utilizam as plataformas 𝐴 e 𝐵 
+V.    10% utilizam as plataformas 𝐴 e 𝐶 
+VI.  15% utilizam as plataformas 𝐵 e 𝐶 
+VII.  20 instituições utilizam as plataformas 𝐴, 𝐵 e 𝐶 
+ 
+Sabendo que apenas 5% das instituições pesquisadas possuem plataforma própria ou 
+utilizam uma plataforma diferente de 𝐴, 𝐵 ou 𝐶, determine quantas utilizam a plataforma 𝐶 
+ 
+5  
+10  
+50  
+100  
+125  
+ 
+Solução: O Diagrama de Venn abaixo representa as informações de I até VI. 
+ 
+Somando todos os valores do diagrama 
+ 
+(5 + 𝑥+ 20 −𝑥+ 𝑥+ 15 −𝑥+ 𝑥+ 10 −𝑥+ 25 + 𝑥+ 5)% = 100% ⇒𝑥= 20 
+ 
+Da informação VII, sendo 𝑛 o total de pessoas, 20% ∙𝑛= 20 ⇒𝑛= 100.  
+Assim, o número de pessoas que utilizam 𝐶 é 50% ∙100 = 50 
+
+
+--- PAGE 14 OF 77 ---
+Um desenvolvedor de jogos está otimizando a taxa de quadros por segundo (FPS) de um 
+novo jogo de realidade virtual. Durante os testes de desempenho, ele mede a taxa de 
+quadros e precisa calcular a duração de cada quadro para determinar a eficiência gráfica 
+do jogo. 
+  
+Considerando que: 
+  
+• 1 frame por segundo FPS representa a quantidade de quadros exibidos por segundo. 
+  
+Durante um teste específico, o desenvolvedor observa que o jogo atinge uma taxa 
+de 240 FPS. 
+  
+Qual é a duração, aproximadamente, de cada quadro em milissegundos (ms/frame) 
+para essa configuração? 
+ 
+1,5  
+4,17  
+6,25  
+8,33  
+9,25  
+ 
+Solução: Basta fazer uma regra de três simples 
+ 
+     240 quadrados 
+ 
+     1 segundo  
+       1 quadrados 
+ 
+     𝑡 segundos 
+ 
+𝑡=
+1
+240  s = 1000
+240  ms = 4,17 ms 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 15 OF 77 ---
+Uma nova startup focada em inteligência artificial foi lançada há seis meses. O seu 
+produto, um aplicativo que funciona juntamente com a câmera do celular para exibir 
+informações sobre pontos turísticos com realidade aumentada, começou a fazer bastante 
+sucesso após o segundo mês de lançamento. 
+  
+Ao analisar a loja de aplicativos, foi observada uma média mensal de 260 mil downloads 
+nesses seis meses. Sabe-se que não houve downloads no primeiro mês, após o 
+lançamento, e os meses seguintes tiveram, respectivamente, 50, 150, 200 e 220 mil 
+downloads. 
+ 
+Portanto, é possível afirmar que o total de downloads no sexto mês foi de 
+ 
+940 mil 
+900 mil 
+860 mil 
+820 mil 
+680 mil 
+ 
+Solução: Seja 𝑥 o total de downloads, em milhares, no sexto mês 
+ 
+0 + 50 + 150 + 200 + 220 + 𝑥
+6
+= 260 ⇒𝑥= 940 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 16 OF 77 ---
+Em um investimento, Pedro aplicou uma certa quantia em dois tipos de investimentos 
+diferentes: um que rende juros simples e outro que rende juros compostos. Após dois anos, 
+ele recebeu um montante R$ 10.000,00. 
+  
+O investimento que rende juros simples gerou um montante R$ 500,00 acima do montante 
+gerado pelos juros compostos. 
+  
+Sabendo que a taxa de juros simples é de 𝟓% ao ano e a taxa de juros compostos é 
+de 𝟒% ao ano, determine, aproximadamente, o módulo da diferença entre os valores 
+investidos em cada tipo de investimento. 
+ 
+R$ 500  
+R$ 463  
+R$ 415  
+R$ 381  
+R$ 327  
+ 
+Solução:  Seja 𝑥 montante final aplicado em juros simples e 𝑦 o montante final aplicado em 
+juros compostos. 
+ 
+{𝑥+ 𝑦= 10.000
+𝑥−𝑦= 500      ⇒𝑥= 5.250  e   𝑦= 4.750 
+ 
+Lembrando que estes são os montantes finais, vamos determinar os valores investidos. 
+ 
+𝑀𝑠𝑖𝑚𝑝𝑙𝑒𝑠= 𝐶∙(1 + 𝑖% × 𝑡) ⇒5.250 = 𝐶𝑠∙(1 + 0,05 × 2) ⇒𝐶𝑠= 5250
+1,10 = R$ 4.772,72 
+ 
+𝑀𝑐𝑜𝑚𝑝𝑜𝑠𝑡𝑜𝑠= 𝐶∙(1 + 𝑖%)𝑡⇒4.750 = 𝐶𝐶∙(1 + 0,04)2 ⇒𝐶𝑠= 4.750
+1,0816 = R$ 4.391,64 
+ 
+Assim, a diferença entre valores investidos será 
+ 
+4772,72 −4391,64 = 381,08 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 17 OF 77 ---
+Um evento ao ar livre será realizado em uma área disponível de formato quadrado com 100 
+metros de lado. A região mais próxima do palco será destinada à área VIP, que é uma área 
+semicircular com raio de 50 metros. O restante da área será a “pista”. 
+ 
+ 
+ 
+O valor do ingresso na área VIP é R$ 800,00, enquanto o valor na pista é R$ 400,00. Dentro 
+da área VIP serão permitidas no máximo 3 pessoas por metro quadrado e fora da área VIP 
+4 pessoas. Qual seria a arrecadação máxima do evento? 
+ 
+Obs.: Considere 𝜋= 3,14 
+ 
+R$ 14.325.500  
+R$ 15.550.000  
+R$17.640.000  
+R$ 18.750.000  
+R$ 19.140.000  
+ 
+Solução: Tamanho da área disponível: 𝐴= 100 × 100 = 10.000 m2 
+ 
+Área VIP: 𝐴𝑉𝐼𝑃= 𝜋𝑅2
+2 = 3,14 ×502
+2
+= 3.925 m2 
+Área pista: 𝐴𝑝= 10.000 −3.925 = 6.075 m2 
+ 
+Máximo de pessoas na área VIP: 𝑃
+𝑉𝐼𝑃= 3 × 𝐴𝑉𝐼𝑃= 3 × 3.925 = 11.755 m2 
+Máximo de pessoas na pista: 𝑃
+𝑝= 4 × 𝐴𝑝= 4 × 6.075 = 24.300 m2 
+ 
+Arrecadação na área VIP: 𝑅𝑉𝐼𝑃= 800 × 11.755 = R$ 9.420.000  
+Arrecadação na pista: 𝑅𝑝= 400 × 24.300 = R$ 9.720.000 
+ 
+Arrecadação total:  R$ 9.420.000 + R$ 9.720.000 = R$ 19.140.000 
+ 
+ 
+
+
+--- PAGE 18 OF 77 ---
+Venture Capital (VC), também conhecido como capital de risco, é uma forma de 
+investimento de alto risco em que fundos formados por investidores aportam um capital 
+para empresas, usualmente startups em início de operação, com pouco ou até mesmo 
+nenhum faturamento. Devido ao alto risco das startups não terem sucesso, os fundos de 
+VC trabalham com uma estratégia de pulverização dos investimentos, ou seja, eles 
+aportam quantias em diversas empresas em formação, analisando que o sucesso de uma 
+delas pode compensar o fracasso de outras, garantindo assim um investimento global com 
+altos retornos. 
+ 
+Um fundo de VC desenvolveu uma metodologia de análise de probabilidade de sucesso de 
+novas startups após um certo tempo, baseada em indicadores financeiros, apetite do 
+mercado para a inovação proposta, experiência dos fundadores e outros fatores 
+estratégicos. Este fundo está analisando o investimento em três startups promissoras. A 
+startup A teve uma probabilidade de sucesso avaliada em 30%, enquanto a startup B teve 
+uma probabilidade de sucesso avaliada em 50% e a C, em 60%. 
+ 
+Considerando que o sucesso, ou fracasso, de uma startup não influência em outra, 
+qual a probabilidade de nenhuma das três startups ser bem-sucedida? 
+ 
+28%  
+14%  
+100%  
+12%  
+24%  
+ 
+Solução: Vamos calcular a probabilidade de fracasso (complementar de sucesso) 
+ 
+𝑃(𝐴𝑐) = 1 −𝑃(𝐴) 
+ 
+𝑃(𝐴) = 30% ⇒𝑃(𝐴𝐶) = 70% 
+𝑃(𝐵) = 50% ⇒𝑃(𝐵𝑐) = 50% 
+𝑃(𝐶) = 60% ⇒𝑃(𝐶𝑐) = 40% 
+ 
+Então, a probabilidade de nenhuma delas ser bem-sucedida é, 
+ 
+70% × 50% × 40% = 14% 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 19 OF 77 ---
+Em computação, é muito comum desenvolver soluções baseadas em números binários. 
+Os circuitos digitais são construídos utilizando essa base numérica, mas as aplicações vão 
+muito além, cobrindo casos como redes neurais, manipulação de bits e criptografia. 
+Particularmente em criptografia, uma aplicação de números binários é na chamada cifra 
+de chave única ou cifra de uso único, uma técnica de criptografia que é considerada 
+inquebrável. Nessa técnica, as chaves são usadas apenas uma vez e precisam ser 
+descartadas logo em seguida. 
+ 
+Para desenvolver o algoritmo da cifra de chave única, é utilizado um operador 
+chamado 𝑿𝑶𝑹, também conhecido por ou exclusivo. Esse operador é usado para 
+combinar dois valores binários com mesmo número de algarismos. Para cada algarismo, o 
+resultado da operação é 0 se eles forem iguais entre si, e 1 se forem diferentes entre si. Ou 
+seja: 
+ 
+1 𝑋𝑂𝑅 0 =  1 
+1 𝑋𝑂𝑅 1 =  0 
+0 𝑋𝑂𝑅 1 =  1 
+0 𝑋𝑂𝑅 0 =  0 
+ 
+Uma empresa de segurança cibernética usa o algoritmo de cifra de chave única para 
+criptografar imagens sensíveis. Uma imagem de teste, convertida em um número binário, 
+possui valor 𝑨 =  𝟏𝟎𝟎𝟏𝟏. A chave usada para o teste foi 𝑩 =  𝟎𝟎𝟏𝟏𝟏. 
+ 
+Sabendo desses valores, qual é o resultado da operação 𝑨 𝑿𝑶𝑹 𝑩? 
+ 
+00111  
+10011  
+11100  
+10100  
+10101  
+ 
+Solução: Comparando algarismo a algarismo vemos que, o segundo, o quarto e o quinto 
+algarismos são iguais, enquanto o primeiro e terceiro diferentes. 
+ 
+Lembrando que para algarismos iguais o operador 𝑋𝑂𝑅 retorna 0, e para diferentes retorna 
+1 a sequência será: 10100 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 20 OF 77 ---
+Diversos jogos modernos utilizam uma geração de mapas de forma procedural. Essa 
+técnica envolve a construção de mapas aleatórios, de forma a incrementar a experiência 
+de quem estiver jogando, possibilitando assim uma característica importantíssima na 
+indústria, que é a "rejogabilidade". 
+ 
+Para se criar mapas e dados aleatórios em um software, são desenvolvidos algoritmos que 
+utilizam diversas propriedades de números naturais. Uma empresa de jogos está se 
+preparando para lançar o próximo jogo de uma importante franquia. 
+ 
+A sua equipe decidiu desenvolver um novo algoritmo para criar os seus mapas, que calcula 
+a área do mapa a partir de uma função 𝑓(𝑥) = 2𝑥−1, onde 𝑥 é o número de divisores 
+positivos da quantidade de experiência que o personagem do jogador possui no momento 
+em que o mapa é carregado. 
+ 
+Em um teste, um personagem possuía uma experiência total de 𝟖𝟒𝟎. Quando o mapa 
+for carregado, qual será o valor da área do mapa? 
+ 
+7  
+11  
+19  
+63  
+1679  
+ 
+Solução: Seja 𝑛= 𝑝1
+𝛼1 ∙𝑝2
+𝛼2 ∙… ∙𝑝𝑘
+𝛼𝑘 a fatoração em primos de um natural 𝑛> 1, seu 
+número de divisores é dado por, 
+ 
+𝑑(𝑛) = (1 + 𝛼1)(1 + 𝛼2) … (1 + 𝛼𝑘) ⇒ 
+ 
+Fatorando 840 = 23 × 3 × 5 × 7, logo 
+ 
+𝑑(840) = 4 × 2 × 2 × 2 = 32 
+ 
+Assim, 𝑓(𝑥) = 2 × 32 −1 = 63. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 21 OF 77 ---
+ 
+A Inteli and Energy, uma startup no setor de energia renovável, está expandindo seu negócio 
+de instalação de painéis solares em residências e empresas. A empresa prevê que a 
+adoção dessa tecnologia irá crescer de forma exponencial nos próximos anos, devido à 
+crescente demanda por soluções sustentáveis e incentivos governamentais. 
+ 
+Os analistas da startup estimam que o número de clientes que adotam seus serviços pode 
+ser modelado pela função exponencial 
+ 
+𝑁(𝑡) = 𝑁0 ∙𝑒𝑘𝑡 
+ 
+onde, 𝑁(𝑡) é o número de clientes após 𝑡 anos, 𝑁0 é o número inicial de clientes, 𝑘 é uma 
+constante e 𝑡 é o tempo medido em anos. 
+ 
+Sabendo que, inicialmente (𝒕= 𝟎), o número de clientes era 𝟓𝟎𝟎 e que após um ano 
+(𝒕= 𝟏) existiam 𝟕𝟓𝟎 clientes, determine a quantidade de clientes após o segundo ano. 
+ 
+875  
+1.000  
+1.125  
+1.250  
+1.500  
+ 
+Solução: Usando 𝑡= 0: 𝑁(0) = 𝑁0 = 500 
+ 
+Usando 𝑡= 1: 750 = 500 ∙𝑒𝑘⇒𝑒𝑘= 3
+2 
+ 
+Usando 𝑡= 2: 𝑁(2) = 500 ∙𝑒2𝑘= 500 ∙(
+3
+2)
+2
+= 1125 
+ 
+Observação: O candidato poderia notar que de um ano para outro o valor subiu 50%. Como 
+a função é exponencial, ela pode ser modelada como uma aplicação de juros compostos, 
+ou seja, todo ano sobe o mesmo percentual. Logo, o valor final seria  
+ 
+750 + 50% ∙750 = 1125 
+ 
+ 
+ 
+
+
+--- PAGE 22 OF 77 ---
+Uma empresa de tecnologia está monitorando as médias de remuneração anual de seus 
+funcionários para entender melhor a distribuição salarial entre homens e mulheres. 
+Inicialmente, percebe que seu quadro de funcionários está distribuído da seguinte forma: 
+ 
+• 
+Homens: R$ 60.000 (média de remuneração anual) 
+• 
+Mulheres: R$ 50.000 (média de remuneração anual) 
+• 
+Total de funcionários: 80 homens e 20 mulheres 
+ 
+Querendo que o salário médio de ambos os grupos fosse igual e que a composição do 
+quadro de funcionários não fosse tão discrepante, a empresa decidiu por uma nova 
+configuração com 60 homens e 40 mulheres, sem aumento de custo total. 
+ 
+Determine o aumento percentual do salário médio das mulheres 
+ 
+14%  
+16%  
+18%  
+20%  
+22%  
+ 
+Solução: Custo no primeiro quadrado de funcionários 
+ 
+R$ 60.000 × 80 + R$ 50.000 × 20 = 𝑅$ 5.800.000 
+ 
+Sendo 𝑥 o salário médio de cada grupo 
+ 
+60𝑥+ 40𝑥= 5.800.000 ⇒𝑥= 58.000 
+ 
+Aumento percentual: 58.000
+50.000 = 1,16 ⇒16% de aumento 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 23 OF 77 ---
+Em análise de algoritmos, o “consumo de tempo” de um algoritmo é uma medida 
+fundamental de sua eficiência. Esse consumo de tempo é frequentemente descrito por 
+uma equação de recorrência, que expressa o tempo necessário para resolver o problema 
+em termos de problemas menores. 
+ 
+Um exemplo é o Soma Array, algoritmo que soma os elementos de uma lista. Para somar 
+os 𝑛 primeiros elementos da lista, ele soma os 𝑛−1 primeiros elementos, depois soma 
+esse resultado ao 𝑛-ésimo termo da lista. 
+ 
+Deste modo, a equação de recorrência para o “consumo de tempo” será 
+ 
+𝑇(𝑛) = 𝑇(𝑛−1) + 1 
+ 
+onde, 𝑇(𝑛) é o tempo para somar os 𝑛 primeiros números da lista.  
+ 
+Determine 𝑻(𝟐𝟎), considerando 𝑻(𝟏) = 𝟏. 
+ 
+20  
+19  
+18  
+15  
+11  
+ 
+Solução: A sequência é uma PA de razão 1. Usando o termo geral da PA 
+ 
+𝑇(𝑛) = 𝑇(1) + (𝑛−1)𝑟⇒ 
+ 
+⇒𝑇(20) = 𝑇(1) + 19𝑟= 20 
+ 
+Observação: Informalmente, testando valores iniciais consegue-se notar que 𝑇(𝑛) = 𝑛.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 24 OF 77 ---
+Venture Capital (VC), também conhecido como capital de risco, é uma forma de 
+investimento de alto risco em que fundos formados por investidores aportam um capital 
+para empresas, usualmente startups em início de operação, com pouco ou até mesmo 
+nenhum faturamento. Devido ao alto risco das startups não terem sucesso, os fundos de 
+VC trabalham com uma estratégia de pulverização dos investimentos, ou seja, eles 
+aportam quantias em diversas empresas em formação, analisando que o sucesso de uma 
+delas pode compensar o fracasso de outras, garantindo assim um investimento global com 
+altos retornos. 
+ 
+Um fundo de VC desenvolveu uma metodologia de análise de probabilidade de sucesso de 
+novas startups após um certo tempo, baseada em indicadores financeiros, apetite do 
+mercado para a inovação proposta, experiência dos fundadores e outros fatores 
+estratégicos. Este fundo está analisando o investimento em três startups promissoras. A 
+startup A teve uma probabilidade de sucesso avaliada em 40%, enquanto a startup B teve 
+uma probabilidade avaliada de 50% e a C, em 60%. 
+ 
+De posse dessas informações, qual a probabilidade de exatamente duas das três 
+startups serem bem-sucedidas? 
+ 
+100%  
+8%  
+38%  
+62%  
+0,2%  
+ 
+Solução: Vamos calcular a probabilidade de fracasso (complementar de sucesso) 
+ 
+𝑃(𝐴𝑐) = 1 −𝑃(𝐴) 
+ 
+𝑃(𝐴) = 40% ⇒𝑃(𝐴𝐶) = 60% 
+𝑃(𝐵) = 50% ⇒𝑃(𝐵𝑐) = 50% 
+𝑃(𝐶) = 60% ⇒𝑃(𝐶𝑐) = 40% 
+ 
+Abrindo em casos, 
+ 
+I. 
+  As empresas A e B serem bem-sucedidas e C não:  
+ 
+𝑃(𝐴) ∙𝑃(𝐵) ∙𝑃(𝐶𝑐) = 40% × 50% × 40% = 8% 
+ 
+II. As empresas A e C serem bem-sucedidas e B não:  
+ 
+𝑃(𝐴) ∙𝑃(𝐶) ∙𝑃(𝐵𝑐) = 40% × 60% × 50% = 12% 
+ 
+III. As empresas B e C serem bem-sucedidas e A não:  
+ 
+𝑃(𝐵) ∙𝑃(𝐶) ∙𝑃(𝐴𝑐) = 50% × 60% × 60% = 18% 
+ 
+Probabilidade total: 8% + 12% + 18% = 38% 
+
+
+--- PAGE 25 OF 77 ---
+Em computação, é muito comum desenvolver soluções baseadas em números binários. 
+Os circuitos digitais são construídos utilizando essa base numérica, mas as aplicações vão 
+muito além, cobrindo casos como redes neurais, manipulação de bits e criptografia. 
+Particularmente em criptografia, uma aplicação de números binários é na chamada cifra 
+de chave única ou cifra de uso único, uma técnica de criptografia que é considerada 
+inquebrável. Nessa técnica, as chaves são usadas apenas uma vez e precisam ser 
+descartadas logo em seguida. 
+ 
+Para desenvolver o algoritmo da cifra de chave única, é utilizado um operador 
+chamado 𝑿𝑶𝑹, também conhecido por ou exclusivo. Esse operador é usado para 
+combinar dois valores binários com mesmo número de algarismos. Para cada algarismo, o 
+resultado da operação é 0 se eles forem iguais entre si, e 1 se forem diferentes entre si. Ou 
+seja: 
+ 
+1 𝑋𝑂𝑅 0 =  1 
+1 𝑋𝑂𝑅 1 =  0 
+0 𝑋𝑂𝑅 1 =  1 
+0 𝑋𝑂𝑅 0 =  0 
+ 
+Uma empresa de segurança cibernética usa o algoritmo de cifra de chave única para 
+criptografar imagens sensíveis. Para um teste realizado, um analista júnior da empresa 
+combinou duas imagens fornecidas em base decimal, 𝑨= 𝟔 e 𝑩= 𝟑, através de uma 
+operação de soma, e então aplicou a criptografia utilizando uma chave 𝑪= 𝟏𝟎𝟏𝟏𝟏.  
+ 
+Sabendo desses valores, qual é o resultado da operação (𝑨+ 𝑩) 𝑿𝑶𝑹 𝑪? 
+ 
+11111  
+11110  
+00000  
+00111  
+10101  
+ 
+Solução: Podemos calcular 𝐴+ 𝐵 na base 10 para depois passar o resultado para base 2. 
+ 
+𝐴+ 𝐵= 6 + 3 = 9 = (1001)2 
+ 
+Para utilizar o operador a quantidade de dígitos deve ser igual, ou seja, 𝐴+ 𝐵= (01001)2. 
+ 
+Note que entre 𝐴+ 𝐵 e 𝐶 apenas o quinto algarismo é igual, portanto, 
+ 
+(𝐴+ 𝐵) 𝑋𝑂𝑅 𝐶= 11110 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 26 OF 77 ---
+Diversos jogos modernos utilizam uma geração de mapas de forma procedural. Essa 
+técnica envolve a construção de mapas aleatórios, de forma a incrementar a experiência 
+de quem estiver jogando, possibilitando assim uma característica importantíssima na 
+indústria, que é a "rejogabilidade". 
+ 
+Para se criar mapas e dados aleatórios em um software, são desenvolvidos algoritmos que 
+utilizam diversas propriedades de números naturais. Uma empresa de jogos está se 
+preparando para lançar o próximo jogo de uma importante franquia. 
+ 
+A sua equipe decidiu desenvolver um novo algoritmo para criar os seus mapas, que calcula 
+a área do mapa a partir de uma função 𝑓= 𝑥+ 2𝑦, onde 𝑥 é o número de divisores positivos 
+da quantidade de experiência que o personagem do jogador possui no momento em que o 
+mapa é carregado, e 𝑦 é o maior divisor comum entre o nível do personagem e a sua 
+experiência. 
+ 
+Em um teste, um personagem estava no nível 𝟒𝟒 e uma experiência total de 
+𝟖𝟒𝟎. Quando o mapa for carregado, qual será o valor da área do mapa? 
+ 
+40  
+11  
+14  
+18  
+54  
+ 
+Solução: Seja 𝑛= 𝑝1
+𝛼1 ∙𝑝2
+𝛼2 ∙… ∙𝑝𝑘
+𝛼𝑘 a fatoração em primos de um natural 𝑛> 1, seu 
+número de divisores é dado por, 
+ 
+𝑑(𝑛) = (1 + 𝛼1)(1 + 𝛼2) … (1 + 𝛼𝑘) ⇒ 
+ 
+Fatorando 840 = 23 × 3 × 5 × 7, logo 
+ 
+𝑥= 𝑑(840) = 4 × 2 × 2 × 2 = 32 
+ 
+Para calcular o mdc entre dois números podemos fatorá-los, “tomarmos” os fatores 
+comuns com menor expoente, ou seja, 
+ 
+𝑦= mdc(44, 840) = mdc(22 × 11; 23 × 3 × 5 × 7) = 4 
+ 
+Assim, 
+ 
+𝑓= 𝑥+ 2𝑦= 32 + 2 × 4 = 40 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 27 OF 77 ---
+A Inteli and Energy, uma startup no setor de energia renovável, está expandindo seu negócio 
+de instalação de painéis solares em residências e empresas. A empresa prevê que a 
+adoção dessa tecnologia irá crescer de forma exponencial nos próximos anos, devido à 
+crescente demanda por soluções sustentáveis e incentivos governamentais. 
+ 
+Os analistas da startup estimam que o número de clientes que adotam seus serviços pode 
+ser modelado pela função exponencial 
+ 
+𝑁(𝑡) = 𝑁0 ∙𝑒𝑘𝑡 
+ 
+onde, 𝑁(𝑡) é o número de clientes após 𝑡 anos, 𝑁0 é o número inicial de clientes, 𝑘 é uma 
+constante e 𝑡 é o tempo medido em anos. 
+ 
+Sabendo que, inicialmente (𝒕= 𝟎), o número de clientes era 𝟓𝟎𝟎 e que após um ano 
+(𝒕= 𝟏) existiam 𝟕𝟓𝟎 clientes, determine, dentre as opções abaixo, o menor período no 
+qual o número de clientes é superior a 𝟐. 𝟎𝟎𝟎. 
+ 
+Considere: log 2 = 0,3010 e log 3 = 0,4771 
+ 
+três anos 
+três anos e meio 
+quatro anos 
+quatro anos e meio 
+cinco anos 
+ 
+Solução: Usando 𝑡= 0: 𝑁(0) = 𝑁0 = 500 
+ 
+Usando 𝑡= 1: 750 = 500 ∙𝑒𝑘⇒𝑒𝑘= 3
+2 
+ 
+Queremos 𝑁(𝑡) > 2.000 
+ 
+2000 < 500 ∙𝑒𝑘𝑡= 500 ∙(3
+2)
+𝑡
+⇒4 < (3
+2)
+𝑡
+ 
+ 
+2 ∙log 2 < 𝑡∙(log 3 −log 2) ⇒2 ∙0,3010 < 𝑡∙(0,4771 −0,3010) ⇒ 
+ 
+⇒𝑡> 3,418 anos 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 28 OF 77 ---
+Uma empresa de tecnologia está monitorando as médias de remuneração anual de seus 
+funcionários para entender melhor a distribuição salarial entre homens e mulheres. Ao 
+levantar os dados, o diretor de RH (recursos humanos), percebeu que havia discrepâncias 
+tanto no número de funcionários, como na média salarial anual de ambos os grupos. 
+ 
+Atualmente, há mais homens do que mulheres na empresa e o salário médio dos homens 
+é maior que o salário médio das mulheres. Este diretor decidiu então:  
+ 
+• 
+reformular o quadro (mudar os percentuais de homens e mulheres dentro da 
+empresa), não mudando a quantidade total de funcionários; 
+• 
+diminuir a diferença de média salarial entre esses grupos, sem reduzir o salário 
+médio de cada um dos grupos. 
+ 
+Ao apresentar a proposta para o CFO (chief financial officer) da empresa, o que seria uma 
+resposta correta dele para o diretor de RH? 
+ 
+Opções: 
+ 
+"Gosto da proposta, mas como ambos os grupos terão um aumento médio salarial, o 
+salário médio da empresa inteira irá aumentar, o que pode ser um problema do ponto de 
+vista financeiro." 
+ 
+"Gosto da proposta, pois, é possível recompor o quadro de modo que o custo da empresa 
+não aumente, mesmo com ambos os grupos tendo um aumento médio de salário." 
+ 
+"Gosto da proposta. Entendo que o salário médio da empresa irá aumentar, aumentando o 
+custo, porém a diversidade no quadro garantirá maior receita." 
+ 
+"Não gosto da proposta. O aumento dos salários médios de ambos os grupos vai aumentar 
+o custo total de funcionários e não há justificativa para realizarmos tal mudança." 
+ 
+"Gosto da proposta. Aumentar o salário médio de cada grupo reduzirá o salário médio da 
+empresa, o que significa redução de custos." 
+ 
+Solução: Para ver que isto é possível, considere o seguinte exemplo: 
+ 
+Inicial: 
+• 
+Homens: R$ 50.000 (média de remuneração anual) 
+• 
+Mulheres: R$ 40.000 (média de remuneração anual) 
+• 
+Total de funcionários: 80 homens e 20 mulheres 
+ 
+Custo folha salarial:  
+ 
+(80 × 60.000) + (20 × 40.000) = 4.800.000 
+ 
+Final: 
+• 
+Homens: R$ 51.000 (média de remuneração anual) 
+• 
+Mulheres: R$ 46.000 (média de remuneração anual) 
+• 
+Total de funcionários: 40 homens e 60 mulheres 
+ 
+Custo folha salarial:  
+ 
+(40 × 51.000) + (60 × 46.000) = 4.800.000 
+ 
+Note que, neste caso, ainda existe diferença salarial, porém, menor que a inicial e a 
+distribuição do quadro de funcionários é menos discrepante. 
+
+
+--- PAGE 29 OF 77 ---
+Em análise de algoritmos, o consumo de tempo de um algoritmo é uma medida 
+fundamental de sua eficiência. Esse consumo de tempo é frequentemente descrito por 
+uma equação de recorrência, que expressa o tempo necessário para resolver o problema 
+em termos de problemas menores. 
+ 
+Um exemplo é o Insertion Sort, algoritmo que ordena os elementos de uma lista. Para 
+ordenar os 𝑛 primeiros elementos da lista, ele ordena os 𝑛−1 primeiros elementos, depois 
+compara o termo da posição 𝑛, com os termos das posições 𝑛−1, 𝑛−2, 𝑛−3, … até 
+encontrar alguém menor, alocando este termo na posição correta. 
+ 
+Deste modo, para o pior caso, sua equação de recorrência será 
+ 
+𝑇(𝑛) = 𝑇(𝑛−1) + 𝑛 
+ 
+onde, 𝑇(𝑛) é o tempo para ordenar os 𝑛 primeiros números da lista. 
+ 
+Determine 𝑻(𝟐𝟎), considerando 𝑻(𝟏) = 𝟏. 
+ 
+210  
+190  
+180  
+150  
+110  
+ 
+Solução: Escrevendo as equações de recorrência para 𝑛= 2, 3, … , 20 
+ 
+{
+ 
+ 
+ 
+ 𝑇(20) = 𝑇(19) + 20
+𝑇(19) = 𝑇(18) + 19
+𝑇(18) = 𝑇(17) + 18
+… … … … … . ..      
+𝑇(2) = 𝑇(1) + 2 
+ 
+ 
+Somando as equações 
+ 
+𝑇(20) = 1 + 2+. . . +20 = (1 + 20) ∙20
+2
+= 210 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 30 OF 77 ---
+Um pixel é uma unidade de uma imagem digital que representa um ponto de cor. Essa cor 
+pode ser retratada usando diferentes formatos, sendo o mais comum o RGB, que indica 
+proporções das cores vermelha (R), verde (G) e azul (B). Um pixel, então, pode ter sua cor 
+apresentada como uma matriz 1 × 3, como abaixo: 
+ 
+pixel = [𝑅  𝐺  𝐵] 
+ 
+Cada elemento da matriz é um número que varia entre 0 e 255. Portanto, um pixel de cor 
+[255
+0
+0] possui o máximo possível de vermelho e nenhum componente de verde ou 
+azul. Um pixel de cor [0
+0
+0] não possui nenhum componente de cor, ou seja, está na 
+cor preta. Já um pixel de cor [255
+255
+255] possui o máximo dos três componentes, 
+aparecendo como branco no computador. 
+ 
+Um uso bem comum em aplicativos de edição de imagem é o de filtros para intensificar 
+determinadas cores. Os filtros são matrizes numéricas 3 x 3 que são aplicados a cada um 
+dos pixels de uma imagem para gerar o resultado com o efeito desejado. Ou seja: 
+ 
+novo pixel = pixel × filtro 
+ 
+Se o filtro tem por objetivo intensificar uma das cores primárias (vermelho, verde ou azul), 
+ele será representado através de uma matriz diagonal, como no exemplo abaixo, que 
+intensificará a cor vermelha quando aplicado a uma imagem: 
+ 
+𝑓𝑖𝑙𝑡𝑟𝑜= [
+1,5
+0
+0
+0
+1
+0
+0
+0
+1
+] 
+ 
+Considerando o filtro acima, e um pixel de cor [𝟏𝟎𝟎
+𝟖𝟎
+𝟔𝟎], qual seria a cor do pixel 
+resultante? 
+ 
+[100  
+80
+60]  
+[150
+  80
+60]  
+[150
+120
+90]  
+[150
+   0
+    0]  
+[1,5    
+1
+     1]  
+ 
+Solução: Basta multiplicar as matrizes 
+ 
+[100
+80
+60] ∙[
+1,5
+0
+0
+0
+1
+0
+0
+0
+1
+] = [150
+80
+60] 
+ 
+ 
+
+
+--- PAGE 31 OF 77 ---
+ 
+  
+Sua equipe está desenvolvendo um novo jogo de tiro em 2𝐷 em que o jogador só consegue 
+enxergar o que o seu personagem enxergaria. Portanto, o jogo deve renderizar apenas os 
+elementos de coordenadas (𝑥,  𝑦) que satisfizerem as seguintes condições: 
+ 
+- O elemento se encontra sobre ou dentro de uma circunferência 𝐶1 de raio 5, com centro 
+no personagem; 
+ 
+- O elemento está dentro do campo de visão do personagem, região formada por duas 
+semirretas que se originam no personagem e possuem um ângulo de 90 graus entre si. 
+ 
+Um outro elemento importante no jogo é a linha de tiro do personagem. A linha de tiro é 
+formada pela bissetriz das duas semirretas que compõem o seu campo de visão. 
+ 
+Em um dado momento do jogo, o personagem está posicionado nas coordenadas (3,  2). A 
+linha de tiro é dada pela equação 𝑥−𝑦−1 = 0 (apontando para o primeiro quadrante de 
+𝐶1). Sabendo que as alternativas abaixo correspondem a diferentes elementos do jogo, 
+marque aquele que deve ser renderizado: 
+ 
+(3, 8)  
+(4, 3)  
+(8, 5)  
+(4, −2)  
+(2, 3)  
+ 
+Solução: Como o coeficiente angular da bissetriz é 1, e o ângulo de visão do atirador é 90𝑜, 
+as retas que definem o ângulo de visão serão paralelas aos eixos passando pelo ponto 
+(3,2). Assim, a região renderizada deve ter 𝑥> 3 e 𝑦> 2. 
+ 
+Deste modo, os pontos (3, 8), (4, −2) e (2, 3) não 
+satisfazem. 
+ 
+O ponto (8, 5) é externo ao círculo, basta calcular a 
+distância até o ponto (3, 2). 
+ 
+𝑑= √(∆𝑥)2 + (∆𝑦)2 
+ 
+Ponto (8, 5): 𝑑= √(8 −3)2 + (5 −2)2 = √34 > 5 
+ 
+Por fim, note que o ponto (4, 3) tem 𝑥> 3, 𝑦> 2 e tem distância 𝑑=
+√(4 −3)2 + (3 −2)2 = √2 < 5. 
+
+
+--- PAGE 32 OF 77 ---
+Um índice de ações, como o Ibovespa, é um índice que mede o desempenho de um 
+determinado conjunto ou subconjunto de ações negociadas em bolsa de valores. Os 
+índices de ações são utilizados como base para apoiar investidores na análise de preços 
+de mercado, sendo parte do processo de tomada de decisão com relação a compra e venda 
+de ativos. O gráfico abaixo representa, por exemplo, a variação do índice IBOVESPA. 
+ 
+ 
+ 
+Se for considerado um tempo suficientemente longo, esse tipo de gráfico pode ser 
+aproximado por polinômios, bastando o grau 𝒏 ser suficientemente grande, possibilitando 
+algumas análises rápidas. 
+ 
+Suponha um índice fictício INTL, se comporta ao longo do tempo conforme o polinômio 
+abaixo: 
+𝑃(𝑥) = 𝑥5 −8𝑥3 + 16𝑥+ 50, 
+ 
+onde 𝑥 é o tempo transcorrido, em anos, após o início da medição do índice. 
+ 
+A partir dessa informação, é possível afirmar que o número de vezes que o índice 
+atinge o marco de 50 pontos entre o primeiro e o quinto ano de medição é de: 
+ 
+0  
+1  
+2  
+3  
+4  
+ 
+Solução: Como queremos que o índice seja 50, devemos ter 𝑃(𝑥) = 50 
+ 
+𝑥5 −8𝑥3 + 16𝑥+ 50 = 50 ⇒ 
+ 
+⇒𝑥5 −8𝑥3 + 16𝑥= 0 ⇒ 
+ 
+⇒𝑥(𝑥4 −8𝑥2 + 16) = 𝑥(𝑥2 −4)2 = 0 ⇒ 
+ 
+⇒𝑥= 0 ou 𝑥= ±√2 
+ 
+Como 𝑥 é o tempo após o início da medição do índice, devemos ter 𝑥> 0.  
+ 
+Assim, 𝑥= √2 (uma solução). 
+
+
+--- PAGE 33 OF 77 ---
+Uma empresa de logística programou um robô para que ele buscasse objetos do dia a dia 
+em quatro centros de distribuição que se encontram sobre a mesma reta 𝑥= 𝑘 (constante).  
+O robô está configurado de modo que sua direção inicial já aponta para o centro de 
+distribuição 𝐴, situada sobre a reta 𝑦= 0. 
+ 
+Caso o robô tenha que buscar algum objeto no centro de distribuição 𝐵 ele andará sobre a 
+reta 𝑦= 𝑥, para o centro de distribuição 𝐶 ele andará sobre a reta 𝑦= 2𝑥 e para o 𝐷 sobre 
+a reta 𝑦= 3𝑥. Considere que o robô se encontra na origem desse sistema de coordenadas. 
+ 
+A figura abaixo ilustra a situação descrita por essa empresa de logística: 
+ 
+ 
+ 
+Certo dia, o robô foi enviado para o centro de distribuição 𝐷, porém, seu operador 
+identificou rapidamente um erro, já que o objeto desejado estava guardado em 𝐶. Esse 
+operador então emitiu um comando para que o robô mudasse sua trajetória da seguinte 
+forma: 
+ 
+Seguir sobre a reta 𝑦= 3𝑥 até um ponto 𝐶′ tal que 𝐶′𝐶 seja perpendicular a reta 𝑦= 2𝑥. 
+Seguir na direção 𝐶’𝐶. 
+ 
+Para isso ser possível, determine a tangente do ângulo ∠𝐶′𝐶𝐷. 
+ 
+2  
+3  
+1
+2  
+1
+3  
+7  
+ 
+Solução:  
+∠𝐶′𝐶𝐷 e ∠𝑅𝐶𝐴 são complementares. 
+∠𝑅𝐶𝐴 e ∠𝐶𝑅𝐴 são complementares. 
+Logo, ∠𝐶′𝐶𝐷= ∠𝐶𝑅𝐴, donde 
+ 
+tan ∠𝐶′𝐶𝐷= tan ∠𝐶𝑅𝐴= 2  
+ 
+Uma vez que 𝑅𝐶
+⃡   
+   é representada por 𝑦= 2𝑥. 
+
+
+--- PAGE 34 OF 77 ---
+Um robô autônomo foi programado para fazer uma varredura em uma área de difícil acesso. 
+Se o chão dessa área fosse uniforme, poderíamos representá-lo através da reta 𝑦= 0 (ou 
+seja, o robô se deslocaria livremente sobre esta reta). Porém, o chão possuí algumas 
+deformidades (crateras), uma delas em formato de parábola descrito pela função 𝑦= 𝑥2 −
+4, conforme a figura abaixo. 
+ 
+ 
+ 
+Enquanto se desloca, o robô mantém velocidade constante de 5 m/s. Assim, se seus 
+sensores não detectarem a presença desta cratera, após ele passar pelo ponto (−2, 0), ele 
+seguirá uma trajetória na sua queda que pode ser descrita pelas seguintes equações 
+horárias, onde 𝑡 é o tempo transcorrido a partir do momento que ele adentra a cratera: 
+ 
+{𝑥= −2 + 5𝑡
+𝑦= −5𝑡2      
+ 
+Determine a área do triângulo formado pelos pontos que estão na entrada da cratera e pelo 
+ponto onde o robô atingirá o solo ao cair dentro dela. 
+ 
+80
+9  m2  
+40
+9  m2  
+20
+9  m2  
+8 m2 
+ 
+4 m2  
+ 
+Solução: Tempo de queda 
+ 
+𝑦= 𝑥2 −4 ⇒−5𝑡2 = (−2 + 5𝑡)2 −4 ⇒ 
+ 
+⇒−5𝑡2 = 25𝑡2 −20𝑡⇒30𝑡2 −20𝑡= 0 ⇒𝑡= 2
+3  s 
+ 
+Substituindo nas equações horárias: 𝑦= −5 ∙
+4
+9 = −20/9  
+ 
+Área do triângulo: 𝑆= 𝑏ℎ
+2 = 4 ∙20
+9 ∙1
+2 = 40
+9  m2  
+ 
+ 
+ 
+
+
+--- PAGE 35 OF 77 ---
+Em um sistema de blockchain, cada bloco de dados é identificado por um hash único, que 
+é gerado usando um algoritmo criptográfico. Esses hashes são fundamentais para garantir 
+a segurança e a integridade da rede. Suponha que um determinado blockchain utiliza um 
+algoritmo que gera hashes de 8 caracteres, sendo 4 deles numéricos (algarismos de 0 até 
+9) e 4 deles alfabéticos (26 letras maiúsculas e 26 letras minúsculas disponíveis). 
+ 
+Qual o número de hashes possíveis para que todos os caracteres alfabéticos 
+maiúsculos apareçam antes de todos os caracteres alfabéticos minúsculos, e que 
+algarismos e letras apareçam alternados dento do hash? 
+ 
+Exemplos de hashes válidos: A0Z0C8d1, 1B5a3u4b, C2E0C5D3 
+ 
+264 × 105 
+ 
+ 
+264 × 104 
+ 
+ 
+2 × 264 × 104  
+2 × 524 × 104  
+524 × 105  
+ 
+Solução: 
+I. Para a posição das letras e dos números, temos, LNLNLNLN ou NLNLNLNL 
+2 possibilidades 
+ 
+II. Para a escolha dos números, temos, 
+104 possibilidades 
+ 
+III. Para a escolha dos algarismos temos: 
+Seja 𝑘 o número de letras maiúsculas, 𝑘∈{0, 1, 2, 3, 4}, teremos 4 −𝑘 letras minúsculas 
+Na escolha das letras: 26𝑘× 264−𝑘= 264. Como temos 5 possíveis valores de 𝑘, temos, 
+5 × 264 possibilidades 
+ 
+Total de hashes: 2 × 104 × 5 × 264 = 264 × 105 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 36 OF 77 ---
+Um pixel é uma unidade de uma imagem digital que representa um ponto de cor. Essa cor 
+pode ser retratada usando diferentes formatos, sendo o mais comum o RGB, que indica 
+proporções das cores vermelha (R), verde (G) e azul (B). Um pixel, então, pode ser ter sua 
+cor apresentada como uma matriz 1 × 3, como abaixo: 
+ 
+pixel = [𝑅  𝐺  𝐵] 
+ 
+Cada elemento da matriz é um número que varia entre 0 e 255. Portanto, um pixel de cor 
+[255
+0
+0] possui o máximo possível de vermelho e nenhum componente de verde ou 
+azul. Um pixel de cor [0
+0
+0] não possui nenhum componente de cor, ou seja, está na 
+cor preta. Já um pixel de cor [255
+255
+255] possui o máximo dos três componentes, 
+aparecendo como branco no computador. 
+ 
+Um uso bem comum em aplicativos de edição de imagem é o de filtros para intensificar 
+determinadas cores. Os filtros são matrizes numéricas 3 × 3, que são aplicados a cada um 
+dos pixels de uma imagem para gerar o resultado com o efeito desejado. Ou seja: 
+ 
+novo_pixel = pixel × filtro 
+ 
+Considere agora que você está desenvolvendo um novo filtro para uma rede social de 
+imagens, que deve tornar a imagem mais quente. Imagens mais quentes possuem os 
+componentes vermelho e verde mais acentuados (ou seja, maiores), enquanto o 
+componente azul é mantido igual. 
+ 
+Dentre as opções abaixo, qual poderia ser usado para cumprir o objetivo do filtro? 
+ 
+[
+1,3
+0,1
+0,0
+0,1
+1,3
+0,0
+0,0
+0,0
+1,0
+]  
+ 
+[
+1,3
+0,1
+0,0
+0,1
+1,3
+0,5
+0,0
+0,5
+1,3
+]  
+ 
+[
+0,8
+0,0
+0,0
+0,0
+1,0
+0,0
+0,0
+0,0
+1,0
+]  
+ 
+[
+1,0
+0,0
+0,0
+0,0
+1,3
+0,0
+0,0
+0,0
+1,0
+]  
+[
+1,3
+0,1
+0,0
+0,1
+1,3
+0,0
+0,0
+0,0
+0,0
+]  
+Solução:  Seja novo_pixel = [𝑅′  𝐺′  𝐵′] = [𝑅  𝐺  𝐵] × [
+𝑎11
+𝑎12
+𝑎13
+𝑎21
+𝑎22
+𝑎23
+𝑎31
+𝑎32
+𝑎33
+] .  
+ 
+[𝑅′ 𝐺′ 𝐵′] = [𝑅  𝐺  𝐵] × [
+1,3
+0,1
+0,0
+0,1
+1,3
+0,0
+0,0
+0,0
+1,0
+] = [1,3𝑅+ 0,1𝐵    0,1𝑅+ 1,3𝐺     𝐵]  
+ 
+CONTINUA NA PÁGINA SEGUINTE 
+
+
+--- PAGE 37 OF 77 ---
+ 
+Nesse caso, 𝑅′ = 1,3𝑅+ 0,1𝐵> 𝑅;  𝐺′ = 0,1𝑅+ 1,3𝐺> 𝐺;  𝐵′ = 𝐵 (satisfaz o enunciado) 
+ 
+Com a matriz [
+1,3
+0,1
+0,0
+0,1
+1,3
+0,5
+0,0
+0,5
+1,3
+], teríamos 𝐵′ ≠𝐵. 
+Com a matriz [
+0,8
+0,0
+0,0
+0,0
+1,0
+0,0
+0,0
+0,0
+1,0
+], teríamos 𝑅′ < 𝑅. 
+Com a matriz [
+1,0
+0,0
+0,0
+0,0
+1,3
+0,0
+0,0
+0,0
+1,0
+], teríamos 𝑅′ = 𝑅. 
+Com a matriz [
+1,3
+0,1
+0,0
+0,1
+1,3
+0,0
+0,0
+0,0
+0,0
+], teríamos 𝐵′ ≠𝐵. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 38 OF 77 ---
+ 
+  
+Sua equipe está desenvolvendo um novo jogo de tiro em 2𝐷 em que o jogador só consegue 
+enxergar o que o seu personagem enxergaria. Portanto, o jogo deve renderizar apenas os 
+elementos de coordenadas (𝑥,  𝑦) que satisfizerem as seguintes condições: 
+ 
+- O elemento se encontra sobre ou dentro de uma circunferência 𝐶1 de raio 5, com centro 
+no personagem; 
+ 
+- O elemento está dentro do campo de visão do personagem, região formada por duas 
+semirretas que se originam no personagem e possuem um ângulo de 30 graus entre si. 
+ 
+Um outro elemento importante no jogo é a linha de tiro do personagem. A linha de tiro é 
+formada pela bissetriz das duas semirretas que compõem o seu campo de visão. 
+ 
+Em um dado momento do jogo, o personagem está posicionado nas coordenadas (3,  2). A 
+linha de tiro é dada pela equação 𝑥−𝑦−1 = 0 (apontando para o primeiro quadrante de 
+𝐶1). Sabendo que as alternativas abaixo correspondem a diferentes elementos do jogo, 
+marque aquele que deve ser renderizado. 
+ 
+(3, 8)  
+(−1, 1)  
+(6, 5)  
+(4, −2)  
+(8, 6)  
+ 
+Solução: Como a linha de tiro aponta para o primeiro quadrante de 𝐶1, o campo de visão do 
+personagem deve ter 𝑥> 3 e 𝑦> 2. Assim, apenas os pontos (3, 8), (6, 5) e (8,6) são 
+possíveis de serem renderizados. 
+ 
+Note que a linha de tiro tem equação 𝑦= 𝑥−1, ou seja, seu coeficiente angular é 1, 
+portanto sua inclinação é 45𝑜. Como as retas que definem essa bissetriz possuem um 
+ângulo de 30𝑜, devemos ter um ângulo de 15𝑜 para cada semiplano definido pela bissetriz. 
+ 
+Assim, as inclinações dessas retas devem ser 45𝑜−15𝑜= 30𝑜 e 45𝑜+ 15𝑜= 60𝑜, ou seja, 
+seus coeficientes angulares são 𝑚1 = √3
+3  e 𝑚2 = √3.  
+ 
+CONTINUA NA PÁGINA SEGUINTE 
+ 
+ 
+ 
+
+
+--- PAGE 39 OF 77 ---
+ 
+Como as retas passam pelo ponto (3, 2), usando a equação rápida da reta 
+ 
+𝑦−𝑦0 = 𝑚(𝑥−𝑥0) ⇒ 
+ 
+⇒𝑟
+1: 𝑦= √3
+3 (𝑥−3) + 2  e 𝑟
+2: 𝑦= √3(𝑥−3) + 2;  
+ 
+ 
+Os pontos renderizados devem estar “acima” de 𝑟
+1 e “abaixo” de 𝑟
+2 
+ 
+Ponto (3,8):  
+Para 𝑥= 3:   𝑟
+2: 𝑦= 2 < 8 (ponto (3, 8) acima de 𝑟
+2, não renderizado) 
+ 
+Ponto (6, 5): 
+Para 𝑥= 6: 𝑟
+1: 𝑦= 2 + √3 < 5  e 𝑦= 2 + 3√3 > 5 (ponto (6, 5) acima de 𝑟
+1 e abaixo de 𝑟
+2) 
+ 
+Ponto (8,6): 
+Para 𝑥= 8: 𝑟
+1: 𝑦=
+5√3
+3 + 2 < 6 e 𝑦= 5√3 + 2 > 6 (ponto (8, 6) acima de 𝑟
+1 e abaixo de 𝑟
+2) 
+ 
+Assim, os únicos pontos possíveis são (6, 5) e (8, 6). Calculando a distância até (3, 2): 
+ 
+𝑑= √(∆𝑥)2 + (∆𝑦)2 
+ 
+Ponto (6, 5): 𝑑= √(6 −3)2 + (5 −2)2 = 3√2 < 5 
+Ponto (8, 6): 𝑑= √(8 −3)2 + (6 −2)2 = √41 > 5 
+ 
+Ou seja, o único ponto renderizado será (6, 5). 
+ 
+Observação: Um desenho cuidadoso, ajudaria a resolver o problema e assinalar a 
+alternativa correta sem a formalização apresentada na solução acima. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 40 OF 77 ---
+Um índice de ações, como o Ibovespa, é um índice que mede o desempenho de um 
+determinado conjunto ou subconjunto de ações negociadas em bolsa de valores. Os 
+índices de ações são utilizados como base para apoiar investidores na análise de preços 
+de mercado, sendo parte do processo de tomada de decisão com relação a compra e venda 
+de ativos. O gráfico abaixo representa, por exemplo, a variação do índice IBOVESPA. 
+ 
+Se for considerado um tempo suficientemente longo, esse tipo de gráfico pode ser 
+aproximado por polinômios, bastando o grau 𝒏 ser suficientemente grande, possibilitando 
+algumas análises rápidas. 
+ 
+Suponha um índice fictício INTL, se comporta ao longo do tempo conforme o polinômio 
+abaixo: 
+𝑃(𝑥) = 𝑥3 + 3𝑥2 −6𝑥+ 42, 
+ 
+onde 𝑥 é o tempo transcorrido, em anos, após o início da medição do índice. 
+ 
+A partir dessa informação, é possível afirmar que o número de vezes que o índice 
+atinge o marco de 50 pontos entre o primeiro e o quinto ano de medição é de: 
+ 
+0  
+1  
+2  
+3  
+4  
+ 
+Solução: Como queremos que o índice seja 50, devemos ter 𝑃(𝑥) = 50 
+ 
+𝑥3 + 3𝑥2 −6𝑥+ 42 = 50 ⇒𝑥3 + 3𝑥2 −6𝑥−8 = 0 
+ 
+Testando 𝑥= −1 é solução. Usando o algoritmo de Briot-Ruffini para abaixar o grau 
+ 
+ 
+ 
+Assim, as outras raízes são zeros de 𝑥2 + 2𝑥−8 = 0 ⇒𝑥= −4 ou 𝑥= 2 
+Como 𝑥 é o tempo após o início da medição do índice, devemos ter 𝑥> 0. 
+Assim, 𝑥= 2 (uma solução) 
+
+
+--- PAGE 41 OF 77 ---
+Uma empresa de logística programou um robô para que ele buscasse objetos do dia a dia 
+em quatro centros de distribuição que se encontram sobre a mesma reta 𝑥= 𝑘 (constante).  
+O robô está configurado de modo que sua direção inicial já aponta para o centro de 
+distribuição 𝐴, situada sobre a reta 𝑦= 0. 
+ 
+Caso o robô tenha que buscar algum objeto no centro de distribuição 𝐵 ele andará sobre a 
+reta 𝑦= 𝑥, para o centro de distribuição 𝐶 ele andará sobre a reta 𝑦= 2𝑥 e para o 𝐷 sobre 
+a reta 𝑦= 3𝑥. Considere que o robô se encontra na origem desse sistema de coordenadas. 
+ 
+A figura abaixo ilustra a situação descrita por essa empresa de logística: 
+ 
+ 
+ 
+Determine a tangente do ângulo entre as trajetórias até os centros de distribuição 𝐶 e 𝐵, ou 
+seja, a tangente de ∠𝐶𝑅𝐵 
+ 
+2  
+3  
+1
+2  
+1
+3  
+7  
+ 
+Solução: Vamos usar a fórmula de tangente da soma ou da diferença 
+ 
+𝑡𝑔(𝛼± 𝛽) =
+𝑡𝑔𝛼±𝑡𝑔𝛽
+1∓𝑡𝑔𝛼∙𝑡𝑔𝛽 (considerando as condições de existência) 
+ 
+No problema, tan ∠𝐵𝑅𝐴= 1 (𝑅𝐵
+⃡      é a reta 𝑦= 𝑥) e tan ∠𝐶𝑅𝐴= 2 (𝑅𝐶
+⃡   
+   é a reta 𝑦= 2𝑥). 
+ 
+∠𝐶𝑅𝐵= ∠𝐶𝑅𝐴−∠𝐵𝑅𝐴⇒ 
+ 
+⇒tan ∠𝐶𝑅𝐵=
+tan ∠𝐶𝑅𝐴−tan ∠𝐵𝑅𝐴
+1 + tan ∠𝐶𝑅𝐴∙tan ∠𝐵𝑅𝐴=
+2 −1
+1 + 2 ∙1 = 1
+3 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 42 OF 77 ---
+Um robô autônomo foi programado para fazer uma varredura em uma área de difícil acesso. 
+Se o chão dessa área fosse uniforme, poderíamos representá-lo através da reta 𝑦= 0 (ou 
+seja, o robô se deslocaria livremente sobre esta reta). Porém, o chão possuí algumas 
+deformidades (crateras), uma delas em formato de parábola descrito pela função 𝑦= 𝑥2 −
+4, conforme a figura abaixo. 
+ 
+ 
+ 
+Enquanto se desloca, o robô mantém velocidade constante de módulo 𝑉
+𝑥 m/s, com 𝑉
+𝑥<
+2. Assim, se seus sensores não detectarem a presença desta cratera, após ele passar pelo 
+ponto (−2, 0), ele seguirá uma trajetória na sua queda que pode ser descrita pelas 
+seguintes equações horárias, onde 𝑡 é o tempo transcorrido a partir do momento que ele 
+adentra a cratera: 
+ 
+{𝑥= −2 + 5𝑡
+𝑦= −5𝑡2      
+ 
+Para que o robô não quebre é necessário que ele não caia de uma altura superior a 
+20
+9  m.  
+ 
+Determine o maior valor possível para 𝑽𝒙  em m/s: 
+ 
+2  
+1,5  
+1  
+0,5 
+ 
+0,1  
+ 
+Solução: Calculando o tempo de queda 
+ 
+𝑦= 𝑥2 −4 ⇒−5𝑡2 = (−2 + 𝑉
+𝑥𝑡)2 −4 ⇒ 
+ 
+⇒−5𝑡2 = 𝑉
+𝑥
+2𝑡2 −4𝑉
+𝑥𝑡⇒𝑡((𝑉
+𝑥
+2 + 5)𝑡−4𝑉
+𝑥) = 0 ⇒𝑡=
+4𝑉
+𝑥
+𝑉
+𝑥
+2 + 5  s 
+ 
+Substituindo nas equações horárias: 𝑦= −5 ∙
+16𝑉
+𝑥
+2
+(𝑉
+𝑥
+2+5)
+2 = −
+80𝑉
+𝑥
+2
+(𝑉
+𝑥
+2+5)
+2  
+ 
+Usando a restrição da altura máxima (lembrando que 𝑉
+𝑥 é o módulo da velocidade): 
+ 
+80𝑉
+𝑥
+2
+(𝑉
+𝑥
+2 + 5)2 ≤20
+9 ⇒
+𝑉
+𝑥
+2
+(𝑉
+𝑥
+2 + 5)2 ≤1
+36 ⇒
+𝑉
+𝑥
+𝑉
+𝑥
+2 + 5 ≤1
+6 ⇒𝑉
+𝑥
+2 −6𝑉
+𝑥+ 5 ≥0 ⇒𝑉
+𝑥≤1 ou 𝑉
+𝑥≥5 
+ 
+Como 𝑉
+𝑥< 2, segue que 𝑉
+𝑥𝑀Á𝑋= 1 m/s. 
+ 
+
+
+--- PAGE 43 OF 77 ---
+Em um sistema de blockchain, cada bloco de dados é identificado por um hash único, que 
+é gerado usando um algoritmo criptográfico. Esses hashes são fundamentais para garantir 
+a segurança e a integridade da rede. Suponha que um determinado blockchain utiliza um 
+algoritmo que gera hashes de 8 caracteres, sendo 4 deles numéricos (algarismos de 0 até 
+9) e 4 deles alfabéticos (26 letras maiúsculas e 26 letras minúsculas disponíveis). 
+ 
+Qual o número de hashes possíveis para que todos os caracteres numéricos sejam 
+distintos e apareçam em ordem crescente? 
+ 
+Observação: Uma sequência é dita crescente quando cada termo é maior que o termo 
+anterior da sequência. 
+ 
+Exemplos de hashes válidos: AZ01C8d9, B15a8u9b, C0E1C6D7 
+ 
+14.700 × 524  
+ 
+70 × 524 
+ 
+ 
+210 × 524  
+104 × 524  
+1.440 × 524  
+ 
+Solução:  
+ 
+I. Escolha da posição dos caracteres: 𝐶8
+4 =
+8!
+4!4! = 70 
+ 
+II. Escolha dos algarismos: 𝐶10
+4 = 10!
+6!4! = 210 
+ 
+III. Ordem dos algarismos: 1 (ordem crescente) 
+ 
+IV. Letras: 524 
+ 
+Total de hashes: 70 × 210 × 524 = 14.700 × 524 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 44 OF 77 ---
+ 
+ 
+Um pixel é uma unidade de uma imagem digital que representa um ponto de cor. Essa cor 
+pode ser retratada usando diferentes formatos, sendo o mais comum o RGB, que indica 
+proporções das cores vermelha (R), verde (G) e azul (B). Um pixel, então, pode ser ter sua 
+cor apresentada como uma matriz 1 × 3, como abaixo: 
+ 
+pixel = [𝑅  𝐺  𝐵] 
+ 
+Cada elemento da matriz é um número que varia entre 0 e 255. Portanto, um pixel de cor 
+[255
+0
+0] possui o máximo possível de vermelho e nenhum componente de verde ou 
+azul. Um pixel de cor [0
+0
+0] não possui nenhum componente de cor, ou seja, está na 
+cor preta. Já um pixel de cor [255
+255
+255] possui o máximo dos três componentes, 
+aparecendo como branco no computador. 
+ 
+No entanto, o RGB não é o único formato de representação das cores. Um outro existente, 
+amplamente utilizado em processamento de vídeo, é o YUV, correspondente a luminância 
+(Y), crominância azul (U) e crominância vermelha (V).  
+ 
+Para converter um pixel no formato RGB para YUV, aplica-se uma matriz de transformação, 
+indicada abaixo: 
+ 
+ 
+𝑌𝑈𝑉= 𝑅𝐺𝐵× [
+0,299
+−0,147
+   0,615
+0,577
+−0,289
+−0,515
+0,124
+0,436
+−0,100
+] 
+ 
+A partir da matriz de transformação acima, qual seriam as representações de um pixel 
+preto (RGB [𝟎
+𝟎
+𝟎]) e branco (RGB [𝟐𝟓𝟓
+𝟐𝟓𝟓
+𝟐𝟓𝟓]) no formato YUV? 
+ 
+preto: [0,299
+−0,289
+−0,100]; branco: [255
+255
+255] 
+ 
+preto: [0
+0
+0]; branco: [1
+0
+0] 
+ 
+preto: [0
+0
+0]; branco: [255
+0
+0] 
+ 
+preto: [1
+0
+0]; branco: [0
+0
+0] 
+ 
+preto: [0
+0
+0]; branco: [196
+−55
+122] 
+ 
+Solução:  Pixel preto 
+ 
+𝑌𝑈𝑉= [0
+0
+0] × [
+0,299
+−0,147
+   0,615
+0,577
+−0,289
+−0,515
+0,124
+0,436
+−0,100
+] = [0
+0
+0] 
+ 
+Pixel branco 
+𝑌𝑈𝑉= [255
+255
+255] × [
+0,299
+−0,147
+   0,615
+0,577
+−0,289
+−0,515
+0,124
+0,436
+−0,100
+] 
+
+
+--- PAGE 45 OF 77 ---
+ 
+CONTINUA NA PÁGINA SEGUINTE 
+= 255 × [1
+1
+1] × [
+0,299
+−0,147
+   0,615
+0,577
+−0,289
+−0,515
+0,124
+0,436
+−0,100
+] = 
+ 
+= 255 × [0,299 + 0,577 + 0,124
+−0,147 −0,289 + 0,436
+0,615 −0,515 −0,100] = 
+ 
+= 255 × [1
+0
+0] = [255
+0
+0] 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 46 OF 77 ---
+ 
+  
+Sua equipe está desenvolvendo um novo jogo de tiro em 2𝐷 em que o jogador só consegue 
+enxergar o que o seu personagem enxergaria. Portanto, o jogo deve renderizar apenas os 
+elementos de coordenadas (𝑥,  𝑦) que satisfizerem as seguintes condições: 
+ 
+- O elemento se encontra sobre ou dentro de uma circunferência 𝐶1 de raio 5, com centro 
+no personagem; 
+ 
+- O elemento está dentro do campo de visão do personagem, região formada por duas 
+semirretas que se originam no personagem. 
+ 
+Um outro elemento importante no jogo é a linha de tiro do personagem. A linha de tiro é 
+formada pela bissetriz das duas semirretas que compõem o seu campo de visão. Um 
+personagem só consegue acertar um alvo se ele estiver na linha de tiro e dentro do alcance 
+de visão do personagem. 
+ 
+Em um dado momento do jogo, o personagem está posicionado nas coordenadas (3,  2) e 
+as equações 𝑦= 4
+3 𝑥−2 e 𝑦= 3
+4 𝑥−1
+4 formam as semirretas do seu campo de visão (com a 
+linha de tiro apontando para o primeiro quadrante de 𝐶1).  
+ 
+Se o jogador der um comando para o personagem atirar neste momento, qual dos 
+elementos abaixo poderá ser atingido? 
+ 
+(5,
+3
+2)  
+(7,6)  
+(4,3)  
+(6,
+9
+2 )  
+(
+3
+2 , 5)  
+ 
+Solução: Primeiro vamos reescrever as equações dadas. 
+ 
+𝑟
+1: 𝑦=
+4
+3 𝑥−2 ⇒4𝑥−3𝑦−6 = 0 e 𝑟
+2: 𝑦=
+3
+4 𝑥−
+1
+4 ⇒3𝑥−4𝑦−1 = 0 
+ 
+CONTINUA NA PÁGINA SEGUINTE 
+ 
+ 
+
+
+--- PAGE 47 OF 77 ---
+Para achar a bissetriz dessas equações lembre-se que qualquer ponto da bissetriz deve ter 
+a mesma distância às duas retas que a definem. Assim, a equação das bissetrizes é dada 
+por, 
+ 
+|𝑎𝑥+ 𝑏𝑦+ 𝑐|
+√𝑎2 + 𝑏2
+=
+|𝑎′𝑥+ 𝑏′𝑦+ 𝑐′|
+√(𝑎′)2 + (𝑏′)2  
+ 
+No problema,  
+ 
+|4𝑥−3𝑦−6|
+√42 + (−3)2 =
+|3𝑥−4𝑦−1|
+√32 + (−4)2 ⇒ 
+ 
+⇒4𝑥−3𝑦−6 = ±(3𝑥−4𝑦−1) ⇒ 
+ 
+⇒4𝑥−3𝑦−6 = 3𝑥−4𝑦−1 ou 4𝑥−3𝑦−6 = −3𝑥+ 4𝑦+ 1 ⇒ 
+ 
+⇒𝑥+ 𝑦= 5 ou 7𝑥−7𝑦= 7 ⇒ 
+ 
+⇒𝑥+ 𝑦= 5 ou 𝑥−𝑦= 1 ⇒ 
+ 
+Como a linha de tiro está no primeiro quadrante de 𝐶1 devemos ter 𝑥−𝑦= 1. 
+ 
+Das opções apenas os pontos (7, 6) e (4, 3) pertencem a linha de tiro. Calculando a 
+distância até o ponto (3, 2) 
+ 
+𝑑= √(∆𝑥)2 + (∆𝑦)2 
+ 
+Ponto (7, 6): 𝑑= √(7 −3)2 + (6 −2)2 = 4√2 > 5 
+Ponto (4, 3): 𝑑= √(4 −3)2 + (3 −2)2 = √2 < 5 
+ 
+Ou seja, o único ponto atingido é o ponto (4, 3). 
+ 
+Solução 2: Note que como 𝑚1 =
+4
+3 e 𝑚2 =
+3
+4, a inclinação das retas 𝑟
+1 e 𝑟
+2 são 
+complementares. De fato, sendo 𝛼1 e 𝛼2 as inclinações, temos 
+ 
+tan 𝛼1 = cotan 𝛼2 ⇒𝛼1 + 𝛼2 = 𝜋
+2 
+ 
+O ângulo entre as retas é 𝛼1 −𝛼2, assim o ângulo entre a bissetriz e a reta 𝑟
+2 será 𝛼1−𝛼2
+2
+. 
+Assim, a inclinação da bissetriz será 
+ 
+𝛼1 −𝛼2
+2
++ 𝛼2 = 𝛼1 + 𝛼2
+2
+= 𝜋
+4 ⇒𝑚𝑏= 1 ⇒bissetriz: 𝑦= 𝑥+ 𝑞 
+ 
+Como a bissetriz passa pelo ponto (3, 2): 𝑦= 𝑥−1. Novamente bastaria verificar as 
+opções (7, 6) e (4, 3) 
+
+
+--- PAGE 48 OF 77 ---
+Um índice de ações, como o Ibovespa, é um índice que mede o desempenho de um 
+determinado conjunto ou subconjunto de ações negociadas em bolsa de valores. Os 
+índices de ações são utilizados como base para apoiar investidores na análise de preços 
+de mercado, sendo parte do processo de tomada de decisão com relação a compra e venda 
+de ativos. O gráfico abaixo representa, por exemplo, a variação do índice IBOVESPA. 
+ 
+ 
+ 
+Se for considerado um tempo suficientemente longo, esse tipo de gráfico pode ser 
+aproximado por polinômios, bastando o grau 𝒏 ser suficientemente grande, possibilitando 
+algumas análises rápidas. 
+ 
+Suponha um índice fictício INTL, se comporta ao longo do tempo conforme o polinômio 
+abaixo: 
+𝑃(𝑥) = 𝑥4 −2𝑥3 −7𝑥2 + 8𝑥+ 62, 
+ 
+onde 𝑥 é o tempo transcorrido, em anos, após o início da medição do índice. 
+ 
+A partir dessa informação, é possível afirmar que o número de vezes que o índice 
+atinge o marco de 50 pontos entre o primeiro e o quinto ano de medição é de: 
+ 
+0  
+1  
+2  
+3  
+4  
+ 
+Solução: Como queremos que o índice seja 50, devemos ter 𝑃(𝑥) = 50 
+ 
+𝑥4 −2𝑥3 −7𝑥2 + 8𝑥+ 62 = 50 ⇒𝑥4 −2𝑥3 −7𝑥2 + 8𝑥+ 12 = 0 
+ 
+Testando 𝑥= −1 é solução. Usando o algoritmo de Briot-Ruffini para abaixar o grau 
+ 
+Assim, as outras raízes são zeros de 
+ 
+𝑥3 −3𝑥2 −4𝑥+ 12 = 0 ⇒𝑥2(𝑥−3) −4(𝑥−3) = 0 ⇒(𝑥−3)(𝑥2 −4) = 0 
+ 
+⇒𝑥= 3 ou 𝑥= ±2 
+ 
+Como 𝑥 é o tempo após o início da medição do índice, devemos ter 𝑥> 0. 
+Assim, 𝑥= 2 ou 𝑥= 3 (duas soluções) 
+
+
+--- PAGE 49 OF 77 ---
+Uma empresa de logística programou um robô para que ele buscasse objetos do dia a dia 
+em quatro centros de distribuição que se encontram sobre a mesma reta 𝑥= 𝑘 (constante).  
+O robô está configurado para que sua direção inicial já aponte para o centro de distribuição 
+𝐴, situada sobre a reta 𝑦= 0. 
+ 
+Caso o robô tenha que buscar algum objeto no centro de distribuição 𝐵 ele andará sobre a 
+reta 𝑦= 𝑥, para o centro de distribuição 𝐶 ele andará sobre a reta 𝑦= 2𝑥 e para o 𝐷 sobre 
+a reta 𝑦= 3𝑥. Considere que o robô se encontra na origem desse sistema de coordenadas. 
+ 
+A figura abaixo ilustra a situação descrita por essa empresa de logística: 
+ 
+ 
+ 
+Certo dia, o robô foi enviado para o centro de distribuição 𝐷. Porém, seu operador 
+identificou rapidamente um erro, já que o objeto desejado estava guardado em 𝐴. Esse 
+operador então emitiu um comando para que o robô mudasse sua trajetória da seguinte 
+forma: 
+ 
+Seguir sobre a reta 𝑦= 3𝑥 até um ponto 𝐴′ tal que 𝐴′𝐴 seja perpendicular a reta 𝑦= 2𝑥. 
+Seguir na direção 𝐴’𝐴. 
+ 
+Para isso ser possível, determine a tangente do ângulo ∠𝑹𝑨′𝑨. 
+ 
+2  
+3  
+1
+2  
+1
+3  
+7  
+ 
+Solução: Note que tan ∠𝐷𝑅𝐴= 3 (𝑅𝐷
+⃡      é a reta 𝑦= 3𝑥) e tan ∠𝐶𝑅𝐴=
+2 (𝑅𝐶
+⃡   
+   é a reta 𝑦= 2𝑥) 
+ 
+∠𝐷𝑅𝐶= ∠𝐷𝑅𝐴−∠𝐶𝑅𝐴⇒ 
+ 
+⇒tan ∠𝐷𝑅𝐶=
+tan ∠𝐷𝑅𝐴−tan ∠𝐶𝑅𝐴
+1 + tan ∠𝐷𝑅𝐴∙tan ∠𝐶𝑅𝐴=
+3 −2
+1 + 3 ∙2 = 1
+7 
+ 
+∠𝑅𝐴′𝐴 e ∠𝐷𝑅𝐶 são complementares, portanto, tan ∠𝑅𝐴′𝐴= 7 
+
+
+--- PAGE 50 OF 77 ---
+Um robô autônomo foi programado para fazer uma varredura em uma área de difícil acesso. 
+Se o chão dessa área fosse uniforme, poderíamos representá-lo através da reta 𝑦= 0 (ou 
+seja, o robô se deslocaria livremente sobre esta reta). Porém, o chão possuí algumas 
+deformidades, uma delas em formato de parábola descrito pela função 𝑦= 𝑥2 −
+3
+16, 
+conforme a figura abaixo. 
+ 
+ 
+ 
+Enquanto se desloca, o robô mantém velocidade constante de módulo 𝑉
+𝑥 m/s. Assim, se 
+seus sensores não detectarem a presença desta deformidade, após ele passar pelo ponto 
+(−√3
+4 , 0), ele seguirá uma trajetória na sua queda que pode ser descrita pelas seguintes 
+equações horárias, onde 𝑡 é o tempo transcorrido a partir do momento que ele adentra a 
+deformação: 
+ 
+{𝑥= −√3
+4 + 𝑉
+𝑥∙𝑡
+𝑦= −5𝑡2          
+ 
+ 
+Essas equações são obtidas considerando que, no eixo 𝑥, desprezando a resistência do ar, 
+teremos um movimento uniforme (velocidade na direção 𝑥 constante) e que, no eixo 𝑦, 
+considerando apenas a ação da gravidade, 𝑔= 10 m/s2, teremos um movimento 
+uniformemente variado (velocidade na direção 𝑦 variável com módulo igual a 𝑔𝑡) 
+ 
+Para que o robô não quebre é necessário que, ao se chocar com o solo no interior da 
+deformação, sua velocidade resultante seja no máximo √10 m/s. Determine o maior valor 
+possível para 𝑉
+𝑥 em m/s. 
+ 
+√250
+6
+ m/s 
+ 
+2 m/s  
+√10 m/s 
+ 
+1 m/s  
+√5
+3
+ m/s  
+ 
+Solução: 
+CONTINUA NA PÁGINA SEGUINTE 
+
+
+--- PAGE 51 OF 77 ---
+ 
+Tempo de queda: 
+𝑦= 𝑥2 −3
+16 ⇒−5𝑡2 = (−√3
+4 + 𝑉
+𝑥𝑡)
+2
+−3
+16 ⇒ 
+ 
+⇒−5𝑡2 = 𝑉
+𝑥
+2𝑡2 −√3
+2 𝑉
+𝑥𝑡⇒𝑡((𝑉
+𝑥
+2 + 5)𝑡−√3
+2 𝑉
+𝑥) = 0 ⇒𝑡= √3/2 ∙𝑉
+𝑥
+𝑉
+𝑥
+2 + 5  s 
+ 
+Componentes da velocidade quando o choque ocorrer: 𝑉
+𝑥 e 𝑉
+𝑦= 𝑔𝑡= 5√3𝑉
+𝑥
+𝑉
+𝑥
+2+5 
+ 
+Velocidade resultante: 𝑉2 = 𝑉
+𝑥
+2 + 𝑉
+𝑦
+2 = 𝑉
+𝑥
+2 +
+75𝑉
+𝑥
+2
+(𝑉
+𝑥
+2+5)
+2 ≤10 ⇒ 
+ 
+⇒𝑉
+𝑥
+6 + 10𝑉
+𝑥
+4 + 25𝑉
+𝑥
+2 + 75𝑉
+𝑥
+2 ≤10𝑉
+𝑥
+4 + 100𝑉
+𝑥
+2 + 250 ⇒ 
+ 
+⇒𝑉
+𝑥≤√250
+6
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 52 OF 77 ---
+ 
+Em um sistema de blockchain, cada bloco de dados é identificado por um hash único, que 
+é gerado usando um algoritmo criptográfico. Esses hashes são fundamentais para garantir 
+a segurança e a integridade da rede. Suponha que um determinado blockchain utiliza um 
+algoritmo que gera hashes de 8 caracteres, sendo todos os caracteres um algarismo de 0 
+até 9. 
+ 
+Qual o número de hashes possíveis em que todos os caracteres aparecem em ordem 
+não decrescente? 
+ 
+Observação: Dizemos que uma sequência é não decrescente quando cada termo da 
+sequência é maior ou igual ao termo imediatamente anterior. 
+ 
+Exemplos de hashes válidos: 00123345, 23456789, 22222222 
+ 
+ 
+6.400  
+ 
+12.870  
+ 
+14.550  
+16.280  
+24.310  
+ 
+Solução: Basta definir quantas vezes aparece cada algarismo, uma vez que a ordem já está 
+definida. Seja 𝑥𝑖 a quantidade de vezes que o algarismo 𝑖 aparece no hash, temos, 
+ 
+𝑥0 + 𝑥1 + 𝑥2+. . . +𝑥9 = 8 
+ 
+O número de soluções inteiras não-negativas dessa equação é: 𝑃
+17
+9,8 = 17!
+9!8! = 24.310 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 53 OF 77 ---
+Sua empresa desenvolveu um protótipo para um novo sistema embarcado utilizando o 
+microcontrolador Arduino. Para distribuir versões de teste desse protótipo para clientes 
+selecionados, você recebeu a responsabilidade de desenvolver um case para acomodar 
+todo o equipamento. Esse case será impresso em 3D utilizando um filamento ABS de 
+densidade 1,08 g/cm3. 
+ 
+O case é formado por dois elementos independentes entre si: a parte de baixo é um cilindro 
+oco de raio externo 5 cm, altura externa 5 cm e 1 cm de espessura (lateral). Já a parte de 
+cima, tampa, é um cilindro maciço, de raio 5 cm e 1 cm de altura. Considere a espessura 
+da base do cilindro oco desprezível. A figura abaixo representa o case. 
+ 
+O custo de um rolo de 1 kg de filamento ABS é de aproximadamente R$ 50,00 e o processo 
+de produção possui uma perda de material de 10%. 
+ 
+Qual é, aproximadamente, o custo estimado para a impressão bem-sucedida de 𝟏𝟎𝟎 
+cases? 
+ 
+Considere 𝜋≅3,14 
+ 
+R$ 420  
+R$ 1.186  
+R$ 1.318  
+R$ 1.562  
+R$ 1.675  
+ 
+Solução: Volume do cilindro oco: 
+ 
+𝑉= 𝐴𝑜× ℎ𝑜= 𝜋(𝑅𝑜
+2 −𝑟
+𝑜
+2)ℎ= 5𝜋(25 −16) = 45𝜋 
+ 
+Volume da tampa 
+ 
+𝑉
+𝑡𝑎𝑚𝑝𝑎= 𝐴𝑡× ℎ𝑡= 𝜋𝑅𝑡
+2ℎ𝑡= 𝜋× 25 × 1 = 25𝜋 
+ 
+Volume total: 𝑉𝑇= 70𝜋 
+ 
+Como, 𝑑= 1,08 g/cm3, então massasólido = 1,08 × 70𝜋 g. 
+ 
+Considerando que existe 10% de perda de material: 
+ 
+mTotal (um case) = 1,08 × 70𝜋
+0,9
+= 84𝜋 g 
+ 
+Para 100 cases,  
+ 
+mFinal = 8.400𝜋 g = 8,4𝜋 kg 
+ 
+Como o custo é R$ 50,00 / kg, 
+ 
+𝐶= 50 × 8,4𝜋= 420𝜋= R$ 1318,80 
+
+
+--- PAGE 54 OF 77 ---
+Um dos modelos mais comuns utilizados em Aprendizado de Máquina, chamado Naive 
+Bayes, envolve um teorema probabilístico chamado Teorema de Bayes. Este teorema 
+utiliza um conceito chamado probabilidade condicional, ou P(A|B), probabilidade de A 
+dado B, que mede a probabilidade de um evento A acontecer, dado que um evento B 
+ocorreu. 
+ 
+Por exemplo, considere as 52 cartas de um baralho de quatro naipes, composto pelas 
+cartas Ás, 2, 3, 4, 5, 6, 7, 8, 9, 10, além das cartas figuradas Valete, Dama e Rei. Em um 
+baralho embaralhado aleatoriamente, a probabilidade de se obter uma carta Valete é: 
+ 
+𝑃(valete) = 4
+52 = 1
+13 
+ 
+Por outro lado, a probabilidade de se obter uma carta Valete, sabendo que a carta tirada é 
+uma carta figurada, é igual a:  
+ 
+𝑃(valete|figurada) = 4
+12 = 1
+3 
+ 
+Observe que, no segundo cálculo, a população usada para calcular a probabilidade é 12, 
+uma vez que existem 12 cartas figuradas no baralho.  
+ 
+Considere, por exemplo, um cenário em que você está desenvolvendo um modelo Naive 
+Bayes para um projeto de detecção de spam em uma caixa de mensagens de um novo 
+aplicativo. Para isso, foi desenvolvido um algoritmo que retorna positivo, P, caso uma nova 
+mensagem seja spam, negativo, N, caso a mensagem não seja spam, e inconclusivo, I, 
+caso o algoritmo não consiga chegar a um resultado. Você aplicou o algoritmo em uma 
+série de mensagens e obteve os seguintes resultados para diferentes características que a 
+mensagem poderia ter: 
+ 
+Resultado 
+spam 
+não spam 
+Total 
+Positivo 
+80 
+40 
+120 
+Negativo 
+10 
+100 
+110 
+Inconclusivo 
+10 
+60 
+70 
+Total 
+100 
+200 
+300 
+ 
+Você submete uma nova mensagem, e este retornou Negativo. Qual seria a 
+probabilidade de a mensagem ser um spam? 
+ 
+0,080  
+0,091  
+0,100  
+0,111  
+0,201  
+ 
+Solução: Na tabela, basta se restringir a linha Negativo. Nessa linha, 10 são spam, ou seja,   
+ 
+𝑃(𝑠𝑝𝑎𝑚| −) = 1
+11 ≅0,091 
+ 
+
+
+--- PAGE 55 OF 77 ---
+O prédio de pesquisa e desenvolvimento (𝐶1) de uma certa empresa tem formato circular 
+e centro em 𝑂, podendo ser descrito pela equação 𝑥2 + 𝑦2 = 16. No centro deste prédio 
+encontra-se o laboratório (𝐶2), sendo descrito pela equação 𝑥2 + 𝑦2 = 1 
+ 
+Uma estrada (𝑡) de acesso foi construída externamente ao prédio, sendo tangente ao 
+mesmo no ponto 𝐶(4,0). 
+ 
+A partir do centro administrativo da empresa, localizado em 𝑂, traçam-se duas rotas de 
+acesso, de equações 𝑦= 𝑥 e 𝑦= −𝑥. Essas rotas, se prolongadas, chegariam na estrada 
+nos pontos A e B. 
+ 
+Determine a área delimitada pelo triângulo OAB externa ao laboratório 𝑪𝟐. 
+ 
+4 −𝜋
+4  
+8 −𝜋
+2  
+16 −
+𝜋
+4  
+16 −𝜋   
+8 −𝜋
+2  
+ 
+Solução: A figura abaixo representa a situação descrita no problema 
+ 
+ 
+ 
+Na reta 𝑦= 𝑥 o coeficiente angular é 1, portanto ∠𝐵𝑂𝐶= 45°. Donde,  
+ 
+𝐶𝐵= 𝑂𝐶= 4 ⇒𝐴𝐵= 2 ∙𝑂𝐶= 8 ⇒𝑆∆= 𝑂𝐶∙𝐴𝐵
+2
+= 4 ∙8
+2
+= 16 
+ 
+A área pedida é, 𝑆= 𝑆∆−
+𝑆𝑐2
+4 = 16 −𝜋
+4 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 56 OF 77 ---
+Com o avanço dos softwares de IA, muito se tem discutido sobre o ensino de matemática 
+na educação básica. O debate passa pelo tempo dispensado no ensino de cálculos e 
+resolução de equações, quando atualmente, já existem ferramentas e modelos que fazem 
+essas funções melhores do que um ser humano. (The Math is fix – Wolfram, Conrad) 
+ 
+Com a existência dessas ferramentas, entende-se que a discussão poderia ser mais crítica 
+e menos mecânica.  Por exemplo, como garantir que existe alguma solução, ou seja, que a 
+ferramenta vai gerar uma resposta para o problema? Como estimar o tamanho da solução 
+para interpretar se a solução dada é coerente? 
+ 
+Considere, por exemplo, a equação abaixo 
+ 
+|log(3𝑥)| + 𝑥= 0 
+ 
+Resolver esse tipo de equação de forma analítica, tentando “isolar” o x, não faria 
+sentido dada a complexidade da equação. Sendo assim, o que podemos afirmar sobre 
+esta equação? 
+ 
+Obs: log 𝑥 representa o logaritmo de 𝑥 na base 10. 
+ 
+Opções:  
+ 
+Não existe solução real 
+Existe exatamente uma solução real 
+Existem exatamente duas soluções reais 
+Existem exatamente 6 soluções reais 
+Existem infinitas soluções reais 
+ 
+Solução: 
+ 
+Pela condição de existência de logaritmos, 𝑥> 0. Como |log(3𝑥)| ≥0, temos 
+ 
+|log(3𝑥)| + 𝑥> 0 
+ 
+Logo, não existe solução real para a equação 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 57 OF 77 ---
+Sua empresa desenvolveu um protótipo para um novo sistema embarcado utilizando o 
+microcontrolador Arduino. Para distribuir versões de teste desse protótipo para clientes 
+selecionados, você recebeu a responsabilidade de desenvolver um case para acomodar 
+todo o equipamento. Esse case será impresso em 3D utilizando um filamento ABS de 
+densidade 1,08 g/cm3. 
+ 
+O case é formado por dois elementos independentes entre si: a parte de baixo é um cilindro 
+oco de raio externo 5 cm, altura externa 5 cm e 1 cm de espessura (lateral). Já a parte de 
+cima, uma “tampa” decorativa, é uma semiesfera maciça de raio 5 cm. Considere a 
+espessura da base do cilindro desprezível. A figura abaixo representa o case. 
+ 
+O custo de um rolo de 1 kg de filamento ABS é de aproximadamente R$ 50,00 e o processo 
+de produção possui uma perda de material de 10%. 
+ 
+Qual é, aproximadamente, o custo estimado para a impressão bem-sucedida de 𝟏𝟎𝟎 
+cases? 
+ 
+Considere 𝜋≅3,14 
+ 
+R$ 2.417  
+R$ 2.176  
+R$ 1.879  
+R$ 1.675  
+R$ 1.438  
+ 
+Solução: Volume do cilindro oco: 
+ 
+𝑉= 𝐴𝑏× ℎ= 𝜋(𝑅2 −𝑟2)ℎ= 5𝜋(25 −16) = 45𝜋 
+ 
+Volume da tampa 
+𝑉= 2
+3 𝜋𝑅3 = 2
+3 𝜋× 125 = 250𝜋
+3
+ 
+ 
+Volume total: 
+𝑉𝑇= 250𝜋
+3
++ 45𝜋= 385𝜋
+3
+ 
+ 
+Como, 𝑑= 1,08 g/cm3, então massasólido = 1,08 ×
+385𝜋
+3
+ g. 
+ 
+Considerando que existe 10% de perda de material: 
+ 
+CONTINUA NA PÁGINA SEGUINTE 
+
+
+--- PAGE 58 OF 77 ---
+ 
+ 
+mTotal (um case) =
+1,08 × 385𝜋
+3
+0,9
+= 154𝜋 g 
+ 
+Para 100 cases,  
+ 
+mFinal = 15.400𝜋 g = 15,4𝜋 kg 
+ 
+Como o custo é R$ 50,00 / kg, 
+ 
+𝐶= 50 × 15,4𝜋= 770𝜋= R$ 2.417,80 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 59 OF 77 ---
+Um dos modelos mais comuns utilizados em Aprendizado de Máquina, chamado Naive 
+Bayes, envolve um teorema probabilístico chamado Teorema de Bayes. Este teorema 
+utiliza um conceito chamado probabilidade condicional, ou P(A|B), probabilidade de A 
+dado B, que mede a probabilidade de um evento A acontecer, dado que um evento B 
+ocorreu. 
+  
+Por exemplo, considere as 52 cartas de um baralho de quatro naipes, composto pelas 
+cartas Ás, 2, 3, 4, 5, 6, 7, 8, 9, 10, além das cartas figuradas Valete, Dama e Rei. Em um 
+baralho embaralhado aleatoriamente, a probabilidade de se obter uma carta Valete é: 
+  
+𝑃(valete) = 4
+52 = 1
+13 
+  
+Por outro lado, a probabilidade de se obter uma carta Valete, sabendo que a carta tirada é 
+uma carta figurada, é igual a: 
+  
+𝑃(valete|figurada) = 4
+12 = 1
+3 
+  
+Observe que, no segundo cálculo, a população usada para calcular a probabilidade é 12, 
+uma vez que existem 12 cartas figuradas no baralho. O Teorema de Bayes é uma forma 
+alternativa de se calcular uma probabilidade condicional, quando nem todas as 
+informações estão disponíveis. Dados dois eventos A e B, é possível calcular P(A|B) da 
+seguinte forma: 
+  
+𝑃(𝐴|𝐵) = 𝑃(𝐵|𝐴) × 𝑃(𝐴)
+𝑃(𝐵)
+ 
+  
+Dessa forma, nosso exemplo anterior poderia ser calculado da seguinte forma: 
+ 
+𝑃(valete|figurada) = 𝑃(figurada|valete) × 𝑃(valete)
+𝑃(figurada)
+=
+1 × 4
+52
+12
+52
+= 4
+12 = 1
+3 
+ 
+Neste exemplo, o cálculo da probabilidade condicional é direto, uma vez que a relação 
+causa e efeito entre os dois eventos é facilmente observável. No entanto, quando lidamos 
+com problemas de Aprendizado de Máquina, essa relação nem sempre fica clara. 
+  
+Considere, por exemplo, um cenário em que você está desenvolvendo um modelo Naive 
+Bayes para um projeto de detecção de spam em uma caixa de mensagens de um novo 
+aplicativo. Para isso, foi desenvolvido um algoritmo que retorna positivo, P, caso ele 
+classifque uma nova mensagem como spam, e negativo, N, caso contrário. 
+  
+• 
+Você testou mil diferentes mensagens; 
+• 
+Dessas mil mensagens, você sabe que 15% eram spam; 
+• 
+80% das mensagens que eram spam receberam positivo no teste; 
+• 
+20% das mensagens que não eram spam receberam positivo no teste. 
+ 
+CONTINUA NA PÁGINA SEGUINTE 
+
+
+--- PAGE 60 OF 77 ---
+Você submeteu uma nova mensagem ao algoritmo de análise e recebeu um resultado 
+positivo. Qual é a probabilidade de a mensagem ser spam? 
+ 
+0,29  
+0,33  
+0,37  
+0,41  
+0,45  
+ 
+Solução:  
+ 
+𝑃(spam | +) = 𝑃(+ | 𝑠𝑝𝑎𝑚) × 𝑃(spam)
+𝑃(+)
+= 
+ 
+𝑃(spam | +) =
+80% × 15%
+80% × 15% + 20% × (100 −15)% =
+80 × 15
+80 × 15 + 20 × 85 ≅0,41 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 61 OF 77 ---
+O prédio de pesquisa e desenvolvimento (𝐶1) de uma certa empresa tem formato circular 
+e centro em 𝑂, podendo ser descrito pela equação 𝑥2 + 𝑦2 = 16. Dentro deste prédio 
+encontra-se o laboratório (𝐶2), também em formato circular e centro 𝐶, sendo descrito 
+pela equação (𝑥−3)2 + 𝑦2 = 1 
+ 
+Uma estrada (𝑡) de acesso foi construída externamente ao prédio, sendo tangente comum 
+ao prédio e ao laboratório. 
+ 
+A partir do centro administrativo da empresa, localizado no centro do prédio de pesquisa e 
+desenvolvimento, traçam-se duas rotas de acesso, tangentes ao laboratório. Essas rotas, 
+se prolongadas, chegariam na estrada nos pontos A e B. 
+ 
+Determine a área delimitada pelo triângulo OAB. 
+ 
+4√2 
+ 
+ 
+2√2 
+ 
+ 
+2 
+ 
+ 
+4 
+ 
+ 
+2√3  
+ 
+Solução: 
+ 
+A figura abaixo representa a situação descrita no problema, pois, a distância entre os 
+centros é 
+ 
+√(3 −0)2 + (0 −0)2 = 3 = 𝑅−𝑟 
+ 
+ 
+ 
+Seja 𝐷 o ponto de tangência da reta 𝐴𝑂 em 𝐶2 e 𝐸 o ponto de tangência da reta t as duas 
+circunferências. Marcando os ângulos vemos que Δ𝑂𝐶𝐷~Δ𝑂𝐴𝐸, 
+ 
+𝐶𝐷
+𝐴𝐸= 𝑂𝐶
+𝑂𝐴⇒
+1
+𝑏/2 =
+3
+√𝑏2
+4 + 16
+⇒9𝑏2
+4 = 𝑏2
+4 + 16 ⇒𝑏= 2√2 
+ 
+𝑆= 𝑏ℎ
+2 = 2√2 ∙4
+2
+= 4√2 
+
+
+--- PAGE 62 OF 77 ---
+Com o avanço dos softwares de IA, muito se tem discutido sobre o ensino de matemática 
+na educação básica. O debate passa pelo tempo dispensado no ensino de cálculos e 
+resolução de equações, quando atualmente, já existem ferramentas e modelos que fazem 
+essas funções melhores do que um ser humano. (The Math 
+ is fix – Wolfram, Conrad) 
+ 
+Com a existência dessas ferramentas, entende-se que a discussão poderia ser mais crítica 
+e menos mecânica.  Por exemplo, como garantir que existe alguma solução, ou seja, que a 
+ferramenta vai gerar uma resposta para o problema? Como estimar o tamanho da solução 
+para interpretar se a solução dada é coerente? 
+ 
+Considere, por exemplo, a equação abaixo. 
+ 
+4𝑥+ 2𝑥= 13 
+ 
+Resolver esse tipo de equação de forma analítica, tentando “isolar” o x, não faria sentido 
+dada a complexidade da equação. 
+ 
+Sendo assim, o que podemos afirmar sobre esta equação? 
+ 
+Opções: 
+ 
+Para 𝑥= 1, o lado esquerdo vale 6 e para 𝑥= 2, o lado esquerdo vale 20. Como 13 é uma 
+média entre 6 e 20, 𝑥= 1,5 será uma solução da equação. 
+ 
+Toda função crescente e contínua “atinge” qualquer valor real, ou seja, é sobrejetora em ℝ. 
+Então, independentemente do número do lado direito, e da função crescente e contínua no 
+lado esquerdo, podemos garantir que existirá, sempre, pelo menos uma solução real. 
+ 
+Podemos afirmar que a equação possui uma única solução real, e esta solução está entre 
+1 e 2. Porém, é impossível determinar se esta solução está no intervalo [1, 1.5) ou no 
+intervalo [1.5, 2]. 
+ 
+A equação não possui nenhuma solução real, já que o lado esquerdo é par e o lado direito 
+é ímpar. 
+ 
+O lado esquerdo é crescente e contínuo e o lado direito é constante. Além disso, 
+substituindo alguns valores de x, vemos que a expressão do lado esquerdo "atinge" valores 
+menores que 13 e maiores que 13, portanto, em algum momento, e uma única vez, o lado 
+esquerdo será igual a 13. 
+ 
+Solução: 
+ 
+O lado esquerdo é a soma de uma função exponencial, com base maior que 1, com uma 
+função afim, portanto é uma função contínua e crescente.  
+ 
+Note que para 𝑥= 1 o lado esquerdo vale 6 e para 𝑥= 2 vale 20, como a função é contínua, 
+em algum momento valerá 13. Como a função é crescente e contínua isso ocorre uma 
+única vez. 
+ 
+CONTINUA NA PÁGINA SEGUINTE 
+
+
+--- PAGE 63 OF 77 ---
+ Com isso, garantimos que a opção e é verdadeira e que a letra d é incorreta.  
+ 
+Para garantir que as outras opções são incorretas, coloque 𝑥= 1,5 no lado esquerdo, 
+termos 
+ 
+41,5 + 2 × 1,5 = 11 
+ 
+Isso mostra que a opção a está incorreta e que a raiz está entre 1,5 e 2, ou seja, a letra c 
+também é falsa. 
+ 
+A letra b é falsa pois uma função crescente e contínua pode ser, por exemplo, limitada 
+superiormente, assim não seria sobrejetora. Um exemplo, 𝑓(𝑥) = −(1
+2)
+𝑥
+, nunca atinge 
+valores reais não negativos. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 64 OF 77 ---
+Sua empresa desenvolveu um protótipo para um novo sistema embarcado utilizando o 
+microcontrolador Arduino. Para distribuir versões de teste desse protótipo para clientes 
+selecionados, você recebeu a responsabilidade de desenvolver um case para acomodar 
+todo o equipamento. Esse case será impresso em 3D utilizando um filamento ABS de 
+densidade 1,08 g/cm3. 
+ 
+O case é formado por dois elementos independentes entre si: a parte de baixo é um cilindro 
+oco de raio externo 5 cm, altura externa 5 cm e 1 cm de espessura (lateral). Já a parte de 
+cima, uma "tampa" decorativa, é uma pirâmide maciça, cuja base é um hexágono regular 
+inscrito na circunferência de raio 5 cm, e altura 3 cm. Considere a espessura da base do 
+cilindro desprezível. A figura abaixo representa o case. 
+ 
+ 
+ 
+O custo de um rolo de 1 kg de filamento ABS é de aproximadamente R$ 50,00 e o processo 
+de produção possui uma perda de material de 10%. 
+ 
+Qual é, aproximadamente, o custo estimado para a impressão bem-sucedida de 𝟏𝟎𝟎 
+cases? 
+ 
+Considere √3 ≅1,73 e 𝜋≅3,14 
+ 
+R$ 1.237  
+R$ 1.113  
+R$ 1.685  
+R$ 1.426  
+R$ 1.875  
+ 
+Solução: Volume do cilindro oco: 
+ 
+𝑉= 𝐴𝑏× ℎ= 𝜋(𝑅2 −𝑟2)ℎ= 5𝜋(25 −16) = 45𝜋 
+ 
+Volume da tampa (lembrando que um hexágono regular pode ser decomposto em seis 
+triângulos equiláteros) 
+ 
+𝑉= 1
+3 𝐴𝑏ℎ= 1
+3 × 6𝑟2√3
+4
+× 3 = 75√3
+2
+ 
+ 
+Volume total: 
+𝑉𝑇= 75√3
+2
++ 45𝜋 
+ 
+CONTINUA NA PÁGINA SEGUINTE 
+
+
+--- PAGE 65 OF 77 ---
+ 
+Como, 𝑑= 1,08 g/cm3, então massasólido = 1,08 × (
+75√3
+2
++ 45𝜋)  g. 
+ 
+Considerando que existe 10% de perda de material: 
+ 
+ 
+mTotal (um case) =
+1,08 × (75√3
+2
++ 45𝜋)
+0,9
+= 45√3 + 54𝜋 g 
+ 
+Para 100 cases,  
+ 
+mFinal = 100 × (45√3 + 54𝜋)g = 4,5√3 + 5,4𝜋 kg 
+ 
+Como o custo é R$ 50,00 / kg, 
+ 
+𝐶= 50 × (4,5√3 + 5,4𝜋)kg = 225√3 + 270𝜋= R$ 1.237,05 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 66 OF 77 ---
+Um dos modelos mais comuns utilizados em Aprendizado de Máquina, chamado Naive 
+Bayes, envolve um teorema probabilístico chamado Teorema de Bayes. Este teorema 
+utiliza um conceito chamado probabilidade condicional, ou P(A|B), probabilidade de A 
+dado B, que mede a probabilidade de um evento A acontecer, dado que um evento B 
+ocorreu. 
+ 
+Por exemplo, considere as 52 cartas de um baralho de quatro naipes, composto pelas 
+cartas Ás, 2, 3, 4, 5, 6, 7, 8, 9, 10, além das cartas figuradas Valete, Dama e Rei. Em um 
+baralho embaralhado aleatoriamente, a probabilidade de se obter uma carta Valete é: 
+ 
+𝑃(valete) = 4
+52 = 1
+13 
+ 
+Por outro lado, a probabilidade de se obter uma carta Valete, sabendo que a carta tirada é 
+uma carta figurada, é igual a: 
+ 
+𝑃(valete|figurada) = 4
+12 = 1
+3 
+ 
+Observe que, no segundo cálculo, a população usada para calcular a probabilidade é 12, 
+uma vez que existem 12 cartas figuradas no baralho. O Teorema de Bayes é uma forma 
+alternativa de se calcular uma probabilidade condicional, quando nem todas as 
+informações estão disponíveis. Dados dois eventos A e B, é possível calcular P(A|B) da 
+seguinte forma: 
+𝑃(𝐴|𝐵) = 𝑃(𝐵|𝐴) × 𝑃(𝐴)
+𝑃(𝐵)
+ 
+  
+Dessa forma, nosso exemplo anterior poderia ser calculado da seguinte forma: 
+ 
+𝑃(valete|figurada) = 𝑃(figurada|valete) × 𝑃(valete)
+𝑃(figurada)
+=
+1 × 4
+52
+12
+52
+= 4
+12 = 1
+3 
+ 
+Neste exemplo, o cálculo da probabilidade condicional é direto, uma vez que a relação 
+causa e efeito entre os dois eventos é facilmente observável. No entanto, quando lidamos 
+com problemas de Aprendizado de Máquina, essa relação nem sempre fica clara. 
+ 
+Considere, por exemplo, um cenário em que você está desenvolvendo um modelo Naive 
+Bayes para um projeto de detecção de spam em uma caixa de mensagens de um novo 
+aplicativo. Para isso, foi desenvolvido um algoritmo que retorna positivo, P, caso ele 
+classifique uma nova mensagem como spam, negativo, N, caso ele classifique uma nova 
+mensagem como não spam, e inconclusivo, I, caso o algoritmo não consiga chegar a um 
+resultado.  
+ 
+• 
+Você testou diversas mensagens 
+• 
+Dessas diversas mensagens testadas, você sabe que 15% são spam; 
+• 
+5% das mensagens que eram spam receberam inconclusivo no teste; 
+• 
+20% das mensagens que não eram spam receberam positivo no teste; 
+• 
+70% das mensagens que não eram spam receberam negativo no teste. 
+ 
+CONTINUA NA PÁGINA SEGUINTE 
+
+
+--- PAGE 67 OF 77 ---
+Você submeteu uma nova mensagem ao algoritmo de análise e recebeu um resultado 
+inconclusivo. Qual é a probabilidade de a mensagem ser spam? 
+ 
+0,081  
+0,091  
+0,101  
+0,111  
+0,121  
+ 
+Solução:  
+ 
+𝑃(spam | i) = 𝑃(i | 𝑠𝑝𝑎𝑚) × 𝑃(spam)
+𝑃(i)
+= 
+ 
+𝑃(spam |i) =
+5% × 15%
+5% × 15% + (100 −20 −70)% × (100 −15)% = 
+ 
+=
+5 × 15
+5 × 15 + 10 × 85 ≅0,081 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 68 OF 77 ---
+Em uma empresa de tecnologia, o prédio de pesquisa e desenvolvimento (𝐶1) tem formato 
+circular e centro 𝑂, podendo ser descrito pela equação 𝑥2 + 𝑦2 = 16. Dentro deste prédio 
+encontra-se o laboratório (𝐶2), também em formato circular com centro em 𝐷, sendo 
+descrito pela equação (𝑥−2)2 + (𝑦−2)2 = 1 
+ 
+Uma estrada (𝑡) de acesso foi construída externamente ao prédio, sendo tangente a este 
+no ponto 𝐶= 2√2 ∙(1, 1). 
+ 
+A partir do centro administrativo da empresa, localizado no centro do prédio de pesquisa e 
+desenvolvimento, traçam-se duas rotas de acesso, tangentes ao laboratório. Essas rotas, 
+se prolongadas, chegariam na estrada nos pontos A e B. 
+ 
+Determine a área delimitada pelo triângulo OAB. 
+ 
+4√7 
+  
+16√7
+7  
+ 
+ 
+3√7
+7  
+ 
+ 
+√7
+7  
+ 
+ 
+√7  
+ 
+Solução: 
+ 
+A figura abaixo representa a situação descrita no problema, pois a distância entre os 
+centros é 
+ 
+𝑑(𝑂, 𝐷) = √(2 −0)2 + (2 −0)2 = 2√2 < 3
+= 𝑅−𝑟 
+ 
+Seja 𝐸 o ponto de tangência da reta 𝐴𝑂 em 𝐶2.  
+Como 𝐷= 2 ∙(1,1) e 𝐶= 2√2 ∙(1, 1), devemos 
+ter 𝑂, 𝐶 e 𝐷 colineares.  
+ 
+Sendo 𝐶 o ponto de tangência da reta 𝑡 em 𝐶1 e 𝑂 o centro de 𝐶1, temos ∠𝑂𝐶𝐴= 90°.  
+Sendo 𝐸 o ponto de tangência de 𝐴𝑂 em 𝐶2 e 𝐷 o centro de 𝐶2, temos ∠𝑂𝐸𝐷= 90° 
+ 
+Marcando os ângulos vemos que Δ𝑂𝐷𝐸~Δ𝑂𝐴𝐶. 
+ 
+𝐷𝐸
+𝐴𝐶= 𝑂𝐷
+𝑂𝐴⇒
+1
+𝑏/2 =
+2√2
+√𝑏2
+4 + 16
+⇒2𝑏2 = 𝑏2
+4 + 16 ⇒𝑏= 8√7
+7  
+ 
+𝑆= 𝑏ℎ
+2 =
+8√7
+7
+∙4
+2
+= 16√7
+7
+ 
+ 
+ 
+
+
+--- PAGE 69 OF 77 ---
+Com o avanço dos softwares de IA, muito se tem discutido sobre o ensino de matemática na 
+educação básica. O debate passa pelo tempo dispensado no ensino de cálculos e resolução de 
+equações, quando atualmente, já existem ferramentas e modelos que fazem essas funções 
+melhores do que um ser humano. (The Math is fix – Wolfram, Conrad) 
+ 
+Com a existência dessas ferramentas, entende-se que a discussão poderia ser mais crítica e 
+menos mecânica.  Por exemplo, como garantir que existe alguma solução, ou seja, que a 
+ferramenta vai gerar uma resposta para o problema? Como estimar o tamanho da solução para 
+interpretar se a solução dada é coerente? 
+ 
+Considere, por exemplo, a equação abaixo 
+ 
+√2𝑥−4 + √2024𝑥−2023
+3
+= √−𝑥2 + 3𝑥−2 
+ 
+Resolver esse tipo de equação de forma analítica, tentando “isolar” o x, não faria sentido dada 
+a complexidade da equação. 
+ 
+Sendo assim, o que podemos afirmar sobre esta equação? 
+ 
+Não existe solução real. 
+Existe exatamente uma solução real. 
+Existem exatamente duas soluções reais. 
+Existem exatamente seis soluções reais. 
+Existem infinitas soluções reais. 
+ 
+Solução: 
+ 
+Condição de existência: 
+ 
+2𝑥−4 ≥0 ⇒𝑥≥2 
+ 
+−𝑥2 + 3𝑥−2 ≥0 ⇒−(𝑥−1)(𝑥−2) ≥0 ⇒1 ≤𝑥≤2 
+ 
+Assim, se existir solução real a única possível seria 𝑥= 2. Testando 
+ 
+0 + √2025
+3
+= 0 
+ 
+Logo, não existe solução real. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 70 OF 77 ---
+Sua empresa desenvolveu um protótipo para um novo sistema embarcado utilizando o 
+microcontrolador Arduino. Para distribuir versões de teste desse protótipo para clientes 
+selecionados, você recebeu a responsabilidade de desenvolver um case para acomodar 
+todo o equipamento. Esse case será impresso em 3D utilizando um filamento ABS de 
+densidade 1,08 g/cm3. 
+ 
+O case é formado por dois elementos independentes entre si: a parte de baixo é um cilindro 
+oco de raio externo 5 cm, altura externa 5 cm e 1 cm de espessura (lateral). Já a parte de 
+cima, uma “tampa” decorativa, é uma pirâmide sólida, cuja base é um octógono regular 
+inscrito numa circunferência de raio 5 cm, e altura 3 cm. Considere a espessura da base do 
+cilindro desprezível. A figura abaixo representa o case. 
+ 
+O custo de um rolo de 1 kg de filamento ABS é de aproximadamente R$ 50,00 e o processo 
+de produção possui uma perda de material de 10%. 
+ 
+Qual é, aproximadamente, o custo estimado para a impressão bem-sucedida de 100 
+cases? 
+ 
+Considere √2 ≅1,41 e 𝜋≅3,14 
+ 
+R$ 1.270  
+R$ 1.370  
+R$ 1.470  
+R$ 1.570  
+R$ 1.670  
+ 
+Solução: Volume do cilindro oco: 
+ 
+𝑉= 𝐴𝑏× ℎ= 𝜋(𝑅2 −𝑟2)ℎ= 5𝜋(25 −16) = 45𝜋 
+ 
+Para calcular o volume da pirâmide precisamos primeiro da área da base 
+ 
+𝐴∆= 𝑎𝑏
+2 sen𝜃⇒𝐴𝑏= 5 × 5
+2
+sen45𝑜= 25
+4 √2  
+ 
+𝑉
+𝑝𝑖𝑟â𝑚𝑖𝑑𝑒= 1
+3 × 8 × 𝐴∆× ℎ𝑝= 8
+3 × 25
+4 √2 × 3 = 50√2 
+ 
+Volume total: 𝑉𝑇= 50√2 + 45𝜋 
+ 
+CONTINUA NA PÁGINA SEGUINTE 
+
+
+--- PAGE 71 OF 77 ---
+Como, 𝑑= 1,08 g/cm3, então massasólido = 1,08 × (50√2 + 45𝜋) g. 
+ 
+Considerando que existe 10% de perda de material: 
+ 
+mTotal (um case) = 1,08 × (50√2 + 45𝜋)
+0,9
+= 1,2 × (50√2 + 45𝜋) g 
+ 
+Para 100 cases,  
+ 
+mFinal = 100 × 1,2 × (50√2 + 45𝜋) g = 0,12 × (50√2 + 45𝜋) kg 
+ 
+Como o custo é R$ 50,00 / kg, 
+ 
+𝐶= 50 × 0,12 × (50√2 + 45𝜋) = 6 × (50 × 1,41 + 45 × 3,14) = R$ 1270,8 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 72 OF 77 ---
+Um dos modelos mais comuns utilizados em Aprendizado de Máquina, chamado Naive 
+Bayes, envolve um teorema probabilístico chamado Teorema de Bayes. Este teorema 
+utiliza um conceito chamado probabilidade condicional, ou P(A|B), probabilidade de A 
+dado B, que mede a probabilidade de um evento A acontecer, dado que um evento B 
+ocorreu. 
+  
+Por exemplo, considere as 52 cartas de um baralho de quatro naipes, composto pelas 
+cartas Ás, 2, 3, 4, 5, 6, 7, 8, 9, 10, além das cartas figuradas Valete, Dama e Rei. Em um 
+baralho embaralhado aleatoriamente, a probabilidade de se obter uma carta Valete é: 
+  
+𝑃(valete) = 4
+52 = 1
+13 
+  
+Por outro lado, a probabilidade de se obter uma carta Valete, sabendo que a carta tirada é 
+uma carta figurada, é igual a: 
+  
+𝑃(valete|figurada) = 4
+12 = 1
+3 
+  
+Observe que, no segundo cálculo, a população usada para calcular a probabilidade é 12, 
+uma vez que existem 12 cartas figuradas no baralho. O Teorema de Bayes é uma forma 
+alternativa de se calcular uma probabilidade condicional, quando nem todas as 
+informações estão disponíveis. Dados dois eventos A e B, é possível calcular P(A|B) da 
+seguinte forma: 
+  
+𝑃(𝐴|𝐵) = 𝑃(𝐵|𝐴) × 𝑃(𝐴)
+𝑃(𝐵)
+ 
+  
+Dessa forma, nosso exemplo anterior poderia ser calculado da seguinte forma: 
+  
+𝑃(valete|figurada) = 𝑃(figurada|valete) × 𝑃(valete)
+𝑃(figurada)
+= 1 × 4/52
+12/52
+= 4/12 = 1/3 
+  
+Neste exemplo, o cálculo da probabilidade condicional é direto, uma vez que a relação 
+causa e efeito entre os dois eventos é facilmente observável. No entanto, quando lidamos 
+com problemas de Aprendizado de Máquina, essa relação nem sempre fica clara. 
+  
+Particularmente, o problema fica mais complexo quando existem vários eventos 
+condicionais. Considerando que um determinado problema possui dois eventos 
+condicionais independentes B e C, o Teorema de Bayes pode ser apresentado dessa forma: 
+  
+𝑃(𝐴|𝐵, 𝐶) =
+𝑃(𝐵|𝐴)×𝑃(𝐶|𝐴)×𝑃(𝐴)
+𝑃(𝐵, 𝐶)
+, 
+ 
+onde 𝑃(𝐵, 𝐶) indica a probabilidade de ocorrer B e C 
+ 
+ 
+CONTINUA NA PÁGINA SEGUINTE 
+ 
+
+
+--- PAGE 73 OF 77 ---
+Considere, por exemplo, um cenário em que você está desenvolvendo um modelo Naive 
+Bayes para um projeto de detecção de spam em uma caixa de mensagens de um novo 
+aplicativo. Para isso, foi desenvolvido um algoritmo que retorna positivo, P, caso uma nova 
+mensagem seja spam, negativo, N, caso a mensagem não seja spam, e inconclusivo, I, 
+caso o algoritmo não consiga chegar a um resultado. Você aplicou o algoritmo em uma 
+série de mensagens e obteve os seguintes resultados para diferentes características que a 
+mensagem poderia ter: 
+ 
+Resultado 
+Contém link 
+incorporado? 
+Contém 
+imagem? 
+Total 
+Positivo 
+60 
+40 
+80 
+Negativo 
+60 
+100 
+400 
+Inconclusivo 
+5 
+5 
+20 
+Total 
+125 
+145 
+500 
+  
+Você submeteu uma nova mensagem, que contém um link incorporado e uma 
+imagem, ao algoritmo. Qual seria o resultado mais provável fornecido pelo algoritmo? 
+ 
+Negativo 
+Há chances iguais de ser negativo ou positivo 
+Inconclusivo 
+Há chances iguais de ser inconclusivo 
+Positivo 
+ 
+Solução: Usando a expressão do enunciado 
+ 
+Positivo: 
+𝑃(+| link, imagem) = 𝑃(link | +) × 𝑃(imagem | +) × 𝑃(+)
+𝑃(link, imagem)
+= 
+ 
+𝑃(+| link, imagem) =
+60
+80 × 40
+80 × 80
+500
+𝑃(link, imagem) = 0,06
+𝑃 
+ 
+Negativo: 
+𝑃(−| link, imagem) = 𝑃(link | −) × 𝑃(imagem | −) × 𝑃(−)
+𝑃(link, imagem)
+= 
+ 
+𝑃(−| link, imagem) =
+60
+400 × 100
+400 × 400
+500
+𝑃(link, imagem) = 0,03
+𝑃 
+ 
+Inconclusivo 
+ 
+𝑃(𝑖| link, imagem) = 𝑃(link |i) × 𝑃(imagem |i) × 𝑃(𝑖)
+𝑃(link, imagem)
+= 
+ 
+𝑃(𝑖| link, imagem) =
+5
+20 × 5
+20 × 20
+500
+𝑃(link, imagem) = 0,0025
+𝑃
+ 
+
+
+--- PAGE 74 OF 77 ---
+ 
+ 
+Em uma empresa de tecnologia, o prédio de pesquisa e desenvolvimento (𝐶1) tem formato 
+circular com centro em 𝑂1, podendo ser descrito pela equação 𝑥2 + 𝑦2 = 16. Na mesma 
+região encontra-se o laboratório (𝐶2), também circular com centro em 𝑂2, sendo descrito 
+pela equação (𝑥−6)2 + 𝑦2 = 1 
+ 
+Uma estrada (𝑡) de acesso foi construída, sendo (𝑡) uma das tangentes exteriores comum 
+ao prédio 𝐶1 em 𝐴 e ao laboratório 𝐶2 em 𝐵. Além disso, foi construída uma pista (𝑟) que 
+passa por dentro destas estruturas, ligando os centros delas, e indo até a estrada 𝑡 com 
+ponto de encontro 𝐶= 𝑡∩𝑟.  
+ 
+Existem ainda outras duas pistas perpendiculares a reta 𝑟, um passando por 𝐴 
+intersectando 𝑟 em 𝐷, outra passando por 𝑂2 intersectando 𝑡 em 𝐸. 
+ 
+Determine a área do trapézio 𝐴𝐷𝑂2𝐸. 
+ 
+12√3  
+4√3
+3  
+ 
+ 
+5√3 
+ 
+ 
+8√3 
+ 
+ 
+16√3
+3   
+ 
+Solução: 
+ 
+A figura abaixo representa a situação descrita no problema, pois a distância entre os 
+centros é 
+ 
+𝑑(𝑂1, 𝑂2) = √(6 −0)2 + (2 −0)2 = 6 > 4 = 𝑅+ 𝑟 
+ 
+Marcando os ângulos vemos que Δ𝑂2𝐵𝐶~Δ𝑂1𝐴𝐶. 
+ 
+𝑂2𝐵
+𝑂1𝐴= 𝑂2𝐶
+𝑂1𝐶⇒1
+4 =
+𝑂2𝐶
+6+𝑂2𝐶⇒𝑂2𝐶= 2, donde 𝑂1𝐶= 𝑂1𝑂2 + 𝑂2𝐶= 8 
+ 
+Relações métricas no triângulo retângulo: 
+ 
+CONTINUA NA PÁGINA SEGUINTE 
+
+
+--- PAGE 75 OF 77 ---
+𝑂1𝐴2 = 𝑂1𝐷∙𝑂1𝐶⇒16 = 8 ∙𝑂1𝐷⇒𝑂1𝐷= 2 
+ 
+𝑂1𝐷2 + 𝐴𝐷2 = 𝑂1𝐴2 ⇒𝐴𝐷2 = 16 −4 = 12 ⇒𝐴𝐷= 2√3 
+ 
+Da figura,  
+ 
+𝐷𝐶= 𝑂1𝐶−𝑂1𝐷= 6 e 𝑂2𝐷= 𝐷𝐶−𝑂2𝐶= 4 
+ 
+ 
+Marcando os ângulos vemos que  Δ𝑂2𝐸𝐶~Δ𝐷𝐴𝐶 
+ 
+𝑂2𝐶
+𝐷𝐶= 𝐸𝑂2
+𝐴𝐷⇒2
+6 = 𝐸𝑂2
+2√3
+⇒𝐸𝑂2 = 2√3
+3  
+ 
+Área do trapézio: 
+ 
+𝑆= (𝐵+ 𝑏
+2
+) ℎ= (𝐴𝐷+ 𝑂2𝐸
+2
+) ∙𝑂2𝐷= (
+2√3 + 2√3
+3
+2
+) ∙4 = 16√3
+3
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- PAGE 76 OF 77 ---
+Com o avanço dos softwares de IA, muito se tem discutido sobre o ensino de matemática 
+na educação básica. O debate passa pelo tempo dispensado no ensino de cálculos e 
+resolução de equações, quando atualmente, já existem ferramentas e modelos que fazem 
+essas funções melhores do que um ser humano. (The Math is fix – Wolfram, Conrad) 
+ 
+Com a existência dessas ferramentas, entende-se que a discussão poderia ser mais crítica 
+e menos mecânica.  Por exemplo, como garantir que existe alguma solução, ou seja, que a 
+ferramenta vai gerar uma resposta para o problema? Como estimar o tamanho da solução 
+para interpretar se a solução dada é coerente? 
+ 
+Considere, por exemplo, a equação abaixo 
+ 
+7(𝑥−1)(√𝑥+ 11 −√6 −𝑥
+3
+) = 15𝑥+ 9 
+ 
+Resolver esse tipo de equação de forma analítica, tentando “isolar” o 𝑥, não faria sentido 
+dada a complexidade da equação. Sendo assim, o que podemos afirmar sobre esta 
+equação? 
+ 
+a) 𝑥= −2 é a única solução real. Basta substituir na equação e verificar que satisfaz! 
+ 
+b) 𝑥= −2 é a única solução real. Isso pode ser verificado analisando o comportamento 
+das funções. O lado esquerdo da equação é decrescente e o lado direito crescente, logo se 
+“cortam” em um único ponto. 
+ 
+c) 𝑥= −2 é uma solução real. Porém, não é única, uma vez que, elevando a sexta, teríamos 
+um polinômio do sexto grau no lado direito, garantindo seis soluções reais. 
+ 
+d) 𝑥= −2 é a única solução real. Isso pode ser verificado “passando” o 𝑥−1  para o outro 
+lado dividindo. Nesse caso, o lado esquerdo ficará crescente e o lado direito decrescente, 
+logo se “cortam” em um único ponto. 
+ 
+e) 𝑥= −2 é uma solução real. Porém, existe exatamente uma outra solução.  
+ 
+Solução: 
+ 
+Primeiro, note que 𝑥= −2 e 𝑥= 5 são soluções, basta substituir. Para formalizar que são 
+únicas, reescreva a equação dada da seguinte forma: 
+ 
+7(√𝑥+ 11 + √𝑥−6
+3
+) = 15 +
+24
+𝑥−1 
+ 
+Note que o lado esquerdo é crescente e o lado direito decrescente. A princípio, se as 
+funções fossem contínuas isso garantiria no máximo uma solução, porém testando já 
+vimos que existem duas, por quê? 
+ 
+CONTINUA NA PÁGINA SEGUINTE 
+ 
+
+
+--- PAGE 77 OF 77 ---
+A função do lado direito é descontínua em 𝑥= 1, isso permite que exista no máximo duas 
+soluções, uma antes de 𝑥= 1 e outra depois. Como encontramos estas soluções testando, 
+estas são as únicas soluções. 
+ 
+Esse argumento já garante que todas as outras opções estão erradas. 
+ 

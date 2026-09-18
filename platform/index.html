@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inteli Harness // Simulador Oficial & Adaptativo</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- KaTeX for Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Glow Gradients -->
+  <div class="ambient-glow glow-top-left"></div>
+  <div class="ambient-glow glow-bottom-right"></div>
+  <div class="grid-overlay"></div>
+
+  <!-- Global Application Shell -->
+  <div id="app" class="app-container">
+
+    <!-- Global Persistent Header -->
+    <header class="app-header">
+      <div class="header-left">
+        <a href="#" class="logo-brand" id="btn-logo-home" title="Voltar à tela inicial">
+          <div class="logo-mark">
+            <span class="logo-symbol">∫</span>
+          </div>
+          <div class="logo-text-group">
+            <div class="logo-title">
+              <span class="logo-title-accent">INTELI</span> HARNESS
+              <span class="badge-tag">PROVAS</span>
+            </div>
+            <div class="logo-sub" id="header-mode-indicator">Modo de Avaliação</div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Center Status Bar (Active during Runner) -->
+      <div class="header-center" id="header-runner-stats" style="display: none;">
+        <div class="pill-metric" id="pill-question-counter">
+          <span class="pill-label">QUESTÃO</span>
+          <span class="pill-value" id="current-q-num">1</span>
+          <span class="pill-sub">de <span id="total-q-num">20</span></span>
+        </div>
+
+        <div class="pill-metric" id="pill-review-counter" title="Questões Marcadas para Revisão">
+          <span class="flag-icon">⚑</span>
+          <span class="pill-label">REVISÃO</span>
+          <span class="pill-value" id="flagged-count">0</span>
+        </div>
+
+        <div class="timer-bezel" id="timer-bezel" title="Tempo Restante">
+          <div class="timer-core">
+            <span class="timer-pulse-dot"></span>
+            <span class="timer-digits" id="timer-display">02:00:00</span>
+            <button class="btn-timer-toggle" id="btn-timer-pause" title="Pausar / Retomar Cronômetro">
+              <span class="icon-pause" id="timer-toggle-icon">❚❚</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Header Right Action Buttons -->
+      <div class="header-right">
+        <button class="btn-secondary-bezel" id="btn-scratchpad-toggle" style="display: none;" title="Abrir Folha de Rascunho Digital (Alt+R)">
+          <span class="btn-text">Rascunho</span>
+          <span class="btn-badge-icon">✎</span>
+        </button>
+
+        <button class="btn-accent-bezel btn-danger" id="btn-finish-exam-header" style="display: none;">
+          <span class="btn-text">Finalizar</span>
+          <span class="btn-badge-icon">✓</span>
+        </button>
+
+        <div id="header-home-links" class="header-home-links">
+          <button class="btn-secondary-bezel" id="btn-nav-history">
+            <span class="btn-text">Histórico</span>
+            <span class="btn-badge-icon">⏱</span>
+          </button>
+          <a href="/lessons/" class="btn-secondary-bezel" target="_blank" title="Acessar Aulas de Reforço geradas pelo Harness">
+            <span class="btn-text">Aulas de Reforço</span>
+            <span class="btn-badge-icon">↗</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN DYNAMIC CONTENT ROOT -->
+    <main id="main-content" class="main-content">
+
+      <!-- ============================================================= -->
+      <!-- SCREEN 1: HOME & MODE SELECTOR                                -->
+      <!-- ============================================================= -->
+      <section id="screen-home" class="view-screen screen-home active">
+        <div class="hero-section">
+          <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            <span>PLATAFORMA OFICIAL DE SIMULAÇÃO • PROVAS PS 2024 / 2025 / 2026</span>
+          </div>
+          <h1 class="hero-title">
+            Domine o Modelo Adaptativo & Conquiste a <span class="text-gradient-emerald">Bolsa 100%</span>
+          </h1>
+          <p class="hero-subtitle">
+            Simulador de alta fidelidade espelhado na prova de Matemática Aplicada e Computação do Inteli. Resolução cronometrada, motor adaptativo de dificuldade e diagnóstico imediato de lacunas pedagógicas.
+          </p>
+        </div>
+
+        <!-- Mode Selection Matrix (Double-Bezel Cards) -->
+        <div class="modes-grid">
+          
+          <!-- Mode 1: Simulado Oficial -->
+          <div class="bezel-card mode-card" data-mode="oficial">
+            <div class="bezel-core">
+              <div class="card-header-bar">
+                <span class="mode-badge badge-indigo">Modo Padrão</span>
+                <span class="mode-meta">120 min • 20 itens</span>
+              </div>
+              <div class="mode-icon-bezel">
+                <span class="mode-icon">🏛</span>
+              </div>
+              <h3 class="mode-name">Simulado Oficial Vestibular</h3>
+              <p class="mode-desc">
+                Simula o dia real da prova Inteli: 20 questões balanceadas por tópicos, tempo regulamentar com contagem regressiva e resultado com diagnóstico completo após o envio final.
+              </p>
+              <div class="mode-features">
+                <div class="feature-tag"><span>✓</span> 20 Questões Oficiais</div>
+                <div class="feature-tag"><span>✓</span> Sem gabarito imediato</div>
+                <div class="feature-tag"><span>✓</span> Cronômetro de 2 horas</div>
+              </div>
+              <button class="btn-launch-mode" data-mode="oficial">
+                <span class="btn-launch-text">Iniciar Prova Oficial</span>
+                <span class="btn-launch-icon">→</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Mode 2: Simulado Adaptativo -->
+          <div class="bezel-card mode-card featured-mode" data-mode="adaptativo">
+            <div class="bezel-core">
+              <div class="card-header-bar">
+                <span class="mode-badge badge-emerald">Motor Adaptativo TRI</span>
+                <span class="mode-meta">20 itens • Proficiência</span>
+              </div>
+              <div class="mode-icon-bezel">
+                <span class="mode-icon">⚡</span>
+              </div>
+              <h3 class="mode-name">Simulado Adaptativo</h3>
+              <p class="mode-desc">
+                Espelha o algoritmo seletivo do Inteli: começa em dificuldade média. Acertos elevam o nível para desafios de Trilha Superior; erros calibram para fixação de fundamentos.
+              </p>
+              <div class="mode-features">
+                <div class="feature-tag"><span>✓</span> Ajuste dinâmico de dificuldade</div>
+                <div class="feature-tag"><span>✓</span> Estimador de escore TRI contínuo</div>
+                <div class="feature-tag"><span>✓</span> Foco no topo da régua</div>
+              </div>
+              <button class="btn-launch-mode btn-launch-emerald" data-mode="adaptativo">
+                <span class="btn-launch-text">Iniciar Simulado Adaptativo</span>
+                <span class="btn-launch-icon">→</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Mode 3: Treino por Tópico (Drill Mode) -->
+          <div class="bezel-card mode-card" data-mode="drill">
+            <div class="bezel-core">
+              <div class="card-header-bar">
+                <span class="mode-badge badge-cyan">Estudo Deliberado</span>
+                <span class="mode-meta">Sem tempo limite</span>
+              </div>
+              <div class="mode-icon-bezel">
+                <span class="mode-icon">🎯</span>
+              </div>
+              <h3 class="mode-name">Treino por Tópico (Drill)</h3>
+              <p class="mode-desc">
+                Ideal para sanar pontos cegos: escolha a disciplina específica, responda questão a questão e visualize a resolução passo a passo com insights conceituais imediatamente.
+              </p>
+              <div class="topic-selector-wrap">
+                <label for="drill-topic-select" class="selector-label">Selecione o Domínio:</label>
+                <select id="drill-topic-select" class="bezel-select">
+                  <option value="all">Todos os Tópicos (Misto)</option>
+                  <option value="Combinatória e Probabilidade">Combinatória e Probabilidade</option>
+                  <option value="Funções e Otimização">Funções e Otimização</option>
+                  <option value="Lógica Computacional">Lógica Computacional e Proposições</option>
+                  <option value="Algoritmos e Estruturas">Algoritmos, Loops e Complexidade</option>
+                  <option value="Matemática Financeira">Matemática Financeira e SaaS</option>
+                  <option value="Geometria e Visão Computacional">Geometria e Álgebra Vetorial</option>
+                  <option value="Estatística e Análise de Dados">Estatística e Análise de Dados</option>
+                </select>
+              </div>
+              <button class="btn-launch-mode" data-mode="drill">
+                <span class="btn-launch-text">Iniciar Sessão de Treino</span>
+                <span class="btn-launch-icon">→</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Mode 4: Diagnóstico Rápido Bolsa 100% -->
+          <div class="bezel-card mode-card" data-mode="bolsa">
+            <div class="bezel-core">
+              <div class="card-header-bar">
+                <span class="mode-badge badge-amber">Régua de Corte</span>
+                <span class="mode-meta">45 min • 10 itens</span>
+              </div>
+              <div class="mode-icon-bezel">
+                <span class="mode-icon">🏆</span>
+              </div>
+              <h3 class="mode-name">Diagnóstico Bolsa 100%</h3>
+              <p class="mode-desc">
+                Bateria rápida de 10 questões de alta densidade técnica (nível Difícil/Médio) para aferir aptidão aos critérios da Bolsa Integral e Desafio de Lógica e Matemática.
+              </p>
+              <div class="mode-features">
+                <div class="feature-tag"><span>✓</span> 10 itens de alto poder de corte</div>
+                <div class="feature-tag"><span>✓</span> Índice de elegibilidade para bolsa</div>
+                <div class="feature-tag"><span>✓</span> Meta de escore: &ge; 80%</div>
+              </div>
+              <button class="btn-launch-mode" data-mode="bolsa">
+                <span class="btn-launch-text">Testar Elegibilidade Bolsa</span>
+                <span class="btn-launch-icon">→</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Recent Performance Section on Home Screen -->
+        <div class="history-widget-section">
+          <div class="section-title-row">
+            <div class="title-with-badge">
+              <h3 class="section-title">Seu Histórico Recente de Simulados</h3>
+              <span class="count-badge" id="history-total-count">0 tentativas</span>
+            </div>
+            <button class="btn-text-action" id="btn-clear-history" title="Limpar histórico salvo localmente">
+              Limpar Dados
+            </button>
+          </div>
+
+          <div id="history-list-container" class="history-cards-grid">
+            <div class="empty-state-history">
+              <div class="empty-icon">📊</div>
+              <div class="empty-title">Nenhum simulado registrado ainda</div>
+              <div class="empty-desc">Escolha um dos 4 modos acima para iniciar sua primeira rodada de testes calibrados ao vestibular Inteli.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================= -->
+      <!-- SCREEN 2: INTERACTIVE EXAM RUNNER                             -->
+      <!-- ============================================================= -->
+      <section id="screen-runner" class="view-screen screen-runner" style="display: none;">
+        
+        <!-- Paused Overlay Modal -->
+        <div id="pause-modal" class="modal-backdrop" style="display: none;">
+          <div class="modal-bezel">
+            <div class="modal-core">
+              <div class="pause-icon">❚❚</div>
+              <h2 class="modal-title">Simulado Pausado</h2>
+              <p class="modal-text">O cronômetro está parado. Suas respostas foram preservadas. Respire fundo e clique abaixo quando estiver pronto para retomar.</p>
+              <button class="btn-accent-bezel btn-lg" id="btn-resume-from-pause">
+                <span class="btn-text">Retomar Prova</span>
+                <span class="btn-badge-icon">▶</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Confirm Submission Modal -->
+        <div id="confirm-modal" class="modal-backdrop" style="display: none;">
+          <div class="modal-bezel">
+            <div class="modal-core">
+              <h2 class="modal-title">Confirmar Finalização da Prova?</h2>
+              <p class="modal-text" id="confirm-modal-summary">
+                Você respondeu <strong id="modal-answered-count">0</strong> de <strong id="modal-total-count">20</strong> questões.
+              </p>
+              <div class="modal-warning" id="modal-unanswered-warning" style="display: none;">
+                ⚠ Atenção: Você possui <span id="modal-unanswered-count">0</span> questões em branco e <span id="modal-flagged-count">0</span> marcadas para revisão!
+              </div>
+              <div class="modal-actions-row">
+                <button class="btn-secondary-bezel" id="btn-modal-cancel">
+                  <span class="btn-text">Voltar à Prova</span>
+                </button>
+                <button class="btn-accent-bezel btn-danger" id="btn-modal-confirm-submit">
+                  <span class="btn-text">Entregar e Ver Resultado</span>
+                  <span class="btn-badge-icon">✓</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2-Column Main Runner Workspace -->
+        <div class="runner-layout">
+          
+          <!-- Left Column: Question Presentation & Controls -->
+          <div class="runner-left-col">
+            
+            <div class="bezel-card question-main-card">
+              <div class="bezel-core question-core">
+                
+                <!-- Question Meta Strip -->
+                <div class="question-meta-strip">
+                  <div class="meta-tag-group">
+                    <span class="badge-tag badge-topic" id="q-meta-topic">Matemática</span>
+                    <span class="badge-tag badge-subtopic" id="q-meta-subtopic">Subtópico</span>
+                    <span class="badge-tag badge-diff" id="q-meta-diff">Médio</span>
+                  </div>
+                  <div class="meta-right-group">
+                    <span class="source-year" id="q-meta-year">Vestibular 2025.1</span>
+                    <button class="btn-flag-toggle" id="btn-toggle-flag" title="Marcar/desmarcar questão para revisão (Atalho: M)">
+                      <span class="flag-icon-symbol">⚑</span>
+                      <span class="flag-label" id="btn-flag-text">Marcar Revisão</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Context Header (if present) -->
+                <div class="question-context-box" id="q-context-box" style="display: none;">
+                  <span class="context-label">Contexto de Aplicação:</span>
+                  <span class="context-text" id="q-context-text"></span>
+                </div>
+
+                <!-- Statement Body (Rendered with Math/Code) -->
+                <div class="question-statement-body" id="q-statement-body">
+                  <!-- Injected via JavaScript -->
+                </div>
+
+                <!-- Multiple Choice Options -->
+                <div class="options-container" id="q-options-list">
+                  <!-- Dynamic Option Cards Injected Here -->
+                </div>
+
+                <!-- Drill Mode Instant Resolution Panel -->
+                <div class="drill-feedback-panel" id="drill-feedback-panel" style="display: none;">
+                  <div class="drill-feedback-header" id="drill-feedback-status">
+                    <!-- Acertou ou Errou -->
+                  </div>
+                  <div class="drill-resolution-content" id="drill-resolution-body">
+                    <!-- Step-by-step resolution -->
+                  </div>
+                  <div class="drill-takeaway-box" id="drill-takeaway-box">
+                    <strong>Ponto-Chave Inteli:</strong>
+                    <div id="drill-takeaway-text"></div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Bottom Navigation Bar -->
+            <div class="runner-bottom-bar">
+              <div class="bottom-left-actions">
+                <button class="btn-secondary-bezel" id="btn-prev-q">
+                  <span class="btn-badge-icon">←</span>
+                  <span class="btn-text">Anterior</span>
+                </button>
+                <button class="btn-secondary-bezel btn-ghost" id="btn-clear-answer" title="Desmarcar alternativa selecionada">
+                  <span class="btn-text">Limpar Escolha</span>
+                </button>
+              </div>
+
+              <div class="bottom-center-drill" id="drill-action-wrap" style="display: none;">
+                <button class="btn-accent-bezel btn-cyan" id="btn-drill-verify">
+                  <span class="btn-text">Verificar & Ver Resolução</span>
+                  <span class="btn-badge-icon">💡</span>
+                </button>
+              </div>
+
+              <div class="bottom-right-actions">
+                <button class="btn-accent-bezel" id="btn-next-q">
+                  <span class="btn-text" id="btn-next-text">Próxima</span>
+                  <span class="btn-badge-icon">→</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Question Palette Matrix & Scratchpad Tabs -->
+          <aside class="runner-right-col">
+            
+            <!-- Matrix Palette Bezel Card -->
+            <div class="bezel-card palette-card">
+              <div class="bezel-core palette-core">
+                <div class="palette-header">
+                  <div class="palette-title">Mapa de Questões</div>
+                  <div class="palette-legend">
+                    <span class="legend-item"><span class="dot dot-answered"></span> Feita</span>
+                    <span class="legend-item"><span class="dot dot-flagged"></span> Marcada</span>
+                    <span class="legend-item"><span class="dot dot-unanswered"></span> Aberta</span>
+                  </div>
+                </div>
+
+                <!-- Matrix Grid -->
+                <div class="matrix-grid" id="question-matrix-grid">
+                  <!-- 20 question buttons generated dynamically -->
+                </div>
+
+                <!-- Quick Stats inside Palette -->
+                <div class="matrix-summary-row">
+                  <div class="summary-chip">
+                    <span class="chip-label">Respondidas:</span>
+                    <span class="chip-val" id="summary-answered-count">0</span>
+                  </div>
+                  <div class="summary-chip">
+                    <span class="chip-label">Restantes:</span>
+                    <span class="chip-val" id="summary-remaining-count">20</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Integrated Scratchpad / Canvas Card -->
+            <div class="bezel-card scratchpad-card" id="scratchpad-container">
+              <div class="bezel-core scratchpad-core">
+                <div class="scratchpad-header">
+                  <div class="scratchpad-title">
+                    <span>✎ Rascunho Digital</span>
+                    <span class="scratchpad-hint">Cálculos & Raciocínio</span>
+                  </div>
+                  <div class="scratchpad-tools">
+                    <button class="tool-btn active" id="tool-pen" title="Caneta">✏</button>
+                    <button class="tool-btn" id="tool-eraser" title="Borracha">⌫</button>
+                    <div class="color-picker-group">
+                      <span class="color-swatch swatch-cyan active" data-color="#06b6d4" title="Ciano"></span>
+                      <span class="color-swatch swatch-yellow" data-color="#f59e0b" title="Amarelo"></span>
+                      <span class="color-swatch swatch-emerald" data-color="#10b981" title="Verde"></span>
+                      <span class="color-swatch swatch-white" data-color="#ffffff" title="Branco"></span>
+                    </div>
+                    <button class="tool-btn btn-clear-canvas" id="btn-clear-scratchpad" title="Limpar Todo o Rascunho">🗑</button>
+                  </div>
+                </div>
+
+                <!-- Canvas Element -->
+                <div class="canvas-wrapper">
+                  <canvas id="scratchpad-canvas" width="340" height="260"></canvas>
+                </div>
+                <div class="canvas-footer-tip">
+                  Use o rascunho livremente para desenhar diagramas lógicos, matrizes e árvores de decisão.
+                </div>
+              </div>
+            </div>
+
+          </aside>
+
+        </div>
+
+      </section>
+
+      <!-- ============================================================= -->
+      <!-- SCREEN 3: RESULTS & PEDAGOGICAL ANALYTICS                     -->
+      <!-- ============================================================= -->
+      <section id="screen-results" class="view-screen screen-results" style="display: none;">
+        
+        <div class="results-container">
+          
+          <!-- Results Top Banner & Score Card -->
+          <div class="results-hero-grid">
+            
+            <!-- Left Score Bezel Card -->
+            <div class="bezel-card result-score-card">
+              <div class="bezel-core result-score-core">
+                <div class="score-badge-row">
+                  <span class="badge-tag badge-emerald" id="res-mode-badge">Simulado Concluído</span>
+                  <span class="res-date-label" id="res-date-label">Hoje</span>
+                </div>
+
+                <div class="score-main-display">
+                  <div class="score-ring-wrap">
+                    <svg class="score-svg-circle" viewBox="0 0 160 160">
+                      <circle class="circle-bg" cx="80" cy="80" r="70"></circle>
+                      <circle class="circle-progress" id="score-circle-progress" cx="80" cy="80" r="70"></circle>
+                    </svg>
+                    <div class="score-center-text">
+                      <span class="score-number" id="res-score-pct">85%</span>
+                      <span class="score-subtext">Acurácia Geral</span>
+                    </div>
+                  </div>
+
+                  <div class="score-details-col">
+                    <div class="proficiency-tag-wrap">
+                      <span class="prof-label">Nível Estimado Inteli:</span>
+                      <div class="prof-title" id="res-prof-title">Trilha Superior (Perfil Bolsa 100%)</div>
+                      <p class="prof-description" id="res-prof-desc">
+                        Excelente rendimento técnico em modelagem computacional e combinatória. Forte aderência aos critérios de mérito acadêmico integral.
+                      </p>
+                    </div>
+
+                    <div class="quick-metrics-row">
+                      <div class="q-metric-box">
+                        <span class="m-val text-emerald" id="res-correct-count">17</span>
+                        <span class="m-lbl">Acertos</span>
+                      </div>
+                      <div class="q-metric-box">
+                        <span class="m-val text-rose" id="res-wrong-count">3</span>
+                        <span class="m-lbl">Erros</span>
+                      </div>
+                      <div class="q-metric-box">
+                        <span class="m-val text-muted" id="res-blank-count">0</span>
+                        <span class="m-lbl">Em Branco</span>
+                      </div>
+                      <div class="q-metric-box">
+                        <span class="m-val text-cyan" id="res-total-time">01:14:22</span>
+                        <span class="m-lbl">Tempo Total</span>
+                      </div>
+                      <div class="q-metric-box">
+                        <span class="m-val text-indigo" id="res-avg-time">3m 42s</span>
+                        <span class="m-lbl">Média / Item</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Weak Spots & Dynamic Lesson Generation Banner -->
+          <div class="bezel-card weak-spots-card" id="weak-spots-section">
+            <div class="bezel-core weak-spots-core">
+              <div class="weak-header-row">
+                <div class="weak-title-group">
+                  <span class="weak-badge">DIAGNÓSTICO PEDAGÓGICO DE LACUNAS</span>
+                  <h3 class="weak-main-title">Pontos Críticos Identificados para Reforço Imediato</h3>
+                  <p class="weak-desc">
+                    O sistema de avaliação do Harness cruzou suas respostas com o edital do vestibular e mapeou onde você perdeu pontos valiosos:
+                  </p>
+                </div>
+              </div>
+
+              <!-- List of Weak Topics -->
+              <div class="weak-topics-list" id="weak-topics-list">
+                <!-- Dynamically filled with weak topics + button to generate lesson -->
+              </div>
+
+              <!-- Lesson Generator Status Box (Appears when student clicks to generate) -->
+              <div class="lesson-generation-status" id="lesson-gen-status-box" style="display: none;">
+                <div class="gen-spinner" id="gen-spinner"></div>
+                <div class="gen-info-wrap">
+                  <div class="gen-title" id="gen-title-text">Gerando Aula de Reforço Personalizada no Harness...</div>
+                  <div class="gen-sub" id="gen-sub-text">Construindo plano didático, intuições profundas e exercícios calibrados com o gerador pedagógico.</div>
+                </div>
+                <div class="gen-action-wrap" id="gen-action-wrap" style="display: none;">
+                  <a href="#" target="_blank" class="btn-accent-bezel btn-emerald" id="btn-open-generated-lesson">
+                    <span class="btn-text">Abrir Lição Completa</span>
+                    <span class="btn-badge-icon">↗</span>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Topic Performance Breakdown Bars -->
+          <div class="bezel-card topic-breakdown-card">
+            <div class="bezel-core topic-breakdown-core">
+              <h3 class="section-title">Acurácia Detalhada por Tópico do Edital</h3>
+              <p class="section-desc">Desempenho relativo nas 6 competências nucleares do Vestibular e Prova Adaptativa Inteli:</p>
+              
+              <div class="topic-bars-container" id="topic-bars-container">
+                <!-- Dynamic Progress Bars for each topic -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Full Question-by-Question Review Accordion -->
+          <div class="bezel-card review-accordion-card">
+            <div class="bezel-core review-core">
+              <div class="review-header-bar">
+                <div>
+                  <h3 class="section-title">Gabarito Comentado & Análise Questão a Questão</h3>
+                  <p class="section-desc">Revise o raciocínio formal, o distrator em que você caiu e a heurística de prova para cada item:</p>
+                </div>
+                <div class="filter-pills-row">
+                  <button class="filter-pill active" data-filter="all">Todas (<span id="count-filter-all">20</span>)</button>
+                  <button class="filter-pill" data-filter="wrong">Erros (<span id="count-filter-wrong">0</span>)</button>
+                  <button class="filter-pill" data-filter="correct">Acertos (<span id="count-filter-correct">0</span>)</button>
+                  <button class="filter-pill" data-filter="flagged">Marcadas (<span id="count-filter-flagged">0</span>)</button>
+                </div>
+              </div>
+
+              <!-- List of review question accordions -->
+              <div class="review-items-list" id="review-items-list">
+                <!-- Injected via JavaScript -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons Bottom -->
+          <div class="results-actions-footer">
+            <button class="btn-secondary-bezel btn-lg" id="btn-results-home">
+              <span class="btn-badge-icon">←</span>
+              <span class="btn-text">Voltar ao Menu Principal</span>
+            </button>
+            <button class="btn-accent-bezel btn-lg" id="btn-results-retry">
+              <span class="btn-text">Fazer Outro Simulado</span>
+              <span class="btn-badge-icon">⚡</span>
+            </button>
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- Notification Toast Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Main JavaScript App -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>

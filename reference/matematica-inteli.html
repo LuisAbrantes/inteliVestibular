@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Referência Matemática - Vestibular Inteli</title>
+  <link rel="stylesheet" href="../assets/lesson.css">
+  <style>
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      max-width: var(--main-text-width);
+    }
+    @media (max-width: 768px) {
+      .grid-2col { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="lesson-meta">Documento de Referência Rápida • Vestibular Inteli • Trilha Superior</div>
+    <h1>Matemática Aplicada & Modelagem Computacional</h1>
+
+    <p>Guia de fórmulas essenciais, atalhos de cálculo mental e heurísticas analíticas calibradas para as 20 questões da Prova Adaptativa do Inteli (meta: 6 min/questão, escore &ge; 17/20).</p>
+
+    <aside class="sidenote">
+      <strong>Regra de Ouro da TRI:</strong> No modelo adaptativo, acertos no Bloco 1 com itens consistentes de Trilha Superior maximizam o escore final. Evite distratores simétricos de sinal.
+    </aside>
+
+    <!-- SEÇÃO 1: FUNÇÕES E OTIMIZAÇÃO -->
+    <h2>1. Funções, Otimização e Complexidade</h2>
+
+    <div class="formula-card">
+      <h3>Função Afim e Modelagem de Custos de Software</h3>
+      <p>Modelagem padrão de infraestrutura em nuvem, SaaS e corridas por aplicativo:</p>
+      <div class="math-block">C(x) = C_{fixo} + C_{var} \cdot x &emsp;|&emsp; R(x) = p \cdot x &emsp;|&emsp; L(x) = R(x) - C(x)</div>
+      <p><strong>Ponto de Equilíbrio (Break-Even):</strong> $L(x) = 0 \implies x = \frac{C_{fixo}}{p - C_{var}}$ (onde $p - C_{var}$ é a Margem de Contribuição unitária).</p>
+    </div>
+
+    <div class="formula-card">
+      <h3>Função Quadrática e Vértice de Máximo/Mínimo</h3>
+      <p>Utilizada em maximização de receita por preço de ingresso/assinatura e trajetória de drones:</p>
+      <div class="math-block">f(x) = ax^2 + bx + c &emsp;(a \neq 0)</div>
+      <div class="math-block">x_v = -\frac{b}{2a} \quad\text{(ponto de máximo se } a < 0\text{, mín se } a > 0)</div>
+      <div class="math-block">y_v = -\frac{\Delta}{4a} = -\frac{b^2 - 4ac}{4a} \quad\text{(valor ótimo atingido)}</div>
+      <p><em>Heurística Rápida:</em> Se as raízes $x_1$ e $x_2$ forem conhecidas, o vértice é o ponto médio simétrico: $x_v = \frac{x_1 + x_2}{2}$.</p>
+    </div>
+
+    <div class="formula-card">
+      <h3>Complexidade Logarítmica e Busca Binária</h3>
+      <p>Em um vetor ordenado de tamanho $N$, o número de comparações no pior caso é:</p>
+      <div class="math-block">p_b = \lceil \log_2 N \rceil \quad\iff\quad 2^{p_b - 1} < N \le 2^{p_b}</div>
+      <p><em>Tabela de Potências de Base 2 Obrigatória:</em></p>
+      <table>
+        <thead><tr><th>$k$</th><th>$2^k$</th><th>$k$</th><th>$2^k$</th><th>$k$</th><th>$2^k$</th></tr></thead>
+        <tbody>
+          <tr><td>$2^0$</td><td>1</td><td>$2^7$</td><td>128</td><td>$2^{14}$</td><td>16.384</td></tr>
+          <tr><td>$2^1$</td><td>2</td><td>$2^8$</td><td>256</td><td>$2^{16}$</td><td>65.536 ($2^{16}$)</td></tr>
+          <tr><td>$2^2$</td><td>4</td><td>$2^9$</td><td>512</td><td>$2^{19}$</td><td>524.288 (PS 2022.1)</td></tr>
+          <tr><td>$2^3$</td><td>8</td><td>$2^{10}$</td><td>1.024 (~$10^3$)</td><td>$2^{20}$</td><td>1.048.576 (~$10^6$)</td></tr>
+          <tr><td>$2^4$</td><td>16</td><td>$2^{11}$</td><td>2.048</td><td>$2^{24}$</td><td>16.777.216 (TrueColor)</td></tr>
+          <tr><td>$2^5$</td><td>32</td><td>$2^{12}$</td><td>4.096</td><td>$2^{30}$</td><td>1.073.741.824 (~$10^9$)</td></tr>
+          <tr><td>$2^6$</td><td>64</td><td>$2^{13}$</td><td>8.192</td><td>$2^{32}$</td><td>4.294.967.296 (IPv4)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SEÇÃO 2: COMBINATÓRIA E CONTAGEM -->
+    <h2>2. Análise Combinatória e Segurança de Dados</h2>
+
+    <div class="formula-card">
+      <h3>Princípio Fundamental, Arranjos e Combinações</h3>
+      <div class="math-block">PFC: N = n_1 \cdot n_2 \cdot \dots \cdot n_k</div>
+      <div class="math-block">C_{n, k} = \binom{n}{k} = \frac{n!}{k!(n - k)!} \quad\text{(Ordem NÃO importa: comissões, pares, conexões)}</div>
+      <div class="math-block">A_{n, k} = \frac{n!}{(n - k)!} \quad\text{(Ordem IMPORTA: senhas posicionais, pódios)}</div>
+      <div class="math-block">P_n^{a, b, c} = \frac{n!}{a! \, b! \, c!} \quad\text{(Permutação com repetição: anagramas, passos em malhas)}</div>
+    </div>
+
+    <div class="formula-card">
+      <h3>Partição de Inteiros (Estrelas e Barras)</h3>
+      <p>Número de soluções inteiras não-negativas para $x_1 + x_2 + \dots + x_k = N$ (distribuição de $N$ requisições em $k$ servidores ou buckets de hash):</p>
+      <div class="math-block">S = \binom{N + k - 1}{k - 1} = \frac{(N + k - 1)!}{N! \, (k - 1)!}</div>
+      <p>Se as soluções forem estritamente positivas ($x_i \ge 1$): $S = \binom{N - 1}{k - 1}$.</p>
+    </div>
+
+    <!-- SEÇÃO 3: PROBABILIDADE E ESTATÍSTICA -->
+    <h2>3. Probabilidade e Estatística Descritiva</h2>
+
+    <div class="formula-card">
+      <h3>Probabilidade de Eventos e Teorema de Bayes</h3>
+      <div class="math-block">P(A) = \frac{\text{casos favoráveis}}{\text{espaço amostral total}} &emsp;|&emsp; P(A^c) = 1 - P(A)</div>
+      <div class="math-block">P(A \cup B) = P(A) + P(B) - P(A \cap B)</div>
+      <div class="math-block">P(A \mid B) = \frac{P(A \cap B)}{P(B)} \quad\text{(Probabilidade Condicional)}</div>
+      <div class="math-block">P(A \mid B) = \frac{P(B \mid A) \cdot P(A)}{P(B)} = \frac{P(B \mid A) \cdot P(A)}{P(B \mid A)P(A) + P(B \mid A^c)P(A^c)}</div>
+      <p><em>Aplicação Inteli:</em> Classificadores Naive Bayes de e-mails de spam e detecção de anomalias em transações bancárias.</p>
+    </div>
+
+    <div class="formula-card">
+      <h3>Média, Mediana e Desvio em Benchmarks</h3>
+      <div class="math-block">\bar{x} = \frac{\sum w_i x_i}{\sum w_i} \quad\text{(Média Ponderada)}</div>
+      <p><strong>Mediana:</strong> Valor central após ordenação ($O(n \log n)$). Se $N$ for par, média aritmética dos dois termos centrais $\frac{x_{N/2} + x_{N/2 + 1}}{2}$. Imune a *outliers* de latência.</p>
+    </div>
+
+    <!-- SEÇÃO 4: GEOMETRIA DE TELAS E GRÁFICOS -->
+    <h2>4. Geometria Analítica de Telas & Computação Gráfica</h2>
+
+    <div class="callout-trap">
+      <strong>Armadilha Recorrente: Origem no Canto Superior Esquerdo!</strong>
+      Em computação gráfica (questão 02 do PS 2022.1), o eixo $Y$ aponta para baixo. Deslocar para baixo <em>aumenta</em> a coordenada $y$. A borda inferior de uma tela $800 \times 600$ tem $y = 600$, não $y = -600$.
+    </div>
+
+    <div class="formula-card">
+      <h3>Equação da Reta em Coordenadas de Tela</h3>
+      <div class="math-block">m = \frac{\Delta y}{\Delta x} = \frac{y_2 - y_1}{x_2 - x_1} &emsp;\implies&emsp; y - y_0 = m(x - x_0)</div>
+      <p>Reta da origem $(0,0)$ ao ponto médio da borda inferior $M(400, 600)$:</p>
+      <div class="math-block">m = \frac{600 - 0}{400 - 0} = \frac{3}{2} = 1,5 \implies y = 1,5x \implies 3x - 2y = 0</div>
+    </div>
+
+    <div class="formula-card">
+      <h3>Baricentro e Posicionamento de Servidores/Antenas</h3>
+      <p>Ponto ótimo de minimização de latência média para $k$ estações conectadas:</p>
+      <div class="math-block">G\left(\frac{x_1 + x_2 + \dots + x_k}{k}, \; \frac{y_1 + y_2 + \dots + y_k}{k}\right)</div>
+    </div>
+
+    <div class="callout">
+      <strong>Checklist Pré-Prova:</strong> 1. Conferiu se o problema usa tela invertida? 2. A resposta pede o pior caso ($\lceil \log_2 N \rceil$) ou médio? 3. Multiplicou por 8 ao converter Megabytes (MB) para Megabits (Mb)? 4. Testou $L(x)=0$ para o break-even?
+    </div>
+  </div>
+</body>
+</html>
