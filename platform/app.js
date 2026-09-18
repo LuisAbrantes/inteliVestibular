@@ -247,10 +247,16 @@ const AppState = {
 // 3. INITIALIZATION & DATA LOADING
 // ============================================================================
 async function initApp() {
+  console.log('[DEBUG] initApp started');
   initScratchpad();
+  console.log('[DEBUG] initScratchpad passed');
   setupEventListeners();
+  console.log('[DEBUG] setupEventListeners passed');
+  initHarnessHub();
+  console.log('[DEBUG] initHarnessHub passed');
   loadHistory();
   await loadQuestionBank();
+  console.log('[DEBUG] loadQuestionBank passed');
 }
 
 if (document.readyState === 'loading') {
@@ -352,12 +358,16 @@ function setupEventListeners() {
   });
 
   // History Clear
-  document.getElementById('btn-clear-history').addEventListener('click', clearHistory);
-  document.getElementById('btn-nav-history').addEventListener('click', () => {
-    const section = document.querySelector('.history-widget-section');
-    if (section) section.scrollIntoView({ behavior: 'smooth' });
-  });
+  const clearHistBtn = document.getElementById('btn-clear-history');
+  if (clearHistBtn) clearHistBtn.addEventListener('click', clearHistory);
 
+  const navHistBtn = document.getElementById('btn-nav-history');
+  if (navHistBtn) {
+    navHistBtn.addEventListener('click', () => {
+      const section = document.querySelector('.history-widget-section');
+      if (section) section.scrollIntoView({ behavior: 'smooth' });
+    });
+  }
   // Results Actions
   document.getElementById('btn-results-home').addEventListener('click', () => switchScreen('home'));
   document.getElementById('btn-results-retry').addEventListener('click', () => {
@@ -1483,5 +1493,448 @@ function shuffleArray(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+}
+
+// ============================================================================
+// 16. UNIFIED HARNESS HUB MODULE (TABS, DOCS, RAW, LESSONS, EVALS, AGENT)
+// ============================================================================
+
+let cachedLessons = [];
+let cachedDocs = [];
+let cachedRawFiles = [];
+let cachedReferences = [];
+
+function initHarnessHub() {
+  // 1. Tab switching
+  const tabBtns = document.querySelectorAll('.tab-nav-btn');
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetTab = btn.getAttribute('data-tab');
+      switchHarnessTab(targetTab);
+    });
+  });
+
+  // Header quick buttons
+  const headerAgentBtn = document.getElementById('btn-header-agent');
+  if (headerAgentBtn) {
+    headerAgentBtn.addEventListener('click', () => {
+      switchScreen('home');
+      switchHarnessTab('agent');
+    });
+  }
+
+  const headerHealthBtn = document.getElementById('btn-header-health-badge');
+  if (headerHealthBtn) {
+    headerHealthBtn.addEventListener('click', () => {
+      switchScreen('home');
+      switchHarnessTab('evals');
+    });
+  }
+
+  // Auto-evolve button
+  const evolveBtn = document.getElementById('btn-trigger-harness-evolve');
+  if (evolveBtn) {
+    evolveBtn.addEventListener('click', triggerHarnessEvolution);
+  }
+
+  // Quick generate lesson button in lessons tab
+  const quickGenBtn = document.getElementById('btn-quick-generate-lesson');
+  if (quickGenBtn) {
+    quickGenBtn.addEventListener('click', () => {
+      const topic = prompt('Digite o tema para gerar uma lição nova (ex: combinatoria, logica, funcoes):', 'combinatoria');
+      if (topic) {
+        triggerLessonGeneration(topic);
+      }
+    });
+  }
+
+  // Copy prompt buttons
+  setupPromptCopyButtons();
+
+  // Load all tab contents
+  loadLessonsTab();
+  loadDocsTab();
+  loadRawFilesTab();
+  loadReferencesTab();
+  loadHarnessHealthTab();
+}
+
+function switchHarnessTab(tabId) {
+  // Update nav buttons
+  document.querySelectorAll('.tab-nav-btn').forEach(b => {
+    if (b.getAttribute('data-tab') === tabId) {
+      b.classList.add('active');
+    } else {
+      b.classList.remove('active');
+    }
+  });
+
+  // Update panels
+  document.querySelectorAll('.harness-tab-panel').forEach(p => {
+    p.classList.remove('active');
+  });
+
+  const activePanel = document.getElementById(`tab-panel-${tabId}`);
+  if (activePanel) {
+    activePanel.classList.add('active');
+  }
+}
+
+async function loadLessonsTab() {
+  const container = document.getElementById('lessons-catalog-grid');
+  if (!container) return;
+
+  try {
+    const res = await fetch('/api/lessons');
+    if (res.ok) {
+      const data = await res.json();
+      cachedLessons = data.lessons || [];
+      const countBadge = document.getElementById('badge-lessons-count');
+      if (countBadge) countBadge.textContent = cachedLessons.length;
+      renderLessonsGrid(cachedLessons);
+      setupLessonsSearchAndFilter();
+    }
+  } catch (e) {
+    console.error('Error loading lessons:', e);
+  }
+}
+
+function renderLessonsGrid(lessons) {
+  const container = document.getElementById('lessons-catalog-grid');
+  if (!container) return;
+
+  if (lessons.length === 0) {
+    container.innerHTML = `<div class="empty-state-history"><div class="empty-title">Nenhuma lição encontrada</div></div>`;
+    return;
+  }
+
+  container.innerHTML = lessons.map(lesson => {
+    const gradeColor = lesson.evalGrade === 'A' ? 'badge-emerald' : 'badge-amber';
+    return `
+      <div class="bezel-card lesson-card">
+        <div class="bezel-core">
+          <div class="lesson-top-meta">
+            <span class="lesson-number-badge">${lesson.number || 'Lição'}</span>
+            <span class="lesson-eval-badge ${gradeColor}">Nota ${lesson.evalScore || 95}/100 • Grau ${lesson.evalGrade || 'A'}</span>
+          </div>
+          <h4 class="lesson-card-title">${lesson.title}</h4>
+          <p class="lesson-card-desc">${lesson.description || 'Lição interativa com fundamentos matemáticos e teste de recuperação ativa.'}</p>
+          <div class="lesson-footer-row">
+            <span class="lesson-time-tag">⏱ ${lesson.estimatedMinutes || 8} min de estudo</span>
+            <a href="/lessons/${lesson.fileName}" target="_blank" class="btn-open-lesson">
+              <span>Estudar Lição</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function setupLessonsSearchAndFilter() {
+  const searchInput = document.getElementById('lesson-search-input');
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      const term = e.target.value.toLowerCase().trim();
+      const filtered = cachedLessons.filter(l => 
+        l.title.toLowerCase().includes(term) || 
+        l.fileName.toLowerCase().includes(term)
+      );
+      renderLessonsGrid(filtered);
+    });
+  }
+
+  const chips = document.querySelectorAll('#lessons-topic-chips .filter-chip');
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      const topic = chip.getAttribute('data-topic');
+      if (topic === 'all') {
+        renderLessonsGrid(cachedLessons);
+      } else {
+        const filtered = cachedLessons.filter(l => l.fileName.toLowerCase().includes(topic) || l.title.toLowerCase().includes(topic));
+        renderLessonsGrid(filtered);
+      }
+    });
+  });
+}
+
+async function loadDocsTab() {
+  const navList = document.getElementById('docs-nav-list');
+  if (!navList) return;
+
+  try {
+    const res = await fetch('/api/docs-catalog');
+    if (res.ok) {
+      const data = await res.json();
+      cachedDocs = data.docs || [];
+      renderDocsSidebar(cachedDocs);
+      if (cachedDocs.length > 0) {
+        selectDoc(cachedDocs[0]);
+      }
+    }
+  } catch (e) {
+    console.error('Error loading docs catalog:', e);
+  }
+}
+
+function renderDocsSidebar(docs) {
+  const navList = document.getElementById('docs-nav-list');
+  if (!navList) return;
+
+  navList.innerHTML = docs.map((doc, idx) => `
+    <button class="doc-nav-item ${idx === 0 ? 'active' : ''}" data-doc-id="${doc.id}">
+      <span class="doc-item-title">${doc.title}</span>
+      <span class="doc-item-cat">${doc.category}</span>
+    </button>
+  `).join('');
+
+  navList.querySelectorAll('.doc-nav-item').forEach(item => {
+    item.addEventListener('click', () => {
+      navList.querySelectorAll('.doc-nav-item').forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+      const docId = item.getAttribute('data-doc-id');
+      const doc = cachedDocs.find(d => d.id === docId);
+      if (doc) selectDoc(doc);
+    });
+  });
+}
+
+async function selectDoc(doc) {
+  document.getElementById('doc-active-title').textContent = doc.title;
+  document.getElementById('doc-active-category').textContent = doc.category;
+  document.getElementById('doc-active-path').textContent = doc.file;
+
+  const renderEl = document.getElementById('doc-markdown-render');
+  renderEl.innerHTML = `<div class="loading-spinner-wrap"><div class="gen-spinner"></div><span>Carregando ${doc.title}...</span></div>`;
+
+  try {
+    const res = await fetch(`/api/doc-content?file=${encodeURIComponent(doc.file)}`);
+    if (res.ok) {
+      const data = await res.json();
+      if (window.marked && typeof window.marked.parse === 'function') {
+        renderEl.innerHTML = window.marked.parse(data.content);
+      } else {
+        renderEl.innerHTML = `<pre><code>${data.content}</code></pre>`;
+      }
+      renderKaTeXFormulas(renderEl);
+    }
+  } catch (e) {
+    renderEl.innerHTML = `<div class="modal-warning">Erro ao carregar documento: ${e.message}</div>`;
+  }
+}
+
+async function loadRawFilesTab() {
+  const container = document.getElementById('raw-files-grid');
+  if (!container) return;
+
+  try {
+    const res = await fetch('/api/raw-files');
+    if (res.ok) {
+      const data = await res.json();
+      cachedRawFiles = data.files || [];
+      const countBadge = document.getElementById('badge-pdfs-count');
+      if (countBadge) countBadge.textContent = cachedRawFiles.length;
+
+      container.innerHTML = cachedRawFiles.map(f => `
+        <div class="bezel-card raw-file-card">
+          <div class="bezel-core">
+            <div class="file-top-row">
+              <span class="badge-tag">PDF OFICIAL</span>
+              <span class="file-size-badge">${f.sizeMb}</span>
+            </div>
+            <h4 class="file-name-title">${f.filename}</h4>
+            <p class="file-desc-text">${f.description}</p>
+            <a href="${f.url}" target="_blank" class="btn-download-pdf">
+              <span>Abrir / Baixar PDF</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </div>
+      `).join('');
+    }
+  } catch (e) {
+    console.error('Error loading raw files:', e);
+  }
+}
+
+async function loadReferencesTab() {
+  const container = document.getElementById('references-cards-grid');
+  if (!container) return;
+
+  try {
+    const res = await fetch('/api/references');
+    if (res.ok) {
+      const data = await res.json();
+      cachedReferences = data.references || [];
+      container.innerHTML = cachedReferences.map(r => `
+        <div class="bezel-card reference-card">
+          <div class="bezel-core">
+            <div class="file-top-row">
+              <span class="badge-tag badge-cyan">CHEAT SHEET</span>
+              <span class="badge-tag">HTML PRINT</span>
+            </div>
+            <h4 class="file-name-title">${r.title}</h4>
+            <p class="file-desc-text">Guia condensado e limpo para consulta ágil de equações e algoritmos antes da prova.</p>
+            <a href="${r.url}" target="_blank" class="btn-download-pdf">
+              <span>Abrir Folha de Consulta</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </div>
+      `).join('');
+    }
+  } catch (e) {
+    console.error('Error loading references:', e);
+  }
+}
+
+async function loadHarnessHealthTab() {
+  try {
+    const res = await fetch('/api/harness-health');
+    if (res.ok) {
+      const data = await res.json();
+      const h = data.health;
+      if (!h) return;
+
+      // Update header badge
+      const headerHealth = document.getElementById('header-health-score-text');
+      if (headerHealth) headerHealth.textContent = `Saúde: ${h.overallHarnessScore}%`;
+      const badgeScore = document.getElementById('badge-health-score');
+      if (badgeScore) badgeScore.textContent = `${h.overallHarnessScore}%`;
+
+      // Update main metrics
+      const scoreHuge = document.getElementById('eval-score-huge');
+      if (scoreHuge) scoreHuge.textContent = `${h.overallHarnessScore}/100`;
+
+      const covVal = document.getElementById('eval-coverage-val');
+      if (covVal) covVal.textContent = `${h.coverageScore}%`;
+
+      const studAcc = document.getElementById('eval-student-acc');
+      if (studAcc) studAcc.textContent = `${h.masteryScore}%`;
+
+      // Populate heatmap
+      const heatmapEl = document.getElementById('eval-topics-heatmap');
+      if (heatmapEl && h.topicCoverage) {
+        heatmapEl.innerHTML = Object.entries(h.topicCoverage).map(([topic, d]) => {
+          const acc = d.studentAccuracy !== null ? d.studentAccuracy : 0;
+          const barColor = acc >= 80 ? 'bg-emerald' : acc >= 60 ? 'bg-amber' : 'bg-rose';
+          return `
+            <div class="topic-bar-row">
+              <div class="topic-bar-header">
+                <span class="topic-name">${topic} (${Math.round(d.weight * 100)}% prova)</span>
+                <span class="topic-acc">${d.studentAccuracy !== null ? `${acc}% acerto` : 'Sem testes'}</span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill ${barColor}" style="width: ${acc}%"></div>
+              </div>
+              <div class="topic-sub-meta">
+                <span>Lições: ${d.lessonsCount}</span> • <span>Questões: ${d.questionsCount}</span>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      // Populate actionable gaps
+      const gapsListEl = document.getElementById('eval-actionable-gaps-list');
+      if (gapsListEl) {
+        if (!h.actionableGaps || h.actionableGaps.length === 0) {
+          gapsListEl.innerHTML = `<div class="empty-state-history"><div class="empty-title">Nenhuma lacuna crítica detectada!</div></div>`;
+        } else {
+          gapsListEl.innerHTML = h.actionableGaps.map(g => `
+            <div class="gap-item-box" style="margin-bottom: 0.75rem; padding: 0.75rem; background: rgba(255,255,255,0.03); border-radius: 8px;">
+              <div class="gap-top" style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.3rem;">
+                <span class="badge-tag ${g.urgency === 'VERY_HIGH' ? 'badge-rose' : 'badge-amber'}">${g.urgency}</span>
+                <strong style="color: var(--text-primary); font-size: 0.9rem;">${g.topic}</strong>
+              </div>
+              <p style="color: var(--text-secondary); font-size: 0.82rem; margin: 0;">${g.reason}</p>
+            </div>
+          `).join('');
+        }
+      }
+    }
+  } catch (e) {
+    console.error('Error loading harness health:', e);
+  }
+}
+
+async function triggerHarnessEvolution() {
+  const btn = document.getElementById('btn-trigger-harness-evolve');
+  if (btn) {
+    btn.disabled = true;
+    btn.innerHTML = `<span class="gen-spinner" style="width:16px;height:16px;border-width:2px;"></span> Evoluindo...`;
+  }
+
+  showToast('Iniciando ciclo de auto-evolução do harness...', 'info');
+
+  try {
+    const res = await fetch('/api/harness-evolve', { method: 'POST' });
+    if (res.ok) {
+      const data = await res.json();
+      const evo = data.evolution;
+      showToast(`Harness evoluído! ${evo.lessonsGenerated.length} lições e ${evo.learningRecordsCreated.length} registros criados.`, 'success');
+      
+      const logCard = document.getElementById('evolution-output-card');
+      const logBody = document.getElementById('evolution-log-body');
+      const timestamp = document.getElementById('evolution-timestamp');
+      if (logCard && logBody) {
+        logCard.style.display = 'block';
+        if (timestamp) timestamp.textContent = new Date(evo.executedAt).toLocaleTimeString('pt-BR');
+        
+        logBody.innerHTML = `
+          <p><strong>Pontuação anterior:</strong> ${evo.priorScore}/100 ➔ <strong>Nova pontuação:</strong> ${evo.updatedScore}/100</p>
+          <p><strong>Lições geradas automaticamente para suprir lacunas:</strong></p>
+          <ul>
+            ${evo.lessonsGenerated.map(l => `<li><a href="/lessons/${l.fileName}" target="_blank">${l.topic} (${l.grade} - ${l.pedagogicalScore}/100) ↗</a></li>`).join('')}
+          </ul>
+          <p><strong>Registro de Aprendizagem salvo:</strong> <code>learning-records/${evo.learningRecordsCreated.join(', ')}</code></p>
+        `;
+      }
+
+      // Reload tabs
+      loadLessonsTab();
+      loadHarnessHealthTab();
+    }
+  } catch (e) {
+    showToast(`Erro ao evoluir harness: ${e.message}`, 'error');
+  } finally {
+    if (btn) {
+      btn.disabled = false;
+      btn.innerHTML = `<span class="btn-text">Evoluir Harness com Base no Meu Uso</span><span class="btn-badge-icon">⚡</span>`;
+    }
+  }
+}
+
+function setupPromptCopyButtons() {
+  document.querySelectorAll('.btn-copy-prompt').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-target');
+      const el = document.getElementById(targetId);
+      if (el) {
+        const text = el.innerText || el.textContent;
+        navigator.clipboard.writeText(text).then(() => {
+          showToast('Prompt copiado! Cole no chat para seu Agente OMP.', 'success');
+          const origText = btn.querySelector('.btn-text');
+          if (origText) {
+            origText.textContent = 'Copiado!';
+            setTimeout(() => { origText.textContent = 'Copiar Prompt'; }, 2000);
+          }
+        });
+      }
+    });
+  });
+
+  const copyDocLinkBtn = document.getElementById('btn-copy-doc-link');
+  if (copyDocLinkBtn) {
+    copyDocLinkBtn.addEventListener('click', () => {
+      const pathText = document.getElementById('doc-active-path').textContent;
+      navigator.clipboard.writeText(pathText).then(() => {
+        showToast('Caminho do arquivo copiado!', 'success');
+      });
+    });
   }
 }

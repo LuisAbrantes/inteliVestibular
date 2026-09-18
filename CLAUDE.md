@@ -1,37 +1,45 @@
 # CLAUDE.md — Inteli Vestibular & Bolsa Study Harness
 
 ## Visão Geral
-Este repositório é o **Harness Completo de Estudos e Simulados para o Vestibular e Programa de Bolsas de Estudo do Inteli (Instituto de Tecnologia e Liderança)**.
+Este repositório é o **Harness Completo de Estudos, Simulados e Auto-Aprimoramento para o Vestibular e Programa de Bolsas de Estudo do Inteli**.
+
+O ecossistema é unificado: provas oficiais, editais, gabaritos comentados, lições interativas Tufte e motor de auto-evolução estão todos interligados na interface web (`platform/`) e no CLI (`bin/inteli.mjs`).
 
 ## Comandos Rápidos
-- Iniciar Plataforma de Simulados Web: `npm start` ou `node bin/serve-platform.mjs`
-- Painel de Status & Telemetria: `node bin/inteli.mjs status`
-- Fazer Questão Rápida no Terminal: `node bin/inteli.mjs quiz [topico]`
-- Gerar Aula Sob Demanda: `node bin/generate-lesson.mjs <topico>`
-- Rodar Avaliações Pedagógicas (Evals): `npm run eval` ou `node bin/eval-lesson.mjs --all`
-- Rodar Testes do Harness: `npm test`
-- Consultar Editais e Guias: `node bin/inteli.mjs ask "<duvida>"`
+- **Iniciar Plataforma Web**: `npm start` ou `node bin/serve-platform.mjs` (abre em `http://localhost:3000/`)
+- **Painel de Telemetria**: `node bin/inteli.mjs status`
+- **Auto-Evolução Baseada no Uso**: `node bin/inteli.mjs evolve`
+- **Auditoria de Saúde do Harness**: `node bin/inteli.mjs health`
+- **Central de Prompts do Agente OMP**: `node bin/inteli.mjs agent`
+- **Fazer Questão Rápida no Terminal**: `node bin/inteli.mjs quiz [topico]`
+- **Gerar Lição Sob Demanda**: `node bin/generate-lesson.mjs <topico>`
+- **Rodar Avaliações Pedagógicas (Evals)**: `npm run eval` ou `node bin/eval-lesson.mjs --all`
+- **Executar Bateria de Testes**: `npm test`
+- **Consultar Dúvidas nos Editais**: `node bin/inteli.mjs ask "<duvida>"`
 
-## Estrutura do Repositório
-- `data/raw/`: Editais oficiais em PDF baixados (Vestibular 2025/2026, Bolsas 2025/2026/2027, Provas Anteriores com 86 páginas, Gabarito Comentado 2025.1, Livro de Bolsistas).
-- `data/extracted/`: Textos integrais extraídos dos PDFs oficiais para busca e análise.
+## Estrutura Integrada do Repositório
+- `data/raw/`: 9 PDFs originais oficiais baixados do Inteli (Provas, Gabarito Comentado 2025.1, Editais 2025/2026/2027, Book de Bolsistas).
+- `data/extracted/`: Textos integrais extraídos dos PDFs para processamento e busca.
 - `docs/`:
-  - `docs/edital-vestibular.md`: Guia definitivo do vestibular, cursos, eixos de avaliação, régua adaptativa, pesos e cronograma.
-  - `docs/edital-bolsa.md`: Regulamento completo do Programa de Bolsas (100% e 50%), auxílios permanência (moradia, notebook, alimentação, inglês), critérios de renda per capita, etapas de seleção e checklist documental.
-  - `docs/analise-conteudos-provas.md`: Análise estatística de todas as questões oficiais, incidência temática, padrões de enunciados de tecnologia e distratores.
-  - `docs/guia-preparacao.md`: Plano tático em 4 frentes, cronograma de 8 semanas, técnica STAR para ensaios do Eixo Perfil e guia da dinâmica.
-- `platform/`: Plataforma interativa de simulados web desenvolvida sob os princípios Impeccable (OLED dark theme, KaTeX math, double-bezel cards).
-  - `platform/index.html`, `platform/style.css`, `platform/app.js`
-  - `platform/data/questions.json`: Banco com 50 questões categorizadas e com resolução passo a passo.
-  - `platform/server.mjs`: Servidor HTTP leve Node.js com endpoints de telemetria e geração de aulas.
-- `lessons/`: Lições interativas em HTML estilo Edward Tufte geradas sob demanda com questionários de recuperação ativa.
+  - `docs/edital-vestibular.md`: Guia definitivo do vestibular, cursos, eixos holísticos, pesos e régua adaptativa.
+  - `docs/edital-bolsa.md`: Regulamento de bolsas (100% e 50%), critérios de renda per capita, moradia, notebook e etapas.
+  - `docs/analise-conteudos-provas.md`: Taxonomia das 72 questões oficiais, incidência de tópicos e perfil dos distratores.
+  - `docs/guia-preparacao.md`: Plano tático de 8 semanas, redações no método STAR e preparação da dinâmica.
+- `platform/`: Portal unificado com 7 abas:
+  - Aba 1: *Simulados & Treinos* (4 modos de prova interativa)
+  - Aba 2: *Aulas Tufte* (Catálogo de lições com busca e filtros)
+  - Aba 3: *Editais & Guias* (Leitor interativo com Markdown e KaTeX)
+  - Aba 4: *PDFs Oficiais* (Biblioteca de arquivos originais para download)
+  - Aba 5: *Folhas de Consulta* (Cheat sheets para revisão rápida)
+  - Aba 6: *Auto-Evolução do Harness* (Painel de telemetria e botão de aprimoramento)
+  - Aba 7: *Central do Agente OMP* (Prompts prontos com botão de cópia)
+- `lessons/`: 15 lições interativas no padrão Edward Tufte geradas sob demanda com questionários interativos de recuperação ativa.
 - `src/lessons/generator.mjs`: Motor de geração de lições sob demanda.
-- `src/evals/evaluator.mjs`: Suíte de avaliação pedagógica automatizada (carga cognitiva, recuperação ativa, simetria de distratores, alinhamento Inteli, estética Tufte, clareza).
-- `reference/`: Folhas de consulta rápida (cheat sheets) para impressão em HTML.
-- `MISSION.md`, `RESOURCES.md`, `GLOSSARY.md`, `NOTES.md`: Estrutura do framework pedagógico de Matt Pocock.
+- `src/evals/evaluator.mjs`: Suíte de avaliação de qualidade pedagógica (0 a 100).
+- `src/evals/harness-evolver.mjs`: Motor de auto-evolução contínua que diagnostica lacunas a partir do uso do aluno e gera as aulas necessárias.
+- `reference/`: Folhas de consulta rápida em HTML (Matemática, Lógica, Finanças).
+- `MISSION.md`, `RESOURCES.md`, `GLOSSARY.md`, `NOTES.md`: Framework de aprendizagem Matt Pocock (`teach`).
+- `learning-records/`: Registros de evolução do candidato.
 
-## Papel do Agente
-Você atua como mentor pessoal do estudante. Sempre que consultado sobre o Inteli:
-1. Baseie-se exclusivamente nos documentos oficiais em `docs/` e `data/extracted/`.
-2. Analise o histórico do aluno em `data/student-performance.json` para diagnosticar fraquezas.
-3. Sugira e gere lições sob demanda direcionadas para as áreas onde o aluno precisa elevar a proficiência para garantir a Bolsa 100%.
+## Papel do Agente OMP (Sem APIs Externas)
+Você (Agente OMP) é o motor de inteligência deste harness. Todas as tarefas avançadas (simulação de banca de bolsa, revisão crítica de redações de liderança pelo método STAR, desmistificação de erros em simulados e criação de novas lições) são executadas por você diretamente através dos modelos e assinaturas locais já integrados no seu ambiente.

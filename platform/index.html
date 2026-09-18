@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inteli Harness // Simulador Oficial & Adaptativo</title>
+  <title>Inteli Harness // Simulador Oficial, Aulas Tufte & Editais</title>
   
   <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,6 +14,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+
+  <!-- Marked.js for Markdown Rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="style.css">
@@ -37,9 +40,9 @@
           <div class="logo-text-group">
             <div class="logo-title">
               <span class="logo-title-accent">INTELI</span> HARNESS
-              <span class="badge-tag">PROVAS</span>
+              <span class="badge-tag">PORTAL UNIFICADO</span>
             </div>
-            <div class="logo-sub" id="header-mode-indicator">Modo de Avaliação</div>
+            <div class="logo-sub" id="header-mode-indicator">Plataforma de Estudos & Simulados</div>
           </div>
         </a>
       </div>
@@ -82,14 +85,14 @@
         </button>
 
         <div id="header-home-links" class="header-home-links">
-          <button class="btn-secondary-bezel" id="btn-nav-history">
-            <span class="btn-text">Histórico</span>
-            <span class="btn-badge-icon">⏱</span>
+          <button class="btn-secondary-bezel" id="btn-header-health-badge" title="Índice de Saúde do Harness">
+            <span class="health-dot"></span>
+            <span class="btn-text" id="header-health-score-text">Saúde: 85%</span>
           </button>
-          <a href="/lessons/" class="btn-secondary-bezel" target="_blank" title="Acessar Aulas de Reforço geradas pelo Harness">
-            <span class="btn-text">Aulas de Reforço</span>
-            <span class="btn-badge-icon">↗</span>
-          </a>
+          <button class="btn-accent-bezel btn-agent-quick" id="btn-header-agent" title="Central do Agente OMP">
+            <span class="btn-text">Agente OMP</span>
+            <span class="btn-badge-icon">🤖</span>
+          </button>
         </div>
       </div>
     </header>
@@ -98,159 +101,549 @@
     <main id="main-content" class="main-content">
 
       <!-- ============================================================= -->
-      <!-- SCREEN 1: HOME & MODE SELECTOR                                -->
+      <!-- SCREEN 1: UNIFIED HOME & NAVIGATION PORTAL                     -->
       <!-- ============================================================= -->
       <section id="screen-home" class="view-screen screen-home active">
+        
+        <!-- Hero Banner -->
         <div class="hero-section">
           <div class="hero-badge">
             <span class="hero-badge-dot"></span>
-            <span>PLATAFORMA OFICIAL DE SIMULAÇÃO • PROVAS PS 2024 / 2025 / 2026</span>
+            <span>ECOSSISTEMA INTEGRADO • VESTIBULAR & PROGRAMA DE BOLSAS INTEGRAIS</span>
           </div>
           <h1 class="hero-title">
-            Domine o Modelo Adaptativo & Conquiste a <span class="text-gradient-emerald">Bolsa 100%</span>
+            Harness de Estudos & Simulados <span class="text-gradient-emerald">Inteli</span>
           </h1>
           <p class="hero-subtitle">
-            Simulador de alta fidelidade espelhado na prova de Matemática Aplicada e Computação do Inteli. Resolução cronometrada, motor adaptativo de dificuldade e diagnóstico imediato de lacunas pedagógicas.
+            Ambiente completo conectado: provas adaptativas, editais e manuais oficiais absorvidos, biblioteca de PDFs originais, lições interativas no padrão Tufte e auto-aprimoramento contínuo baseado no seu uso.
           </p>
         </div>
 
-        <!-- Mode Selection Matrix (Double-Bezel Cards) -->
-        <div class="modes-grid">
+        <!-- Global Navigation Tab Bar (Connects everything!) -->
+        <nav class="harness-tabs-nav" id="main-harness-tabs">
+          <button class="tab-nav-btn active" data-tab="simulados">
+            <span class="tab-icon">🎯</span>
+            <span class="tab-label">Simulados & Treinos</span>
+          </button>
+          <button class="tab-nav-btn" data-tab="lessons">
+            <span class="tab-icon">📚</span>
+            <span class="tab-label">Aulas Tufte</span>
+            <span class="tab-badge" id="badge-lessons-count">10</span>
+          </button>
+          <button class="tab-nav-btn" data-tab="docs">
+            <span class="tab-icon">📑</span>
+            <span class="tab-label">Editais & Guias</span>
+          </button>
+          <button class="tab-nav-btn" data-tab="raw">
+            <span class="tab-icon">📂</span>
+            <span class="tab-label">PDFs Oficiais</span>
+            <span class="tab-badge" id="badge-pdfs-count">9</span>
+          </button>
+          <button class="tab-nav-btn" data-tab="reference">
+            <span class="tab-icon">📌</span>
+            <span class="tab-label">Folhas de Consulta</span>
+          </button>
+          <button class="tab-nav-btn" data-tab="evals">
+            <span class="tab-icon">🔬</span>
+            <span class="tab-label">Auto-Evolução & Evals</span>
+            <span class="tab-badge badge-pulse" id="badge-health-score">85%</span>
+          </button>
+          <button class="tab-nav-btn tab-nav-agent" data-tab="agent">
+            <span class="tab-icon">🤖</span>
+            <span class="tab-label">Central Agente OMP</span>
+          </button>
+        </nav>
+
+        <!-- ========================================================= -->
+        <!-- TAB PANEL 1: SIMULADOS & TREINOS                          -->
+        <!-- ========================================================= -->
+        <div class="harness-tab-panel active" id="tab-panel-simulados">
           
-          <!-- Mode 1: Simulado Oficial -->
-          <div class="bezel-card mode-card" data-mode="oficial">
-            <div class="bezel-core">
-              <div class="card-header-bar">
-                <span class="mode-badge badge-indigo">Modo Padrão</span>
-                <span class="mode-meta">120 min • 20 itens</span>
+          <!-- Mode Selection Matrix (Double-Bezel Cards) -->
+          <div class="modes-grid">
+            
+            <!-- Mode 1: Simulado Oficial -->
+            <div class="bezel-card mode-card" data-mode="oficial">
+              <div class="bezel-core">
+                <div class="card-header-bar">
+                  <span class="mode-badge badge-indigo">Modo Padrão</span>
+                  <span class="mode-meta">120 min • 20 itens</span>
+                </div>
+                <div class="mode-icon-bezel">
+                  <span class="mode-icon">🏛</span>
+                </div>
+                <h3 class="mode-name">Simulado Oficial Vestibular</h3>
+                <p class="mode-desc">
+                  Simula o dia real da prova Inteli: 20 questões balanceadas por tópicos, tempo regulamentar com contagem regressiva e resultado com diagnóstico completo após o envio final.
+                </p>
+                <div class="mode-features">
+                  <div class="feature-tag"><span>✓</span> 20 Questões Oficiais</div>
+                  <div class="feature-tag"><span>✓</span> Sem gabarito imediato</div>
+                  <div class="feature-tag"><span>✓</span> Cronômetro de 2 horas</div>
+                </div>
+                <button class="btn-launch-mode" data-mode="oficial">
+                  <span class="btn-launch-text">Iniciar Prova Oficial</span>
+                  <span class="btn-launch-icon">→</span>
+                </button>
               </div>
-              <div class="mode-icon-bezel">
-                <span class="mode-icon">🏛</span>
-              </div>
-              <h3 class="mode-name">Simulado Oficial Vestibular</h3>
-              <p class="mode-desc">
-                Simula o dia real da prova Inteli: 20 questões balanceadas por tópicos, tempo regulamentar com contagem regressiva e resultado com diagnóstico completo após o envio final.
-              </p>
-              <div class="mode-features">
-                <div class="feature-tag"><span>✓</span> 20 Questões Oficiais</div>
-                <div class="feature-tag"><span>✓</span> Sem gabarito imediato</div>
-                <div class="feature-tag"><span>✓</span> Cronômetro de 2 horas</div>
-              </div>
-              <button class="btn-launch-mode" data-mode="oficial">
-                <span class="btn-launch-text">Iniciar Prova Oficial</span>
-                <span class="btn-launch-icon">→</span>
-              </button>
             </div>
+
+            <!-- Mode 2: Simulado Adaptativo -->
+            <div class="bezel-card mode-card featured-mode" data-mode="adaptativo">
+              <div class="bezel-core">
+                <div class="card-header-bar">
+                  <span class="mode-badge badge-emerald">Motor Adaptativo TRI</span>
+                  <span class="mode-meta">20 itens • Proficiência</span>
+                </div>
+                <div class="mode-icon-bezel">
+                  <span class="mode-icon">⚡</span>
+                </div>
+                <h3 class="mode-name">Simulado Adaptativo</h3>
+                <p class="mode-desc">
+                  Espelha o algoritmo seletivo do Inteli: começa em dificuldade média. Acertos elevam o nível para desafios de Trilha Superior; erros calibram para fixação de fundamentos.
+                </p>
+                <div class="mode-features">
+                  <div class="feature-tag"><span>✓</span> Ajuste dinâmico de dificuldade</div>
+                  <div class="feature-tag"><span>✓</span> Estimador de escore TRI contínuo</div>
+                  <div class="feature-tag"><span>✓</span> Foco no topo da régua</div>
+                </div>
+                <button class="btn-launch-mode btn-launch-emerald" data-mode="adaptativo">
+                  <span class="btn-launch-text">Iniciar Simulado Adaptativo</span>
+                  <span class="btn-launch-icon">→</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Mode 3: Treino por Tópico (Drill Mode) -->
+            <div class="bezel-card mode-card" data-mode="drill">
+              <div class="bezel-core">
+                <div class="card-header-bar">
+                  <span class="mode-badge badge-cyan">Estudo Deliberado</span>
+                  <span class="mode-meta">Sem tempo limite</span>
+                </div>
+                <div class="mode-icon-bezel">
+                  <span class="mode-icon">🎯</span>
+                </div>
+                <h3 class="mode-name">Treino por Tópico (Drill)</h3>
+                <p class="mode-desc">
+                  Ideal para sanar pontos cegos: escolha a disciplina específica, responda questão a questão e visualize a resolução passo a passo com insights conceituais imediatamente.
+                </p>
+                <div class="topic-selector-wrap">
+                  <label for="drill-topic-select" class="selector-label">Selecione o Domínio:</label>
+                  <select id="drill-topic-select" class="bezel-select">
+                    <option value="all">Todos os Tópicos (Misto)</option>
+                    <option value="Combinatória">Análise Combinatória e Senhas</option>
+                    <option value="Funções">Funções, Polinômios e Otimização</option>
+                    <option value="Lógica">Lógica Computacional e Proposições</option>
+                    <option value="Algoritmos">Algoritmos, Loops e Complexidade</option>
+                    <option value="Finanças">Finanças Tech, SaaS e Investimentos</option>
+                    <option value="Geometria">Geometria e Telas de Pixels</option>
+                    <option value="Probabilidade">Probabilidade e Teorema de Bayes</option>
+                    <option value="Estatística">Estatística e Benchmarks em Nuvem</option>
+                  </select>
+                </div>
+                <button class="btn-launch-mode" data-mode="drill">
+                  <span class="btn-launch-text">Iniciar Sessão de Treino</span>
+                  <span class="btn-launch-icon">→</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Mode 4: Diagnóstico Rápido Bolsa 100% -->
+            <div class="bezel-card mode-card" data-mode="bolsa">
+              <div class="bezel-core">
+                <div class="card-header-bar">
+                  <span class="mode-badge badge-amber">Régua de Corte</span>
+                  <span class="mode-meta">45 min • 10 itens</span>
+                </div>
+                <div class="mode-icon-bezel">
+                  <span class="mode-icon">🏆</span>
+                </div>
+                <h3 class="mode-name">Diagnóstico Bolsa 100%</h3>
+                <p class="mode-desc">
+                  Bateria rápida de 10 questões de alta densidade técnica (nível Difícil/Médio) para aferir aptidão aos critérios da Bolsa Integral e Desafio de Lógica e Matemática.
+                </p>
+                <div class="mode-features">
+                  <div class="feature-tag"><span>✓</span> 10 itens de alto poder de corte</div>
+                  <div class="feature-tag"><span>✓</span> Índice de elegibilidade para bolsa</div>
+                  <div class="feature-tag"><span>✓</span> Meta de escore: &ge; 80%</div>
+                </div>
+                <button class="btn-launch-mode" data-mode="bolsa">
+                  <span class="btn-launch-text">Testar Elegibilidade Bolsa</span>
+                  <span class="btn-launch-icon">→</span>
+                </button>
+              </div>
+            </div>
+
           </div>
 
-          <!-- Mode 2: Simulado Adaptativo -->
-          <div class="bezel-card mode-card featured-mode" data-mode="adaptativo">
-            <div class="bezel-core">
-              <div class="card-header-bar">
-                <span class="mode-badge badge-emerald">Motor Adaptativo TRI</span>
-                <span class="mode-meta">20 itens • Proficiência</span>
+          <!-- Recent Performance Section on Home Screen -->
+          <div class="history-widget-section">
+            <div class="section-title-row">
+              <div class="title-with-badge">
+                <h3 class="section-title">Seu Histórico Recente de Simulados</h3>
+                <span class="count-badge" id="history-total-count">0 tentativas</span>
               </div>
-              <div class="mode-icon-bezel">
-                <span class="mode-icon">⚡</span>
-              </div>
-              <h3 class="mode-name">Simulado Adaptativo</h3>
-              <p class="mode-desc">
-                Espelha o algoritmo seletivo do Inteli: começa em dificuldade média. Acertos elevam o nível para desafios de Trilha Superior; erros calibram para fixação de fundamentos.
-              </p>
-              <div class="mode-features">
-                <div class="feature-tag"><span>✓</span> Ajuste dinâmico de dificuldade</div>
-                <div class="feature-tag"><span>✓</span> Estimador de escore TRI contínuo</div>
-                <div class="feature-tag"><span>✓</span> Foco no topo da régua</div>
-              </div>
-              <button class="btn-launch-mode btn-launch-emerald" data-mode="adaptativo">
-                <span class="btn-launch-text">Iniciar Simulado Adaptativo</span>
-                <span class="btn-launch-icon">→</span>
+              <button class="btn-text-action" id="btn-clear-history" title="Limpar histórico salvo localmente">
+                Limpar Dados
               </button>
             </div>
-          </div>
 
-          <!-- Mode 3: Treino por Tópico (Drill Mode) -->
-          <div class="bezel-card mode-card" data-mode="drill">
-            <div class="bezel-core">
-              <div class="card-header-bar">
-                <span class="mode-badge badge-cyan">Estudo Deliberado</span>
-                <span class="mode-meta">Sem tempo limite</span>
+            <div id="history-list-container" class="history-cards-grid">
+              <div class="empty-state-history">
+                <div class="empty-icon">📊</div>
+                <div class="empty-title">Nenhum simulado registrado ainda</div>
+                <div class="empty-desc">Escolha um dos 4 modos acima para iniciar sua primeira rodada de testes calibrados ao vestibular Inteli.</div>
               </div>
-              <div class="mode-icon-bezel">
-                <span class="mode-icon">🎯</span>
-              </div>
-              <h3 class="mode-name">Treino por Tópico (Drill)</h3>
-              <p class="mode-desc">
-                Ideal para sanar pontos cegos: escolha a disciplina específica, responda questão a questão e visualize a resolução passo a passo com insights conceituais imediatamente.
-              </p>
-              <div class="topic-selector-wrap">
-                <label for="drill-topic-select" class="selector-label">Selecione o Domínio:</label>
-                <select id="drill-topic-select" class="bezel-select">
-                  <option value="all">Todos os Tópicos (Misto)</option>
-                  <option value="Combinatória e Probabilidade">Combinatória e Probabilidade</option>
-                  <option value="Funções e Otimização">Funções e Otimização</option>
-                  <option value="Lógica Computacional">Lógica Computacional e Proposições</option>
-                  <option value="Algoritmos e Estruturas">Algoritmos, Loops e Complexidade</option>
-                  <option value="Matemática Financeira">Matemática Financeira e SaaS</option>
-                  <option value="Geometria e Visão Computacional">Geometria e Álgebra Vetorial</option>
-                  <option value="Estatística e Análise de Dados">Estatística e Análise de Dados</option>
-                </select>
-              </div>
-              <button class="btn-launch-mode" data-mode="drill">
-                <span class="btn-launch-text">Iniciar Sessão de Treino</span>
-                <span class="btn-launch-icon">→</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Mode 4: Diagnóstico Rápido Bolsa 100% -->
-          <div class="bezel-card mode-card" data-mode="bolsa">
-            <div class="bezel-core">
-              <div class="card-header-bar">
-                <span class="mode-badge badge-amber">Régua de Corte</span>
-                <span class="mode-meta">45 min • 10 itens</span>
-              </div>
-              <div class="mode-icon-bezel">
-                <span class="mode-icon">🏆</span>
-              </div>
-              <h3 class="mode-name">Diagnóstico Bolsa 100%</h3>
-              <p class="mode-desc">
-                Bateria rápida de 10 questões de alta densidade técnica (nível Difícil/Médio) para aferir aptidão aos critérios da Bolsa Integral e Desafio de Lógica e Matemática.
-              </p>
-              <div class="mode-features">
-                <div class="feature-tag"><span>✓</span> 10 itens de alto poder de corte</div>
-                <div class="feature-tag"><span>✓</span> Índice de elegibilidade para bolsa</div>
-                <div class="feature-tag"><span>✓</span> Meta de escore: &ge; 80%</div>
-              </div>
-              <button class="btn-launch-mode" data-mode="bolsa">
-                <span class="btn-launch-text">Testar Elegibilidade Bolsa</span>
-                <span class="btn-launch-icon">→</span>
-              </button>
             </div>
           </div>
 
         </div>
 
-        <!-- Recent Performance Section on Home Screen -->
-        <div class="history-widget-section">
-          <div class="section-title-row">
-            <div class="title-with-badge">
-              <h3 class="section-title">Seu Histórico Recente de Simulados</h3>
-              <span class="count-badge" id="history-total-count">0 tentativas</span>
+        <!-- ========================================================= -->
+        <!-- TAB PANEL 2: AULAS & LIÇÕES TUFTE                         -->
+        <!-- ========================================================= -->
+        <div class="harness-tab-panel" id="tab-panel-lessons">
+          <div class="panel-header-box">
+            <div class="panel-header-left">
+              <h2 class="panel-title">Catálogo de Aulas Interativas (Estilo Edward Tufte)</h2>
+              <p class="panel-desc">
+                Lições autocontidas construídas com alta densidade didática, contexto de tecnologia real, notas de margem e questionário interativo com verificação imediata de retenção ativa.
+              </p>
             </div>
-            <button class="btn-text-action" id="btn-clear-history" title="Limpar histórico salvo localmente">
-              Limpar Dados
-            </button>
+            <div class="panel-header-right">
+              <button class="btn-accent-bezel" id="btn-quick-generate-lesson">
+                <span class="btn-text">Gerar Nova Lição</span>
+                <span class="btn-badge-icon">⚡</span>
+              </button>
+            </div>
           </div>
 
-          <div id="history-list-container" class="history-cards-grid">
-            <div class="empty-state-history">
-              <div class="empty-icon">📊</div>
-              <div class="empty-title">Nenhum simulado registrado ainda</div>
-              <div class="empty-desc">Escolha um dos 4 modos acima para iniciar sua primeira rodada de testes calibrados ao vestibular Inteli.</div>
+          <!-- Filters & Search Bar -->
+          <div class="lessons-filter-bar">
+            <div class="search-input-wrap">
+              <span class="search-icon">🔍</span>
+              <input type="text" id="lesson-search-input" class="bezel-input" placeholder="Buscar lição por tema, fórmula ou palavra-chave (ex: Bayes, Parábola, API)...">
+            </div>
+            <div class="topic-chips-row" id="lessons-topic-chips">
+              <button class="filter-chip active" data-topic="all">Todas as Lições</button>
+              <button class="filter-chip" data-topic="combinatoria">Combinatória</button>
+              <button class="filter-chip" data-topic="funcoes">Funções & Lucro</button>
+              <button class="filter-chip" data-topic="logica">Lógica</button>
+              <button class="filter-chip" data-topic="probabilidade">Probabilidade</button>
+              <button class="filter-chip" data-topic="algoritmos">Algoritmos</button>
+              <button class="filter-chip" data-topic="geometria">Geometria</button>
+              <button class="filter-chip" data-topic="estatistica">Estatística</button>
+            </div>
+          </div>
+
+          <!-- Lessons Grid Container -->
+          <div class="lessons-grid" id="lessons-catalog-grid">
+            <div class="loading-spinner-wrap">
+              <div class="gen-spinner"></div>
+              <span>Carregando catálogo de aulas do harness...</span>
             </div>
           </div>
         </div>
+
+        <!-- ========================================================= -->
+        <!-- TAB PANEL 3: EDITAIS & GUIAS (LEITOR INTERATIVO)          -->
+        <!-- ========================================================= -->
+        <div class="harness-tab-panel" id="tab-panel-docs">
+          <div class="panel-header-box">
+            <div>
+              <h2 class="panel-title">Dossiês Oficiais & Guias Estratégicos Absorvidos</h2>
+              <p class="panel-desc">
+                Documentação estruturada diretamente dos editais, regulamentos da bolsa, caderno de provas e plano de estudos de 8 semanas.
+              </p>
+            </div>
+          </div>
+
+          <div class="docs-browser-layout">
+            <!-- Left Document Selector Sidebar -->
+            <aside class="docs-sidebar">
+              <div class="sidebar-heading">Documentos Disponíveis</div>
+              <nav class="docs-nav-list" id="docs-nav-list">
+                <!-- Injected via JavaScript -->
+              </nav>
+            </aside>
+
+            <!-- Right Document Content Viewer -->
+            <article class="doc-content-viewer">
+              <div class="doc-viewer-header">
+                <div>
+                  <span class="badge-tag" id="doc-active-category">Vestibular</span>
+                  <h3 class="doc-viewer-title" id="doc-active-title">Carregando...</h3>
+                  <div class="doc-file-path" id="doc-active-path">docs/edital-vestibular.md</div>
+                </div>
+                <button class="btn-secondary-bezel btn-sm" id="btn-copy-doc-link" title="Copiar caminho do arquivo">
+                  <span class="btn-text">Copiar Caminho</span>
+                  <span class="btn-badge-icon">📋</span>
+                </button>
+              </div>
+              <div class="markdown-body-render" id="doc-markdown-render">
+                <div class="loading-spinner-wrap">
+                  <div class="gen-spinner"></div>
+                  <span>Renderizando conteúdo do dossiê...</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- TAB PANEL 4: REPOSITÓRIO DE PDFS OFICIAIS                 -->
+        <!-- ========================================================= -->
+        <div class="harness-tab-panel" id="tab-panel-raw">
+          <div class="panel-header-box">
+            <div>
+              <h2 class="panel-title">Biblioteca de PDFs Oficiais Baixados</h2>
+              <p class="panel-desc">
+                Todos os arquivos PDF originais baixados diretamente do domínio oficial do Inteli, arquivados e disponíveis para consulta ou download com um clique.
+              </p>
+            </div>
+          </div>
+
+          <div class="raw-files-grid" id="raw-files-grid">
+            <!-- Injected via JavaScript -->
+          </div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- TAB PANEL 5: FOLHAS DE CONSULTA RÁPIDA (CHEAT SHEETS)     -->
+        <!-- ========================================================= -->
+        <div class="harness-tab-panel" id="tab-panel-reference">
+          <div class="panel-header-box">
+            <div>
+              <h2 class="panel-title">Folhas de Consulta Rápida (Cheat Sheets Prontas para Impressão)</h2>
+              <p class="panel-desc">
+                Resumos condensados de fórmulas, intuições geométricas e métricas de startups para revisão ágil nos dias anteriores à prova.
+              </p>
+            </div>
+          </div>
+
+          <div class="references-cards-grid" id="references-cards-grid">
+            <!-- Injected via JavaScript -->
+          </div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- TAB PANEL 6: AUTO-EVOLUÇÃO DO HARNESS & EVALS CONTÍNUOS  -->
+        <!-- ========================================================= -->
+        <div class="harness-tab-panel" id="tab-panel-evals">
+          <div class="panel-header-box">
+            <div>
+              <h2 class="panel-title">Motor de Auto-Aprimoramento Contínuo do Harness</h2>
+              <p class="panel-desc">
+                O harness analisa suas tentativas nos simulados, mapeia os tópicos com menor rendimento, detecta distratores armadilha e gera automaticamente novas lições calibradas para fechar suas lacunas.
+              </p>
+            </div>
+            <div>
+              <button class="btn-accent-bezel btn-emerald" id="btn-trigger-harness-evolve">
+                <span class="btn-text">Evoluir Harness com Base no Meu Uso</span>
+                <span class="btn-badge-icon">⚡</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Health Metrics Row -->
+          <div class="evals-summary-cards">
+            <div class="bezel-card eval-metric-card">
+              <div class="bezel-core">
+                <div class="metric-label">Índice Geral de Saúde do Harness</div>
+                <div class="metric-value-huge text-emerald" id="eval-score-huge">85/100</div>
+                <div class="metric-sub" id="eval-score-sub">Excelente cobertura curricular e calibração</div>
+              </div>
+            </div>
+
+            <div class="bezel-card eval-metric-card">
+              <div class="bezel-core">
+                <div class="metric-label">Cobertura do Conteúdo Programático</div>
+                <div class="metric-value-huge text-cyan" id="eval-coverage-val">100%</div>
+                <div class="metric-sub">Todos os 8 eixos do edital cobertos com lições</div>
+              </div>
+            </div>
+
+            <div class="bezel-card eval-metric-card">
+              <div class="bezel-core">
+                <div class="metric-label">Acurácia Média Atual do Estudante</div>
+                <div class="metric-value-huge text-indigo" id="eval-student-acc">90%</div>
+                <div class="metric-sub" id="eval-student-sub">Perfil compatível com Bolsa 100%</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live Curriculum Heatmap & Actionable Gaps -->
+          <div class="evals-detail-grid">
+            <div class="bezel-card">
+              <div class="bezel-core">
+                <h3 class="section-title">Mapa de Cobertura Curricular & Desempenho por Eixo</h3>
+                <div class="topic-bars-container" id="eval-topics-heatmap">
+                  <!-- Dynamically populated -->
+                </div>
+              </div>
+            </div>
+
+            <div class="bezel-card">
+              <div class="bezel-core">
+                <h3 class="section-title">Lacunas & Oportunidades Diagnosticadas</h3>
+                <div class="gaps-list" id="eval-actionable-gaps-list">
+                  <!-- Dynamically populated -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Evolution Log Output -->
+          <div class="evolution-output-card" id="evolution-output-card" style="display: none;">
+            <div class="bezel-core">
+              <div class="evolution-log-header">
+                <span class="badge-tag badge-emerald">Ciclo de Evolução Concluído</span>
+                <span class="evolution-timestamp" id="evolution-timestamp"></span>
+              </div>
+              <div class="evolution-log-body" id="evolution-log-body"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- TAB PANEL 7: CENTRAL DO AGENTE OMP (WORKFLOWS SEM API)     -->
+        <!-- ========================================================= -->
+        <div class="harness-tab-panel" id="tab-panel-agent">
+          <div class="panel-header-box">
+            <div>
+              <h2 class="panel-title">Central do Agente OMP (Sem Dependência de API Externa)</h2>
+              <p class="panel-desc">
+                Como você utiliza o Oh My Pi com seus próprios modelos e assinaturas integradas, use os fluxos de trabalho e comandos abaixo. Basta clicar em <strong>Copiar Prompt</strong> e enviar no terminal para o seu agente executar!
+              </p>
+            </div>
+          </div>
+
+          <div class="agent-workflows-grid">
+            
+            <!-- Workflow 1: Mock Interview -->
+            <div class="bezel-card workflow-card">
+              <div class="bezel-core">
+                <div class="workflow-header">
+                  <span class="mode-badge badge-amber">Bolsa de Estudos</span>
+                  <button class="btn-copy-prompt" data-target="prompt-interview">
+                    <span class="btn-text">Copiar Prompt</span>
+                    <span class="btn-badge-icon">📋</span>
+                  </button>
+                </div>
+                <h3 class="workflow-title">Simulação de Banca de Entrevista da Bolsa</h3>
+                <p class="workflow-desc">
+                  O agente atua como o Comitê de Bolsas Inteli e a Assistente Social, aplicando perguntas reais sobre trajetória, Give-Back e contexto socioeconômico.
+                </p>
+                <div class="prompt-preview-box">
+                  <code id="prompt-interview">Você é a banca avaliadora do Comitê de Bolsas do Inteli. Com base nas diretrizes oficiais em docs/edital-bolsa.md e no meu perfil, conduza uma rodada de simulação de entrevista com 3 perguntas profundas: 1) Trajetória e desafios de vida; 2) Paixão por tecnologia e liderança; 3) Visão de impacto e Give-Back cultural. Faça uma pergunta por vez, aguarde minha resposta e depois me forneça feedback sincero e notas de calibração.</code>
+                </div>
+              </div>
+            </div>
+
+            <!-- Workflow 2: Essay Review -->
+            <div class="bezel-card workflow-card">
+              <div class="bezel-core">
+                <div class="workflow-header">
+                  <span class="mode-badge badge-indigo">Eixo Perfil</span>
+                  <button class="btn-copy-prompt" data-target="prompt-essay">
+                    <span class="btn-text">Copiar Prompt</span>
+                    <span class="btn-badge-icon">📋</span>
+                  </button>
+                </div>
+                <h3 class="workflow-title">Revisão Crítica do Ensaio de Liderança (Método STAR)</h3>
+                <p class="workflow-desc">
+                  O agente analisa seu rascunho de redação para o Eixo Perfil, identificando se há evidências concretas de iniciativa, colaboração sem egocentrismo e impacto mensurável.
+                </p>
+                <div class="prompt-preview-box">
+                  <code id="prompt-essay">Analise meu rascunho de redação para o Eixo Perfil do Vestibular Inteli usando os critérios rigorosos documentados em docs/guia-preparacao.md. Avalie: 1) Estrutura STAR (Situação, Tarefa, Ação, Resultado); 2) Demonstração de liderança servidora e espírito de equipe; 3) Impacto tangível; 4) Eliminação de clichês. Aqui está o meu texto: [COLE SUA REDAÇÃO AQUI]</code>
+                </div>
+              </div>
+            </div>
+
+            <!-- Workflow 3: Error Deconstruction -->
+            <div class="bezel-card workflow-card">
+              <div class="bezel-core">
+                <div class="workflow-header">
+                  <span class="mode-badge badge-emerald">Recuperação Ativa</span>
+                  <button class="btn-copy-prompt" data-target="prompt-errors">
+                    <span class="btn-text">Copiar Prompt</span>
+                    <span class="btn-badge-icon">📋</span>
+                  </button>
+                </div>
+                <h3 class="workflow-title">Desmistificação de Questões Difíceis & Falácias</h3>
+                <p class="workflow-desc">
+                  O agente lê as questões que você errou em data/student-performance.json e monta um roteiro socratiano de desconstrução das armadilhas da banca.
+                </p>
+                <div class="prompt-preview-box">
+                  <code id="prompt-errors">Leia minha telemetria em data/student-performance.json e identifique as questões em que errei no último simulado. Abra platform/data/questions.json, analise exatamente o motivo pelo qual o distrator que escolhi é sedutor mas matematicamente incorreto, me explique o conceito intuitivo e crie uma questão gêmea inédita para eu responder agora.</code>
+                </div>
+              </div>
+            </div>
+
+            <!-- Workflow 4: Custom Topic Lesson Generation -->
+            <div class="bezel-card workflow-card">
+              <div class="bezel-core">
+                <div class="workflow-header">
+                  <span class="mode-badge badge-cyan">Motor Tufte</span>
+                  <button class="btn-copy-prompt" data-target="prompt-custom-lesson">
+                    <span class="btn-text">Copiar Prompt</span>
+                    <span class="btn-badge-icon">📋</span>
+                  </button>
+                </div>
+                <h3 class="workflow-title">Geração de Lição Especializada em Tópico Livre</h3>
+                <p class="workflow-desc">
+                  Comando para o agente gerar uma lição inédita sobre qualquer assunto complexo com estética Tufte e avaliá-la com o motor pedagógico.
+                </p>
+                <div class="prompt-preview-box">
+                  <code id="prompt-custom-lesson">Execute o workflow de geração de aula sobre o tema "[SEU TÓPICO AQUI]". Crie a lição seguindo estritamente as regras de Edward Tufte em assets/lesson.css, vincule a assets/quiz.js com 3 perguntas desafiadoras de simetria balanceada e execute node bin/eval-lesson.mjs para garantir nota &ge; 90 antes de me entregar.</code>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- CLI Quick Reference Card -->
+          <div class="bezel-card cli-tips-card">
+            <div class="bezel-core">
+              <h3 class="section-title">Comandos Rápidos no Terminal (CLI do Harness)</h3>
+              <div class="cli-table-wrap">
+                <table class="cli-table">
+                  <thead>
+                    <tr>
+                      <th>Comando</th>
+                      <th>O que faz</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>node bin/inteli.mjs status</code></td>
+                      <td>Exibe o painel de telemetria completo, acertos por tópico e fraquezas prioritárias.</td>
+                    </tr>
+                    <tr>
+                      <td><code>node bin/inteli.mjs quiz [topico]</code></td>
+                      <td>Treino rápido de questões oficiais direto no terminal com resolução comentada.</td>
+                    </tr>
+                    <tr>
+                      <td><code>node bin/inteli.mjs ask "&lt;pergunta&gt;"</code></td>
+                      <td>Pesquisa semântica instantânea nos editais e guias de bolsa com citação de arquivos.</td>
+                    </tr>
+                    <tr>
+                      <td><code>node bin/inteli.mjs lesson &lt;topico&gt;</code></td>
+                      <td>Gera uma lição Tufte com recuperação ativa e roda a suíte de evals imediatamente.</td>
+                    </tr>
+                    <tr>
+                      <td><code>node bin/inteli.mjs evals</code></td>
+                      <td>Roda a bateria de testes de qualidade pedagógica em todas as aulas em <code>lessons/</code>.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
       </section>
 
       <!-- ============================================================= -->
@@ -297,17 +690,15 @@
           </div>
         </div>
 
-        <!-- 2-Column Main Runner Workspace -->
         <div class="runner-layout">
           
-          <!-- Left Column: Question Presentation & Controls -->
-          <div class="runner-left-col">
-            
-            <div class="bezel-card question-main-card">
+          <!-- Main Left/Center Question Canvas -->
+          <div class="question-main-pane">
+            <div class="bezel-card question-card">
               <div class="bezel-core question-core">
                 
-                <!-- Question Meta Strip -->
-                <div class="question-meta-strip">
+                <!-- Question Top Meta Bar -->
+                <div class="question-meta-bar">
                   <div class="meta-tag-group">
                     <span class="badge-tag badge-topic" id="q-meta-topic">Matemática</span>
                     <span class="badge-tag badge-subtopic" id="q-meta-subtopic">Subtópico</span>
@@ -355,8 +746,8 @@
               </div>
             </div>
 
-            <!-- Bottom Navigation Bar -->
-            <div class="runner-bottom-bar">
+            <!-- Bottom Question Navigation Controls -->
+            <div class="runner-bottom-controls">
               <div class="bottom-left-actions">
                 <button class="btn-secondary-bezel" id="btn-prev-q">
                   <span class="btn-badge-icon">←</span>
@@ -381,22 +772,25 @@
                 </button>
               </div>
             </div>
-
           </div>
 
-          <!-- Right Column: Question Palette Matrix & Scratchpad Tabs -->
-          <aside class="runner-right-col">
+          <!-- Right Navigation Matrix Sidebar -->
+          <aside class="runner-sidebar">
             
-            <!-- Matrix Palette Bezel Card -->
-            <div class="bezel-card palette-card">
-              <div class="bezel-core palette-core">
-                <div class="palette-header">
-                  <div class="palette-title">Mapa de Questões</div>
-                  <div class="palette-legend">
-                    <span class="legend-item"><span class="dot dot-answered"></span> Feita</span>
-                    <span class="legend-item"><span class="dot dot-flagged"></span> Marcada</span>
-                    <span class="legend-item"><span class="dot dot-unanswered"></span> Aberta</span>
-                  </div>
+            <!-- Question Palette Card -->
+            <div class="bezel-card matrix-card">
+              <div class="bezel-core matrix-core">
+                <div class="sidebar-card-header">
+                  <span class="sidebar-title">Mapa da Prova</span>
+                  <span class="matrix-legend-tip">Clique para navegar</span>
+                </div>
+
+                <!-- Matrix Legend -->
+                <div class="matrix-legend-row">
+                  <div class="legend-item"><span class="legend-dot dot-current"></span> Atual</div>
+                  <div class="legend-item"><span class="legend-dot dot-answered"></span> Feita</div>
+                  <div class="legend-item"><span class="legend-dot dot-flagged"></span> ⚑ Revisar</div>
+                  <div class="legend-item"><span class="legend-dot dot-empty"></span> Em branco</div>
                 </div>
 
                 <!-- Matrix Grid -->
@@ -404,7 +798,6 @@
                   <!-- 20 question buttons generated dynamically -->
                 </div>
 
-                <!-- Quick Stats inside Palette -->
                 <div class="matrix-summary-row">
                   <div class="summary-chip">
                     <span class="chip-label">Respondidas:</span>
@@ -423,8 +816,8 @@
               <div class="bezel-core scratchpad-core">
                 <div class="scratchpad-header">
                   <div class="scratchpad-title">
-                    <span>✎ Rascunho Digital</span>
-                    <span class="scratchpad-hint">Cálculos & Raciocínio</span>
+                    <span class="scratch-icon">✎</span>
+                    <span>Rascunho Rápido</span>
                   </div>
                   <div class="scratchpad-tools">
                     <button class="tool-btn active" id="tool-pen" title="Caneta">✏</button>
@@ -432,14 +825,12 @@
                     <div class="color-picker-group">
                       <span class="color-swatch swatch-cyan active" data-color="#06b6d4" title="Ciano"></span>
                       <span class="color-swatch swatch-yellow" data-color="#f59e0b" title="Amarelo"></span>
-                      <span class="color-swatch swatch-emerald" data-color="#10b981" title="Verde"></span>
                       <span class="color-swatch swatch-white" data-color="#ffffff" title="Branco"></span>
                     </div>
                     <button class="tool-btn btn-clear-canvas" id="btn-clear-scratchpad" title="Limpar Todo o Rascunho">🗑</button>
                   </div>
                 </div>
 
-                <!-- Canvas Element -->
                 <div class="canvas-wrapper">
                   <canvas id="scratchpad-canvas" width="340" height="260"></canvas>
                 </div>
@@ -452,30 +843,28 @@
           </aside>
 
         </div>
-
       </section>
 
       <!-- ============================================================= -->
-      <!-- SCREEN 3: RESULTS & PEDAGOGICAL ANALYTICS                     -->
+      <!-- SCREEN 3: RESULTS & ANALYTICS DASHBOARD                       -->
       <!-- ============================================================= -->
       <section id="screen-results" class="view-screen screen-results" style="display: none;">
-        
+
         <div class="results-container">
-          
-          <!-- Results Top Banner & Score Card -->
-          <div class="results-hero-grid">
-            
-            <!-- Left Score Bezel Card -->
-            <div class="bezel-card result-score-card">
-              <div class="bezel-core result-score-core">
+
+          <!-- Hero Score Card (Double-Bezel) -->
+          <div class="bezel-card hero-score-card">
+            <div class="bezel-core hero-score-core">
+              
+              <div class="score-top-row">
                 <div class="score-badge-row">
                   <span class="badge-tag badge-emerald" id="res-mode-badge">Simulado Concluído</span>
                   <span class="res-date-label" id="res-date-label">Hoje</span>
                 </div>
 
                 <div class="score-main-display">
-                  <div class="score-ring-wrap">
-                    <svg class="score-svg-circle" viewBox="0 0 160 160">
+                  <div class="score-radial-wrap">
+                    <svg class="radial-svg" viewBox="0 0 160 160">
                       <circle class="circle-bg" cx="80" cy="80" r="70"></circle>
                       <circle class="circle-progress" id="score-circle-progress" cx="80" cy="80" r="70"></circle>
                     </svg>
@@ -485,8 +874,8 @@
                     </div>
                   </div>
 
-                  <div class="score-details-col">
-                    <div class="proficiency-tag-wrap">
+                  <div class="score-feedback-text">
+                    <div class="prof-label-wrap">
                       <span class="prof-label">Nível Estimado Inteli:</span>
                       <div class="prof-title" id="res-prof-title">Trilha Superior (Perfil Bolsa 100%)</div>
                       <p class="prof-description" id="res-prof-desc">
@@ -494,7 +883,7 @@
                       </p>
                     </div>
 
-                    <div class="quick-metrics-row">
+                    <div class="score-metrics-grid">
                       <div class="q-metric-box">
                         <span class="m-val text-emerald" id="res-correct-count">17</span>
                         <span class="m-lbl">Acertos</span>
@@ -520,8 +909,8 @@
                 </div>
 
               </div>
-            </div>
 
+            </div>
           </div>
 
           <!-- Weak Spots & Dynamic Lesson Generation Banner -->
@@ -529,11 +918,13 @@
             <div class="bezel-core weak-spots-core">
               <div class="weak-header-row">
                 <div class="weak-title-group">
-                  <span class="weak-badge">DIAGNÓSTICO PEDAGÓGICO DE LACUNAS</span>
-                  <h3 class="weak-main-title">Pontos Críticos Identificados para Reforço Imediato</h3>
-                  <p class="weak-desc">
-                    O sistema de avaliação do Harness cruzou suas respostas com o edital do vestibular e mapeou onde você perdeu pontos valiosos:
-                  </p>
+                  <div class="icon-warning-bezel">⚡</div>
+                  <div>
+                    <h3 class="weak-title">Diagnóstico de Fraquezas & Reforço Pedagógico Sob Demanda</h3>
+                    <p class="weak-desc">
+                      Detectamos lacunas nos tópicos abaixo. Você pode gerar lições interativas no padrão Tufte imediatamente com o motor integrado.
+                    </p>
+                  </div>
                 </div>
               </div>
 
@@ -556,30 +947,32 @@
                   </a>
                 </div>
               </div>
-
             </div>
           </div>
 
-          <!-- Topic Performance Breakdown Bars -->
-          <div class="bezel-card topic-breakdown-card">
-            <div class="bezel-core topic-breakdown-core">
-              <h3 class="section-title">Acurácia Detalhada por Tópico do Edital</h3>
-              <p class="section-desc">Desempenho relativo nas 6 competências nucleares do Vestibular e Prova Adaptativa Inteli:</p>
-              
+          <!-- Subject Breakdown Progress Bars -->
+          <div class="bezel-card breakdown-card">
+            <div class="bezel-core">
+              <div class="card-header-bar">
+                <h3 class="section-title">Desempenho Discriminado por Eixo Temático</h3>
+                <span class="card-tip">Meta de aprovação da Bolsa: &ge; 80% em cada eixo</span>
+              </div>
+
               <div class="topic-bars-container" id="topic-bars-container">
                 <!-- Dynamic Progress Bars for each topic -->
               </div>
             </div>
           </div>
 
-          <!-- Full Question-by-Question Review Accordion -->
-          <div class="bezel-card review-accordion-card">
-            <div class="bezel-core review-core">
+          <!-- Detailed Question-by-Question Review Accordion -->
+          <div class="bezel-card review-card">
+            <div class="bezel-core">
               <div class="review-header-bar">
                 <div>
-                  <h3 class="section-title">Gabarito Comentado & Análise Questão a Questão</h3>
-                  <p class="section-desc">Revise o raciocínio formal, o distrator em que você caiu e a heurística de prova para cada item:</p>
+                  <h3 class="section-title">Gabarito e Resoluções Comentadas Passo a Passo</h3>
+                  <p class="card-tip">Revise os distratores, armadilhas conceituais e os insights chave de cada item.</p>
                 </div>
+
                 <div class="filter-pills-row">
                   <button class="filter-pill active" data-filter="all">Todas (<span id="count-filter-all">20</span>)</button>
                   <button class="filter-pill" data-filter="wrong">Erros (<span id="count-filter-wrong">0</span>)</button>
@@ -595,7 +988,7 @@
             </div>
           </div>
 
-          <!-- Action Buttons Bottom -->
+          <!-- Bottom Action Buttons -->
           <div class="results-actions-footer">
             <button class="btn-secondary-bezel btn-lg" id="btn-results-home">
               <span class="btn-badge-icon">←</span>
@@ -612,13 +1005,12 @@
       </section>
 
     </main>
-
   </div>
 
   <!-- Notification Toast Container -->
   <div id="toast-container" class="toast-container"></div>
 
   <!-- Main JavaScript App -->
-  <script type="module" src="app.js"></script>
+  <script type="module" src="app.js?v=portal2"></script>
 </body>
 </html>

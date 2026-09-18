@@ -216,6 +216,38 @@ async function runSelfTest(serverInstance) {
     }
   });
 
+  // Test 8: GET /api/docs-catalog
+  await testRoute('GET /api/docs-catalog (Catálogo de Dossiês)', async () => {
+    const res = await fetch(`${url}api/docs-catalog`);
+    if (res.status !== 200) throw new Error(`Status esperado 200, obteve ${res.status}`);
+    const json = await res.json();
+    if (!json.success || !Array.isArray(json.docs)) throw new Error('docs array esperado');
+  });
+
+  // Test 9: GET /api/doc-content
+  await testRoute('GET /api/doc-content (Leitor de Dossiê)', async () => {
+    const res = await fetch(`${url}api/doc-content?file=docs/edital-vestibular.md`);
+    if (res.status !== 200) throw new Error(`Status esperado 200, obteve ${res.status}`);
+    const json = await res.json();
+    if (!json.success || !json.content) throw new Error('content esperado');
+  });
+
+  // Test 10: GET /api/raw-files
+  await testRoute('GET /api/raw-files (Biblioteca de PDFs)', async () => {
+    const res = await fetch(`${url}api/raw-files`);
+    if (res.status !== 200) throw new Error(`Status esperado 200, obteve ${res.status}`);
+    const json = await res.json();
+    if (!json.success || !Array.isArray(json.files)) throw new Error('files array esperado');
+  });
+
+  // Test 11: GET /api/harness-health
+  await testRoute('GET /api/harness-health (Auditoria de Saúde do Harness)', async () => {
+    const res = await fetch(`${url}api/harness-health`);
+    if (res.status !== 200) throw new Error(`Status esperado 200, obteve ${res.status}`);
+    const json = await res.json();
+    if (!json.success || !json.health) throw new Error('health esperado');
+  });
+
   // Stop server
   await stop();
 

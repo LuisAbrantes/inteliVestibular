@@ -6,7 +6,7 @@ import readline from 'node:readline';
 import { fileURLToPath } from 'node:url';
 import { generateLesson, getAvailableBlueprints } from '../src/lessons/generator.mjs';
 import { evaluateLessonFile } from '../src/evals/evaluator.mjs';
-
+import { auditHarnessHealth, evolveHarness } from '../src/evals/harness-evolver.mjs';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.resolve(__dirname, '..');
@@ -127,6 +127,9 @@ function showStatus() {
   console.log(`   ${cyan('inteli quiz [topico]')}     Treino interativo de questões no terminal`);
   console.log(`   ${cyan('inteli lesson <topico>')}   Gera uma lição Tufte com recuperação ativa sob demanda`);
   console.log(`   ${cyan('inteli evals')}             Roda a suíte de avaliações pedagógicas nas lições`);
+  console.log(`   ${cyan('inteli health')}            Auditoria de saúde curricular do harness baseada em uso`);
+  console.log(`   ${cyan('inteli evolve')}            Auto-aprimoramento contínuo do harness (gera aulas para lacunas)`);
+  console.log(`   ${cyan('inteli agent')}             Acessa os fluxos de trabalho e prompts prontos para o Agente OMP`);
   console.log(`   ${cyan('inteli ask "<duvida>"')}    Consulta imediata nos editais e guias oficiais`);
   console.log(`   ${cyan('inteli topics')}            Lista os conteúdos mais cobrados com % de recorrência`);
   console.log(`   ${cyan('inteli roadmap')}           Exibe o cronograma estratégico de 8 semanas`);
@@ -310,6 +313,78 @@ function startSimPlatform() {
     stdio: 'inherit'
   });
 }
+async function showHealth() {
+  printBanner();
+  console.log(bold('🔬 AUDITORIA DE SAÚDE CURRICULAR DO HARNESS (BASEADA EM USO):\n'));
+  const health = await auditHarnessHealth();
+  console.log(`  • Índice Geral de Saúde:     ${health.overallHarnessScore >= 80 ? green(health.overallHarnessScore + '/100') : yellow(health.overallHarnessScore + '/100')}`);
+  console.log(`  • Cobertura Curricular:      ${cyan(health.coverageScore + '%')}`);
+  console.log(`  • Rendimento do Estudante:   ${health.masteryScore >= 80 ? green(health.masteryScore + '%') : yellow(health.masteryScore + '%')}`);
+  console.log(`  • Lições Tufte Ativas:       ${green(health.totalLessons)}`);
+  console.log(`  • Questões no Banco:         ${green(health.totalQuestions)}`);
+
+  console.log(bold('\n📊 COBERTURA & RENDIMENTO POR TÓPICO DO EDITAL:'));
+  for (const [topic, d] of Object.entries(health.topicCoverage)) {
+    const accStr = d.studentAccuracy !== null ? `${d.studentAccuracy}%` : 'Sem testes';
+    const statusColor = d.status === 'HEALTHY' ? green : d.status === 'STUDENT_STRUGGLING' ? red : yellow;
+    console.log(`  • ${topic.padEnd(36)} [${d.lessonsCount} lições | ${d.questionsCount} questões] Acurácia: ${statusColor(accStr.padEnd(10))} Status: ${statusColor(d.status)}`);
+  }
+
+  if (health.actionableGaps && health.actionableGaps.length > 0) {
+    console.log(bold('\n⚠️  LACUNAS E AÇÕES DE AUTO-APRIMORAMENTO RECOMENDADAS:'));
+    health.actionableGaps.forEach((g, i) => {
+      console.log(`  ${i + 1}. [${red(g.urgency)}] ${bold(g.topic)}: ${dim(g.reason)}`);
+    });
+    console.log(`\n  Para fechar todas as lacunas automaticamente, execute: ${cyan('inteli evolve')}`);
+  }
+  console.log();
+}
+
+async function runHarnessEvolution() {
+  printBanner();
+  console.log(bold('⚡ INICIANDO CICLO DE AUTO-EVOLUÇÃO DO HARNESS...\n'));
+  console.log(dim('Analisando telemetria de uso, identificando fraquezas e gerando lições sob demanda...'));
+  const evo = await evolveHarness();
+  console.log(green(`\n✔ Ciclo concluído com sucesso!`));
+  console.log(`  • Pontuação anterior: ${evo.priorScore}/100 ➔ Nova pontuação: ${bold(green(evo.updatedScore + '/100'))}`);
+  console.log(`  • Novas lições didáticas geradas: ${evo.lessonsGenerated.length}`);
+  evo.lessonsGenerated.forEach(l => {
+    console.log(`    - ${l.topic} (${l.grade} • ${l.pedagogicalScore}/100) -> ${dim(l.fileName)}`);
+  });
+  console.log(`  • Registro de aprendizagem salvo em: ${cyan('learning-records/' + evo.learningRecordsCreated.join(', '))}`);
+  console.log(`\nO Harness foi aprimorado para suas necessidades específicas de estudo!\n`);
+}
+
+function showAgentPrompts() {
+  printBanner();
+  console.log(bold('🤖 CENTRAL DE WORKFLOWS DO AGENTE OMP (SEUS MODELOS INTEGRADOS):\n'));
+  console.log('Como você usa o Oh My Pi com seus próprios modelos integrados, envie os prompts abaixo');
+  console.log('diretamente no chat para que eu atue como seu mentor especializado:\n');
+
+  const workflows = [
+    {
+      title: '1. Simulação de Banca de Entrevista da Bolsa de Estudos Inteli',
+      prompt: 'Você é a banca avaliadora do Comitê de Bolsas do Inteli. Com base nas diretrizes oficiais em docs/edital-bolsa.md e no meu perfil, conduza uma rodada de simulação de entrevista com 3 perguntas profundas: 1) Trajetória e desafios de vida; 2) Paixão por tecnologia e liderança; 3) Visão de impacto e Give-Back cultural. Faça uma pergunta por vez, aguarde minha resposta e depois me forneça feedback sincero e notas de calibração.'
+    },
+    {
+      title: '2. Revisão Crítica do Ensaio de Liderança (Eixo Perfil - Método STAR)',
+      prompt: 'Analise meu rascunho de redação para o Eixo Perfil do Vestibular Inteli usando os critérios rigorosos documentados em docs/guia-preparacao.md. Avalie: 1) Estrutura STAR (Situação, Tarefa, Ação, Resultado); 2) Demonstração de liderança servidora e espírito de equipe; 3) Impacto tangível; 4) Eliminação de clichês. Aqui está o meu texto: [COLE SUA REDAÇÃO AQUI]'
+    },
+    {
+      title: '3. Desmistificação de Questões Difíceis que Errei no Simulado',
+      prompt: 'Leia minha telemetria em data/student-performance.json e identifique as questões em que errei no último simulado. Abra platform/data/questions.json, analise exatamente o motivo pelo qual o distrator que escolhi é sedutor mas matematicamente incorreto, me explique o conceito intuitivo e crie uma questão gêmea inédita para eu responder agora.'
+    },
+    {
+      title: '4. Geração de Lição Especializada em Tópico Livre',
+      prompt: 'Execute o workflow de geração de aula sobre o tema "[SEU TÓPICO AQUI]". Crie a lição seguindo estritamente as regras de Edward Tufte em assets/lesson.css, vincule a assets/quiz.js com 3 perguntas desafiadoras de simetria balanceada e execute node bin/eval-lesson.mjs para garantir nota >= 90 antes de me entregar.'
+    }
+  ];
+
+  workflows.forEach(w => {
+    console.log(cyan(bold(w.title)));
+    console.log(dim(w.prompt) + '\n');
+  });
+}
 
 async function main() {
   const args = process.argv.slice(2);
@@ -334,6 +409,16 @@ async function main() {
       break;
     case 'roadmap':
       showRoadmap();
+      break;
+    case 'health':
+    case 'harness-eval':
+      await showHealth();
+      break;
+    case 'evolve':
+      await runHarnessEvolution();
+      break;
+    case 'agent':
+      showAgentPrompts();
       break;
     case 'lesson': {
       const topic = args[1] || 'combinatoria';

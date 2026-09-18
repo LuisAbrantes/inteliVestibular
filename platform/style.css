@@ -1953,3 +1953,696 @@ body {
   border-color: rgba(99, 102, 241, 0.5);
   color: #c7d2fe;
 }
+
+/* ==========================================================================
+   GLOBAL HARNESS NAVIGATION TABS & UNIFIED HUB STYLES
+   ========================================================================== */
+
+.harness-tabs-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding: 0.5rem;
+  margin-bottom: 2rem;
+  background-color: var(--bg-surface-1);
+  border: 1px solid var(--border-subtle);
+  border-radius: 9999px;
+  width: max-content;
+  max-width: 100%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.tab-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: 9999px;
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tab-nav-btn:hover {
+  color: var(--text-primary);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.tab-nav-btn.active {
+  color: #ffffff;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(16, 185, 129, 0.25));
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: 0 0 16px rgba(99, 102, 241, 0.2);
+}
+
+.tab-nav-agent.active {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.3), rgba(6, 182, 212, 0.3));
+  border-color: rgba(16, 185, 129, 0.6);
+}
+
+.tab-badge {
+  font-size: 0.72rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+  background-color: var(--bg-surface-3);
+  color: var(--text-secondary);
+}
+
+.tab-nav-btn.active .tab-badge {
+  background-color: var(--indigo-subtle);
+  color: #c7d2fe;
+}
+
+.tab-badge.badge-pulse {
+  background-color: rgba(16, 185, 129, 0.2);
+  color: #a7f3d0;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.harness-tab-panel {
+  display: none;
+  animation: panel-fade 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.harness-tab-panel.active {
+  display: block;
+}
+
+@keyframes panel-fade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.panel-header-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.panel-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.panel-desc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   AULAS & LIÇÕES TUFTE STYLES
+   ========================================================================== */
+
+.lessons-filter-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.search-input-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.bezel-input {
+  width: 100%;
+  padding: 0.85rem 1rem 0.85rem 2.75rem;
+  background-color: var(--bg-surface-1);
+  border: 1px solid var(--border-medium);
+  border-radius: 14px;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.bezel-input:focus {
+  border-color: var(--indigo);
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.3);
+}
+
+.topic-chips-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-chip {
+  padding: 0.4rem 0.9rem;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  background-color: var(--bg-surface-2);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-chip:hover {
+  color: var(--text-primary);
+  border-color: var(--border-medium);
+}
+
+.filter-chip.active {
+  background-color: var(--indigo-subtle);
+  color: #c7d2fe;
+  border-color: rgba(99, 102, 241, 0.5);
+}
+
+.lessons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.5rem;
+}
+
+.lesson-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.lesson-card .bezel-core {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.5rem;
+}
+
+.lesson-top-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.lesson-number-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--indigo);
+  font-weight: 600;
+}
+
+.lesson-eval-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #6ee7b7;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.lesson-card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.lesson-card-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+
+.lesson-footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+  margin-top: auto;
+}
+
+.lesson-time-tag {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.btn-open-lesson {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 8px;
+  background-color: var(--indigo-subtle);
+  color: #c7d2fe;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid rgba(99, 102, 241, 0.4);
+  transition: all 0.2s;
+}
+
+.btn-open-lesson:hover {
+  background-color: var(--indigo);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   EDITAIS & DOSSIÊS (LEITOR INTERATIVO)
+   ========================================================================== */
+
+.docs-browser-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 1.5rem;
+  min-height: 600px;
+}
+
+@media (max-width: 900px) {
+  .docs-browser-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.docs-sidebar {
+  background-color: var(--bg-surface-1);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 1.25rem;
+  height: fit-content;
+}
+
+.sidebar-heading {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.docs-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.doc-nav-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s;
+}
+
+.doc-nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.doc-nav-item.active {
+  background-color: var(--bg-surface-3);
+  border-color: var(--border-medium);
+}
+
+.doc-item-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.doc-item-cat {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.doc-content-viewer {
+  background-color: var(--bg-surface-1);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 2rem;
+  overflow-y: auto;
+  max-height: 750px;
+}
+
+.doc-viewer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 1.5rem;
+}
+
+.doc-viewer-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0.4rem 0 0.2rem 0;
+}
+
+.doc-file-path {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.markdown-body-render {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.markdown-body-render h1,
+.markdown-body-render h2,
+.markdown-body-render h3 {
+  color: #ffffff;
+  margin-top: 1.8rem;
+  margin-bottom: 0.75rem;
+}
+
+.markdown-body-render h1 { font-size: 1.6rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.5rem; }
+.markdown-body-render h2 { font-size: 1.3rem; }
+.markdown-body-render h3 { font-size: 1.1rem; }
+
+.markdown-body-render p { margin-bottom: 1rem; color: #d1d5db; }
+.markdown-body-render ul, .markdown-body-render ol { margin: 1rem 0 1rem 1.5rem; }
+.markdown-body-render li { margin-bottom: 0.4rem; color: #d1d5db; }
+
+.markdown-body-render table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.88rem;
+}
+
+.markdown-body-render th,
+.markdown-body-render td {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-medium);
+  text-align: left;
+}
+
+.markdown-body-render th {
+  background-color: var(--bg-surface-2);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.markdown-body-render code {
+  font-family: 'JetBrains Mono', monospace;
+  background-color: rgba(255, 255, 255, 0.08);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.markdown-body-render pre code {
+  display: block;
+  padding: 1rem;
+  background-color: #030305;
+  border-radius: 12px;
+  border: 1px solid var(--border-medium);
+  overflow-x: auto;
+}
+
+/* ==========================================================================
+   PDFS OFICIAIS & FOLHAS DE CONSULTA
+   ========================================================================== */
+
+.raw-files-grid,
+.references-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.raw-file-card .bezel-core,
+.reference-card .bezel-core {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.file-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.file-size-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--cyan);
+  background-color: rgba(6, 182, 212, 0.1);
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+}
+
+.file-name-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.file-desc-text {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+
+.btn-download-pdf {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(16, 185, 129, 0.2));
+  border: 1px solid rgba(99, 102, 241, 0.4);
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.btn-download-pdf:hover {
+  border-color: var(--indigo);
+  box-shadow: 0 0 16px rgba(99, 102, 241, 0.3);
+}
+
+/* ==========================================================================
+   AUTO-EVOLUÇÃO & CENTRAL DO AGENTE OMP
+   ========================================================================== */
+
+.evals-summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.eval-metric-card .bezel-core {
+  padding: 1.5rem;
+}
+
+.metric-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.metric-value-huge {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+}
+
+.metric-sub {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.evals-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 900px) {
+  .evals-detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.evolution-output-card {
+  margin-top: 1.5rem;
+  border-radius: 16px;
+  background-color: var(--bg-surface-2);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.evolution-output-card .bezel-core {
+  padding: 1.5rem;
+}
+
+.evolution-log-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.agent-workflows-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.workflow-card .bezel-core {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.workflow-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.btn-copy-prompt {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  background-color: var(--bg-surface-3);
+  border: 1px solid var(--border-medium);
+  color: var(--text-primary);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-copy-prompt:hover {
+  background-color: var(--indigo-subtle);
+  border-color: var(--indigo);
+  color: #ffffff;
+}
+
+.workflow-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.workflow-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.prompt-preview-box {
+  background-color: #030305;
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 0.85rem;
+  font-size: 0.82rem;
+  color: #a5b4fc;
+  line-height: 1.5;
+  max-height: 120px;
+  overflow-y: auto;
+  font-family: 'JetBrains Mono', monospace;
+  margin-top: auto;
+}
+
+.cli-tips-card .bezel-core {
+  padding: 1.5rem;
+}
+
+.cli-table-wrap {
+  overflow-x: auto;
+}
+
+.cli-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.cli-table th,
+.cli-table td {
+  padding: 0.85rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.cli-table th {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cli-table td code {
+  color: var(--emerald);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+}
+
+.health-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background-color: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  display: inline-block;
+  margin-right: 0.4rem;
+}
+
+.btn-agent-quick {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.3), rgba(6, 182, 212, 0.3));
+  border-color: rgba(16, 185, 129, 0.5);
+}

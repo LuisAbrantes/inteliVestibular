@@ -13,7 +13,7 @@ import net from 'node:net';
 import { fileURLToPath } from 'node:url';
 import { generateLesson } from '../src/lessons/generator.mjs';
 import { evaluateLesson } from '../src/evals/evaluator.mjs';
-
+import { auditHarnessHealth, evolveHarness } from '../src/evals/harness-evolver.mjs';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 export const REPO_ROOT = path.resolve(__dirname, '..');
@@ -542,7 +542,94 @@ export async function handleRequest(req, res) {
     sendJson(res, 200, catalog);
     return;
   }
+  // GET /api/harness-health
+  if (pathname === '/api/harness-health' && method === 'GET') {
+    try {
+      const health = await auditHarnessHealth();
+      sendJson(res, 200, { success: true, health });
+    } catch (err) {
+      sendError(res, 500, `Falha ao auditar saúde do harness: ${err.message}`);
+    }
+    return;
+  }
 
+  // POST /api/harness-evolve
+  if (pathname === '/api/harness-evolve' && method === 'POST') {
+    try {
+      const evolution = await evolveHarness();
+      sendJson(res, 200, { success: true, evolution });
+    } catch (err) {
+      sendError(res, 500, `Falha ao evoluir harness: ${err.message}`);
+    }
+    return;
+  }
+
+  // GET /api/docs-catalog
+  if (pathname === '/api/docs-catalog' && method === 'GET') {
+    const docs = [
+      { id: 'edital-vestibular', title: 'Edital do Vestibular & Regras Oficiais', file: 'docs/edital-vestibular.md', category: 'Vestibular' },
+      { id: 'edital-bolsa', title: 'Edital de Bolsas Integrais & Auxílios', file: 'docs/edital-bolsa.md', category: 'Bolsas' },
+      { id: 'analise-conteudos-provas', title: 'Análise Estatística de Provas Anteriores', file: 'docs/analise-conteudos-provas.md', category: 'Provas' },
+      { id: 'guia-preparacao', title: 'Guia Estratégico do Candidato (8 Semanas)', file: 'docs/guia-preparacao.md', category: 'Estratégia' },
+      { id: 'mission', title: 'Missão do Candidato (Framework Matt Pocock)', file: 'MISSION.md', category: 'Pedagogia' },
+      { id: 'glossary', title: 'Glossário Canônico Inteli', file: 'GLOSSARY.md', category: 'Pedagogia' },
+      { id: 'agent-guide', title: 'Manual do Agente Especialista Inteli', file: 'AGENT.md', category: 'Agente OMP' }
+    ];
+    sendJson(res, 200, { success: true, docs });
+    return;
+  }
+
+  // GET /api/doc-content
+  if (pathname === '/api/doc-content' && method === 'GET') {
+    const docPath = reqUrl.searchParams.get('file') || 'docs/edital-vestibular.md';
+    const targetFile = path.resolve(REPO_ROOT, docPath);
+    if (!targetFile.startsWith(REPO_ROOT) || !fs.existsSync(targetFile)) {
+      sendError(res, 404, 'Documento não encontrado');
+      return;
+    }
+    const content = fs.readFileSync(targetFile, 'utf8');
+    sendJson(res, 200, { success: true, file: docPath, content });
+    return;
+  }
+
+  // GET /api/raw-files
+  if (pathname === '/api/raw-files' && method === 'GET') {
+    const rawDir = path.join(REPO_ROOT, 'data', 'raw');
+    const files = fs.existsSync(rawDir) ? fs.readdirSync(rawDir).filter(f => f.endsWith('.pdf')) : [];
+    const descriptions = {
+      'Provas-Inteli.pdf': 'Caderno Oficial com 86 páginas de Provas Anteriores Inteli (2022 a 2023)',
+      'Gabarito-Final-Prova-PS-2025.1.pdf': 'Caderno e Gabarito Comentado Oficial do Processo Seletivo Adaptativo 2025.1 (77 páginas)',
+      'Edital-Vestibular-2026.pdf': 'Edital Oficial Processo Seletivo Graduação Inteli 2026',
+      'Edital-Bolsas-2027.pdf': 'Edital Oficial Programa de Bolsas de Estudo Inteli 2027 (Ciclo Atual)',
+      'Edital-Bolsas-2026.pdf': 'Edital Oficial Programa de Bolsas de Estudo Inteli 2026',
+      'Edital-Vestibular-2025.pdf': 'Edital Oficial Processo Seletivo Graduação Inteli 2025',
+      'Edital-Bolsas-2025.pdf': 'Edital Oficial Programa de Bolsas de Estudo Inteli 2025',
+      'Book-Bolsistas.pdf': 'Livro de Bolsistas Inteli: Perfis, Trajetórias e Relatos Reais',
+      'Guia-Bolsas-Ebook.pdf': 'Guia Ilustrado do Processo Seletivo de Bolsas de Estudo'
+    };
+    const items = files.map(f => {
+      const stats = fs.statSync(path.join(rawDir, f));
+      return {
+        filename: f,
+        sizeMb: (stats.size / (1024 * 1024)).toFixed(1) + ' MB',
+        description: descriptions[f] || 'Documento Oficial Inteli',
+        url: `/data/raw/${f}`
+      };
+    });
+    sendJson(res, 200, { success: true, files: items });
+    return;
+  }
+
+  // GET /api/references
+  if (pathname === '/api/references' && method === 'GET') {
+    const refs = [
+      { id: 'matematica', title: 'Folha de Consulta: Matemática Aplicada & Otimização', file: 'reference/matematica-inteli.html', url: '/reference/matematica-inteli.html' },
+      { id: 'logica', title: 'Folha de Consulta: Lógica Computacional & Algoritmos', file: 'reference/logica-computacional.html', url: '/reference/logica-computacional.html' },
+      { id: 'financas', title: 'Folha de Consulta: Finanças de Startups & Métricas Tech', file: 'reference/financas-startups.html', url: '/reference/financas-startups.html' }
+    ];
+    sendJson(res, 200, { success: true, references: refs });
+    return;
+  }
   // 404 for unknown /api routes
   if (pathname.startsWith('/api/')) {
     sendError(res, 404, `Rota de API desconhecida: ${method} ${pathname}`);
@@ -575,9 +662,7 @@ export async function handleRequest(req, res) {
       res.writeHead(200, {
         'Content-Type': contentType,
         'Content-Length': stat.size,
-        'Cache-Control': ext === '.html' || ext === '.json'
-          ? 'no-cache, no-store, must-revalidate'
-          : 'public, max-age=3600',
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
         ...CORS_HEADERS,
       });
 

@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lição 0013: Financas-startups: Modelagem Quantitativa para o Vestibular Inteli | Inteli Vestibular</title>
+  
+  <!-- Estilos Externos Oficiais -->
+  <link rel="stylesheet" href="../assets/lesson.css">
+  
+  <!-- Estilos Integrados Fallback (Garante renderização Tufte standalone impecável) -->
+  <style>
+    :root {
+      --bg-color: #fffff8;
+      --text-color: #111111;
+      --accent-color: #8b0000;
+      --accent-secondary: #0a4b78;
+      --card-bg: #f8f8f2;
+      --border-color: #e5e5dc;
+      --sidenote-color: #555555;
+      --success-color: #1e7e34;
+      --error-color: #b21f2d;
+      --font-serif: "Charter", "Bitstream Charter", "Sitka Text", "Cambria", serif;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: "Fira Code", Menlo, Monaco, Consolas, monospace;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      line-height: 1.65;
+      margin: 0;
+      padding: 2rem 1rem;
+      text-rendering: optimizeLegibility;
+    }
+
+    .lesson-container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      position: relative;
+    }
+
+    .lesson-header {
+      border-bottom: 2px solid var(--text-color);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .lesson-badge {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background-color: var(--accent-color);
+      color: #ffffff;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: 0.75rem;
+    }
+
+    .lesson-title {
+      font-size: 2.2rem;
+      line-height: 1.2;
+      font-weight: normal;
+      margin: 0.5rem 0 1rem 0;
+      color: var(--text-color);
+    }
+
+    .lesson-meta {
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      color: var(--sidenote-color);
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .lesson-meta a {
+      color: var(--accent-secondary);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--accent-secondary);
+    }
+
+    .lesson-meta a:hover {
+      border-bottom-style: solid;
+    }
+
+    section {
+      margin-bottom: 3.5rem;
+    }
+
+    h2 {
+      font-family: var(--font-sans);
+      font-size: 1.4rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--accent-color);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.4rem;
+      margin-top: 2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .scenario-box {
+      background-color: var(--card-bg);
+      border-left: 4px solid var(--accent-secondary);
+      padding: 1.5rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0;
+    }
+
+    .scenario-tag {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: var(--accent-secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .concept-item {
+      margin-bottom: 2rem;
+    }
+
+    .concept-term {
+      font-family: var(--font-sans);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-color);
+      margin-bottom: 0.4rem;
+    }
+
+    aside.sidenote {
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      line-height: 1.45;
+      color: var(--sidenote-color);
+      background: #f0f4f8;
+      border-left: 3px solid var(--accent-secondary);
+      padding: 0.6rem 0.9rem;
+      margin: 0.8rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .formula-card {
+      background: #fafaf5;
+      border: 1px solid #dcdcd0;
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    }
+
+    .formula-card-title {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: bold;
+      color: var(--accent-color);
+      margin-bottom: 0.8rem;
+    }
+
+    .formula-row {
+      margin-bottom: 0.6rem;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+    }
+
+    .formula-math {
+      font-family: var(--font-mono);
+      background: #eef2f5;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-weight: bold;
+      color: #0b3d60;
+      display: inline-block;
+      margin-left: 0.3rem;
+    }
+
+    .formula-tip {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      color: #555;
+      margin-top: 0.8rem;
+      border-top: 1px dashed #d5d5c8;
+      padding-top: 0.5rem;
+      font-style: italic;
+    }
+
+    .callout-trap {
+      background-color: #fdf2f2;
+      border: 1px solid #f5c6cb;
+      border-left: 5px solid var(--error-color);
+      border-radius: 4px;
+      padding: 1.2rem;
+      margin: 1.8rem 0;
+    }
+
+    .callout-trap h4 {
+      font-family: var(--font-sans);
+      color: var(--error-color);
+      margin: 0 0 0.4rem 0;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .quiz-question {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+
+    .question-header {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: bold;
+      color: var(--accent-secondary);
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+
+    .question-stem {
+      font-size: 1.15rem;
+      line-height: 1.5;
+      margin-bottom: 1.2rem;
+      font-weight: 500;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .quiz-option {
+      background: #fafaf8;
+      border: 1px solid #d0d0c8;
+      border-radius: 6px;
+      padding: 0.85rem 1rem;
+      text-align: left;
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      line-height: 1.4;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      transition: all 0.15s ease-in-out;
+      color: var(--text-color);
+    }
+
+    .quiz-option:hover:not(:disabled) {
+      background: #f0f0e8;
+      border-color: #999;
+      transform: translateX(3px);
+    }
+
+    .option-label {
+      font-family: var(--font-sans);
+      font-weight: bold;
+      background: #e2e2da;
+      color: #333;
+      padding: 0.1rem 0.45rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .quiz-option.correct {
+      background-color: #e8f5e9 !important;
+      border-color: var(--success-color) !important;
+      color: #145a24 !important;
+    }
+
+    .quiz-option.correct .option-label {
+      background-color: var(--success-color);
+      color: #fff;
+    }
+
+    .quiz-option.incorrect {
+      background-color: #ffebee !important;
+      border-color: var(--error-color) !important;
+      color: #721c24 !important;
+      opacity: 0.85;
+    }
+
+    .quiz-option.incorrect .option-label {
+      background-color: var(--error-color);
+      color: #fff;
+    }
+
+    .quiz-feedback {
+      margin-top: 1rem;
+      padding: 0.8rem 1rem;
+      border-radius: 6px;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+
+    .quiz-feedback.success {
+      background-color: #e8f5e9;
+      color: #145a24;
+      border-left: 4px solid var(--success-color);
+    }
+
+    .quiz-feedback.danger {
+      background-color: #ffebee;
+      color: #721c24;
+      border-left: 4px solid var(--error-color);
+    }
+
+    .quiz-resolution {
+      margin-top: 1.2rem;
+      background-color: #f8f9fa;
+      border: 1px solid #e9ecef;
+      border-radius: 6px;
+      padding: 1.2rem;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .resolution-title {
+      font-weight: bold;
+      color: var(--accent-secondary);
+      margin-bottom: 0.6rem;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .spaced-prompt {
+      background: #fbfbf6;
+      border: 2px dashed #b5b5a0;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .spaced-tag {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: var(--accent-color);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .lesson-footer {
+      border-top: 1px solid var(--border-color);
+      padding-top: 1.5rem;
+      margin-top: 4rem;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      color: var(--sidenote-color);
+    }
+
+    .source-citation {
+      margin-bottom: 1rem;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .footer-nav a {
+      color: var(--accent-secondary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer-nav a:hover {
+      text-decoration: underline;
+    }
+
+    @media (min-width: 1024px) {
+      .lesson-container {
+        padding-right: 180px;
+      }
+      aside.sidenote {
+        position: absolute;
+        right: 10px;
+        width: 150px;
+        margin-top: -1.5rem;
+        background: transparent;
+        border-left: 2px solid var(--accent-secondary);
+        padding-left: 0.6rem;
+        font-size: 0.82rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="lesson-container">
+    <article class="lesson">
+      <header class="lesson-header">
+        <span class="lesson-badge">Lição 0013</span>
+        <h1 class="lesson-title">Financas-startups: Modelagem Quantitativa para o Vestibular Inteli</h1>
+        <div class="lesson-meta">
+          <span class="meta-time">⏱️ Tempo Estimado: 8 min</span>
+          <span>•</span>
+          <span class="meta-topic">🎯 Eixo: Tópico Sob Demanda</span>
+          <span>•</span>
+          <span class="meta-track">📈 Trilha Mediana e Superior</span>
+        </div>
+        <div class="lesson-meta" style="margin-top: 0.5rem;">
+          <a href="../MISSION.md">← Voltar para a Missão</a>
+          <span>•</span>
+          <a href="../GLOSSARY.md">📖 Glossário de Conceitos</a>
+        </div>
+      </header>
+
+      <!-- 1. CENÁRIO CONTEXTUAL INTELI -->
+      <section class="scenario">
+        <h2>Cenário Real Inteli</h2>
+        <div class="scenario-box">
+          <div class="scenario-tag">🏢 Inteli Tech Labs (Incubadora de Projetos) | Aplicação Prática e Resolução Analítica: Financas-startups</div>
+          <p>No ecossistema de aprendizagem baseada em projetos do Inteli, engenheiros e líderes aplicam <strong>Financas-startups</strong> para construir soluções computacionais escaláveis e tomar decisões de negócios fundamentadas em dados.
+      O desafio consiste em decompor o problema em componentes formais, modelar as restrições matemáticas e calcular a resposta ótima com agilidade sob restrição de tempo.</p>
+        </div>
+      </section>
+
+      <!-- 2. NÚCLEO CONCEITUAL -->
+      <section class="core-knowledge">
+        <h2>Núcleo Conceitual</h2>
+        <p class="lead-summary">O domínio conceitual de <strong>Financas-startups</strong> exige compreensão intuitiva antes da aplicação mecânica. Na régua adaptativa do Inteli, enunciados contextualizam o problema com terminologia do ecossistema de inovação.</p>
+        
+        <div class="concepts-list">
+          
+    <div class="concept-item">
+      <h3 class="concept-term">Fundamento e Modelagem</h3>
+      <p class="concept-def">Formalização matemática direta aplicada às restrições operacionais descritas no problema de Financas-startups.</p>
+      <aside class="sidenote"><strong>Nota lateral:</strong> Separe dados fornecidos das variáveis de decisão antes de iniciar os cálculos.</aside>
+    </div>
+  
+
+    <div class="concept-item">
+      <h3 class="concept-term">Estratégia de Resolução Rápida</h3>
+      <p class="concept-def">Identifique invariâncias, simetrias ou atalhos analíticos para economizar tempo na prova adaptativa de 6 minutos por questão.</p>
+      <aside class="sidenote"><strong>Nota lateral:</strong> Elimine distratores absurdos por análise dimensional ou ordens de grandeza.</aside>
+    </div>
+  
+        </div>
+
+        <div class="formula-card">
+          <div class="formula-card-title">📌 Estrutura Matemática Essencial</div>
+          
+    <div class="formula-row">
+      <span class="formula-name">Relação Fundamental:</span>
+      <code class="formula-math">Equação de Balanço: Entrada - Saída = Variação</code>
+    </div>
+  
+
+    <div class="formula-row">
+      <span class="formula-name">Otimização Relativa:</span>
+      <code class="formula-math">Eficiência = Resultado Obtido / Recursos Consumidos</code>
+    </div>
+  
+          <div class="formula-tip">💡 <strong>Dica de Ouro:</strong> Verifique se as unidades estão homogêneas (ex.: segundos vs minutos, bits vs bytes).</div>
+        </div>
+
+        
+        <div class="callout callout-trap">
+          <h4>⚠️ Armadilha do Padrão Escolar Tradicional</h4>
+          <p>Não tente aplicar fórmulas decoradas sem verificar as restrições de contorno impostas pelo cenário de engenharia.</p>
+        </div>
+      </section>
+
+      <!-- 3. PRÁTICA DE RECUPERAÇÃO ATIVA (QUIZ) -->
+      <section class="retrieval-quiz" id="quiz">
+        <h2>Prática de Recuperação Ativa (Retrieval Practice)</h2>
+        <p class="quiz-intro">Responda às questões abaixo sem consultar materiais. O feedback é instantâneo e calibrado com os distratores da banca Inteli.</p>
+        
+      <div class="quiz-question" data-question-id="q1">
+        <div class="question-header">
+          <span class="question-number">Questão 1 de 2</span>
+        </div>
+        <p class="question-stem">Ao modelar um problema quantitativo envolvendo Financas-startups, qual abordagem garante a resolução mais precisa e eficiente no vestibular adaptativo do Inteli?</p>
+        <div class="quiz-options">
+          
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="Contas extensas aumentam a probabilidade de erros aritméticos sob pressão de tempo. Sempre simplifique frações e relações antes de calcular.">
+        <span class="option-label">A</span>
+        <span class="option-text">Fazer contas numéricas extensas no rascunho sem simplificar termos algébricos.</span>
+      </button>
+    
+
+      <button class="quiz-option" type="button" data-correct="true" data-feedback="Exato! O modelo pedagógico do Inteli recompensa a modelagem estruturada e o raciocínio formal ágil.">
+        <span class="option-label">B</span>
+        <span class="option-text">Mapear as variáveis, identificar o núcleo matemático subjacente e eliminar distratores simétricos.</span>
+      </button>
+    
+
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="No Inteli, o contexto define restrições vitais (ex.: ordem de pixels, eixos invertidos, independentes vs dependentes).">
+        <span class="option-label">C</span>
+        <span class="option-text">Ignorar o contexto do enunciado e buscar apenas os números no texto.</span>
+      </button>
+    
+
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="A TRI do Inteli calibra distratores com precisão técnica; alternativas não são arbitrárias.">
+        <span class="option-label">D</span>
+        <span class="option-text">Chutar a alternativa com o número mais complexo ou decimal.</span>
+      </button>
+    
+        </div>
+        <div class="quiz-feedback hidden"></div>
+        <div class="quiz-resolution hidden">
+          <div class="resolution-title">🔍 Resolução Oficial Comentada</div>
+          <div class="resolution-content"><strong>Resolução Passo a Passo:</strong><br>
+        1. Leia o enunciado identificando a pergunta final e as restrições impostas.<br>
+        2. Modele a relação matemática entre as variáveis.<br>
+        3. Realize simplificações algébricas prévias.<br>
+        4. Verifique a coerência do resultado numérico frente ao cenário real.</div>
+        </div>
+      </div>
+    
+
+      <div class="quiz-question" data-question-id="q2">
+        <div class="question-header">
+          <span class="question-number">Questão 2 de 2</span>
+        </div>
+        <p class="question-stem">Em testes de hipótese e modelagem algorítmica para Financas-startups, qual métrica é mais resiliente contra anomalias e valores extremos (outliers)?</p>
+        <div class="quiz-options">
+          
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="A média simples é fortemente distorcida por dados extremos e outliers na amostra.">
+        <span class="option-label">A</span>
+        <span class="option-text">Média aritmética simples dos valores observados.</span>
+      </button>
+    
+
+      <button class="quiz-option" type="button" data-correct="true" data-feedback="Correto! A mediana é uma medida separatriz posicional imune a distorções causadas por outliers isolados.">
+        <span class="option-label">B</span>
+        <span class="option-text">Mediana (p50) e análise de percentis de distribuição.</span>
+      </button>
+    
+
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="O valor máximo captura unicamente o ponto mais extremo, desconsiderando a tendência central.">
+        <span class="option-label">C</span>
+        <span class="option-text">Valor máximo registrado no período de pico.</span>
+      </button>
+    
+
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="Valores não-normalizados dependem do tempo de observação e não fornecem medida de estabilidade.">
+        <span class="option-label">D</span>
+        <span class="option-text">Soma total não-normalizada dos eventos.</span>
+      </button>
+    
+        </div>
+        <div class="quiz-feedback hidden"></div>
+        <div class="quiz-resolution hidden">
+          <div class="resolution-title">🔍 Resolução Oficial Comentada</div>
+          <div class="resolution-content"><strong>Resolução Passo a Passo:</strong><br>
+        1. A mediana divide a distribuição em metades exatas de 50%.<br>
+        2. A presença de um número arbitrariamente grande ou pequeno não altera a posição do elemento central.<br>
+        3. Portanto, em métricas de engenharia e ciência de dados, a mediana e os percentis (p95, p99) são o padrão de aferição.</div>
+        </div>
+      </div>
+    
+      </section>
+
+      <!-- 4. REPETIÇÃO ESPAÇADA (STORAGE STRENGTH) -->
+      <section class="spaced-repetition">
+        <h2>Desafio de 48 Horas (Storage Strength)</h2>
+        <div class="spaced-prompt">
+          <div class="spaced-tag">🧠 Teste de Fixação e Evocação Tardia</div>
+          <p class="prompt-question"><strong>Em 48 horas: explique em 3 frases para um colega como Financas-startups se conecta a um produto ou software do mundo real.</strong></p>
+          <p style="font-size:0.9rem; color:#666; margin-top:0.5rem;"><em>Dica da Ciência Cognitiva:</em> Responder a esta pergunta mentalmente após 2 dias consolida o aprendizado na memória de longo prazo (efeito de recuperação espaçada de Bjork).</p>
+        </div>
+      </section>
+
+      <!-- 5. FONTE PRIMÁRIA -->
+      <footer class="lesson-footer">
+        <div class="source-citation">
+          <strong>📚 Fonte Primária e Referência Acadêmica:</strong><br>
+          <span>Processo Seletivo Inteli (Matriz de Referência e Provas Anteriores); Caderno de Competências em Liderança e Tecnologia.</span>
+        </div>
+        <div class="footer-nav">
+          <a href="../MISSION.md">← Sumário da Missão</a>
+          <a href="../GLOSSARY.md">📖 Glossário Técnico</a>
+          <a href="#quiz">↑ Repetir Questões</a>
+        </div>
+      </footer>
+    </article>
+  </div>
+
+  <!-- Script Externo Oficial -->
+  <script src="../assets/quiz.js" defer></script>
+
+  <!-- Script Fallback Autônomo de Quiz (Zero Dependências) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const questions = document.querySelectorAll('.quiz-question');
+
+      questions.forEach((q) => {
+        const options = q.querySelectorAll('.quiz-option');
+        const feedbackBox = q.querySelector('.quiz-feedback');
+        const resolutionBox = q.querySelector('.quiz-resolution');
+
+        options.forEach(opt => {
+          opt.addEventListener('click', () => {
+            // Desativa botões da pergunta atual
+            options.forEach(b => {
+              b.disabled = true;
+              if (b.getAttribute('data-correct') === 'true') {
+                b.classList.add('correct');
+              }
+            });
+
+            const isCorrect = opt.getAttribute('data-correct') === 'true';
+            const feedbackText = opt.getAttribute('data-feedback');
+
+            if (!isCorrect) {
+              opt.classList.add('incorrect');
+              if (feedbackBox) {
+                feedbackBox.className = 'quiz-feedback danger';
+                feedbackBox.innerHTML = '<strong>❌ Incorreto.</strong> ' + feedbackText;
+                feedbackBox.classList.remove('hidden');
+              }
+            } else {
+              if (feedbackBox) {
+                feedbackBox.className = 'quiz-feedback success';
+                feedbackBox.innerHTML = '<strong>✅ Correto!</strong> ' + feedbackText;
+                feedbackBox.classList.remove('hidden');
+              }
+            }
+
+            // Exibe resolução passo a passo
+            if (resolutionBox) {
+              resolutionBox.classList.remove('hidden');
+            }
+
+            // Dispara evento para telemetria ou integração
+            document.dispatchEvent(new CustomEvent('quiz:answered', {
+              detail: {
+                questionId: q.getAttribute('data-question-id'),
+                isCorrect: isCorrect
+              }
+            }));
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
