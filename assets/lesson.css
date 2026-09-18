@@ -26,9 +26,9 @@
   --clay: var(--color-clay);
   --clay-deep: var(--color-clay-deep);
 
-  /* Typography Stacks */
-  --font-serif: "ETBook", "Charter", "Georgia", "Merriweather", "Sitka Text", "Cambria", serif;
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* Typography Stacks — Anthropic Editorial Serif (Newsreader/Charter) + Inter UI + Mono */
+  --font-serif: 'Newsreader', 'Charter', 'Georgia', 'Palatino', serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: "JetBrains Mono", "SF Mono", "Fira Code", "Menlo", "Monaco", "Consolas", monospace;
 
   /* ------------------------------------------------------------------------

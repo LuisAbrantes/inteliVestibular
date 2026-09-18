@@ -1662,6 +1662,11 @@ export function renderLessonHtml(lessonData) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lição ${lessonNumber}: ${escapeHtml(title)} | Inteli Vestibular</title>
   
+  <!-- Typography: Anthropic Editorial Serif (Newsreader/Charter), Clean UI Sans (Inter) & Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+
   <!-- Estilos Oficiais -->
   <link rel="stylesheet" href="../assets/lesson.css">
   
@@ -1694,11 +1699,12 @@ export function renderLessonHtml(lessonData) {
       </a>
       <div class="nav-lesson-badge">
         <span class="dot-active"></span>
-        <span>Vestibular Inteli 2027 • Trilha Oficial</span>
+        <span>Lição ${lessonNumber} • Vestibular Inteli 2027</span>
       </div>
       <div class="nav-quick-links">
         <a href="#conteudo">Conteúdo</a>
         <a href="#quiz">Quiz</a>
+        <a href="#desafio">Desafio</a>
         <button class="btn-theme-toggle" id="btn-theme-toggle" title="Alternar Modo Escuro / Claro">◐</button>
       </div>
     </div>
@@ -1762,7 +1768,7 @@ export function renderLessonHtml(lessonData) {
       </section>
 
       <!-- 4. REPETIÇÃO ESPAÇADA (STORAGE STRENGTH) -->
-      <section class="spaced-repetition">
+      <section class="spaced-repetition" id="desafio">
         <h2>Desafio de 48 Horas (Storage Strength)</h2>
         <div class="spaced-prompt">
           <div class="spaced-tag">🧠 Teste de Fixação e Evocação Tardia</div>

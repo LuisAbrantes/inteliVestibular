@@ -73,8 +73,8 @@
   --danger-subtle: rgba(224, 82, 82, 0.12);
   --danger-border: rgba(224, 82, 82, 0.35);
 
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-serif: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Newsreader', 'Charter', 'Georgia', 'Palatino', serif;
   --font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   --radius-outer: 20px;
@@ -304,13 +304,15 @@ body {
 .glow-top-left {
   top: -150px;
   left: 0;
-  background: radial-gradient(circle, var(--inteli-violet) 0%, transparent 70%);
+  background: var(--color-clay);
+  opacity: 0.05;
 }
 
 .glow-bottom-right {
   bottom: -150px;
   right: 0;
-  background: radial-gradient(circle, var(--inteli-coral) 0%, transparent 70%);
+  background: var(--color-clay);
+  opacity: 0.05;
 }
 
 /* Subtle Architectural Grid Overlay */
@@ -375,7 +377,7 @@ body {
   width: 36px;
   height: 36px;
   border-radius: 10px;
-  background: linear-gradient(135deg, var(--inteli-coral), var(--inteli-violet));
+  background: var(--color-clay);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -493,12 +495,12 @@ body {
   align-items: center;
 }
 
-/* Timer Bezel */
+/* Timer Bezel — Anthropic flat, no gradients */
 .timer-bezel {
   display: inline-flex;
   padding: 2px;
   border-radius: 9999px;
-  background: linear-gradient(135deg, var(--border-medium), var(--border-subtle));
+  background: var(--border-subtle);
 }
 
 .timer-core {
@@ -701,10 +703,14 @@ body {
 }
 
 .btn-agent-quick {
-  background: linear-gradient(135deg, var(--inteli-violet), var(--inteli-coral));
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: var(--color-clay);
+  border: 1px solid var(--color-clay-deep);
   color: #ffffff;
-  box-shadow: var(--shadow-violet-glow);
+  box-shadow: var(--shadow-coral-glow);
+}
+
+.btn-agent-quick:hover {
+  background: var(--color-clay-deep);
 }
 
 .health-dot {
@@ -801,10 +807,11 @@ body {
 }
 
 .hero-title {
+  font-family: var(--font-serif);
   font-size: 2.75rem;
-  font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
   color: var(--text-primary);
   margin-bottom: 1rem;
 }
@@ -2893,4 +2900,33 @@ body {
   .modal-actions-row {
     flex-direction: column;
   }
+}
+
+/* ==========================================================================
+   ANTHROPIC TYPOGRAPHY OVERRIDE — Editorial Serif for all headings
+   Newsreader (serif) for titles, Inter (sans) for UI/body, JetBrains Mono for numbers
+   ========================================================================== */
+.hero-title,
+.panel-title,
+.mode-name,
+.section-title,
+.doc-viewer-title,
+.summary-card-title,
+.bezel-core h2,
+.bezel-core h3,
+.main-content h1,
+.main-content h2,
+.screen-home h2 {
+  font-family: var(--font-serif) !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.01em !important;
+}
+
+body,
+.tab-nav-btn,
+.btn-text,
+.mode-desc,
+.hero-subtitle,
+.panel-desc {
+  font-family: var(--font-sans) !important;
 }
