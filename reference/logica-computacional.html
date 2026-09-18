@@ -5,6 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Referência Lógica Computacional - Vestibular Inteli</title>
   <link rel="stylesheet" href="../assets/lesson.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}, {left: '\\(', right: '\\)', display: false}, {left: '\\[', right: '\\]', display: true}], throwOnError: false})"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (window.renderMathInElement) {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+          ],
+          throwOnError: false
+        });
+      }
+    });
+  </script>
 </head>
 <body>
   <div class="container">
@@ -20,26 +38,28 @@
     <!-- SEÇÃO 1: CONECTIVOS E TABELA-VERDADE -->
     <h2>1. Conectivos Lógicos e Tabela-Verdade Mestre</h2>
 
-    <table>
-      <thead>
-        <tr>
-          <th>$P$</th>
-          <th>$Q$</th>
-          <th>$\neg P$ (NÃO)</th>
-          <th>$P \wedge Q$ (E)</th>
-          <th>$P \vee Q$ (OU)</th>
-          <th>$P \oplus Q$ (XOR)</th>
-          <th>$P \to Q$ (SE... ENTÃO)</th>
-          <th>$P \leftrightarrow Q$ (SE E SOMENTE SE)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>V</td><td>V</td><td>F</td><td><strong>V</strong></td><td>V</td><td>F</td><td><strong>V</strong></td><td><strong>V</strong></td></tr>
-        <tr><td>V</td><td>F</td><td>F</td><td>F</td><td>V</td><td><strong>V</strong></td><td><strong>F</strong> (Falso!)</td><td>F</td></tr>
-        <tr><td>F</td><td>V</td><td>V</td><td>F</td><td>V</td><td><strong>V</strong></td><td><strong>V</strong> (Vacuamente V)</td><td>F</td></tr>
-        <tr><td>F</td><td>F</td><td>V</td><td>F</td><td>F</td><td>F</td><td><strong>V</strong> (Vacuamente V)</td><td><strong>V</strong></td></tr>
-      </tbody>
-    </table>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>$P$</th>
+            <th>$Q$</th>
+            <th>$\neg P$ (NÃO)</th>
+            <th>$P \wedge Q$ (E)</th>
+            <th>$P \vee Q$ (OU)</th>
+            <th>$P \oplus Q$ (XOR)</th>
+            <th>$P \to Q$ (SE... ENTÃO)</th>
+            <th>$P \leftrightarrow Q$ (SE E SOMENTE SE)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>V</td><td>V</td><td>F</td><td><strong>V</strong></td><td>V</td><td>F</td><td><strong>V</strong></td><td><strong>V</strong></td></tr>
+          <tr><td>V</td><td>F</td><td>F</td><td>F</td><td>V</td><td><strong>V</strong></td><td><strong>F</strong> (Falso!)</td><td>F</td></tr>
+          <tr><td>F</td><td>V</td><td>V</td><td>F</td><td>V</td><td><strong>V</strong></td><td><strong>V</strong> (Vacuamente V)</td><td>F</td></tr>
+          <tr><td>F</td><td>F</td><td>V</td><td>F</td><td>F</td><td>F</td><td><strong>V</strong> (Vacuamente V)</td><td><strong>V</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
 
     <div class="callout-trap">
       <strong>Cuidado com a Condicional ($P \to Q$):</strong> A condicional SÓ é falsa quando a premissa é Verdadeira e a conclusão é Falsa ($V \to F$). Se a premissa $P$ for Falsa, a implicação é automaticamente <strong>VERDADEIRA</strong> ("Vera Fischer é Falsa").
@@ -50,15 +70,15 @@
 
     <div class="formula-card">
       <h3>Transformação da Condicional</h3>
-      <div class="math-block">P \to Q \equiv \neg P \vee Q \quad\text{(Equivalência da Disjunção)}</div>
-      <div class="math-block">P \to Q \equiv \neg Q \to \neg P \quad\text{(Contrapositiva - Mesma Tabela Verdade!)}</div>
-      <div class="math-block">\neg(P \to Q) \equiv P \wedge \neg Q \quad\text{(Negação: mantém a primeira E nega a segunda)}</div>
+      <div class="math-block">$$P \to Q \equiv \neg P \vee Q \quad\text{(Equivalência da Disjunção)}$$</div>
+      <div class="math-block">$$P \to Q \equiv \neg Q \to \neg P \quad\text{(Contrapositiva - Mesma Tabela Verdade!)}$$</div>
+      <div class="math-block">$$\neg(P \to Q) \equiv P \wedge \neg Q \quad\text{(Negação: mantém a primeira E nega a segunda)}$$</div>
     </div>
 
     <div class="formula-card">
       <h3>Leis de De Morgan (Álgebra de Circuitos e Filtros)</h3>
-      <div class="math-block">\neg(P \wedge Q) \equiv \neg P \vee \neg Q \quad\text{(Negação do 'E' vira 'OU')}</div>
-      <div class="math-block">\neg(P \vee Q) \equiv \neg P \wedge \neg Q \quad\text{(Negação do 'OU' vira 'E')}</div>
+      <div class="math-block">$$\neg(P \wedge Q) \equiv \neg P \vee \neg Q \quad\text{(Negação do 'E' vira 'OU')}$$</div>
+      <div class="math-block">$$\neg(P \vee Q) \equiv \neg P \wedge \neg Q \quad\text{(Negação do 'OU' vira 'E')}$$</div>
       <p><em>Exemplo em Código:</em> `!(auth && hasAccess)` equivale a `!auth || !hasAccess`.</p>
     </div>
 
@@ -78,13 +98,15 @@
 
     <div class="formula-card">
       <h3>Conversão Rápida Hexadecimal $\leftrightarrow$ Binário</h3>
-      <table>
-        <thead><tr><th>Hex</th><th>Bin</th><th>Dec</th><th>Hex</th><th>Bin</th><th>Dec</th></tr></thead>
-        <tbody>
-          <tr><td>0x0 .. 0x3</td><td>0000 .. 0011</td><td>0 .. 3</td><td>0x8 .. 0xB</td><td>1000 .. 1011</td><td>8 .. 11</td></tr>
-          <tr><td>0x4 .. 0x7</td><td>0100 .. 0111</td><td>4 .. 7</td><td>0xC .. 0xF</td><td>1100 .. 1111</td><td>12 .. 15</td></tr>
-        </tbody>
-      </table>
+      <div class="table-wrapper">
+        <table>
+          <thead><tr><th>Hex</th><th>Bin</th><th>Dec</th><th>Hex</th><th>Bin</th><th>Dec</th></tr></thead>
+          <tbody>
+            <tr><td>0x0 .. 0x3</td><td>0000 .. 0011</td><td>0 .. 3</td><td>0x8 .. 0xB</td><td>1000 .. 1011</td><td>8 .. 11</td></tr>
+            <tr><td>0x4 .. 0x7</td><td>0100 .. 0111</td><td>4 .. 7</td><td>0xC .. 0xF</td><td>1100 .. 1111</td><td>12 .. 15</td></tr>
+          </tbody>
+        </table>
+      </div>
       <p><em>Heurística:</em> Cada dígito hexadecimal decompõe-se exatamente em um bloco de 4 bits (nibble). Exemplo: <code>0x2F = 0010 1111</code>.</p>
     </div>
 
@@ -94,7 +116,7 @@
     <div class="formula-card">
       <h3>Somatórios em Algoritmos Quadráticos ($O(n^2)$)</h3>
       <p>Em algoritmos de ordenação por seleção (Selection Sort com vetor de tamanho $N$), o número total de comparações é a soma dos primeiros inteiros:</p>
-      <div class="math-block">S = (N - 1) + (N - 2) + \dots + 2 + 1 = \frac{N(N - 1)}{2}</div>
+      <div class="math-block">$$S = (N - 1) + (N - 2) + \dots + 2 + 1 = \frac{N(N - 1)}{2}$$</div>
       <p>Para $N = 10$ elementos: $S = \frac{10 \cdot 9}{2} = 45$ comparações.</p>
     </div>
 

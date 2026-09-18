@@ -1,74 +1,87 @@
 /* ==========================================================================
    Tufte-Inspired Pedagogical Stylesheet for Inteli Lessons & References
+   High-Contrast Editorial Typography • Warm Paper Cream Palette • Mobile-First
    ========================================================================== */
 
+/* --------------------------------------------------------------------------
+   1. Design System Tokens & Color Variables
+   -------------------------------------------------------------------------- */
 :root {
-  --font-serif: "ETBook", "Charter", "Georgia", "Merriweather", serif;
+  /* Typography Stacks */
+  --font-serif: "ETBook", "Charter", "Georgia", "Merriweather", "Sitka Text", "Cambria", serif;
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-mono: "JetBrains Mono", "SF Mono", "Menlo", "Monaco", "Consolas", monospace;
+  --font-mono: "JetBrains Mono", "SF Mono", "Fira Code", "Menlo", "Monaco", "Consolas", monospace;
 
-  /* Color Palette - Light Mode (Tufte Warm Cream Base) */
+  /* Color Palette - Tufte Warm Paper Cream Base */
   --bg-color: #fffff8;
   --text-color: #111111;
   --text-muted: #555555;
-  --accent-color: #0c3c60; /* Inteli Navy Deep */
-  --accent-secondary: #008080; /* Teal Tech */
-  --link-color: #1a5276;
-  --link-hover: #0b2545;
   --border-color: #e5e5dc;
+
+  /* Inteli Accents */
+  --accent-color: #0c3c60;      /* Inteli Deep Navy */
+  --accent-secondary: #008080;  /* Teal Tech */
+  --accent-coral: #c0392b;      /* Inteli Coral / Crimson */
+  --link-color: #1a5276;
+  --link-hover: #0c3c60;
+
+  /* Surfaces & Code */
   --code-bg: #f5f5ee;
   --card-bg: #ffffff;
   --card-border: #dedece;
 
-  /* Sidenote & Callout Tokens */
-  --sidenote-color: #666666;
+  /* Callouts & Sidenotes */
+  --sidenote-color: #555555;
   --callout-bg: #f4f8fb;
-  --callout-border: #2980b9;
+  --callout-border: #0c3c60;
   --callout-trap-bg: #fdf5f5;
   --callout-trap-border: #c0392b;
 
   /* Quiz Tokens */
-  --quiz-bg: #fafaf5;
+  --quiz-bg: #fbfbf6;
   --quiz-option-bg: #ffffff;
-  --quiz-option-border: #dcdccf;
-  --quiz-option-hover: #f0f4f8;
+  --quiz-option-border: #dedece;
+  --quiz-option-hover: #f5f5ee;
+  --quiz-option-active: #c0392b;
   --quiz-correct-bg: #edf7ed;
   --quiz-correct-border: #2e7d32;
   --quiz-correct-text: #1b5e20;
-  --quiz-wrong-bg: #fdeded;
-  --quiz-wrong-border: #d32f2f;
-  --quiz-wrong-text: #b71c1c;
+  --quiz-wrong-bg: #fdf5f5;
+  --quiz-wrong-border: #c0392b;
+  --quiz-wrong-text: #c0392b;
 
-  /* Spacing and Dimensions */
-  --content-width: 58rem;
-  --main-text-width: 36rem;
+  /* Dimensional Layout Constants */
+  --content-max-width: 68rem;
+  --main-text-width: 44rem;
   --sidenote-width: 18rem;
+  --sidenote-gutter: 2rem;
 }
 
+/* Dark Mode Tokens (System & Explicit) */
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-color: #14171a;
     --text-color: #e6e6e6;
     --text-muted: #a0a0a0;
+    --border-color: #2b3137;
     --accent-color: #64b5f6;
     --accent-secondary: #4db6ac;
+    --accent-coral: #ef5350;
     --link-color: #82b1ff;
     --link-hover: #bbdefb;
-    --border-color: #2b3137;
     --code-bg: #1e2227;
     --card-bg: #1c2025;
     --card-border: #2e343d;
-
-    --sidenote-color: #9e9e9e;
+    --sidenote-color: #a0a0a0;
     --callout-bg: #162432;
     --callout-border: #1e88e5;
     --callout-trap-bg: #2d1819;
-    --callout-trap-border: #e53935;
-
+    --callout-trap-border: #ef5350;
     --quiz-bg: #1a1e24;
     --quiz-option-bg: #22272e;
     --quiz-option-border: #373e47;
     --quiz-option-hover: #2d333b;
+    --quiz-option-active: #ef5350;
     --quiz-correct-bg: #15331e;
     --quiz-correct-border: #4caf50;
     --quiz-correct-text: #a5d6a7;
@@ -78,57 +91,60 @@
   }
 }
 
-/* Explicit data-theme support */
 [data-theme="light"] {
   --bg-color: #fffff8;
   --text-color: #111111;
   --text-muted: #555555;
+  --border-color: #e5e5dc;
   --accent-color: #0c3c60;
   --accent-secondary: #008080;
+  --accent-coral: #c0392b;
   --link-color: #1a5276;
-  --link-hover: #0b2545;
-  --border-color: #e5e5dc;
+  --link-hover: #0c3c60;
   --code-bg: #f5f5ee;
   --card-bg: #ffffff;
   --card-border: #dedece;
-  --sidenote-color: #666666;
+  --sidenote-color: #555555;
   --callout-bg: #f4f8fb;
-  --callout-border: #2980b9;
+  --callout-border: #0c3c60;
   --callout-trap-bg: #fdf5f5;
   --callout-trap-border: #c0392b;
-  --quiz-bg: #fafaf5;
+  --quiz-bg: #fbfbf6;
   --quiz-option-bg: #ffffff;
-  --quiz-option-border: #dcdccf;
-  --quiz-option-hover: #f0f4f8;
+  --quiz-option-border: #dedece;
+  --quiz-option-hover: #f5f5ee;
+  --quiz-option-active: #c0392b;
   --quiz-correct-bg: #edf7ed;
   --quiz-correct-border: #2e7d32;
   --quiz-correct-text: #1b5e20;
-  --quiz-wrong-bg: #fdeded;
-  --quiz-wrong-border: #d32f2f;
-  --quiz-wrong-text: #b71c1c;
+  --quiz-wrong-bg: #fdf5f5;
+  --quiz-wrong-border: #c0392b;
+  --quiz-wrong-text: #c0392b;
 }
 
 [data-theme="dark"] {
   --bg-color: #14171a;
   --text-color: #e6e6e6;
   --text-muted: #a0a0a0;
+  --border-color: #2b3137;
   --accent-color: #64b5f6;
   --accent-secondary: #4db6ac;
+  --accent-coral: #ef5350;
   --link-color: #82b1ff;
   --link-hover: #bbdefb;
-  --border-color: #2b3137;
   --code-bg: #1e2227;
   --card-bg: #1c2025;
   --card-border: #2e343d;
-  --sidenote-color: #9e9e9e;
+  --sidenote-color: #a0a0a0;
   --callout-bg: #162432;
   --callout-border: #1e88e5;
   --callout-trap-bg: #2d1819;
-  --callout-trap-border: #e53935;
+  --callout-trap-border: #ef5350;
   --quiz-bg: #1a1e24;
   --quiz-option-bg: #22272e;
   --quiz-option-border: #373e47;
   --quiz-option-hover: #2d333b;
+  --quiz-option-active: #ef5350;
   --quiz-correct-bg: #15331e;
   --quiz-correct-border: #4caf50;
   --quiz-correct-text: #a5d6a7;
@@ -137,70 +153,162 @@
   --quiz-wrong-text: #ef9a9a;
 }
 
-/* Base Document Layout */
+/* --------------------------------------------------------------------------
+   2. Base Document Reset & Setup
+   -------------------------------------------------------------------------- */
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
 html {
   font-size: 16px;
-  line-height: 1.65;
+  line-height: 1.68;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
   margin: 0;
-  padding: 2.5rem 1.5rem;
+  padding: 0;
   background-color: var(--bg-color);
   color: var(--text-color);
   font-family: var(--font-serif);
   font-weight: 400;
+  counter-reset: sidenote-counter;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
-/* Container Structure */
-.container, article {
-  max-width: var(--content-width);
-  margin: 0 auto;
+.katex-display {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.5rem 0;
+}
+
+.katex {
+  max-width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   3. Main Structural Containers
+   -------------------------------------------------------------------------- */
+.container,
+.lesson-container,
+article,
+article.lesson,
+main {
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2.5rem 2rem;
   position: relative;
-  padding-right: calc(var(--sidenote-width) + 2rem);
 }
 
-/* Headings */
-h1, h2, h3, h4 {
+/* Main reading column constraint for high legibility */
+.main-column,
+.container > p,
+.container > ul,
+.container > ol,
+.container > dl,
+.container > h1,
+.container > h2,
+.container > h3,
+.container > h4,
+.container > .formula-card,
+.container > .callout,
+.container > .callout-trap,
+.container > .quiz-container,
+.container > .table-wrapper,
+.container > blockquote,
+.container > pre,
+.container > hr,
+.lesson-container > *,
+article > p,
+article > ul,
+article > ol,
+article > dl,
+article > h1,
+article > h2,
+article > h3,
+article > h4,
+article > .formula-card,
+article > .callout,
+article > .callout-trap,
+article > .quiz-container,
+article > .table-wrapper,
+article > blockquote,
+article > pre,
+article > hr,
+.lesson-header,
+.lesson-meta,
+.scenario,
+.core-knowledge,
+.retrieval-quiz,
+.spaced-repetition,
+.lesson-footer {
+  max-width: var(--main-text-width);
+}
+
+/* --------------------------------------------------------------------------
+   4. Typography & Editorial Hierarchy
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6,
+.lesson-title {
   font-family: var(--font-serif);
   font-weight: 500;
-  line-height: 1.25;
   color: var(--text-color);
-  margin-top: 2rem;
-  margin-bottom: 0.8rem;
+  clear: both;
 }
 
-h1 {
-  font-size: 2.35rem;
-  border-bottom: 2px solid var(--border-color);
-  padding-bottom: 0.6rem;
+h1, .lesson-title {
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  line-height: 1.25;
   margin-top: 0;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--text-color);
 }
 
 h2 {
-  font-size: 1.7rem;
+  font-size: clamp(1.35rem, 3.8vw, 1.75rem);
+  line-height: 1.3;
+  margin-top: 2.6rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.35rem;
   border-bottom: 1px solid var(--border-color);
-  padding-bottom: 0.3rem;
-  margin-top: 2.5rem;
 }
 
 h3 {
-  font-size: 1.3rem;
+  font-size: clamp(1.15rem, 2.8vw, 1.35rem);
+  line-height: 1.35;
+  margin-top: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+h4 {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  margin-top: 1.4rem;
+  margin-bottom: 0.4rem;
 }
 
 p, ul, ol, dl {
-  max-width: var(--main-text-width);
+  margin-top: 0;
   margin-bottom: 1.4rem;
+  font-size: 1.08rem;
+  line-height: 1.68;
 }
 
 li {
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.45rem;
 }
 
 a {
@@ -208,30 +316,81 @@ a {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
-  transition: color 0.15s ease;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
 
-a:hover {
+a:hover, a:focus-visible {
   color: var(--link-hover);
+  text-decoration-color: var(--link-hover);
 }
 
 blockquote {
-  margin: 1.5rem 0;
-  padding: 0.8rem 1.2rem;
+  margin: 1.8rem 0;
+  padding: 0.9rem 1.4rem;
   border-left: 3px solid var(--accent-color);
   background-color: var(--code-bg);
   font-style: italic;
-  max-width: var(--main-text-width);
+  font-size: 1.05rem;
+  border-radius: 0 4px 4px 0;
 }
 
-/* Sidenotes and Marginnotes (Edward Tufte style) */
-.sidenote, aside.sidenote, span.marginnote {
-  float: right;
-  clear: right;
-  margin-right: calc(-1 * (var(--sidenote-width) + 2rem));
-  width: var(--sidenote-width);
-  margin-top: 0.2rem;
+hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 2.5rem 0;
+}
+
+/* --------------------------------------------------------------------------
+   5. Lesson Headers & Badges
+   -------------------------------------------------------------------------- */
+.lesson-header {
+  margin-bottom: 2.2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.lesson-badge {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background-color: var(--accent-coral);
+  color: #ffffff;
+  padding: 0.22rem 0.65rem;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+}
+
+.lesson-meta {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
   margin-bottom: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.8rem;
+  align-items: center;
+}
+
+.lesson-meta a {
+  text-decoration: none;
+  color: var(--link-color);
+}
+
+.lesson-meta a:hover {
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   6. Tufte Sidenotes & Margin Notes (Responsive Architecture)
+   -------------------------------------------------------------------------- */
+.sidenote,
+aside.sidenote,
+.marginnote,
+span.marginnote {
   font-size: 0.88rem;
   line-height: 1.45;
   color: var(--sidenote-color);
@@ -249,200 +408,514 @@ blockquote {
   font-family: var(--font-sans);
   font-size: 0.75rem;
   vertical-align: super;
-  color: var(--accent-color);
+  color: var(--accent-coral);
   font-weight: 700;
-}
-
-body {
-  counter-reset: sidenote-counter;
+  margin-right: 0.2rem;
 }
 
 .margin-toggle {
   display: none;
 }
 
-/* Callout Blocks */
-.callout, .callout-trap {
-  max-width: var(--main-text-width);
+/* Desktop Sidenote Layout (> 1100px): floats into natural right margin */
+@media (min-width: 1100px) {
+  .sidenote,
+  aside.sidenote,
+  .marginnote,
+  span.marginnote {
+    float: right;
+    clear: right;
+    width: var(--sidenote-width);
+    margin-right: calc(-1 * (var(--sidenote-width) + var(--sidenote-gutter)));
+    margin-top: 0.2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  /* When sidenote is direct child of wide container (already spanning full width) */
+  .container > .sidenote,
+  .lesson-container > .sidenote,
+  article > .sidenote,
+  article.lesson > .sidenote,
+  section > .sidenote {
+    margin-right: 0;
+  }
+}
+
+/* Medium & Tablet Screens (768px - 1099px): soft-tinted indented callouts */
+@media (min-width: 768px) and (max-width: 1099px) {
+  .sidenote,
+  aside.sidenote,
+  .marginnote,
+  span.marginnote {
+    float: none;
+    clear: both;
+    display: block;
+    width: 100%;
+    margin: 1.25rem 0;
+    padding: 0.85rem 1.15rem;
+    background-color: var(--code-bg);
+    border-left: 3px solid var(--accent-color);
+    border-radius: 4px;
+  }
+}
+
+/* Mobile Screens (< 768px): clean touch-friendly alert card */
+@media (max-width: 767px) {
+  .sidenote,
+  aside.sidenote,
+  .marginnote,
+  span.marginnote {
+    float: none;
+    clear: both;
+    display: block;
+    width: 100%;
+    margin: 1.25rem 0;
+    padding: 0.85rem 1rem;
+    border-left: 3px solid var(--accent-coral);
+    background-color: #fbfbf6;
+    border-radius: 4px;
+    font-size: 0.88rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   7. Callouts & Pedagogical Boxes
+   -------------------------------------------------------------------------- */
+.callout,
+.callout-trap,
+.scenario-box,
+.spaced-prompt {
   margin: 1.6rem 0;
-  padding: 1.1rem 1.3rem;
+  padding: 1.1rem 1.35rem;
   border-radius: 6px;
   font-family: var(--font-sans);
-  font-size: 0.95rem;
-  line-height: 1.55;
+  font-size: 0.96rem;
+  line-height: 1.58;
+}
+
+.callout {
   border-left: 4px solid var(--callout-border);
   background-color: var(--callout-bg);
 }
 
-.callout strong, .callout-trap strong {
+.callout strong,
+.callout h4 {
   display: block;
+  margin-top: 0;
   margin-bottom: 0.35rem;
   font-size: 1.02rem;
+  color: var(--text-color);
 }
 
+/* Inteli Exam Trap Callout */
 .callout-trap {
-  border-left-color: var(--callout-trap-border);
+  border-left: 4px solid var(--callout-trap-border);
   background-color: var(--callout-trap-bg);
 }
 
-/* Formula & Cheatsheet Cards */
-.formula-card {
-  max-width: var(--main-text-width);
+.callout-trap strong,
+.callout-trap h4 {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 0.35rem;
+  font-size: 1.02rem;
+  color: var(--accent-coral);
+}
+
+/* Real Inteli Context Scenario */
+.scenario-box {
+  background-color: var(--code-bg);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--accent-color);
+}
+
+.scenario-tag {
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+/* Spaced Repetition (Storage Strength) Prompt */
+.spaced-prompt {
+  background-color: var(--quiz-bg);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--accent-secondary);
+}
+
+.spaced-tag {
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.prompt-question {
+  font-size: 1.05rem;
+  color: var(--text-color);
+  margin-bottom: 0.4rem;
+}
+
+/* --------------------------------------------------------------------------
+   8. Core Knowledge & Concepts List
+   -------------------------------------------------------------------------- */
+.lead-summary {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  margin-bottom: 1.6rem;
+}
+
+.concepts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
   margin: 1.6rem 0;
-  padding: 1.2rem 1.4rem;
+}
+
+.concept-item {
+  position: relative;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px dashed var(--border-color);
+}
+
+.concept-item:last-child {
+  border-bottom: none;
+}
+
+.concept-term {
+  margin-top: 0;
+  margin-bottom: 0.35rem;
+  font-size: 1.2rem;
+  color: var(--accent-color);
+}
+
+.concept-def {
+  margin-bottom: 0.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   9. Formula Cards & Math Blocks (Overflow Protected)
+   -------------------------------------------------------------------------- */
+.formula-card {
+  margin: 1.8rem 0;
+  padding: 1.25rem 1.5rem;
   background-color: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
-.formula-card h3, .formula-card h4 {
+.formula-card h3,
+.formula-card h4,
+.formula-card-title {
   margin-top: 0;
   font-size: 1.15rem;
+  font-weight: 600;
   color: var(--accent-color);
   border-bottom: 1px dashed var(--border-color);
-  padding-bottom: 0.4rem;
+  padding-bottom: 0.45rem;
+  margin-bottom: 0.9rem;
 }
 
-.formula-card .math-block {
+.formula-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.6rem 1rem;
+  margin: 0.75rem 0;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+}
+
+.formula-name {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.formula-math {
   font-family: var(--font-mono);
   background-color: var(--code-bg);
-  padding: 0.6rem 0.9rem;
+  padding: 0.2rem 0.5rem;
   border-radius: 4px;
+  border: 1px solid var(--border-color);
   overflow-x: auto;
-  font-size: 0.92rem;
-  margin: 0.6rem 0;
+  -webkit-overflow-scrolling: touch;
 }
 
-/* Code & Pre */
+.formula-tip {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.92rem;
+  font-family: var(--font-sans);
+  color: var(--text-muted);
+}
+
+/* Math blocks & KaTeX responsive handling */
+.math-block {
+  font-family: var(--font-mono);
+  background-color: var(--code-bg);
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  font-size: 0.95rem;
+  margin: 0.85rem 0;
+  line-height: 1.5;
+}
+
+/* KaTeX equations: strictly prevent breaking viewport width */
+.katex-display {
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  -webkit-overflow-scrolling: touch !important;
+  padding: 0.6rem 0 !important;
+  margin: 1rem 0 !important;
+  max-width: 100% !important;
+}
+
+.katex {
+  font-size: 1.05em;
+  text-rendering: auto;
+}
+
+/* --------------------------------------------------------------------------
+   10. Code & Pre Blocks
+   -------------------------------------------------------------------------- */
 code, pre {
   font-family: var(--font-mono);
-  font-size: 0.9rem;
+  font-size: 0.92rem;
 }
 
 code {
   background-color: var(--code-bg);
-  padding: 0.15rem 0.35rem;
-  border-radius: 3px;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
   border: 1px solid var(--border-color);
+  color: var(--text-color);
 }
 
 pre {
-  max-width: var(--main-text-width);
   background-color: var(--code-bg);
   border: 1px solid var(--border-color);
   border-radius: 6px;
-  padding: 1rem 1.2rem;
+  padding: 1.1rem 1.3rem;
   overflow-x: auto;
-  line-height: 1.45;
+  -webkit-overflow-scrolling: touch;
+  line-height: 1.5;
+  margin: 1.6rem 0;
 }
 
 pre code {
   background: none;
   padding: 0;
   border: none;
+  font-size: 0.9rem;
 }
 
-/* Tables */
+/* --------------------------------------------------------------------------
+   11. Tables & Horizontal Scrolling Wrappers
+   -------------------------------------------------------------------------- */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.8rem 0;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--card-bg);
+}
+
 table {
   width: 100%;
-  max-width: var(--main-text-width);
   border-collapse: collapse;
-  margin: 1.8rem 0;
-  font-size: 0.92rem;
+  margin: 0;
+  font-size: 0.94rem;
   font-family: var(--font-sans);
 }
 
+/* Bare tables not in wrapper */
+.container > table,
+article > table {
+  margin: 1.8rem 0;
+}
+
+.table-wrapper table {
+  min-width: 500px;
+}
+
 th, td {
-  padding: 0.6rem 0.8rem;
+  padding: 0.75rem 1rem;
   text-align: left;
   border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
 }
 
 th {
   font-weight: 600;
   border-bottom: 2px solid var(--text-color);
   color: var(--text-color);
+  background-color: var(--code-bg);
 }
 
-/* Interactive Quiz Styles */
-.quiz-container {
-  max-width: var(--main-text-width);
-  margin: 2.5rem 0;
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.015);
+}
+
+/* --------------------------------------------------------------------------
+   12. Interactive Retrieval Practice Quizzes
+   -------------------------------------------------------------------------- */
+.quiz-container,
+.retrieval-quiz {
+  margin: 2.8rem 0;
+}
+
+.quiz-intro {
+  font-size: 1.02rem;
+  color: var(--text-muted);
+  margin-bottom: 1.6rem;
 }
 
 .quiz-score-banner {
-  background: var(--card-bg);
+  background-color: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 8px;
-  padding: 1rem 1.2rem;
-  margin-bottom: 1.8rem;
+  padding: 1rem 1.25rem;
+  margin-bottom: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-family: var(--font-sans);
   font-weight: 500;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
 }
 
 .quiz-score-banner .score-badge {
-  background: var(--accent-color);
+  background-color: var(--accent-color);
   color: #ffffff;
-  padding: 0.25rem 0.75rem;
+  padding: 0.3rem 0.85rem;
   border-radius: 20px;
   font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .quiz-question {
   background-color: var(--quiz-bg);
   border: 1px solid var(--card-border);
   border-radius: 8px;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.03);
+  padding: 1.6rem;
+  margin-bottom: 2.2rem;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.02);
   transition: border-color 0.2s ease;
 }
 
-.quiz-question h3, .quiz-question h4 {
-  margin-top: 0;
-  font-size: 1.15rem;
-  line-height: 1.4;
+.question-header {
+  margin-bottom: 0.75rem;
+}
+
+.question-number {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-coral);
+}
+
+.question-stem {
+  font-size: 1.12rem;
+  font-weight: 500;
+  line-height: 1.55;
+  margin-top: 0.4rem;
+  margin-bottom: 1.4rem;
+  color: var(--text-color);
 }
 
 .quiz-options {
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
-  margin: 1.2rem 0;
+  gap: 0.75rem;
+  margin: 1.4rem 0;
 }
 
+/* Touch-friendly Quiz Option Button (min 48px height) */
 .quiz-option {
-  display: block;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
   width: 100%;
+  min-height: 48px;
   text-align: left;
   background-color: var(--quiz-option-bg);
-  border: 1px solid var(--quiz-option-border);
+  border: 1.5px solid var(--quiz-option-border);
   border-radius: 6px;
-  padding: 0.85rem 1.1rem;
+  padding: 0.85rem 1.15rem;
   font-family: var(--font-sans);
-  font-size: 0.95rem;
+  font-size: 0.96rem;
+  line-height: 1.45;
   color: var(--text-color);
   cursor: pointer;
   transition: all 0.15s ease-in-out;
   position: relative;
-  line-height: 1.4;
+  user-select: none;
+}
+
+.option-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  border-radius: 50%;
+  background-color: var(--code-bg);
+  border: 1px solid var(--border-color);
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  transition: all 0.15s ease;
+  margin-top: 1px;
+}
+
+.option-text {
+  flex: 1;
 }
 
 .quiz-option:hover:not(:disabled) {
   background-color: var(--quiz-option-hover);
-  border-color: var(--accent-color);
+  border-color: var(--quiz-option-active);
   transform: translateX(3px);
+}
+
+.quiz-option:hover:not(:disabled) .option-label {
+  background-color: var(--callout-trap-bg);
+  border-color: var(--quiz-option-active);
+  color: var(--quiz-option-active);
+}
+
+.quiz-option:focus-visible {
+  outline: 2px solid var(--quiz-option-active);
+  outline-offset: 2px;
 }
 
 .quiz-option:disabled {
   cursor: default;
-  opacity: 0.9;
+  transform: none;
 }
 
+/* Correct Option State */
 .quiz-option.correct {
   background-color: var(--quiz-correct-bg) !important;
   border-color: var(--quiz-correct-border) !important;
@@ -450,117 +923,298 @@ th {
   font-weight: 600;
 }
 
+.quiz-option.correct .option-label {
+  background-color: var(--quiz-correct-border) !important;
+  color: #ffffff !important;
+  border-color: var(--quiz-correct-border) !important;
+}
+
+/* Incorrect Option State */
 .quiz-option.incorrect {
   background-color: var(--quiz-wrong-bg) !important;
   border-color: var(--quiz-wrong-border) !important;
   color: var(--quiz-wrong-text) !important;
 }
 
+.quiz-option.incorrect .option-label {
+  background-color: var(--quiz-wrong-border) !important;
+  color: #ffffff !important;
+  border-color: var(--quiz-wrong-border) !important;
+}
+
+/* Correct Answer Revealed when student chose wrong */
 .quiz-option.unselected-correct {
   border: 2px dashed var(--quiz-correct-border) !important;
   background-color: var(--quiz-correct-bg) !important;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
+.quiz-option.unselected-correct .option-label {
+  border-color: var(--quiz-correct-border) !important;
+  color: var(--quiz-correct-text) !important;
+}
+
+/* Instant Feedback Alert */
 .quiz-feedback {
-  margin-top: 1rem;
-  padding: 0.9rem 1.1rem;
+  margin-top: 1.2rem;
+  padding: 0.95rem 1.2rem;
   border-radius: 6px;
   font-family: var(--font-sans);
-  font-size: 0.92rem;
-  display: none;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  display: block;
+  animation: fadeIn 0.25s ease;
 }
 
 .quiz-feedback.correct {
-  display: block;
   background-color: var(--quiz-correct-bg);
   border: 1px solid var(--quiz-correct-border);
   color: var(--quiz-correct-text);
 }
 
 .quiz-feedback.incorrect {
-  display: block;
   background-color: var(--quiz-wrong-bg);
   border: 1px solid var(--quiz-wrong-border);
   color: var(--quiz-wrong-text);
 }
 
+/* Official Resolution Explanation */
 .quiz-resolution {
-  margin-top: 1.2rem;
-  padding: 1.1rem 1.3rem;
+  margin-top: 1.4rem;
+  padding: 1.2rem 1.4rem;
   background-color: var(--code-bg);
-  border-left: 3px solid var(--accent-secondary);
+  border-left: 4px solid var(--accent-secondary);
   border-radius: 4px;
   font-family: var(--font-serif);
-  font-size: 0.95rem;
-  line-height: 1.55;
-  display: none;
-}
-
-.quiz-resolution.visible {
-  display: block;
+  font-size: 0.98rem;
+  line-height: 1.6;
   animation: fadeIn 0.3s ease;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Reference Header / Meta */
-.lesson-meta {
+.resolution-title {
   font-family: var(--font-sans);
-  font-size: 0.85rem;
-  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 0.92rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 1.5rem;
-  border-bottom: 1px solid var(--border-color);
-  padding-bottom: 0.5rem;
+  letter-spacing: 0.04em;
+  color: var(--accent-secondary);
+  margin-bottom: 0.6rem;
 }
 
-/* Mobile & Tablet Responsiveness */
-@media (max-width: 1024px) {
-  .container, article {
-    padding-right: 0;
-    max-width: 42rem;
-  }
+.resolution-content p:last-child {
+  margin-bottom: 0;
+}
 
-  .sidenote, aside.sidenote, span.marginnote {
-    float: none;
-    clear: both;
-    display: block;
-    width: 100%;
-    margin: 1rem 0;
-    padding: 0.6rem 0.9rem;
-    background-color: var(--code-bg);
-    border-left: 2px solid var(--accent-secondary);
-    border-radius: 4px;
+/* Utility Hidden state */
+.hidden {
+  display: none !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* Print Stylesheet */
-@media print {
+/* --------------------------------------------------------------------------
+   13. Lesson Footer & Source Citations
+   -------------------------------------------------------------------------- */
+.lesson-footer {
+  margin-top: 3.5rem;
+  padding-top: 1.8rem;
+  border-top: 1px solid var(--border-color);
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+.source-citation {
+  margin-bottom: 1.4rem;
+  line-height: 1.5;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.footer-nav a {
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-nav a:hover {
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   14. Responsive Layout Breakdown (Desktop, Tablet, Mobile)
+   -------------------------------------------------------------------------- */
+
+/* 14.1 Laptops & Medium Screens (768px - 1099px) */
+@media (min-width: 768px) and (max-width: 1099px) {
+  .container,
+  .lesson-container,
+  article,
+  article.lesson,
+  main {
+    max-width: 46rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .main-column,
+  .container > *,
+  article > *,
+  .lesson-container > * {
+    max-width: 100%;
+  }
+}
+
+/* 14.2 Mobile Screens (< 768px) */
+@media (max-width: 767px) {
+  html {
+    font-size: 15px;
+  }
+
   body {
-    background: #ffffff;
-    color: #000000;
-    font-size: 11pt;
     padding: 0;
   }
 
-  .container, article {
+  .container,
+  .lesson-container,
+  article,
+  article.lesson,
+  main {
+    width: 100%;
     max-width: 100%;
-    padding-right: 0;
+    padding: 1.5rem 1rem;
+    margin: 0;
   }
 
-  .sidenote, aside.sidenote, span.marginnote {
+  .main-column,
+  .container > *,
+  article > *,
+  .lesson-container > * {
+    max-width: 100%;
+  }
+
+  /* Headings fluid scaling */
+  h1, .lesson-title {
+    font-size: clamp(1.75rem, 5.2vw, 2.2rem);
+    line-height: 1.25;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+    margin-top: 2rem;
+  }
+
+  /* Tables: smooth horizontal scroll without squishing */
+  .table-wrapper {
+    margin: 1.2rem 0;
+  }
+
+  .table-wrapper table {
+    min-width: 500px;
+    width: 100%;
+  }
+
+  /* Bare tables not in wrapper also protected */
+  table:not(.table-wrapper table) {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+
+  table:not(.table-wrapper table) th,
+  table:not(.table-wrapper table) td {
+    white-space: nowrap;
+  }
+
+  /* Quizzes: generous touch targets and padding */
+  .quiz-question {
+    padding: 1.2rem 1rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .quiz-options {
+    gap: 0.65rem;
+  }
+
+  .quiz-option {
+    min-height: 44px;
+    padding: 0.75rem 0.95rem;
+    font-size: 0.92rem;
+    gap: 0.65rem;
+  }
+
+  .option-label {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    font-size: 0.78rem;
+  }
+
+  /* Cards & Callouts full bleed friendly */
+  .formula-card {
+    padding: 1rem 1.1rem;
+    margin: 1.4rem 0;
+  }
+
+  .callout,
+  .callout-trap,
+  .scenario-box,
+  .spaced-prompt {
+    padding: 0.9rem 1.1rem;
+    margin: 1.3rem 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   15. Print Stylesheet (Crisp Editorial Handout)
+   -------------------------------------------------------------------------- */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt;
+    line-height: 1.5;
+    padding: 0;
+  }
+
+  .container,
+  .lesson-container,
+  article,
+  article.lesson,
+  main {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .sidenote,
+  aside.sidenote,
+  .marginnote,
+  span.marginnote {
     float: right;
     width: 32%;
-    margin-right: -36%;
+    margin-right: -35%;
     font-size: 8.5pt;
   }
 
-  .quiz-container {
+  .quiz-container,
+  .retrieval-quiz,
+  .formula-card,
+  .scenario-box {
     page-break-inside: avoid;
   }
 

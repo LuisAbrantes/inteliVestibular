@@ -52,9 +52,9 @@ export const BLUEPRINTS = {
       formulaCard: {
         title: 'Fórmulas de Bolso para o Vestibular Inteli',
         formulas: [
-          { name: 'Arranjos Simples (Ordem importa, sem repetição)', math: 'A(n, k) = n! / (n - k)!' },
-          { name: 'Combinações Simples (Ordem não importa)', math: 'C(n, k) = n! / [k! &times; (n - k)!]' },
-          { name: 'Combinação com Repetição (Partição de Inteiros)', math: 'CR(n, k) = C(n + k - 1, k) = (n + k - 1)! / [k! &times; (n - 1)!]' }
+          { name: 'Arranjos Simples (Ordem importa, sem repetição)', math: '$$A(n, k) = \\frac{n!}{(n - k)!}$$' },
+          { name: 'Combinações Simples (Ordem não importa)', math: '$$C(n, k) = \\frac{n!}{k!(n - k)!}$$' },
+          { name: 'Combinação com Repetição (Partição de Inteiros)', math: '$$CR(n, k) = C(n + k - 1, k) = \\frac{(n + k - 1)!}{k!(n - 1)!}$$' }
         ],
         tip: 'Se a ordem foi imposta pelo enunciado (ex.: "dígitos em ordem crescente"), NÃO multiplique por permutações! A ordem já consumiu o grau de liberdade.'
       },
@@ -176,9 +176,9 @@ export const BLUEPRINTS = {
       formulaCard: {
         title: 'Fórmulas Vitais de Otimização',
         formulas: [
-          { name: 'Abscissa do Vértice (Preço / Quantidade Ótima)', math: 'x_v = -b / (2a)' },
-          { name: 'Ordenada do Vértice (Lucro / Receita Máxima)', math: 'y_v = -&Delta; / (4a) = f(x_v)' },
-          { name: 'Ponto de Equilíbrio (Break-Even)', math: 'Lucro(q) = Receita(q) - CustoTotal(q) = 0' }
+          { name: 'Abscissa do Vértice (Preço / Quantidade Ótima)', math: '$$x_v = -\\frac{b}{2a}$$' },
+          { name: 'Ordenada do Vértice (Lucro / Receita Máxima)', math: '$$y_v = -\\frac{\\Delta}{4a} = f(x_v)$$' },
+          { name: 'Ponto de Equilíbrio (Break-Even)', math: '$$\\text{Lucro}(q) = \\text{Receita}(q) - \\text{CustoTotal}(q) = 0$$' }
         ],
         tip: 'Calcule y_v calculando f(x_v) diretamente em vez de calcular &Delta; = b² - 4ac quando os números forem grandes; isso economiza 2 a 3 minutos preciosos na prova.'
       },
@@ -301,10 +301,10 @@ export const BLUEPRINTS = {
       formulaCard: {
         title: 'Álgebra Booleana Essencial para Prova Inteli',
         formulas: [
-          { name: 'Leis de De Morgan (Negação Conjunta)', math: '&not;(P &and; Q) &equiv; &not;P &lor; &not;Q' },
-          { name: 'Leis de De Morgan (Negação Disjunta)', math: '&not;(P &lor; Q) &equiv; &not;P &and; &not;Q' },
-          { name: 'Equivalência Contrapositiva', math: '(P &rarr; Q) &equiv; (&not;Q &rarr; &not;P)' },
-          { name: 'Negação da Implicação', math: '&not;(P &rarr; Q) &equiv; P &and; &not;Q' }
+          { name: 'Leis de De Morgan (Negação Conjunta)', math: '$$\\neg(P \\wedge Q) \\equiv \\neg P \\vee \\neg Q$$' },
+          { name: 'Leis de De Morgan (Negação Disjunta)', math: '$$\\neg(P \\vee Q) \\equiv \\neg P \\wedge \\neg Q$$' },
+          { name: 'Equivalência Contrapositiva', math: '$$(P \\to Q) \\equiv (\\neg Q \\to \\neg P)$$' },
+          { name: 'Negação da Implicação', math: '$$\\neg(P \\to Q) \\equiv P \\wedge \\neg Q$$' }
         ],
         tip: 'A negação de "Se programo, logo passo" NÃO É "Se não programo, não passo", e sim "Programo e não passo" (P &and; &not;Q).'
       },
@@ -430,9 +430,9 @@ export const BLUEPRINTS = {
       formulaCard: {
         title: 'Fórmulas de Probabilidade para o Inteli',
         formulas: [
-          { name: 'Definição de Probabilidade Condicional', math: 'P(A | B) = P(A &cap; B) / P(B)' },
-          { name: 'Teorema de Bayes Unificado', math: 'P(A | B) = [P(B | A) &times; P(A)] / P(B)' },
-          { name: 'Regra da Multiplicação (Eventos Independentes)', math: 'P(A &cap; B) = P(A) &times; P(B)' }
+          { name: 'Definição de Probabilidade Condicional', math: '$$P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)}$$' },
+          { name: 'Teorema de Bayes Unificado', math: '$$P(A \\mid B) = \\frac{P(B \\mid A) \\cdot P(A)}{P(B)}$$' },
+          { name: 'Regra da Multiplicação (Eventos Independentes)', math: '$$P(A \\cap B) = P(A) \\cdot P(B)$$' }
         ],
         tip: 'Dica prática: monte uma tabela com 1.000 e-mails imaginários (frequências naturais). Isso elimina erros de divisão com decimais sob a pressão do tempo da prova.'
       },
@@ -556,9 +556,9 @@ export const BLUEPRINTS = {
       formulaCard: {
         title: 'Fórmulas Computacionais Essenciais',
         formulas: [
-          { name: 'Pior caso da Busca Binária', math: 'p_b = log₂(N)' },
-          { name: 'Soma de Gauss (1 a n)', math: 'S_n = n(n + 1) / 2' },
-          { name: 'Potência Binária Chave', math: '2¹⁰ = 1.024; 2¹⁹ = 524.288; 2²⁰ = 1.048.576' }
+          { name: 'Pior caso da Busca Binária', math: '$$p_b = \\lceil \\log_2 N \\rceil$$' },
+          { name: 'Soma de Gauss (1 a n)', math: '$$S_n = \\frac{n(n + 1)}{2}$$' },
+          { name: 'Potências Binárias Notáveis', math: '$$2^{10} = 1.024; \\quad 2^{19} = 524.288; \\quad 2^{20} = 1.048.576$$' }
         ],
         tip: 'Se N = 524.288, não tente dividir por 2 repetidamente no rascunho: fatore usando potências conhecidas: 524.288 = 1.024 &times; 512 = 2¹⁰ &times; 2⁹ = 2¹⁹.'
       },
@@ -681,9 +681,9 @@ export const BLUEPRINTS = {
       formulaCard: {
         title: 'Formulário de Geometria Analítica Gráfica',
         formulas: [
-          { name: 'Coeficiente Angular', math: 'm = (y₂ - y₁) / (x₂ - x₁)' },
-          { name: 'Equação da Reta Fundamental', math: 'y - y₀ = m(x - x₀)' },
-          { name: 'Ponto Médio de um Segmento', math: 'M = ((x₁ + x₂) / 2, (y₁ + y₂) / 2)' }
+          { name: 'Coeficiente Angular', math: '$$m = \\frac{y_2 - y_1}{x_2 - x_1}$$' },
+          { name: 'Equação da Reta Fundamental', math: '$$y - y_0 = m(x - x_0)$$' },
+          { name: 'Ponto Médio de um Segmento', math: '$$M = (\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2})$$' }
         ],
         tip: 'Sempre faça um esboço rápido desenhando o retângulo do monitor e marcando os eixos com as setas indicando para a direita (x) e para baixo (y).'
       },
@@ -807,9 +807,9 @@ export const BLUEPRINTS = {
       formulaCard: {
         title: 'Estatística para Benchmark Tech',
         formulas: [
-          { name: 'Média Ponderada', math: 'x̄ = (w₁x₁ + w₂x₂ + ... + wₙxₙ) / (w₁ + w₂ + ... + wₙ)' },
-          { name: 'Mediana (n ímpar)', math: 'Posição = (n + 1) / 2' },
-          { name: 'Mediana (n par)', math: 'Média aritmética dos elementos centrais nas posições n/2 e (n/2) + 1' }
+          { name: 'Média Ponderada', math: '$$\\bar{x} = \\frac{\\sum w_i x_i}{\\sum w_i}$$' },
+          { name: 'Mediana (n ímpar)', math: '$$\\text{Posição} = \\frac{n + 1}{2}$$' },
+          { name: 'Mediana (n par)', math: '$$\\text{Mediana} = \\frac{x_{n/2} + x_{n/2 + 1}}{2}$$' }
         ],
         tip: 'Para calcular média ponderada rapidamente, divida todos os pesos pelo seu máximo divisor comum antes de efetuar as multiplicações.'
       },
@@ -999,8 +999,8 @@ export function createCustomBlueprint(topicOrPrompt) {
       formulaCard: {
         title: 'Estrutura Matemática Essencial',
         formulas: [
-          { name: 'Relação Fundamental', math: 'Equação de Balanço: Entrada - Saída = Variação' },
-          { name: 'Otimização Relativa', math: 'Eficiência = Resultado Obtido / Recursos Consumidos' }
+          { name: 'Relação Fundamental', math: '$$\\text{Entrada} - \\text{Saída} = \\text{Variação}$$' },
+          { name: 'Otimização Relativa', math: '$$\\text{Eficiência} = \\frac{\\text{Resultado Obtido}}{\\text{Recursos Consumidos}}$$' }
         ],
         tip: 'Verifique se as unidades estão homogêneas (ex.: segundos vs minutos, bits vs bytes).'
       },
@@ -1139,420 +1139,39 @@ export function renderLessonHtml(lessonData) {
   const formulasHtml = coreKnowledge.formulaCard.formulas.map(f => `
     <div class="formula-row">
       <span class="formula-name">${f.name}:</span>
-      <code class="formula-math">${f.math}</code>
+      <div class="formula-math">${f.math}</div>
     </div>
   `).join('\n');
 
-  return `<!DOCTYPE html>
+  const rawHtml = `<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lição ${lessonNumber}: ${escapeHtml(title)} | Inteli Vestibular</title>
   
-  <!-- Estilos Externos Oficiais -->
+  <!-- Estilos Oficiais -->
   <link rel="stylesheet" href="../assets/lesson.css">
   
-  <!-- Estilos Integrados Fallback (Garante renderização Tufte standalone impecável) -->
-  <style>
-    :root {
-      --bg-color: #fffff8;
-      --text-color: #111111;
-      --accent-color: #8b0000;
-      --accent-secondary: #0a4b78;
-      --card-bg: #f8f8f2;
-      --border-color: #e5e5dc;
-      --sidenote-color: #555555;
-      --success-color: #1e7e34;
-      --error-color: #b21f2d;
-      --font-serif: "Charter", "Bitstream Charter", "Sitka Text", "Cambria", serif;
-      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      --font-mono: "Fira Code", Menlo, Monaco, Consolas, monospace;
-    }
-
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      font-family: var(--font-serif);
-      font-size: 1.15rem;
-      line-height: 1.65;
-      margin: 0;
-      padding: 2rem 1rem;
-      text-rendering: optimizeLegibility;
-    }
-
-    .lesson-container {
-      max-width: 820px;
-      margin: 0 auto;
-      padding: 0 1rem;
-      position: relative;
-    }
-
-    .lesson-header {
-      border-bottom: 2px solid var(--text-color);
-      padding-bottom: 1.5rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .lesson-badge {
-      display: inline-block;
-      font-family: var(--font-sans);
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      background-color: var(--accent-color);
-      color: #ffffff;
-      padding: 0.2rem 0.6rem;
-      border-radius: 4px;
-      margin-bottom: 0.75rem;
-    }
-
-    .lesson-title {
-      font-size: 2.2rem;
-      line-height: 1.2;
-      font-weight: normal;
-      margin: 0.5rem 0 1rem 0;
-      color: var(--text-color);
-    }
-
-    .lesson-meta {
-      font-family: var(--font-sans);
-      font-size: 0.95rem;
-      color: var(--sidenote-color);
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .lesson-meta a {
-      color: var(--accent-secondary);
-      text-decoration: none;
-      border-bottom: 1px dotted var(--accent-secondary);
-    }
-
-    .lesson-meta a:hover {
-      border-bottom-style: solid;
-    }
-
-    section {
-      margin-bottom: 3.5rem;
-    }
-
-    h2 {
-      font-family: var(--font-sans);
-      font-size: 1.4rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--accent-color);
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 0.4rem;
-      margin-top: 2rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .scenario-box {
-      background-color: var(--card-bg);
-      border-left: 4px solid var(--accent-secondary);
-      padding: 1.5rem;
-      border-radius: 0 8px 8px 0;
-      margin: 1.5rem 0;
-    }
-
-    .scenario-tag {
-      font-family: var(--font-sans);
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      font-weight: bold;
-      color: var(--accent-secondary);
-      margin-bottom: 0.5rem;
-    }
-
-    .concept-item {
-      margin-bottom: 2rem;
-    }
-
-    .concept-term {
-      font-family: var(--font-sans);
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--text-color);
-      margin-bottom: 0.4rem;
-    }
-
-    aside.sidenote {
-      font-family: var(--font-sans);
-      font-size: 0.88rem;
-      line-height: 1.45;
-      color: var(--sidenote-color);
-      background: #f0f4f8;
-      border-left: 3px solid var(--accent-secondary);
-      padding: 0.6rem 0.9rem;
-      margin: 0.8rem 0;
-      border-radius: 0 4px 4px 0;
-    }
-
-    .formula-card {
-      background: #fafaf5;
-      border: 1px solid #dcdcd0;
-      border-radius: 6px;
-      padding: 1.25rem 1.5rem;
-      margin: 1.5rem 0;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.03);
-    }
-
-    .formula-card-title {
-      font-family: var(--font-sans);
-      font-size: 1rem;
-      font-weight: bold;
-      color: var(--accent-color);
-      margin-bottom: 0.8rem;
-    }
-
-    .formula-row {
-      margin-bottom: 0.6rem;
-      font-family: var(--font-sans);
-      font-size: 0.95rem;
-    }
-
-    .formula-math {
-      font-family: var(--font-mono);
-      background: #eef2f5;
-      padding: 0.2rem 0.4rem;
-      border-radius: 3px;
-      font-weight: bold;
-      color: #0b3d60;
-      display: inline-block;
-      margin-left: 0.3rem;
-    }
-
-    .formula-tip {
-      font-family: var(--font-sans);
-      font-size: 0.85rem;
-      color: #555;
-      margin-top: 0.8rem;
-      border-top: 1px dashed #d5d5c8;
-      padding-top: 0.5rem;
-      font-style: italic;
-    }
-
-    .callout-trap {
-      background-color: #fdf2f2;
-      border: 1px solid #f5c6cb;
-      border-left: 5px solid var(--error-color);
-      border-radius: 4px;
-      padding: 1.2rem;
-      margin: 1.8rem 0;
-    }
-
-    .callout-trap h4 {
-      font-family: var(--font-sans);
-      color: var(--error-color);
-      margin: 0 0 0.4rem 0;
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-    }
-
-    .quiz-question {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-    }
-
-    .question-header {
-      font-family: var(--font-sans);
-      font-size: 0.85rem;
-      font-weight: bold;
-      color: var(--accent-secondary);
-      text-transform: uppercase;
-      margin-bottom: 0.6rem;
-    }
-
-    .question-stem {
-      font-size: 1.15rem;
-      line-height: 1.5;
-      margin-bottom: 1.2rem;
-      font-weight: 500;
-    }
-
-    .quiz-options {
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-    }
-
-    .quiz-option {
-      background: #fafaf8;
-      border: 1px solid #d0d0c8;
-      border-radius: 6px;
-      padding: 0.85rem 1rem;
-      text-align: left;
-      font-family: var(--font-serif);
-      font-size: 1.05rem;
-      line-height: 1.4;
-      cursor: pointer;
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      transition: all 0.15s ease-in-out;
-      color: var(--text-color);
-    }
-
-    .quiz-option:hover:not(:disabled) {
-      background: #f0f0e8;
-      border-color: #999;
-      transform: translateX(3px);
-    }
-
-    .option-label {
-      font-family: var(--font-sans);
-      font-weight: bold;
-      background: #e2e2da;
-      color: #333;
-      padding: 0.1rem 0.45rem;
-      border-radius: 4px;
-      font-size: 0.9rem;
-      flex-shrink: 0;
-    }
-
-    .quiz-option.correct {
-      background-color: #e8f5e9 !important;
-      border-color: var(--success-color) !important;
-      color: #145a24 !important;
-    }
-
-    .quiz-option.correct .option-label {
-      background-color: var(--success-color);
-      color: #fff;
-    }
-
-    .quiz-option.incorrect {
-      background-color: #ffebee !important;
-      border-color: var(--error-color) !important;
-      color: #721c24 !important;
-      opacity: 0.85;
-    }
-
-    .quiz-option.incorrect .option-label {
-      background-color: var(--error-color);
-      color: #fff;
-    }
-
-    .quiz-feedback {
-      margin-top: 1rem;
-      padding: 0.8rem 1rem;
-      border-radius: 6px;
-      font-family: var(--font-sans);
-      font-size: 0.95rem;
-      line-height: 1.45;
-    }
-
-    .quiz-feedback.success {
-      background-color: #e8f5e9;
-      color: #145a24;
-      border-left: 4px solid var(--success-color);
-    }
-
-    .quiz-feedback.danger {
-      background-color: #ffebee;
-      color: #721c24;
-      border-left: 4px solid var(--error-color);
-    }
-
-    .quiz-resolution {
-      margin-top: 1.2rem;
-      background-color: #f8f9fa;
-      border: 1px solid #e9ecef;
-      border-radius: 6px;
-      padding: 1.2rem;
-      font-family: var(--font-sans);
-      font-size: 0.95rem;
-      line-height: 1.55;
-    }
-
-    .resolution-title {
-      font-weight: bold;
-      color: var(--accent-secondary);
-      margin-bottom: 0.6rem;
-      text-transform: uppercase;
-      font-size: 0.85rem;
-    }
-
-    .hidden {
-      display: none !important;
-    }
-
-    .spaced-prompt {
-      background: #fbfbf6;
-      border: 2px dashed #b5b5a0;
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin: 1.5rem 0;
-    }
-
-    .spaced-tag {
-      font-family: var(--font-sans);
-      font-size: 0.8rem;
-      font-weight: bold;
-      color: var(--accent-color);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.5rem;
-    }
-
-    .lesson-footer {
-      border-top: 1px solid var(--border-color);
-      padding-top: 1.5rem;
-      margin-top: 4rem;
-      font-family: var(--font-sans);
-      font-size: 0.9rem;
-      color: var(--sidenote-color);
-    }
-
-    .source-citation {
-      margin-bottom: 1rem;
-    }
-
-    .footer-nav {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-
-    .footer-nav a {
-      color: var(--accent-secondary);
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .footer-nav a:hover {
-      text-decoration: underline;
-    }
-
-    @media (min-width: 1024px) {
-      .lesson-container {
-        padding-right: 180px;
+  <!-- KaTeX Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}, {left: '\\(', right: '\\)', display: false}, {left: '\\[', right: '\\]', display: true}], throwOnError: false})"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (window.renderMathInElement) {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+          ],
+          throwOnError: false
+        });
       }
-      aside.sidenote {
-        position: absolute;
-        right: 10px;
-        width: 150px;
-        margin-top: -1.5rem;
-        background: transparent;
-        border-left: 2px solid var(--accent-secondary);
-        padding-left: 0.6rem;
-        font-size: 0.82rem;
-      }
-    }
-  </style>
+    });
+  </script>
 </head>
 <body>
   <div class="lesson-container">
@@ -1693,10 +1312,24 @@ export function renderLessonHtml(lessonData) {
           });
         });
       });
+      // Garante scroll horizontal responsivo para todas as tabelas
+      document.querySelectorAll('table').forEach(function(table) {
+        if (!table.parentElement.classList.contains('table-wrapper')) {
+          const wrapper = document.createElement('div');
+          wrapper.className = 'table-wrapper';
+          table.parentNode.insertBefore(wrapper, table);
+          wrapper.appendChild(table);
+        }
+      });
     });
   </script>
 </body>
 </html>`;
+
+  // Envolve tabelas em .table-wrapper para renderização estática e SSR
+  return rawHtml.replace(/(?:<div class="table-wrapper">\s*)?(<table[\s\S]*?<\/table>)(?:\s*<\/div>)?/gi, (match, table) => {
+    return `<div class="table-wrapper">\n${table}\n</div>`;
+  });
 }
 
 function escapeHtml(str) {

@@ -514,20 +514,20 @@ function startExam(mode) {
 
 function updateHeaderModeText(mode) {
   const names = {
-    'oficial': 'Simulado Oficial • 120m',
-    'adaptativo': 'Motor Adaptativo TRI',
-    'drill': 'Treino Deliberado por Tópico',
-    'bolsa': 'Diagnóstico Bolsa 100% • 45m'
+    'oficial': 'Simulado Oficial Vestibular 2027 • 120m',
+    'adaptativo': 'Motor Adaptativo 2027 TRI',
+    'drill': 'Treino Deliberado (Modelo 2027)',
+    'bolsa': 'Diagnóstico Bolsa 100% Inteli 2027 • 45m'
   };
-  document.getElementById('header-mode-indicator').textContent = names[mode] || 'Avaliação';
+  document.getElementById('header-mode-indicator').textContent = names[mode] || 'Vestibular 2027';
 }
 
 function getModeDisplayName(mode) {
   const names = {
-    'oficial': 'Simulado Oficial Vestibular',
-    'adaptativo': 'Simulado Adaptativo TRI',
-    'drill': 'Treino por Tópico (Drill)',
-    'bolsa': 'Diagnóstico Bolsa 100%'
+    'oficial': 'Simulado Oficial Vestibular 2027',
+    'adaptativo': 'Simulado Adaptativo 2027 TRI',
+    'drill': 'Treino por Tópico (Modelo 2027)',
+    'bolsa': 'Diagnóstico Bolsa 100% Inteli 2027'
   };
   return names[mode] || mode;
 }
@@ -1420,7 +1420,7 @@ function initScratchpad() {
   function draw(x, y) {
     if (!isDrawing) return;
     if (isEraser) {
-      ctx.strokeStyle = '#050507';
+      ctx.strokeStyle = '#ffffff';
       ctx.lineWidth = 14;
     } else {
       ctx.strokeStyle = currentColor;
@@ -1703,6 +1703,120 @@ function renderDocsSidebar(docs) {
   });
 }
 
+const DOC_EXECUTIVE_SUMMARIES = {
+  'edital-vestibular': {
+    badge: 'PROCESSO SELETIVO 2027 • REGRAS OFICIAIS',
+    title: 'Edital do Vestibular Inteli 2027 — Pontos Essenciais',
+    chips: [
+      { label: 'Formato', val: 'Prova Adaptativa (20 itens / 120 min)' },
+      { label: 'Pesos', val: 'Prova 50% • Perfil 25% • Projeto 25%' },
+      { label: 'Vagas & Cursos', val: 'CC, EC, ES, SI e ADM Tech' },
+      { label: 'Critério', val: 'Nota Zero em qualquer eixo = Eliminação' }
+    ],
+    takeaways: [
+      '<strong>Prova Adaptativa Inovadora:</strong> São 20 questões de matemática e raciocínio lógico contextualizadas em tecnologia. O algoritmo calibra a dificuldade em tempo real. As primeiras questões definem o piso da sua régua TRI.',
+      '<strong>Avaliação Holística em 3 Eixos:</strong> Além da prova, o candidato realiza o Eixo Perfil (2 ensaios escritos no método STAR + portfólio) e o Eixo Projeto (dinâmica em equipe de resolução de problemas).',
+      '<strong>Vias de Ingresso:</strong> Eixo Prova (presencial ou online) ou aproveitamento de notas do ENEM, SAT, ACT, IB ou premiações em Olimpíadas Científicas.'
+    ],
+    warning: 'Faltar à dinâmica em grupo ou zerar a redação elimina o candidato imediatamente, mesmo com 100% de acertos na prova teórica.'
+  },
+  'edital-bolsa': {
+    badge: 'PROGRAMA DE BOLSAS INTEGRAIS 2027',
+    title: 'Edital de Bolsas de Estudo Inteli 2027 — Pontos Essenciais',
+    chips: [
+      { label: 'Corte de Renda', val: '≤ 1,5 Salário Mínimo per capita (Integral)' },
+      { label: 'Cobertura', val: '100% Mensalidade (R$ 6.000+/mês)' },
+      { label: 'Permanência', val: 'Moradia + Notebook + Alimentação + Inglês' },
+      { label: 'Fundo', val: 'Give-Back Filantrópico' }
+    ],
+    takeaways: [
+      '<strong>Bolsa Integral 100% com 4 Auxílios:</strong> Cobre a mensalidade integral e fornece auxílio-moradia (prioridade para candidatos de fora da Grande SP), notebook corporativo cedido para os 4 anos, auxílio-alimentação e curso de inglês profissional.',
+      '<strong>Auditoria Open Finance (EducaOpen):</strong> Obrigatório autorizar o compartilhamento das contas bancárias de todos os membros adultos da família dos últimos 90 dias.',
+      '<strong>Etapas da Bolsa:</strong> 1) Análise Documental Rigorosa; 2) Entrevista Social com Assistente Social e Responsável; 3) Entrevista com a Banca do Comitê de Bolsas.'
+    ],
+    warning: 'A causa #1 de desclassificação é a omissão de contas bancárias no Open Finance ou movimentações financeiras sem comprovação prévia.'
+  },
+  'analise-conteudos-provas': {
+    badge: 'MATRIZ DE CONTEÚDO VESTIBULAR 2027',
+    title: 'Taxonomia & Incidência das Questões — Pontos Essenciais',
+    chips: [
+      { label: 'Meta de Acertos', val: '≥ 17 de 20 questões' },
+      { label: 'Tempo Médio', val: '6 minutos / questão' },
+      { label: 'Top 1', val: 'Funções & Otimização (22%)' },
+      { label: 'Top 2 & 3', val: 'Lógica (18%) & Combinatória (16%)' }
+    ],
+    takeaways: [
+      '<strong>Top 3 Tópicos Dominam 56% da Prova:</strong> Funções Quadráticas/Exponenciais com máximos e mínimos, Lógica Proposicional aplicada a software, e Combinatória em chaves/senhas.',
+      '<strong>DNA Tecnológico:</strong> Todas as questões usam cenários reais: latência de servidores, startups SaaS (MRR, CAC, LTV), inteligência artificial, criptografia e coordenadas de telas com eixo Y invertido.',
+      '<strong>Simetria de Distratores:</strong> As opções erradas são desenhadas para quem comete deslizes conceituais típicos (esquecer custo fixo, inverter implicações lógicas).'
+    ],
+    warning: 'Errar itens fáceis no início derruba a nota na TRI. Não chute no início; gaste até 8 minutos nas primeiras questões para garantir patamar alto.'
+  },
+  'guia-preparacao': {
+    badge: 'CRONOGRAMA DE PREPARAÇÃO 2027',
+    title: 'Plano Estratégico de 8 Semanas — Pontos Essenciais',
+    chips: [
+      { label: 'Ciclo', val: '8 Semanas Estruturadas' },
+      { label: 'Ensaios', val: 'Método STAR (Situação, Tarefa, Ação, Resultado)' },
+      { label: 'Dinâmica', val: 'Metodologia Ágil (Scrum)' },
+      { label: 'Simulados', val: 'Semanais e Cronometrados' }
+    ],
+    takeaways: [
+      '<strong>Semanas 1 a 4:</strong> Foco em matemática aplicada, lógica de proposições e algoritmos, com resolução cronometrada de blocos de 20 questões.',
+      '<strong>Semanas 5 e 6:</strong> Construção dos dois ensaios do Eixo Perfil no método STAR, com foco em liderança servidora e impacto social.',
+      '<strong>Semana 7:</strong> Treinamento de dinâmica em equipe com metodologia ágil — escuta ativa, síntese e espírito de equipe.',
+      '<strong>Semana 8:</strong> Coleta e conferência minuciosa de todos os extratos bancários de 90 dias e documentos fiscais para a bolsa.'
+    ],
+    warning: 'Evite narrativas vazias ou egocêntricas no Eixo Perfil. O Inteli valoriza colaboração, humildade intelectual e paixão por construir com tecnologia.'
+  },
+  'mission': {
+    badge: 'FRAMEWORK PEDAGÓGICO MATT POCOCK',
+    title: 'Missão do Candidato 2027 — Pontos Essenciais',
+    chips: [
+      { label: 'Meta', val: 'Aprovação com Bolsa 100%' },
+      { label: 'Filosofia', val: 'Storage Strength > Fluency Strength' },
+      { label: 'Prática', val: 'Retrieval Practice (Recuperação Ativa)' }
+    ],
+    takeaways: [
+      '<strong>Resultado Concreto:</strong> Aprovação no Vestibular Inteli 2027 com Bolsa Integral e Auxílios de Permanência.',
+      '<strong>Memória de Longo Prazo:</strong> Priorize resolver problemas sem consulta e responder aos desafios de 48 horas.',
+      '<strong>Ilusão de Maestria:</strong> Só considere um tópico dominado quando for capaz de resolver uma questão inédita sem hesitar.'
+    ],
+    warning: 'Ler resoluções prontas gera falsa sensação de aprendizado. Teste sua memória ativamente com os questionários interativos.'
+  },
+  'glossary': {
+    badge: 'VOCABULÁRIO INSTITUCIONAL INTELI',
+    title: 'Glossário Oficial — Pontos Essenciais',
+    chips: [
+      { label: 'Ensino', val: 'PBL (Aprendizagem Baseada em Projetos)' },
+      { label: 'Cultura', val: 'Give-Back Filantrópico' },
+      { label: 'Seleção', val: '3 Eixos Holísticos' }
+    ],
+    takeaways: [
+      '<strong>Eixo Prova:</strong> Primeira etapa com prova adaptativa autoral de 20 itens.',
+      '<strong>Eixo Perfil:</strong> Análise de trajetória, liderança e motivação.',
+      '<strong>Eixo Projeto:</strong> Dinâmica em grupo de resolução de problemas corporativos reais.',
+      '<strong>Give-Back:</strong> Cultura de retribuição futura dos bolsistas para alimentar o fundo de novas bolsas.'
+    ],
+    warning: 'Demonstrar familiaridade com a cultura do Inteli nas entrevistas e redações diferencia fortemente o candidato dos demais.'
+  },
+  'agent-guide': {
+    badge: 'MANUAL DO AGENTE OMP LOCAL',
+    title: 'Instruções do Mentor OMP — Pontos Essenciais',
+    chips: [
+      { label: 'Motor', val: 'Agente OMP Local' },
+      { label: 'Assinaturas', val: 'Modelos Integrados' },
+      { label: 'Dependência de API', val: 'Zero (Totalmente Local)' }
+    ],
+    takeaways: [
+      '<strong>Mentoria de Alto Nível:</strong> Simula a banca de entrevista da bolsa, revisa redações de liderança e cria questões gêmeas para treinar erros.',
+      '<strong>Telemetria:</strong> Lê data/student-performance.json para saber seus pontos fracos e prescrever exercícios.',
+      '<strong>Comandos Rápidos:</strong> Copie os prompts na aba Central Agente OMP e mande no chat para mentoria imediata.'
+    ],
+    warning: 'Use o comando node bin/inteli.mjs evolve para gerar automaticamente lições sob medida para qualquer matéria onde sua nota cair.'
+  }
+};
+
 async function selectDoc(doc) {
   document.getElementById('doc-active-title').textContent = doc.title;
   document.getElementById('doc-active-category').textContent = doc.category;
@@ -1711,15 +1825,59 @@ async function selectDoc(doc) {
   const renderEl = document.getElementById('doc-markdown-render');
   renderEl.innerHTML = `<div class="loading-spinner-wrap"><div class="gen-spinner"></div><span>Carregando ${doc.title}...</span></div>`;
 
+  const summary = DOC_EXECUTIVE_SUMMARIES[doc.id];
+
   try {
     const res = await fetch(`/api/doc-content?file=${encodeURIComponent(doc.file)}`);
     if (res.ok) {
       const data = await res.json();
+      let markdownHtml = '';
       if (window.marked && typeof window.marked.parse === 'function') {
-        renderEl.innerHTML = window.marked.parse(data.content);
+        markdownHtml = window.marked.parse(data.content);
       } else {
-        renderEl.innerHTML = `<pre><code>${data.content}</code></pre>`;
+        markdownHtml = `<pre><code>${data.content}</code></pre>`;
       }
+
+      let summaryHtml = '';
+      if (summary) {
+        summaryHtml = `
+          <div class="doc-executive-summary-card">
+            <div class="summary-top-row">
+              <span class="badge-tag badge-coral">${summary.badge}</span>
+              <span class="summary-target-label">${summary.target || ''}</span>
+            </div>
+            <h3 class="summary-card-title">${summary.title}</h3>
+            
+            <div class="summary-chips-grid">
+              ${summary.chips.map(c => `
+                <div class="summary-chip-box">
+                  <span class="chip-box-lbl">${c.label}</span>
+                  <span class="chip-box-val">${c.val}</span>
+                </div>
+              `).join('')}
+            </div>
+
+            <div class="summary-keypoints-box">
+              <h4 class="keypoints-title">O que você DEVE saber para este documento:</h4>
+              <ul class="keypoints-list">
+                ${summary.takeaways.map(t => `<li>${t}</li>`).join('')}
+              </ul>
+            </div>
+
+            ${summary.warning ? `
+              <div class="summary-alert-strip">
+                <strong>⚠️ ATENÇÃO CRÍTICA (ELIMINATÓRIA):</strong>
+                <p>${summary.warning}</p>
+              </div>
+            ` : ''}
+          </div>
+          <div class="doc-full-text-divider">
+            <span>DOCUMENTO OFICIAL NA ÍNTEGRA</span>
+          </div>
+        `;
+      }
+
+      renderEl.innerHTML = summaryHtml + `<div class="doc-full-markdown-body">${markdownHtml}</div>`;
       renderKaTeXFormulas(renderEl);
     }
   } catch (e) {

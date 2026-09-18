@@ -5,6 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Referência Finanças & Métricas de Startups - Vestibular Inteli</title>
   <link rel="stylesheet" href="../assets/lesson.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}, {left: '\\(', right: '\\)', display: false}, {left: '\\[', right: '\\]', display: true}], throwOnError: false})"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (window.renderMathInElement) {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+          ],
+          throwOnError: false
+        });
+      }
+    });
+  </script>
 </head>
 <body>
   <div class="container">
@@ -22,8 +40,8 @@
 
     <div class="formula-card">
       <h3>MRR & ARR</h3>
-      <div class="math-block">\text{MRR} = \sum_{i=1}^N \text{mensalidade}_i = N_{\text{ativos}} \cdot \text{ARPU}</div>
-      <div class="math-block">\text{ARR} = 12 \times \text{MRR}</div>
+      <div class="math-block">$$\text{MRR} = \sum_{i=1}^N \text{mensalidade}_i = N_{\text{ativos}} \cdot \text{ARPU}$$</div>
+      <div class="math-block">$$\text{ARR} = 12 \times \text{MRR}$$</div>
       <p><strong>ARPU (Average Revenue Per User):</strong> Receita média mensal gerada por usuário ativo ($\text{Receita Total} / N$).</p>
     </div>
 
@@ -32,19 +50,19 @@
 
     <div class="formula-card">
       <h3>CAC (Custo de Aquisição de Clientes)</h3>
-      <div class="math-block">\text{CAC} = \frac{\text{Gastos Totais com Marketing e Vendas no Período}}{\text{Número de Novos Clientes Conquistados no Período}}</div>
-      <p><em>Exemplo:</em> R$ 60.000 investidos em Google Ads + equipe de vendas geraram 150 novos clientes assinantes $\implies \text{CAC} = \frac{60.000}{150} = \text{R\$\,400,00}$.</p>
+      <div class="math-block">$$\text{CAC} = \frac{\text{Gastos Totais com Marketing e Vendas no Período}}{\text{Número de Novos Clientes Conquistados no Período}}$$</div>
+      <p><em>Exemplo:</em> R<span>$</span> 60.000 investidos em Google Ads + equipe de vendas geraram 150 novos clientes assinantes: $\text{CAC} = \frac{60.000}{150} = \text{R\$ 400,00}$</p>
     </div>
 
     <div class="formula-card">
       <h3>Taxa de Evasão (Churn Rate)</h3>
-      <div class="math-block">\text{Churn} = \frac{\text{Clientes Cancelados no Mês}}{\text{Clientes Ativos no Início do Mês}} \times 100\%</div>
+      <div class="math-block">$$\text{Churn} = \frac{\text{Clientes Cancelados no Mês}}{\text{Clientes Ativos no Início do Mês}} \times 100\%$$</div>
       <p><strong>Tempo Médio de Vida do Cliente (Lifespan):</strong> $T = \frac{1}{\text{Churn mensal}}$. Se o churn for 5% ao mês ($0,05$), a permanência média é de $1 / 0,05 = 20$ meses.</p>
     </div>
 
     <div class="formula-card">
       <h3>LTV (Lifetime Value)</h3>
-      <div class="math-block">\text{LTV} = \text{Ticket Médio Mensal} \times \text{Margem de Contribuição (\%)} \times \text{Lifespan} = \frac{\text{Margem Mensal}}{\text{Churn}}</div>
+      <div class="math-block">$$\text{LTV} = \text{Ticket Médio Mensal} \times \text{Margem de Contribuição (\%)} \times \text{Lifespan} = \frac{\text{Margem Mensal}}{\text{Churn}}$$</div>
       <p><strong>Relação Saudável de Escala:</strong> $\frac{\text{LTV}}{\text{CAC}} \ge 3$. Se a relação for $< 1$, o negócio consome caixa a cada novo cliente adquirido.</p>
     </div>
 
@@ -53,8 +71,8 @@
 
     <div class="formula-card">
       <h3>Quantidade e Receita de Break-Even</h3>
-      <div class="math-block">Q_{\text{eq}} = \frac{\text{Custo Fixo Total}}{\text{Preço Unitário} - \text{Custo Variável Unitário}} = \frac{CF}{MC_{\text{unit}}}</div>
-      <div class="math-block">\text{Receita de Equilíbrio} = Q_{\text{eq}} \times \text{Preço Unitário}</div>
+      <div class="math-block">$$Q_{\text{eq}} = \frac{\text{Custo Fixo Total}}{\text{Preço Unitário} - \text{Custo Variável Unitário}} = \frac{CF}{MC_{\text{unit}}}$$</div>
+      <div class="math-block">$$\text{Receita de Equilíbrio} = Q_{\text{eq}} \times \text{Preço Unitário}$$</div>
       <p><strong>Análise de Sensibilidade:</strong> Se o custo variável unitário aumentar em $10\%$, qual é o novo volume mínimo $Q'$ para manter lucro zero? Basta recalcular a nova margem de contribuição $MC' = P - 1,10 \cdot C_v$.</p>
     </div>
 
@@ -63,15 +81,15 @@
 
     <div class="formula-card">
       <h3>Juros Simples vs. Juros Compostos</h3>
-      <div class="math-block">\text{Simples: } M = C(1 + i \cdot t) \quad\text{(Crescimento Linear / Progressão Aritmética)}</div>
-      <div class="math-block">\text{Compostos: } M = C(1 + i)^t \quad\text{(Crescimento Exponencial / Progressão Geométrica)}</div>
+      <div class="math-block">$$\text{Simples: } M = C(1 + i \cdot t) \quad\text{(Crescimento Linear / Progressão Aritmética)}$$</div>
+      <div class="math-block">$$\text{Compostos: } M = C(1 + i)^t \quad\text{(Crescimento Exponencial / Progressão Geométrica)}$$</div>
       <p><em>Relação com Logaritmos:</em> Para determinar o tempo $t$ necessário para dobrar um capital a uma taxa $i$: $2 = (1 + i)^t \implies t = \frac{\log_{10} 2}{\log_{10}(1 + i)}$.</p>
     </div>
 
     <div class="formula-card">
       <h3>Depreciação Linear de Ativos Tecnológicos</h3>
       <p>Usada para calcular valor contábil de servidores, notebooks e estações de trabalho ao longo da vida útil:</p>
-      <div class="math-block">D_{\text{anual}} = \frac{V_{\text{inicial}} - V_{\text{residual}}}{N_{\text{anos}}} &emsp;|&emsp; V(t) = V_{\text{inicial}} - D_{\text{anual}} \cdot t</div>
+      <div class="math-block">$$D_{\text{anual}} = \frac{V_{\text{inicial}} - V_{\text{residual}}}{N_{\text{anos}}} \quad\mid\quad V(t) = V_{\text{inicial}} - D_{\text{anual}} \cdot t$$</div>
     </div>
 
     <div class="callout">
