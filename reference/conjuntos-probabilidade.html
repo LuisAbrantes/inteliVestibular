@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Referência Conjuntos, Probabilidade & Dispersão - Vestibular Inteli</title>
+  <link rel="stylesheet" href="../assets/lesson.css">
+  <!-- Typography: Anthropic Editorial Serif (Newsreader/Charter), Clean UI Sans (Inter) & Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="initKaTeX()"></script>
+  <script>
+    function initKaTeX() {
+      if (window.renderMathInElement) {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+          ],
+          throwOnError: false
+        });
+      }
+    }
+    document.addEventListener("DOMContentLoaded", initKaTeX);
+    window.addEventListener("load", initKaTeX);
+    try {
+      const saved = localStorage.getItem('theme');
+      if (saved) document.documentElement.setAttribute('data-theme', saved);
+    } catch (e) {}
+      document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.getElementById('btn-theme-toggle');
+        if (btn) {
+          btn.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme') ||
+              (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            const next = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            try { localStorage.setItem('theme', next); } catch (e) {}
+          });
+        }
+      });
+  </script>
+</head>
+<body>
+  <nav class="lesson-top-nav">
+    <div class="nav-content">
+      <a href="/" class="btn-nav-back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        <span>Voltar ao Portal de Estudos</span>
+      </a>
+      <div class="nav-lesson-badge">
+        <span class="dot-active"></span>
+        <span>Folha de Consulta &bull; Vestibular Inteli 2027</span>
+      </div>
+      <div class="nav-quick-links">
+        <button class="btn-theme-toggle" id="btn-theme-toggle" title="Alternar Modo Escuro / Claro">&#9681;</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="lesson-meta">Documento de Referência Rápida • Vestibular Inteli • Trilha Superior</div>
+    <h1>Conjuntos, Probabilidade & Dispersão</h1>
+
+    <p>Venn e inclusão-exclusão, Bayes compacto e variância populacional vs amostral para SLAs e benchmarks no Vestibular Inteli.</p>
+
+    <aside class="sidenote">
+      <strong>Ordem de preenchimento do Venn triplo:</strong> sempre da interseção tripla para fora — centro → duplas exclusivas → regiões só-A/só-B/só-C.
+    </aside>
+
+    <h2>1. Venn & Inclusão-Exclusão</h2>
+
+    <div class="formula-card">
+      <h3>2 e 3 Conjuntos</h3>
+      <div class="math-block">$$n(A \cup B) = n(A) + n(B) - n(A \cap B)$$</div>
+      <div class="math-block">$$n(A \cup B \cup C) = \sum n - \sum n(\text{duplas}) + n(A \cap B \cap C)$$</div>
+    </div>
+
+    <h2>2. Probabilidade Compacta</h2>
+
+    <div class="formula-card">
+      <h3>Condicional, Total & Bayes</h3>
+      <div class="math-block">$$P(A \mid B) = \frac{P(A \cap B)}{P(B)} \quad\mid\quad P(B) = \sum_i P(B \mid A_i)\,P(A_i)$$</div>
+      <div class="math-block">$$P(A \mid B) = \frac{P(B \mid A)\,P(A)}{P(B)}$$</div>
+      <p><em>Anti-armadilha:</em> $P(A \mid B) \neq P(B \mid A)$ — o denominador é sempre a probabilidade do evento <strong>dado</strong> (após a barra).</p>
+    </div>
+
+    <h2>3. Dispersão: Populacional vs Amostral</h2>
+
+    <div class="formula-card">
+      <h3>Variância e Desvio (correção de Bessel)</h3>
+      <div class="math-block">$$\sigma^2 = \frac{\sum (x_i - \mu)^2}{N} \quad\text{(população: divide por } N\text{)}$$</div>
+      <div class="math-block">$$s^2 = \frac{\sum (x_i - \bar{x})^2}{n - 1} \quad\text{(amostra: divide por } n-1\text{)} \quad\mid\quad s = \sqrt{s^2}$$</div>
+      <p><strong>Mediana</strong> ignora <em>outliers</em>; <strong>média</strong> é arrastada por eles. Em latência: reporte $p99$ + mediana, nunca só a média.</p>
+    </div>
+
+      <footer class="lesson-footer">
+        <div class="footer-nav">
+          <a href="/?tab=docs&doc=mission">&larr; Sum&aacute;rio da Miss&atilde;o</a>
+          <a href="/?tab=docs&doc=glossary">&#128214; Gloss&aacute;rio T&eacute;cnico</a>
+          <a href="/" class="btn-back-hub">&larr; Voltar &agrave; Tela Principal do Portal</a>
+        </div>
+      </footer>
+  </div>
+</body>
+</html>

@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lição 0013: Financas-startups: Modelagem Quantitativa para o Vestibular Inteli | Inteli Vestibular</title>
+  <title>Lição 0013: Juros Compostos, Break-Even e Unit Economics de Startups | Inteli Vestibular</title>
   
   <!-- Typography: Anthropic Editorial Serif (Newsreader/Charter), Clean UI Sans (Inter) & Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
-  
+
   <!-- Estilos Oficiais -->
   <link rel="stylesheet" href="../assets/lesson.css">
   
@@ -57,11 +57,11 @@
     <article class="lesson" id="conteudo">
       <header class="lesson-header">
         <span class="lesson-badge">Lição 0013</span>
-        <h1 class="lesson-title">Financas-startups: Modelagem Quantitativa para o Vestibular Inteli</h1>
+        <h1 class="lesson-title">Juros Compostos, Break-Even e Unit Economics de Startups</h1>
         <div class="lesson-meta">
           <span class="meta-time">⏱️ Tempo Estimado: 8 min</span>
           <span>•</span>
-          <span class="meta-topic">🎯 Eixo: Tópico Sob Demanda</span>
+          <span class="meta-topic">🎯 Eixo: Aritmética, Juros e Finanças de Startups</span>
           <span>•</span>
           <span class="meta-track">📈 Trilha Mediana e Superior</span>
         </div>
@@ -76,55 +76,63 @@
       <section class="scenario">
         <h2>Cenário Real Inteli</h2>
         <div class="scenario-box">
-          <div class="scenario-tag">🏢 Inteli Tech Labs (Incubadora de Projetos) | Aplicação Prática e Resolução Analítica: Financas-startups</div>
-          <p>No ecossistema de aprendizagem baseada em projetos do Inteli, engenheiros e líderes aplicam <strong>Financas-startups</strong> para construir soluções computacionais escaláveis e tomar decisões de negócios fundamentadas em dados.
-      O desafio consiste em decompor o problema em componentes formais, modelar as restrições matemáticas e calcular a resposta ótima com agilidade sob restrição de tempo.</p>
+          <div class="scenario-tag">🏢 VentureCap SaaS (Fintech de Assinaturas B2B) | Aporte Remunerado, Ponto de Equilíbrio e CAC/LTV</div>
+          <p>Você é analista financeiro na <strong>VentureCap SaaS</strong>, avaliando um aporte de <strong>R$ 10.000</strong> remunerado a <strong>10% a.a.</strong> e a operação de um plano de assinaturas (custo fixo de <strong>R$ 15.000/mês</strong>, custo marginal de <strong>R$ 5/usuário</strong>, mensalidade de <strong>R$ 25</strong>).
+      O comitê precisa (1) do montante em 3 anos sob <strong>juros compostos</strong> e
+      (2) do <strong>número mínimo de assinantes</strong> para zerar o prejuízo.
+      Juros + break-even caem todo ano no Inteli — sempre com distrator de regime trocado.</p>
         </div>
       </section>
 
       <!-- 2. NÚCLEO CONCEITUAL -->
       <section class="core-knowledge">
         <h2>Núcleo Conceitual</h2>
-        <p class="lead-summary">O domínio conceitual de <strong>Financas-startups</strong> exige compreensão intuitiva antes da aplicação mecânica. Na régua adaptativa do Inteli, enunciados contextualizam o problema com terminologia do ecossistema de inovação.</p>
+        <p class="lead-summary">Finanças no Inteli testam <strong>regime</strong> (simples × composto) e <strong>unidade de tempo</strong> (taxa mensal exige t em meses). Break-even é função afim: <strong>Receita = Custo</strong> isola o volume mínimo. Decore: simples é PA, composto é PG.</p>
         
         <div class="concepts-list">
           
     <div class="concept-item">
-      <h3 class="concept-term">Fundamento e Modelagem</h3>
-      <p class="concept-def">Formalização matemática direta aplicada às restrições operacionais descritas no problema de Financas-startups.</p>
-      <aside class="sidenote"><strong>Nota lateral:</strong> Separe dados fornecidos das variáveis de decisão antes de iniciar os cálculos.</aside>
+      <h3 class="concept-term">Juros Simples vs Compostos</h3>
+      <p class="concept-def">Simples: <strong>M = C·(1 + i·t)</strong> (linear, PA). Compostos: <strong>M = C·(1 + i)ᵗ</strong> (exponencial, PG). Para t = 1 período, ambos coincidem; para t > 1, o composto domina.</p>
+      <aside class="sidenote"><strong>Nota lateral:</strong> A banca troca o regime no enunciado e mantém as alternativas do outro regime como distratores.</aside>
     </div>
   
 
     <div class="concept-item">
-      <h3 class="concept-term">Estratégia de Resolução Rápida</h3>
-      <p class="concept-def">Identifique invariâncias, simetrias ou atalhos analíticos para economizar tempo na prova adaptativa de 6 minutos por questão.</p>
-      <aside class="sidenote"><strong>Nota lateral:</strong> Elimine distratores absurdos por análise dimensional ou ordens de grandeza.</aside>
+      <h3 class="concept-term">Break-Even e Margem de Contribuição</h3>
+      <p class="concept-def">Receita total <strong>R(x) = P·x</strong>, custo total <strong>C(x) = F + c·x</strong>. Equilíbrio: <strong>x* = F / (P − c)</strong>, onde <strong>MC = P − c</strong> é a margem de contribuição unitária.</p>
+      <aside class="sidenote"><strong>Nota lateral:</strong> Margem zero ou negativa = break-even impossível. Cheque MC > 0 antes de dividir.</aside>
     </div>
   
         </div>
 
         <div class="formula-card">
-          <div class="formula-card-title">📌 Estrutura Matemática Essencial</div>
+          <div class="formula-card-title">📌 Fórmulas de Bolso para o Vestibular Inteli</div>
           
     <div class="formula-row">
-      <span class="formula-name">Relação Fundamental:</span>
-      <div class="formula-math">$$\text{Entrada} - \text{Saída} = \text{Variação}$$</div>
+      <span class="formula-name">Montante Composto:</span>
+      <div class="formula-math">$$M = C \cdot (1+i)^t$$</div>
     </div>
   
 
     <div class="formula-row">
-      <span class="formula-name">Otimização Relativa:</span>
-      <div class="formula-math">$$\text{Eficiência} = \frac{\text{Resultado Obtido}}{\text{Recursos Consumidos}}$$</div>
+      <span class="formula-name">Montante Simples:</span>
+      <div class="formula-math">$$M = C \cdot (1 + i \cdot t)$$</div>
     </div>
   
-          <div class="formula-tip">💡 <strong>Dica de Ouro:</strong> Verifique se as unidades estão homogêneas (ex.: segundos vs minutos, bits vs bytes).</div>
+
+    <div class="formula-row">
+      <span class="formula-name">Volume de Equilíbrio:</span>
+      <div class="formula-math">$$x^* = \frac{F}{P - c} = \frac{F}{MC}$$</div>
+    </div>
+  
+          <div class="formula-tip">💡 <strong>Dica de Ouro:</strong> Potência 1,1³ = 1,331 e 1,1² = 1,21: memorize os cubos de 1,1 e 1,05 — a banca repete as taxas 10% e 5%.</div>
         </div>
 
         
         <div class="callout callout-trap">
-          <h4>⚠️ Armadilha do Padrão Escolar Tradicional</h4>
-          <p>Não tente aplicar fórmulas decoradas sem verificar as restrições de contorno impostas pelo cenário de engenharia.</p>
+          <h4>⚠️ Armadilha Típica do Inteli: Taxa Mensal com Tempo em Anos</h4>
+          <p>Enunciado dá i = 2% ao mês e t = 2 anos. Quem aplica (1,02)² erra: ou converte t para 24 meses ou a taxa para equivalente anual. Unidade de tempo SEMPRE igual à da taxa.</p>
         </div>
       </section>
 
@@ -137,30 +145,30 @@
         <div class="question-header">
           <span class="question-number">Questão 1 de 2</span>
         </div>
-        <p class="question-stem">Ao modelar um problema quantitativo envolvendo Financas-startups, qual abordagem garante a resolução mais precisa e eficiente no vestibular adaptativo do Inteli?</p>
+        <p class="question-stem">O aporte de R$ 10.000 da VentureCap rende 10% a.a. sob juros compostos. Qual é o montante após 3 anos completos?</p>
         <div class="quiz-options">
           
-      <button class="quiz-option" type="button" data-correct="false" data-feedback="Contas extensas aumentam a probabilidade de erros aritméticos sob pressão de tempo. Sempre simplifique frações e relações antes de calcular.">
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="R$ 13.000 é o regime SIMPLES: 10.000·(1 + 0,1·3). O enunciado exige compostos — releia o regime antes de calcular.">
         <span class="option-label">A</span>
-        <span class="option-text">Fazer contas numéricas extensas no rascunho sem simplificar termos algébricos.</span>
+        <span class="option-text">R$ 13.000,00</span>
       </button>
     
 
-      <button class="quiz-option" type="button" data-correct="true" data-feedback="Exato! O modelo pedagógico do Inteli recompensa a modelagem estruturada e o raciocínio formal ágil.">
+      <button class="quiz-option" type="button" data-correct="true" data-feedback="Exato! 10.000 · 1,1³ = 10.000 · 1,331 = R$ 13.310,00.">
         <span class="option-label">B</span>
-        <span class="option-text">Mapear as variáveis, identificar o núcleo matemático subjacente e eliminar distratores simétricos.</span>
+        <span class="option-text">R$ 13.310,00</span>
       </button>
     
 
-      <button class="quiz-option" type="button" data-correct="false" data-feedback="No Inteli, o contexto define restrições vitais (ex.: ordem de pixels, eixos invertidos, independentes vs dependentes).">
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="R$ 11.000 é UM ano de rendimento (10.000 · 1,1). Faltam compor os anos 2 e 3.">
         <span class="option-label">C</span>
-        <span class="option-text">Ignorar o contexto do enunciado e buscar apenas os números no texto.</span>
+        <span class="option-text">R$ 11.000,00</span>
       </button>
     
 
-      <button class="quiz-option" type="button" data-correct="false" data-feedback="A TRI do Inteli calibra distratores com precisão técnica; alternativas não são arbitrárias.">
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="R$ 14.641 = 10.000 · 1,1⁴: você compôs 4 anos em vez de 3. Conte os expoentes.">
         <span class="option-label">D</span>
-        <span class="option-text">Chutar a alternativa com o número mais complexo ou decimal.</span>
+        <span class="option-text">R$ 14.641,00</span>
       </button>
     
         </div>
@@ -168,10 +176,9 @@
         <div class="quiz-resolution hidden">
           <div class="resolution-title">🔍 Resolução Oficial Comentada</div>
           <div class="resolution-content"><strong>Resolução Passo a Passo:</strong><br>
-        1. Leia o enunciado identificando a pergunta final e as restrições impostas.<br>
-        2. Modele a relação matemática entre as variáveis.<br>
-        3. Realize simplificações algébricas prévias.<br>
-        4. Verifique a coerência do resultado numérico frente ao cenário real.</div>
+        1. Regime composto: <code>M = 10.000 · (1,1)³</code>.<br>
+        2. <code>1,1² = 1,21</code>; <code>1,21 · 1,1 = 1,331</code>.<br>
+        3. <code>M = 10.000 · 1,331 = R$ 13.310,00</code>.</div>
         </div>
       </div>
     
@@ -180,30 +187,30 @@
         <div class="question-header">
           <span class="question-number">Questão 2 de 2</span>
         </div>
-        <p class="question-stem">Em testes de hipótese e modelagem algorítmica para Financas-startups, qual métrica é mais resiliente contra anomalias e valores extremos (outliers)?</p>
+        <p class="question-stem">Plano da VentureCap: custo fixo R$ 15.000/mês, custo marginal R$ 5/usuário, mensalidade R$ 25. Qual o número mínimo de assinantes pagantes para não haver prejuízo?</p>
         <div class="quiz-options">
           
-      <button class="quiz-option" type="button" data-correct="false" data-feedback="A média simples é fortemente distorcida por dados extremos e outliers na amostra.">
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="600 = 15.000/25: você dividiu pela mensalidade cheia, ignorando o custo marginal de R$ 5 por usuário.">
         <span class="option-label">A</span>
-        <span class="option-text">Média aritmética simples dos valores observados.</span>
+        <span class="option-text">600 assinantes</span>
       </button>
     
 
-      <button class="quiz-option" type="button" data-correct="true" data-feedback="Correto! A mediana é uma medida separatriz posicional imune a distorções causadas por outliers isolados.">
+      <button class="quiz-option" type="button" data-correct="true" data-feedback="Perfeito! MC = 25 − 5 = 20; x* = 15.000/20 = 750 assinantes.">
         <span class="option-label">B</span>
-        <span class="option-text">Mediana (p50) e análise de percentis de distribuição.</span>
+        <span class="option-text">750 assinantes</span>
       </button>
     
 
-      <button class="quiz-option" type="button" data-correct="false" data-feedback="O valor máximo captura unicamente o ponto mais extremo, desconsiderando a tendência central.">
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="3.000 = 15.000/5: divisão pelo custo marginal, que não é margem — margem é PREÇO menos custo.">
         <span class="option-label">C</span>
-        <span class="option-text">Valor máximo registrado no período de pico.</span>
+        <span class="option-text">3.000 assinantes</span>
       </button>
     
 
-      <button class="quiz-option" type="button" data-correct="false" data-feedback="Valores não-normalizados dependem do tempo de observação e não fornecem medida de estabilidade.">
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="500 · 20 = 10.000 &lt; 15.000 de fixo: teste a resposta na equação R(x) = C(x) antes de marcar.">
         <span class="option-label">D</span>
-        <span class="option-text">Soma total não-normalizada dos eventos.</span>
+        <span class="option-text">500 assinantes</span>
       </button>
     
         </div>
@@ -211,9 +218,9 @@
         <div class="quiz-resolution hidden">
           <div class="resolution-title">🔍 Resolução Oficial Comentada</div>
           <div class="resolution-content"><strong>Resolução Passo a Passo:</strong><br>
-        1. A mediana divide a distribuição em metades exatas de 50%.<br>
-        2. A presença de um número arbitrariamente grande ou pequeno não altera a posição do elemento central.<br>
-        3. Portanto, em métricas de engenharia e ciência de dados, a mediana e os percentis (p95, p99) são o padrão de aferição.</div>
+        1. Margem de contribuição: <code>MC = 25 − 5 = R$ 20/usuário</code>.<br>
+        2. Equilíbrio: <code>25x = 15.000 + 5x → 20x = 15.000</code>.<br>
+        3. <code>x* = 750 assinantes</code>. Conferência: <code>R = 18.750 = C = 15.000 + 3.750 ✓</code>.</div>
         </div>
       </div>
     
@@ -224,7 +231,7 @@
         <h2>Desafio de 48 Horas (Storage Strength)</h2>
         <div class="spaced-prompt">
           <div class="spaced-tag">🧠 Teste de Fixação e Evocação Tardia</div>
-          <p class="prompt-question"><strong>Em 48 horas: explique em 3 frases para um colega como Financas-startups se conecta a um produto ou software do mundo real.</strong></p>
+          <p class="prompt-question"><strong>Em 48 horas: recalcule de cabeça 10.000·1,1³ e o break-even com F = 20.000, P = 50, c = 30 — e explique por que 1.000 é a resposta (MC = 20).</strong></p>
           <p style="font-size:0.9rem; color:#666; margin-top:0.5rem;"><em>Dica da Ciência Cognitiva:</em> Responder a esta pergunta mentalmente após 2 dias consolida o aprendizado na memória de longo prazo (efeito de recuperação espaçada de Bjork).</p>
         </div>
       </section>
@@ -233,7 +240,7 @@
       <footer class="lesson-footer">
         <div class="source-citation">
           <strong>📚 Fonte Primária e Referência Acadêmica:</strong><br>
-          <span>Processo Seletivo Inteli (Matriz de Referência e Provas Anteriores); Caderno de Competências em Liderança e Tecnologia.</span>
+          <span>Processo Seletivo Inteli 2025.1 (Prova Adaptativa - Q01/Q02, break-even SaaS); Edital Oficial Inteli (Anexo II - Aritmética e Principais Funções).</span>
         </div>
         <div class="footer-nav">
           <a href="/?tab=docs&doc=mission">← Sumário da Missão</a>

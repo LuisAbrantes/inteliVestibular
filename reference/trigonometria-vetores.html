@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Referência Trigonometria & Vetores - Vestibular Inteli</title>
+  <link rel="stylesheet" href="../assets/lesson.css">
+  <!-- Typography: Anthropic Editorial Serif (Newsreader/Charter), Clean UI Sans (Inter) & Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="initKaTeX()"></script>
+  <script>
+    function initKaTeX() {
+      if (window.renderMathInElement) {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+          ],
+          throwOnError: false
+        });
+      }
+    }
+    document.addEventListener("DOMContentLoaded", initKaTeX);
+    window.addEventListener("load", initKaTeX);
+    try {
+      const saved = localStorage.getItem('theme');
+      if (saved) document.documentElement.setAttribute('data-theme', saved);
+    } catch (e) {}
+      document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.getElementById('btn-theme-toggle');
+        if (btn) {
+          btn.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme') ||
+              (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            const next = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            try { localStorage.setItem('theme', next); } catch (e) {}
+          });
+        }
+      });
+  </script>
+</head>
+<body>
+  <nav class="lesson-top-nav">
+    <div class="nav-content">
+      <a href="/" class="btn-nav-back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        <span>Voltar ao Portal de Estudos</span>
+      </a>
+      <div class="nav-lesson-badge">
+        <span class="dot-active"></span>
+        <span>Folha de Consulta &bull; Vestibular Inteli 2027</span>
+      </div>
+      <div class="nav-quick-links">
+        <button class="btn-theme-toggle" id="btn-theme-toggle" title="Alternar Modo Escuro / Claro">&#9681;</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="lesson-meta">Documento de Referência Rápida • Vestibular Inteli • Trilha Superior</div>
+    <h1>Trigonometria, Vetores & Produto Escalar</h1>
+
+    <p>Razões no triângulo, ciclo trigonométrico e álgebra vetorial para física de jogos, FOV e similaridade de embeddings no Vestibular Inteli.</p>
+
+    <aside class="sidenote">
+      <strong>Ângulos decorados:</strong> $30°$: $(\frac{1}{2}, \frac{\sqrt{3}}{2})$ · $45°$: $(\frac{\sqrt{2}}{2}, \frac{\sqrt{2}}{2})$ · $60°$: $(\frac{\sqrt{3}}{2}, \frac{1}{2})$ — na ordem $(\cos, \sen)$.
+    </aside>
+
+    <h2>1. Triângulo Retângulo & Ciclo</h2>
+
+    <div class="formula-card">
+      <h3>Razões e Identidade Fundamental</h3>
+      <div class="math-block">$$\sen \theta = \frac{\text{op}}{\text{hip}} \quad\mid\quad \cos \theta = \frac{\text{adj}}{\text{hip}} \quad\mid\quad \tan \theta = \frac{\text{op}}{\text{adj}} = \frac{\sen\theta}{\cos\theta}$$</div>
+      <div class="math-block">$$\sen^2 \theta + \cos^2 \theta = 1$$</div>
+    </div>
+
+    <h2>2. Vetores & Produto Escalar</h2>
+
+    <div class="formula-card">
+      <h3>Módulo, Soma e Decomposição</h3>
+      <div class="math-block">$$|\vec{v}| = \sqrt{v_x^2 + v_y^2} \quad\mid\quad v_x = |\vec{v}|\cos\theta, \; v_y = |\vec{v}|\sen\theta$$</div>
+    </div>
+
+    <div class="formula-card">
+      <h3>Produto Escalar & Ângulo</h3>
+      <div class="math-block">$$\vec{u} \cdot \vec{v} = u_x v_x + u_y v_y = |\vec{u}|\,|\vec{v}|\cos\theta$$</div>
+      <div class="math-block">$$\cos\theta = \frac{\vec{u} \cdot \vec{v}}{|\vec{u}|\,|\vec{v}|} \quad\mid\quad \vec{u} \cdot \vec{v} = 0 \iff \text{ortogonais } (90°)$$</div>
+      <p><em>Sinal decide o ângulo:</em> positivo $\implies \theta < 90°$ · zero $\implies 90°$ · negativo $\implies \theta > 90°$.</p>
+    </div>
+
+      <footer class="lesson-footer">
+        <div class="footer-nav">
+          <a href="/?tab=docs&doc=mission">&larr; Sum&aacute;rio da Miss&atilde;o</a>
+          <a href="/?tab=docs&doc=glossary">&#128214; Gloss&aacute;rio T&eacute;cnico</a>
+          <a href="/" class="btn-back-hub">&larr; Voltar &agrave; Tela Principal do Portal</a>
+        </div>
+      </footer>
+  </div>
+</body>
+</html>

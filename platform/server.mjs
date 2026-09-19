@@ -640,7 +640,13 @@ export async function handleRequest(req, res) {
     const refs = [
       { id: 'matematica', title: 'Folha de Consulta: Matemática Aplicada & Otimização', file: 'reference/matematica-inteli.html', url: '/reference/matematica-inteli.html' },
       { id: 'logica', title: 'Folha de Consulta: Lógica Computacional & Algoritmos', file: 'reference/logica-computacional.html', url: '/reference/logica-computacional.html' },
-      { id: 'financas', title: 'Folha de Consulta: Finanças de Startups & Métricas Tech', file: 'reference/financas-startups.html', url: '/reference/financas-startups.html' }
+      { id: 'financas', title: 'Folha de Consulta: Finanças de Startups & Métricas Tech', file: 'reference/financas-startups.html', url: '/reference/financas-startups.html' },
+      { id: 'polinomios', title: 'Folha de Consulta: Polinômios, Exponenciais & Logaritmos', file: 'reference/polinomios-funcoes.html', url: '/reference/polinomios-funcoes.html' },
+      { id: 'matrizes', title: 'Folha de Consulta: Matrizes, Determinantes & Sistemas Lineares', file: 'reference/matrizes-sistemas-lineares.html', url: '/reference/matrizes-sistemas-lineares.html' },
+      { id: 'sequencias', title: 'Folha de Consulta: Sequências PA/PG & Recorrências', file: 'reference/sequencias-pa-pg.html', url: '/reference/sequencias-pa-pg.html' },
+      { id: 'geometria', title: 'Folha de Consulta: Geometria Plana, Espacial & Euler', file: 'reference/geometria-plana-espacial.html', url: '/reference/geometria-plana-espacial.html' },
+      { id: 'trigonometria', title: 'Folha de Consulta: Trigonometria, Vetores & Produto Escalar', file: 'reference/trigonometria-vetores.html', url: '/reference/trigonometria-vetores.html' },
+      { id: 'conjuntos', title: 'Folha de Consulta: Conjuntos, Probabilidade & Dispersão', file: 'reference/conjuntos-probabilidade.html', url: '/reference/conjuntos-probabilidade.html' }
     ];
     sendJson(res, 200, { success: true, references: refs });
     return;

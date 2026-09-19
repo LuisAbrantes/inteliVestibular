@@ -1395,6 +1395,359 @@ export const BLUEPRINTS = {
     ],
     spacedRepetition: 'Em 48 horas: calcule o produto escalar dos vetores (2, 5) e (-5, 2) e comprove imediatamente por que eles formam um ângulo de 90 graus sem calcular nenhuma raiz.',
     primarySource: 'Processo Seletivo Inteli 2024; Gilbert Strang, "Introduction to Linear Algebra", 5th Edition; Edital Oficial Inteli (Anexo II - Trigonometria e Vetores).'
+  },
+
+  'matrizes-determinantes': {
+    slug: 'matrizes-e-transformacoes-de-cores-rgb-yuv',
+    title: 'Matrizes, Determinantes e Sistemas Lineares em Pipelines Gráficos',
+    topic: 'Matrizes, Determinantes e Sistemas Lineares',
+    estimatedMinutes: 9,
+    targetTrack: 'Trilha Superior e Mediana',
+    contextScenario: {
+      company: 'PixelForge (Startup de Renderização e Filtros de Imagem)',
+      problem: 'Conversão de Espaços de Cor, Transformações 2D e Calibração de Sensores',
+      narrativa: `Você é engenheiro de computação gráfica na <strong>PixelForge</strong>, responsável pelo pipeline de filtros de imagem em tempo real.
+      O motor precisa (1) converter pixels do espaço <strong>RGB para luminância YUV</strong> via multiplicação matricial e
+      (2) <strong>calibrar dois sensores</strong> cujas leituras obedecem a um sistema linear 2x2.
+      A banca do Inteli cobra exatamente isso: multiplicação linha-por-coluna, determinantes e Cramer sob pressão de tempo.`
+    },
+    coreKnowledge: {
+      summary: 'Matriz no Inteli é <strong>função linear empacotada</strong>: multiplicar é encadear transformações. O determinante mede se a transformação <strong>esmaga o espaço</strong> (det = 0) ou é invertível — e isso decide Cramer, inversa e a classificação do sistema.',
+      concepts: [
+        {
+          term: 'Multiplicação Matricial (Linha por Coluna)',
+          definition: 'O elemento <em>c<sub>ij</sub></em> é o produto escalar da linha <em>i</em> de A pela coluna <em>j</em> de B. Exigência dimensional: <strong>A<sub>m×k</sub> · B<sub>k×p</sub> = C<sub>m×p</sub></strong> (dimensões internas iguais). Ordem importa: em geral <strong>AB ≠ BA</strong>.',
+          sidenote: 'Dimensão primeiro, conta depois: 2x3 vezes 3x1 resulta 2x1. Se as internas diferem, o produto nem existe.'
+        },
+        {
+          term: 'Determinante, Inversa e Transposta',
+          definition: 'Ordem 2: <strong>ad − bc</strong>. Ordem 3: <strong>Sarrus</strong> (repete as 2 primeiras colunas, principais menos secundárias). Inversa: <strong>A⁻¹ = (1/det A) · adj(A)</strong>, só existe se <strong>det A ≠ 0</strong>. Transposta: <strong>(AB)ᵀ = BᵀAᵀ</strong>.',
+          sidenote: 'Sarrus SÓ vale para 3x3. Para 4x4 a banca exigiria Laplace — reconheça o limite da ferramenta.'
+        }
+      ],
+      formulaCard: {
+        title: 'Fórmulas de Bolso para o Vestibular Inteli',
+        formulas: [
+          { name: 'Determinante 2x2', math: '$$\\det \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} = ad - bc$$' },
+          { name: 'Matriz Inversa (2x2)', math: '$$A^{-1} = \\frac{1}{ad-bc} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}$$' },
+          { name: 'Regra de Cramer (2x2)', math: '$$x = \\frac{\\det A_x}{\\det A} \\quad\\mid\\quad y = \\frac{\\det A_y}{\\det A}$$' }
+        ],
+        tip: 'Cramer com det A = 0 é cilada: o sistema é SPI (infinitas) ou SI (impossível) — classifique pelo escalonamento, nunca divida por zero.'
+      },
+      examTrap: {
+        title: 'Armadilha Típica do Inteli: Cramer com Determinante Nulo',
+        description: 'O candidato calcula det A = 0 e mesmo assim aplica a fórmula, "encontrando" valores. Com det nulo não há solução única: escalone — fila 0 = 0 indica SPI, fila 0 = k (k ≠ 0) indica SI.'
+      }
+    },
+    quiz: [
+      {
+        id: 'q1',
+        stem: 'No pipeline da PixelForge, um filtro combina dois canais segundo a matriz A = [[4, 7], [2, 6]]. Para calibrar o filtro inverso, o primeiro passo é o determinante de A. Quanto vale det A?',
+        options: [
+          {
+            label: 'A',
+            text: 'det A = 4·6 + 7·2 = 38',
+            isCorrect: false,
+            feedback: 'Você somou os produtos em vez de subtrair. O determinante 2x2 é a DIFERENÇA ad − bc, não a soma.'
+          },
+          {
+            label: 'B',
+            text: 'det A = 4·6 − 7·2 = 10',
+            isCorrect: true,
+            feedback: 'Exato! ad − bc = 24 − 14 = 10. Como det ≠ 0, a matriz é invertível e o filtro inverso existe.'
+          },
+          {
+            label: 'C',
+            text: 'det A = 7·2 − 4·6 = −10',
+            isCorrect: false,
+            feedback: 'Ordem invertida: o termo positivo é o da diagonal principal (a·d = 4·6), não o da secundária.'
+          },
+          {
+            label: 'D',
+            text: 'det A = 4 + 6 + 7 + 2 = 19',
+            isCorrect: false,
+            feedback: 'Determinante não é soma de elementos — é ad − bc. Revise a definição antes de avançar.'
+          }
+        ],
+        resolution: `<strong>Resolução Passo a Passo:</strong><br>
+        1. Identificamos <code>a = 4, b = 7, c = 2, d = 6</code>.<br>
+        2. Diagonal principal: <code>4 × 6 = 24</code>.<br>
+        3. Diagonal secundária: <code>7 × 2 = 14</code>.<br>
+        4. Determinante: <code>24 − 14 = 10</code>. Como é não-nulo, A admite inversa.`
+      },
+      {
+        id: 'q2',
+        stem: 'A calibração dos sensores da PixelForge recai no sistema {2x + y = 7; x + 3y = 11}. Aplicando Cramer, qual é o par (x, y)?',
+        options: [
+          {
+            label: 'A',
+            text: '(x, y) = (3, 2)',
+            isCorrect: false,
+            feedback: 'Teste na 1ª equação: 2·3 + 2 = 8 ≠ 7. Par ordenado exige satisfazer TODAS as equações — sempre confira.'
+          },
+          {
+            label: 'B',
+            text: '(x, y) = (2, 3)',
+            isCorrect: true,
+            feedback: 'Perfeito! det A = 5, det Ax = 10, det Ay = 15: x = 10/5 = 2, y = 15/5 = 3. Confere nas duas equações.'
+          },
+          {
+            label: 'C',
+            text: '(x, y) = (1, 5)',
+            isCorrect: false,
+            feedback: 'Passa na 1ª (2 + 5 = 7) mas falha na 2ª (1 + 15 = 16 ≠ 11). Distrator clássico de conferência parcial.'
+          },
+          {
+            label: 'D',
+            text: 'Sistema impossível (SI)',
+            isCorrect: false,
+            feedback: 'det A = 2·3 − 1·1 = 5 ≠ 0, logo há solução única (SPD). SI exigiria det nulo com fila 0 = k.'
+          }
+        ],
+        resolution: `<strong>Resolução Passo a Passo:</strong><br>
+        1. Determinante principal: <code>det A = 2·3 − 1·1 = 5</code> (SPD, solução única).<br>
+        2. <code>det Ax = 7·3 − 1·11 = 21 − 11 = 10</code> → <code>x = 10/5 = 2</code>.<br>
+        3. <code>det Ay = 2·11 − 7·1 = 22 − 7 = 15</code> → <code>y = 15/5 = 3</code>.<br>
+        4. Conferência: <code>2·2+3 = 7 ✓</code> e <code>2+3·3 = 11 ✓</code>.`
+      }
+    ],
+    spacedRepetition: 'Em 48 horas, sem consultar: calcule de cabeça o determinante de [[5, 3], [4, 7]] e explique por que um determinante nulo inviabiliza Cramer mas não significa "sem solução".',
+    primarySource: 'Processo Seletivo Inteli 2025.1 (Prova Adaptativa); Gilbert Strang, "Introduction to Linear Algebra", 5th Edition; Edital Oficial Inteli (Anexo II - Matrizes e Sistemas Lineares).'
+  },
+
+  'funcoes-polinomios': {
+    slug: 'funcoes-e-analise-matematica',
+    title: 'Polinômios, Briot-Ruffini e Funções Exponenciais/Logarítmicas',
+    topic: 'Álgebra, Polinômios e Principais Funções',
+    estimatedMinutes: 9,
+    targetTrack: 'Trilha Superior e Mediana',
+    contextScenario: {
+      company: 'GrowthLoop (Startup de Modelagem de Tração e Latência)',
+      problem: 'Curvas de Custo Cúbicas, Crescimento Viral e Tempo de Duplicação',
+      narrativa: `Você é engenheiro de dados na <strong>GrowthLoop</strong>, modelando a curva de custo de infraestrutura (polinômio cúbico) e o crescimento viral da base de usuários (exponencial).
+      O CTO precisa (1) <strong>fatorar o polinômio de custo</strong> para achar os pontos de equilíbrio e
+      (2) <strong>prever em quantos meses a base dobra</strong> dada a taxa mensal.
+      A banca cobra Briot-Ruffini e logaritmos exatamente nesse contexto.`
+    },
+    coreKnowledge: {
+      summary: 'Polinômio no Inteli é <strong>equação disfarçada de modelo</strong>: ache UMA raiz pequena (±1, ±2), reduza o grau com Briot-Ruffini e termine com Bhaskara ou Girard. Exponencial e log são <strong>inversos</strong> — isolar o expoente sempre passa por aplicar log dos dois lados.',
+      concepts: [
+        {
+          term: 'Briot-Ruffini, Resto e D\u2019Alembert',
+          definition: 'Dividir P(x) por <strong>(x − a)</strong>: desce o 1º coeficiente, multiplica pela raiz, soma — até o resto. <strong>Resto = P(a)</strong> (Teorema do Resto). Se <strong>P(a) = 0</strong>, (x − a) é fator (D\u2019Alembert). Candidatas racionais: <strong>p/q</strong>.',
+          sidenote: 'Resto zero é a luz verde: fatora e reduz o grau. Resto ≠ 0 não é erro — é o valor de P(a).'
+        },
+        {
+          term: 'Logaritmos, Inversa e Composta',
+          definition: '<strong>log(a·b) = log a + log b</strong>, <strong>log(aᵏ) = k·log a</strong>, mudança de base <strong>log_b a = log_c a / log_c b</strong>. Inversa troca x↔y; composta <strong>(f∘g)(x) = f(g(x))</strong>. Tempo de duplicação: <strong>t = log 2 / log(1+i)</strong>.',
+          sidenote: 'Log de soma NÃO abre: log(a+b) fica como está. Esse é o distrator favorito da banca.'
+        }
+      ],
+      formulaCard: {
+        title: 'Fórmulas de Bolso para o Vestibular Inteli',
+        formulas: [
+          { name: 'Relações de Girard (2º grau)', math: '$$x_1 + x_2 = -\\frac{b}{a} \\quad\\mid\\quad x_1 \\cdot x_2 = \\frac{c}{a}$$' },
+          { name: 'Tempo de Duplicação Exponencial', math: '$$2 = (1+i)^t \\implies t = \\frac{\\log 2}{\\log(1+i)}$$' },
+          { name: 'Função Inversa (troca e isola)', math: '$$f(x) = 2x+3 \\implies f^{-1}(x) = \\frac{x-3}{2}$$' }
+        ],
+        tip: 'Girard confere fatoração em segundos: se as raízes somam −b/a e multiplicam c/a, a fatoração está certa sem reexpandir.'
+      },
+      examTrap: {
+        title: 'Armadilha Típica do Inteli: Logaritmo de Soma',
+        description: 'O distrator aplica "log(a+b) = log a + log b" para simplificar uma equação de crescimento. Falso: logaritmo só distribui sobre PRODUTO, quociente e potência. Soma dentro do log trava a manipulação.'
+      }
+    },
+    quiz: [
+      {
+        id: 'q1',
+        stem: 'O polinômio de custo da GrowthLoop é P(x) = x³ − 6x² + 11x − 6 e sabe-se que x = 1 é raiz. Aplicando Briot-Ruffini, qual é o quociente e o conjunto completo de raízes?',
+        options: [
+          {
+            label: 'A',
+            text: 'Q(x) = x² − 5x + 6; raízes {1, 2, 3}',
+            isCorrect: true,
+            feedback: 'Exato! Linha de Briot com raiz 1: 1 | 1 −6 11 −6 → 1 −5 6 resto 0. Q(x) = x² − 5x + 6 = (x−2)(x−3).'
+          },
+          {
+            label: 'B',
+            text: 'Q(x) = x² − 7x + 18; raízes {1}',
+            isCorrect: false,
+            feedback: 'Erro de conta na linha de Briot: após descer o 1, multiplica-se pela raiz (1·1 = 1) e soma-se a −6, obtendo −5, não −7.'
+          },
+          {
+            label: 'C',
+            text: 'Q(x) = x² − 5x + 6; raízes {2, 3}',
+            isCorrect: false,
+            feedback: 'O quociente está certo, mas a raiz dada (x = 1) também é raiz de P(x) — o conjunto completo é {1, 2, 3}.'
+          },
+          {
+            label: 'D',
+            text: 'Q(x) = x³ − 5x² + 6x; raízes {0, 2, 3}',
+            isCorrect: false,
+            feedback: 'Briot-Ruffini REDUZ o grau em 1: quociente de cúbico por (x−a) é quadrático, nunca cúbico.'
+          }
+        ],
+        resolution: `<strong>Resolução Passo a Passo:</strong><br>
+        1. Coeficientes: <code>1 | −6 | 11 | −6</code>, raiz <code>a = 1</code>.<br>
+        2. Desce o 1; <code>1·1 = 1</code>, soma a −6 → <code>−5</code>.<br>
+        3. <code>−5·1 = −5</code>, soma a 11 → <code>6</code>.<br>
+        4. <code>6·1 = 6</code>, soma a −6 → <code>resto 0</code> ✓.<br>
+        5. <code>Q(x) = x² − 5x + 6 = (x−2)(x−3)</code>. Girard confere: soma 5 = −(−5)/1 ✓, produto 6 ✓. Raízes: {1, 2, 3}.`
+      },
+      {
+        id: 'q2',
+        stem: 'A base da GrowthLoop cresce 10% ao mês sob juros compostos. Partindo de N₀ usuários, após quantos meses completos a base DOBRA? (Use log₁₀ 2 ≈ 0,30 e log₁₀ 1,1 ≈ 0,041.)',
+        options: [
+          {
+            label: 'A',
+            text: 'Aproximadamente 7,3 meses (8 meses completos)',
+            isCorrect: true,
+            feedback: 'Perfeito! 2 = 1,1ᵗ → t = log 2 / log 1,1 ≈ 0,30/0,041 ≈ 7,3. Meses completos: 8.'
+          },
+          {
+            label: 'B',
+            text: 'Exatamente 10 meses (10% × 10 = 100%)',
+            isCorrect: false,
+            feedback: 'Raciocínio de juros SIMPLES aplicado a crescimento composto. Composição acelera: dobra antes dos 10 meses.'
+          },
+          {
+            label: 'C',
+            text: 'Aproximadamente 20 meses',
+            isCorrect: false,
+            feedback: 'Ordem de grandeza errada: 1,1²⁰ ≈ 6,7 (sêxtupla, não dobra). Refaça t = 0,30/0,041.'
+          },
+          {
+            label: 'D',
+            text: 'Impossível determinar sem N₀',
+            isCorrect: false,
+            feedback: 'N₀ cancela: 2N₀ = N₀·1,1ᵗ → 2 = 1,1ᵗ. O tempo de duplicação independe do valor inicial.'
+          }
+        ],
+        resolution: `<strong>Resolução Passo a Passo:</strong><br>
+        1. Modelo: <code>N(t) = N₀ · 1,1ᵗ</code>; dobra quando <code>2N₀ = N₀ · 1,1ᵗ</code>.<br>
+        2. Cancela N₀: <code>2 = 1,1ᵗ</code>.<br>
+        3. Aplica log₁₀: <code>t = log 2 / log 1,1 ≈ 0,30 / 0,041 ≈ 7,3</code>.<br>
+        4. Meses completos para ATINGIR a dobra: <strong>8 meses</strong>.`
+      }
+    ],
+    spacedRepetition: 'Em 48 horas: fatore x³ − 6x² + 11x − 6 do zero (ache a raiz, rode Briot, confira com Girard) e deduza t de duplicação a 5% a.m. sem olhar a ficha.',
+    primarySource: 'Processo Seletivo Inteli 2025.1 (Prova Adaptativa); Edital Oficial Inteli (Anexo II - Álgebra e Principais Funções).'
+  },
+
+  'financas-juros': {
+    slug: 'financas-startups',
+    title: 'Juros Compostos, Break-Even e Unit Economics de Startups',
+    topic: 'Aritmética, Juros e Finanças de Startups',
+    estimatedMinutes: 8,
+    targetTrack: 'Trilha Mediana e Superior',
+    contextScenario: {
+      company: 'VentureCap SaaS (Fintech de Assinaturas B2B)',
+      problem: 'Aporte Remunerado, Ponto de Equilíbrio e CAC/LTV',
+      narrativa: `Você é analista financeiro na <strong>VentureCap SaaS</strong>, avaliando um aporte de <strong>R$ 10.000</strong> remunerado a <strong>10% a.a.</strong> e a operação de um plano de assinaturas (custo fixo de <strong>R$ 15.000/mês</strong>, custo marginal de <strong>R$ 5/usuário</strong>, mensalidade de <strong>R$ 25</strong>).
+      O comitê precisa (1) do montante em 3 anos sob <strong>juros compostos</strong> e
+      (2) do <strong>número mínimo de assinantes</strong> para zerar o prejuízo.
+      Juros + break-even caem todo ano no Inteli — sempre com distrator de regime trocado.`
+    },
+    coreKnowledge: {
+      summary: 'Finanças no Inteli testam <strong>regime</strong> (simples × composto) e <strong>unidade de tempo</strong> (taxa mensal exige t em meses). Break-even é função afim: <strong>Receita = Custo</strong> isola o volume mínimo. Decore: simples é PA, composto é PG.',
+      concepts: [
+        {
+          term: 'Juros Simples vs Compostos',
+          definition: 'Simples: <strong>M = C·(1 + i·t)</strong> (linear, PA). Compostos: <strong>M = C·(1 + i)ᵗ</strong> (exponencial, PG). Para t = 1 período, ambos coincidem; para t > 1, o composto domina.',
+          sidenote: 'A banca troca o regime no enunciado e mantém as alternativas do outro regime como distratores.'
+        },
+        {
+          term: 'Break-Even e Margem de Contribuição',
+          definition: 'Receita total <strong>R(x) = P·x</strong>, custo total <strong>C(x) = F + c·x</strong>. Equilíbrio: <strong>x* = F / (P − c)</strong>, onde <strong>MC = P − c</strong> é a margem de contribuição unitária.',
+          sidenote: 'Margem zero ou negativa = break-even impossível. Cheque MC > 0 antes de dividir.'
+        }
+      ],
+      formulaCard: {
+        title: 'Fórmulas de Bolso para o Vestibular Inteli',
+        formulas: [
+          { name: 'Montante Composto', math: '$$M = C \\cdot (1+i)^t$$' },
+          { name: 'Montante Simples', math: '$$M = C \\cdot (1 + i \\cdot t)$$' },
+          { name: 'Volume de Equilíbrio', math: '$$x^* = \\frac{F}{P - c} = \\frac{F}{MC}$$' }
+        ],
+        tip: 'Potência 1,1³ = 1,331 e 1,1² = 1,21: memorize os cubos de 1,1 e 1,05 — a banca repete as taxas 10% e 5%.'
+      },
+      examTrap: {
+        title: 'Armadilha Típica do Inteli: Taxa Mensal com Tempo em Anos',
+        description: 'Enunciado dá i = 2% ao mês e t = 2 anos. Quem aplica (1,02)² erra: ou converte t para 24 meses ou a taxa para equivalente anual. Unidade de tempo SEMPRE igual à da taxa.'
+      }
+    },
+    quiz: [
+      {
+        id: 'q1',
+        stem: 'O aporte de R$ 10.000 da VentureCap rende 10% a.a. sob juros compostos. Qual é o montante após 3 anos completos?',
+        options: [
+          {
+            label: 'A',
+            text: 'R$ 13.000,00',
+            isCorrect: false,
+            feedback: 'R$ 13.000 é o regime SIMPLES: 10.000·(1 + 0,1·3). O enunciado exige compostos — releia o regime antes de calcular.'
+          },
+          {
+            label: 'B',
+            text: 'R$ 13.310,00',
+            isCorrect: true,
+            feedback: 'Exato! 10.000 · 1,1³ = 10.000 · 1,331 = R$ 13.310,00.'
+          },
+          {
+            label: 'C',
+            text: 'R$ 11.000,00',
+            isCorrect: false,
+            feedback: 'R$ 11.000 é UM ano de rendimento (10.000 · 1,1). Faltam compor os anos 2 e 3.'
+          },
+          {
+            label: 'D',
+            text: 'R$ 14.641,00',
+            isCorrect: false,
+            feedback: 'R$ 14.641 = 10.000 · 1,1⁴: você compôs 4 anos em vez de 3. Conte os expoentes.'
+          }
+        ],
+        resolution: `<strong>Resolução Passo a Passo:</strong><br>
+        1. Regime composto: <code>M = 10.000 · (1,1)³</code>.<br>
+        2. <code>1,1² = 1,21</code>; <code>1,21 · 1,1 = 1,331</code>.<br>
+        3. <code>M = 10.000 · 1,331 = R$ 13.310,00</code>.`
+      },
+      {
+        id: 'q2',
+        stem: 'Plano da VentureCap: custo fixo R$ 15.000/mês, custo marginal R$ 5/usuário, mensalidade R$ 25. Qual o número mínimo de assinantes pagantes para não haver prejuízo?',
+        options: [
+          {
+            label: 'A',
+            text: '600 assinantes',
+            isCorrect: false,
+            feedback: '600 = 15.000/25: você dividiu pela mensalidade cheia, ignorando o custo marginal de R$ 5 por usuário.'
+          },
+          {
+            label: 'B',
+            text: '750 assinantes',
+            isCorrect: true,
+            feedback: 'Perfeito! MC = 25 − 5 = 20; x* = 15.000/20 = 750 assinantes.'
+          },
+          {
+            label: 'C',
+            text: '3.000 assinantes',
+            isCorrect: false,
+            feedback: '3.000 = 15.000/5: divisão pelo custo marginal, que não é margem — margem é PREÇO menos custo.'
+          },
+          {
+            label: 'D',
+            text: '500 assinantes',
+            isCorrect: false,
+            feedback: '500 · 20 = 10.000 < 15.000 de fixo: teste a resposta na equação R(x) = C(x) antes de marcar.'
+          }
+        ],
+        resolution: `<strong>Resolução Passo a Passo:</strong><br>
+        1. Margem de contribuição: <code>MC = 25 − 5 = R$ 20/usuário</code>.<br>
+        2. Equilíbrio: <code>25x = 15.000 + 5x → 20x = 15.000</code>.<br>
+        3. <code>x* = 750 assinantes</code>. Conferência: <code>R = 18.750 = C = 15.000 + 3.750 ✓</code>.`
+      }
+    ],
+    spacedRepetition: 'Em 48 horas: recalcule de cabeça 10.000·1,1³ e o break-even com F = 20.000, P = 50, c = 30 — e explique por que 1.000 é a resposta (MC = 20).',
+    primarySource: 'Processo Seletivo Inteli 2025.1 (Prova Adaptativa - Q01/Q02, break-even SaaS); Edital Oficial Inteli (Anexo II - Aritmética e Principais Funções).'
   }
 };
 
@@ -1423,6 +1776,18 @@ BLUEPRINTS['trigonometria-vetores-computacao'] = BLUEPRINTS['trigonometria-vetor
 BLUEPRINTS['trigonometria'] = BLUEPRINTS['trigonometria-vetores'];
 BLUEPRINTS['vetores'] = BLUEPRINTS['trigonometria-vetores'];
 BLUEPRINTS['produto-escalar'] = BLUEPRINTS['trigonometria-vetores'];
+BLUEPRINTS['matrizes'] = BLUEPRINTS['matrizes-determinantes'];
+BLUEPRINTS['determinantes'] = BLUEPRINTS['matrizes-determinantes'];
+BLUEPRINTS['sistemas-lineares'] = BLUEPRINTS['matrizes-determinantes'];
+BLUEPRINTS['matrizes-e-transformacoes-de-cores-rgb-yuv'] = BLUEPRINTS['matrizes-determinantes'];
+BLUEPRINTS['polinomios'] = BLUEPRINTS['funcoes-polinomios'];
+BLUEPRINTS['briot-ruffini'] = BLUEPRINTS['funcoes-polinomios'];
+BLUEPRINTS['exponencial-logaritmo'] = BLUEPRINTS['funcoes-polinomios'];
+BLUEPRINTS['funcoes-e-analise-matematica'] = BLUEPRINTS['funcoes-polinomios'];
+BLUEPRINTS['juros'] = BLUEPRINTS['financas-juros'];
+BLUEPRINTS['break-even'] = BLUEPRINTS['financas-juros'];
+BLUEPRINTS['financas'] = BLUEPRINTS['financas-juros'];
+BLUEPRINTS['financas-startups'] = BLUEPRINTS['financas-juros'];
 /**
  * Scans lessons/ directory and returns the next 4-digit formatted lesson number (e.g. "0001", "0002").
  */

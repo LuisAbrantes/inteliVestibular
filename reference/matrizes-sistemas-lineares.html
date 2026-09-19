@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Referência Matrizes & Sistemas Lineares - Vestibular Inteli</title>
+  <link rel="stylesheet" href="../assets/lesson.css">
+  <!-- Typography: Anthropic Editorial Serif (Newsreader/Charter), Clean UI Sans (Inter) & Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="initKaTeX()"></script>
+  <script>
+    function initKaTeX() {
+      if (window.renderMathInElement) {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+          ],
+          throwOnError: false
+        });
+      }
+    }
+    document.addEventListener("DOMContentLoaded", initKaTeX);
+    window.addEventListener("load", initKaTeX);
+    try {
+      const saved = localStorage.getItem('theme');
+      if (saved) document.documentElement.setAttribute('data-theme', saved);
+    } catch (e) {}
+      document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.getElementById('btn-theme-toggle');
+        if (btn) {
+          btn.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme') ||
+              (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            const next = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            try { localStorage.setItem('theme', next); } catch (e) {}
+          });
+        }
+      });
+  </script>
+</head>
+<body>
+  <nav class="lesson-top-nav">
+    <div class="nav-content">
+      <a href="/" class="btn-nav-back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        <span>Voltar ao Portal de Estudos</span>
+      </a>
+      <div class="nav-lesson-badge">
+        <span class="dot-active"></span>
+        <span>Folha de Consulta &bull; Vestibular Inteli 2027</span>
+      </div>
+      <div class="nav-quick-links">
+        <button class="btn-theme-toggle" id="btn-theme-toggle" title="Alternar Modo Escuro / Claro">&#9681;</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="lesson-meta">Documento de Referência Rápida • Vestibular Inteli • Trilha Superior</div>
+    <h1>Matrizes, Determinantes & Sistemas Lineares</h1>
+
+    <p>Operações matriciais, determinantes 2x2/3x3 e resolução de sistemas para questões de computação gráfica, filtros de imagem e modelagem no Vestibular Inteli.</p>
+
+    <aside class="sidenote">
+      <strong>Checklist de prova:</strong> matriz inversa só existe se $\det A \neq 0$. Antes de aplicar Cramer, calcule o determinante principal.
+    </aside>
+
+    <h2>1. Operações & Determinantes</h2>
+
+    <div class="formula-card">
+      <h3>Multiplicação e Transposta</h3>
+      <div class="math-block">$$A_{m \times k} \cdot B_{k \times p} = C_{m \times p} \quad\text{(linha por coluna; dimensões internas iguais)}$$</div>
+      <div class="math-block">$$(A^T)^T = A \quad\mid\quad (A \cdot B)^T = B^T \cdot A^T$$</div>
+    </div>
+
+    <div class="formula-card">
+      <h3>Determinante 2x2 e 3x3 (Sarrus)</h3>
+      <div class="math-block">$$\det \begin{pmatrix} a & b \\ c & d \end{pmatrix} = ad - bc$$</div>
+      <p><strong>Sarrus (3x3):</strong> repita as 2 primeiras colunas à direita; some os produtos das 3 diagonais principais e subtraia os das 3 secundárias.</p>
+      <div class="math-block">$$A^{-1} = \frac{1}{\det A} \cdot \text{adj}(A) \quad (\det A \neq 0) \quad\mid\quad A \cdot A^{-1} = I$$</div>
+    </div>
+
+    <h2>2. Sistemas Lineares</h2>
+
+    <div class="formula-card">
+      <h3>Regra de Cramer (2x2)</h3>
+      <div class="math-block">$$x = \frac{\det A_x}{\det A} \quad\mid\quad y = \frac{\det A_y}{\det A}$$</div>
+      <p>$A_x$ substitui a coluna de $x$ pelos termos independentes (idem $A_y$).</p>
+    </div>
+
+    <div class="formula-card">
+      <h3>Classificação via Escalonamento</h3>
+      <div class="math-block">$$\text{SPD: solução única} \quad\mid\quad \text{SPI: infinitas (ex.: } 0 = 0\text{)} \quad\mid\quad \text{SI: nenhuma (ex.: } 0 = 5\text{)}$$</div>
+      <p><em>Heurística:</em> fila zerada com termo independente não-nulo $\implies$ sistema impossível na hora, sem escalonar o resto.</p>
+    </div>
+
+      <footer class="lesson-footer">
+        <div class="footer-nav">
+          <a href="/?tab=docs&doc=mission">&larr; Sum&aacute;rio da Miss&atilde;o</a>
+          <a href="/?tab=docs&doc=glossary">&#128214; Gloss&aacute;rio T&eacute;cnico</a>
+          <a href="/" class="btn-back-hub">&larr; Voltar &agrave; Tela Principal do Portal</a>
+        </div>
+      </footer>
+  </div>
+</body>
+</html>

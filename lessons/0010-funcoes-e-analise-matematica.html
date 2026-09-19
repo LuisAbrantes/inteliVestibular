@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lição 0010: Funções e Análise Matemática: Modelagem Quantitativa para o Vestibular Inteli | Inteli Vestibular</title>
+  <title>Lição 0010: Polinômios, Briot-Ruffini e Funções Exponenciais/Logarítmicas | Inteli Vestibular</title>
   
   <!-- Typography: Anthropic Editorial Serif (Newsreader/Charter), Clean UI Sans (Inter) & Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
-  
+
   <!-- Estilos Oficiais -->
   <link rel="stylesheet" href="../assets/lesson.css">
   
@@ -57,13 +57,13 @@
     <article class="lesson" id="conteudo">
       <header class="lesson-header">
         <span class="lesson-badge">Lição 0010</span>
-        <h1 class="lesson-title">Funções e Análise Matemática: Modelagem Quantitativa para o Vestibular Inteli</h1>
+        <h1 class="lesson-title">Polinômios, Briot-Ruffini e Funções Exponenciais/Logarítmicas</h1>
         <div class="lesson-meta">
-          <span class="meta-time">⏱️ Tempo Estimado: 8 min</span>
+          <span class="meta-time">⏱️ Tempo Estimado: 9 min</span>
           <span>•</span>
-          <span class="meta-topic">🎯 Eixo: Tópico Sob Demanda</span>
+          <span class="meta-topic">🎯 Eixo: Álgebra, Polinômios e Principais Funções</span>
           <span>•</span>
-          <span class="meta-track">📈 Trilha Mediana e Superior</span>
+          <span class="meta-track">📈 Trilha Superior e Mediana</span>
         </div>
         <div class="lesson-meta" style="margin-top: 0.5rem;">
           <a href="/?tab=docs&doc=mission">← Voltar para a Missão</a>
@@ -76,55 +76,63 @@
       <section class="scenario">
         <h2>Cenário Real Inteli</h2>
         <div class="scenario-box">
-          <div class="scenario-tag">🏢 Inteli Tech Labs (Incubadora de Projetos) | Aplicação Prática e Resolução Analítica: Funções e Análise Matemática</div>
-          <p>No ecossistema de aprendizagem baseada em projetos do Inteli, engenheiros e líderes aplicam <strong>Funções e Análise Matemática</strong> para construir soluções computacionais escaláveis e tomar decisões de negócios fundamentadas em dados.
-      O desafio consiste em decompor o problema em componentes formais, modelar as restrições matemáticas e calcular a resposta ótima com agilidade sob restrição de tempo.</p>
+          <div class="scenario-tag">🏢 GrowthLoop (Startup de Modelagem de Tração e Latência) | Curvas de Custo Cúbicas, Crescimento Viral e Tempo de Duplicação</div>
+          <p>Você é engenheiro de dados na <strong>GrowthLoop</strong>, modelando a curva de custo de infraestrutura (polinômio cúbico) e o crescimento viral da base de usuários (exponencial).
+      O CTO precisa (1) <strong>fatorar o polinômio de custo</strong> para achar os pontos de equilíbrio e
+      (2) <strong>prever em quantos meses a base dobra</strong> dada a taxa mensal.
+      A banca cobra Briot-Ruffini e logaritmos exatamente nesse contexto.</p>
         </div>
       </section>
 
       <!-- 2. NÚCLEO CONCEITUAL -->
       <section class="core-knowledge">
         <h2>Núcleo Conceitual</h2>
-        <p class="lead-summary">O domínio conceitual de <strong>Funções e Análise Matemática</strong> exige compreensão intuitiva antes da aplicação mecânica. Na régua adaptativa do Inteli, enunciados contextualizam o problema com terminologia do ecossistema de inovação.</p>
+        <p class="lead-summary">Polinômio no Inteli é <strong>equação disfarçada de modelo</strong>: ache UMA raiz pequena (±1, ±2), reduza o grau com Briot-Ruffini e termine com Bhaskara ou Girard. Exponencial e log são <strong>inversos</strong> — isolar o expoente sempre passa por aplicar log dos dois lados.</p>
         
         <div class="concepts-list">
           
     <div class="concept-item">
-      <h3 class="concept-term">Fundamento e Modelagem</h3>
-      <p class="concept-def">Formalização matemática direta aplicada às restrições operacionais descritas no problema de Funções e Análise Matemática.</p>
-      <aside class="sidenote"><strong>Nota lateral:</strong> Separe dados fornecidos das variáveis de decisão antes de iniciar os cálculos.</aside>
+      <h3 class="concept-term">Briot-Ruffini, Resto e D’Alembert</h3>
+      <p class="concept-def">Dividir P(x) por <strong>(x − a)</strong>: desce o 1º coeficiente, multiplica pela raiz, soma — até o resto. <strong>Resto = P(a)</strong> (Teorema do Resto). Se <strong>P(a) = 0</strong>, (x − a) é fator (D’Alembert). Candidatas racionais: <strong>p/q</strong>.</p>
+      <aside class="sidenote"><strong>Nota lateral:</strong> Resto zero é a luz verde: fatora e reduz o grau. Resto ≠ 0 não é erro — é o valor de P(a).</aside>
     </div>
   
 
     <div class="concept-item">
-      <h3 class="concept-term">Estratégia de Resolução Rápida</h3>
-      <p class="concept-def">Identifique invariâncias, simetrias ou atalhos analíticos para economizar tempo na prova adaptativa de 6 minutos por questão.</p>
-      <aside class="sidenote"><strong>Nota lateral:</strong> Elimine distratores absurdos por análise dimensional ou ordens de grandeza.</aside>
+      <h3 class="concept-term">Logaritmos, Inversa e Composta</h3>
+      <p class="concept-def"><strong>log(a·b) = log a + log b</strong>, <strong>log(aᵏ) = k·log a</strong>, mudança de base <strong>log_b a = log_c a / log_c b</strong>. Inversa troca x↔y; composta <strong>(f∘g)(x) = f(g(x))</strong>. Tempo de duplicação: <strong>t = log 2 / log(1+i)</strong>.</p>
+      <aside class="sidenote"><strong>Nota lateral:</strong> Log de soma NÃO abre: log(a+b) fica como está. Esse é o distrator favorito da banca.</aside>
     </div>
   
         </div>
 
         <div class="formula-card">
-          <div class="formula-card-title">📌 Estrutura Matemática Essencial</div>
+          <div class="formula-card-title">📌 Fórmulas de Bolso para o Vestibular Inteli</div>
           
     <div class="formula-row">
-      <span class="formula-name">Relação Fundamental:</span>
-      <div class="formula-math">$$\text{Entrada} - \text{Saída} = \text{Variação}$$</div>
+      <span class="formula-name">Relações de Girard (2º grau):</span>
+      <div class="formula-math">$$x_1 + x_2 = -\frac{b}{a} \quad\mid\quad x_1 \cdot x_2 = \frac{c}{a}$$</div>
     </div>
   
 
     <div class="formula-row">
-      <span class="formula-name">Otimização Relativa:</span>
-      <div class="formula-math">$$\text{Eficiência} = \frac{\text{Resultado Obtido}}{\text{Recursos Consumidos}}$$</div>
+      <span class="formula-name">Tempo de Duplicação Exponencial:</span>
+      <div class="formula-math">$$2 = (1+i)^t \implies t = \frac{\log 2}{\log(1+i)}$$</div>
     </div>
   
-          <div class="formula-tip">💡 <strong>Dica de Ouro:</strong> Verifique se as unidades estão homogêneas (ex.: segundos vs minutos, bits vs bytes).</div>
+
+    <div class="formula-row">
+      <span class="formula-name">Função Inversa (troca e isola):</span>
+      <div class="formula-math">$$f(x) = 2x+3 \implies f^{-1}(x) = \frac{x-3}{2}$$</div>
+    </div>
+  
+          <div class="formula-tip">💡 <strong>Dica de Ouro:</strong> Girard confere fatoração em segundos: se as raízes somam −b/a e multiplicam c/a, a fatoração está certa sem reexpandir.</div>
         </div>
 
         
         <div class="callout callout-trap">
-          <h4>⚠️ Armadilha do Padrão Escolar Tradicional</h4>
-          <p>Não tente aplicar fórmulas decoradas sem verificar as restrições de contorno impostas pelo cenário de engenharia.</p>
+          <h4>⚠️ Armadilha Típica do Inteli: Logaritmo de Soma</h4>
+          <p>O distrator aplica "log(a+b) = log a + log b" para simplificar uma equação de crescimento. Falso: logaritmo só distribui sobre PRODUTO, quociente e potência. Soma dentro do log trava a manipulação.</p>
         </div>
       </section>
 
@@ -137,30 +145,30 @@
         <div class="question-header">
           <span class="question-number">Questão 1 de 2</span>
         </div>
-        <p class="question-stem">Ao modelar um problema quantitativo envolvendo Funções e Análise Matemática, qual abordagem garante a resolução mais precisa e eficiente no vestibular adaptativo do Inteli?</p>
+        <p class="question-stem">O polinômio de custo da GrowthLoop é P(x) = x³ − 6x² + 11x − 6 e sabe-se que x = 1 é raiz. Aplicando Briot-Ruffini, qual é o quociente e o conjunto completo de raízes?</p>
         <div class="quiz-options">
           
-      <button class="quiz-option" type="button" data-correct="false" data-feedback="Contas extensas aumentam a probabilidade de erros aritméticos sob pressão de tempo. Sempre simplifique frações e relações antes de calcular.">
+      <button class="quiz-option" type="button" data-correct="true" data-feedback="Exato! Linha de Briot com raiz 1: 1 | 1 −6 11 −6 → 1 −5 6 resto 0. Q(x) = x² − 5x + 6 = (x−2)(x−3).">
         <span class="option-label">A</span>
-        <span class="option-text">Fazer contas numéricas extensas no rascunho sem simplificar termos algébricos.</span>
+        <span class="option-text">Q(x) = x² − 5x + 6; raízes {1, 2, 3}</span>
       </button>
     
 
-      <button class="quiz-option" type="button" data-correct="true" data-feedback="Exato! O modelo pedagógico do Inteli recompensa a modelagem estruturada e o raciocínio formal ágil.">
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="Erro de conta na linha de Briot: após descer o 1, multiplica-se pela raiz (1·1 = 1) e soma-se a −6, obtendo −5, não −7.">
         <span class="option-label">B</span>
-        <span class="option-text">Mapear as variáveis, identificar o núcleo matemático subjacente e eliminar distratores simétricos.</span>
+        <span class="option-text">Q(x) = x² − 7x + 18; raízes {1}</span>
       </button>
     
 
-      <button class="quiz-option" type="button" data-correct="false" data-feedback="No Inteli, o contexto define restrições vitais (ex.: ordem de pixels, eixos invertidos, independentes vs dependentes).">
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="O quociente está certo, mas a raiz dada (x = 1) também é raiz de P(x) — o conjunto completo é {1, 2, 3}.">
         <span class="option-label">C</span>
-        <span class="option-text">Ignorar o contexto do enunciado e buscar apenas os números no texto.</span>
+        <span class="option-text">Q(x) = x² − 5x + 6; raízes {2, 3}</span>
       </button>
     
 
-      <button class="quiz-option" type="button" data-correct="false" data-feedback="A TRI do Inteli calibra distratores com precisão técnica; alternativas não são arbitrárias.">
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="Briot-Ruffini REDUZ o grau em 1: quociente de cúbico por (x−a) é quadrático, nunca cúbico.">
         <span class="option-label">D</span>
-        <span class="option-text">Chutar a alternativa com o número mais complexo ou decimal.</span>
+        <span class="option-text">Q(x) = x³ − 5x² + 6x; raízes {0, 2, 3}</span>
       </button>
     
         </div>
@@ -168,10 +176,11 @@
         <div class="quiz-resolution hidden">
           <div class="resolution-title">🔍 Resolução Oficial Comentada</div>
           <div class="resolution-content"><strong>Resolução Passo a Passo:</strong><br>
-        1. Leia o enunciado identificando a pergunta final e as restrições impostas.<br>
-        2. Modele a relação matemática entre as variáveis.<br>
-        3. Realize simplificações algébricas prévias.<br>
-        4. Verifique a coerência do resultado numérico frente ao cenário real.</div>
+        1. Coeficientes: <code>1 | −6 | 11 | −6</code>, raiz <code>a = 1</code>.<br>
+        2. Desce o 1; <code>1·1 = 1</code>, soma a −6 → <code>−5</code>.<br>
+        3. <code>−5·1 = −5</code>, soma a 11 → <code>6</code>.<br>
+        4. <code>6·1 = 6</code>, soma a −6 → <code>resto 0</code> ✓.<br>
+        5. <code>Q(x) = x² − 5x + 6 = (x−2)(x−3)</code>. Girard confere: soma 5 = −(−5)/1 ✓, produto 6 ✓. Raízes: {1, 2, 3}.</div>
         </div>
       </div>
     
@@ -180,30 +189,30 @@
         <div class="question-header">
           <span class="question-number">Questão 2 de 2</span>
         </div>
-        <p class="question-stem">Em testes de hipótese e modelagem algorítmica para Funções e Análise Matemática, qual métrica é mais resiliente contra anomalias e valores extremos (outliers)?</p>
+        <p class="question-stem">A base da GrowthLoop cresce 10% ao mês sob juros compostos. Partindo de N₀ usuários, após quantos meses completos a base DOBRA? (Use log₁₀ 2 ≈ 0,30 e log₁₀ 1,1 ≈ 0,041.)</p>
         <div class="quiz-options">
           
-      <button class="quiz-option" type="button" data-correct="false" data-feedback="A média simples é fortemente distorcida por dados extremos e outliers na amostra.">
+      <button class="quiz-option" type="button" data-correct="true" data-feedback="Perfeito! 2 = 1,1ᵗ → t = log 2 / log 1,1 ≈ 0,30/0,041 ≈ 7,3. Meses completos: 8.">
         <span class="option-label">A</span>
-        <span class="option-text">Média aritmética simples dos valores observados.</span>
+        <span class="option-text">Aproximadamente 7,3 meses (8 meses completos)</span>
       </button>
     
 
-      <button class="quiz-option" type="button" data-correct="true" data-feedback="Correto! A mediana é uma medida separatriz posicional imune a distorções causadas por outliers isolados.">
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="Raciocínio de juros SIMPLES aplicado a crescimento composto. Composição acelera: dobra antes dos 10 meses.">
         <span class="option-label">B</span>
-        <span class="option-text">Mediana (p50) e análise de percentis de distribuição.</span>
+        <span class="option-text">Exatamente 10 meses (10% × 10 = 100%)</span>
       </button>
     
 
-      <button class="quiz-option" type="button" data-correct="false" data-feedback="O valor máximo captura unicamente o ponto mais extremo, desconsiderando a tendência central.">
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="Ordem de grandeza errada: 1,1²⁰ ≈ 6,7 (sêxtupla, não dobra). Refaça t = 0,30/0,041.">
         <span class="option-label">C</span>
-        <span class="option-text">Valor máximo registrado no período de pico.</span>
+        <span class="option-text">Aproximadamente 20 meses</span>
       </button>
     
 
-      <button class="quiz-option" type="button" data-correct="false" data-feedback="Valores não-normalizados dependem do tempo de observação e não fornecem medida de estabilidade.">
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="N₀ cancela: 2N₀ = N₀·1,1ᵗ → 2 = 1,1ᵗ. O tempo de duplicação independe do valor inicial.">
         <span class="option-label">D</span>
-        <span class="option-text">Soma total não-normalizada dos eventos.</span>
+        <span class="option-text">Impossível determinar sem N₀</span>
       </button>
     
         </div>
@@ -211,9 +220,10 @@
         <div class="quiz-resolution hidden">
           <div class="resolution-title">🔍 Resolução Oficial Comentada</div>
           <div class="resolution-content"><strong>Resolução Passo a Passo:</strong><br>
-        1. A mediana divide a distribuição em metades exatas de 50%.<br>
-        2. A presença de um número arbitrariamente grande ou pequeno não altera a posição do elemento central.<br>
-        3. Portanto, em métricas de engenharia e ciência de dados, a mediana e os percentis (p95, p99) são o padrão de aferição.</div>
+        1. Modelo: <code>N(t) = N₀ · 1,1ᵗ</code>; dobra quando <code>2N₀ = N₀ · 1,1ᵗ</code>.<br>
+        2. Cancela N₀: <code>2 = 1,1ᵗ</code>.<br>
+        3. Aplica log₁₀: <code>t = log 2 / log 1,1 ≈ 0,30 / 0,041 ≈ 7,3</code>.<br>
+        4. Meses completos para ATINGIR a dobra: <strong>8 meses</strong>.</div>
         </div>
       </div>
     
@@ -224,7 +234,7 @@
         <h2>Desafio de 48 Horas (Storage Strength)</h2>
         <div class="spaced-prompt">
           <div class="spaced-tag">🧠 Teste de Fixação e Evocação Tardia</div>
-          <p class="prompt-question"><strong>Em 48 horas: explique em 3 frases para um colega como Funções e Análise Matemática se conecta a um produto ou software do mundo real.</strong></p>
+          <p class="prompt-question"><strong>Em 48 horas: fatore x³ − 6x² + 11x − 6 do zero (ache a raiz, rode Briot, confira com Girard) e deduza t de duplicação a 5% a.m. sem olhar a ficha.</strong></p>
           <p style="font-size:0.9rem; color:#666; margin-top:0.5rem;"><em>Dica da Ciência Cognitiva:</em> Responder a esta pergunta mentalmente após 2 dias consolida o aprendizado na memória de longo prazo (efeito de recuperação espaçada de Bjork).</p>
         </div>
       </section>
@@ -233,7 +243,7 @@
       <footer class="lesson-footer">
         <div class="source-citation">
           <strong>📚 Fonte Primária e Referência Acadêmica:</strong><br>
-          <span>Processo Seletivo Inteli (Matriz de Referência e Provas Anteriores); Caderno de Competências em Liderança e Tecnologia.</span>
+          <span>Processo Seletivo Inteli 2025.1 (Prova Adaptativa); Edital Oficial Inteli (Anexo II - Álgebra e Principais Funções).</span>
         </div>
         <div class="footer-nav">
           <a href="/?tab=docs&doc=mission">← Sumário da Missão</a>

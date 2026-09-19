@@ -15,16 +15,29 @@ const QUESTIONS_FILE = path.join(ROOT_DIR, 'platform', 'data', 'questions.json')
 const PERFORMANCE_FILE = path.join(DATA_DIR, 'student-performance.json');
 
 // Core curriculum topics from docs/analise-conteudos-provas.md
+// lessonSlugs: real filename slugs (blueprint output slugs), NOT just the
+// blueprint key — filenames like 0002-otimizacao-lucro-startups.html never
+// contain 'funcoes-otimizacao', which caused false CRITICAL_MISSING_LESSON.
 export const SYLLABUS_TOPICS = [
-  { topic: 'Funções e Otimização', weight: 0.22, slug: 'funcoes-otimizacao' },
-  { topic: 'Lógica Proposicional & Computacional', weight: 0.18, slug: 'logica-proposicional' },
-  { topic: 'Análise Combinatória & Contagem', weight: 0.16, slug: 'combinatoria' },
-  { topic: 'Probabilidade & Modelos de Risco', weight: 0.14, slug: 'probabilidade-condicional' },
-  { topic: 'Algoritmos & Complexidade', weight: 0.12, slug: 'algoritmos-pseudocodigo' },
-  { topic: 'Finanças Tech & Métricas de Negócio', weight: 0.08, slug: 'financas-startups' },
-  { topic: 'Geometria & Computação Gráfica', weight: 0.06, slug: 'geometria-metricas' },
-  { topic: 'Estatística Descritiva', weight: 0.04, slug: 'estatistica-dados' }
+  { topic: 'Funções e Otimização', weight: 0.22, slug: 'funcoes-otimizacao', lessonSlugs: ['funcoes-otimizacao', 'otimizacao-lucro-startups', 'funcoes', 'funcoes-e-analise-matematica'] },
+  { topic: 'Lógica Proposicional & Computacional', weight: 0.18, slug: 'logica-proposicional', lessonSlugs: ['logica-proposicional', 'logica', 'logica-proposicional-software'] },
+  { topic: 'Análise Combinatória & Contagem', weight: 0.16, slug: 'combinatoria', lessonSlugs: ['combinatoria', 'combinatoria-senhas-tech'] },
+  { topic: 'Probabilidade & Modelos de Risco', weight: 0.14, slug: 'probabilidade-condicional', lessonSlugs: ['probabilidade-condicional', 'probabilidade', 'probabilidade-condicional-bayes'] },
+  { topic: 'Algoritmos & Complexidade', weight: 0.12, slug: 'algoritmos-pseudocodigo', lessonSlugs: ['algoritmos-pseudocodigo', 'algoritmos', 'pseudocodigo', 'algoritmos-loops-complexidade'] },
+  { topic: 'Finanças Tech & Métricas de Negócio', weight: 0.08, slug: 'financas-startups', lessonSlugs: ['financas-startups', 'financas', 'financas-juros', 'juros', 'break-even'] },
+  { topic: 'Geometria & Computação Gráfica', weight: 0.06, slug: 'geometria-metricas', lessonSlugs: ['geometria-metricas', 'geometria', 'geometria-telas-computacao-grafica'] },
+  { topic: 'Estatística Descritiva', weight: 0.04, slug: 'estatistica-dados', lessonSlugs: ['estatistica-dados', 'estatistica', 'estatistica-benchmark-nuvem'] }
 ];
+
+// Accent/case-insensitive compare: 'Funções e Otimização' must match
+// 'funcoes-otimizacao', 'FUNCOES' and vice-versa.
+export function normStr(s) {
+  return (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+}
+
+function topicSigWords(topic) {
+  return normStr(topic).split(/[^a-z]+/).filter(w => w.length > 3);
+}
 
 /**
  * Loads current student performance telemetry
@@ -69,14 +82,24 @@ export async function auditHarnessHealth() {
   // 1. Audit Lesson Coverage of Core Topics
   const topicCoverage = {};
   for (const t of SYLLABUS_TOPICS) {
-    const matchingLessons = lessons.filter(l => l.toLowerCase().includes(t.slug.toLowerCase()));
-    const matchingQuestions = questions.filter(q => q.topic.toLowerCase().includes(t.topic.toLowerCase()) || (t.slug && q.topic.toLowerCase().includes(t.slug)));
-    
+    const aliases = (t.lessonSlugs || [t.slug]).map(normStr);
+    const matchingLessons = lessons.filter(l => {
+      const n = normStr(l);
+      return aliases.some(s => n.includes(s));
+    });
+    const tNorm = normStr(t.topic);
+    const sigWords = topicSigWords(t.topic);
+    const matchesTopicName = (name) => {
+      const n = normStr(name);
+      return n.includes(tNorm) || tNorm.includes(n) || sigWords.some(w => n.includes(w));
+    };
+    const matchingQuestions = questions.filter(q => matchesTopicName(q.topic));
+
     // Performance from student attempts
     let studentAccuracy = null;
     let studentAttempts = 0;
     for (const [k, v] of Object.entries(perf.accuracyPerTopic)) {
-      if (k.toLowerCase().includes(t.topic.toLowerCase()) || t.topic.toLowerCase().includes(k.toLowerCase())) {
+      if (matchesTopicName(k)) {
         studentAccuracy = v.percentage !== undefined ? v.percentage : (v.total > 0 ? Math.round((v.correct / v.total) * 100) : null);
         studentAttempts = v.total || 0;
         break;

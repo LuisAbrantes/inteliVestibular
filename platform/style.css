@@ -2930,3 +2930,74 @@ body,
 .panel-desc {
   font-family: var(--font-sans) !important;
 }
+
+/* ==========================================================================
+   RUNNER BREADCRUMB — per-mode back navigation (Anthropic flat)
+   ========================================================================== */
+.runner-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  padding: 0 0.25rem;
+}
+
+.runner-breadcrumb .crumb-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: none;
+  padding: 0.35rem 0.8rem;
+  border-radius: 9999px;
+  background: var(--bg-surface-1);
+  border: 1px solid var(--border-subtle);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.runner-breadcrumb .crumb-back:hover {
+  border-color: var(--color-clay);
+  color: var(--color-clay);
+}
+
+.runner-breadcrumb .crumb-home {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.runner-breadcrumb .crumb-home:hover {
+  color: var(--text-primary);
+  text-decoration: underline;
+}
+
+.runner-breadcrumb .crumb-sep {
+  opacity: 0.5;
+}
+
+.runner-breadcrumb .crumb-mode {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.runner-breadcrumb .crumb-discard {
+  margin-left: auto;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  border-radius: 9999px;
+  padding: 0.35rem 0.8rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.runner-breadcrumb .crumb-discard:hover {
+  border-color: var(--danger, #e05252);
+  color: var(--danger, #e05252);
+}

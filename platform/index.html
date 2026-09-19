@@ -663,6 +663,15 @@
       <!-- SCREEN 2: INTERACTIVE EXAM RUNNER                             -->
       <!-- ============================================================= -->
       <section id="screen-runner" class="view-screen screen-runner" style="display: none;">
+        <!-- Breadcrumb per-mode (Voltar) -->
+        <nav class="runner-breadcrumb" aria-label="Navegação do simulado">
+          <a href="#/" class="crumb-back" id="btn-runner-back" title="Voltar à tela inicial (respostas mantidas)">← Voltar</a>
+          <span class="crumb-sep">/</span>
+          <a href="#/" class="crumb-home">Simulados &amp; Treinos</a>
+          <span class="crumb-sep">/</span>
+          <span class="crumb-mode" id="runner-crumb-mode">Simulado</span>
+          <button class="crumb-discard" id="btn-runner-discard" title="Sair e descartar esta tentativa — nada será salvo no histórico">✕ Descartar</button>
+        </nav>
         
         <!-- Paused Overlay Modal -->
         <div id="pause-modal" class="modal-backdrop" style="display: none;">
@@ -1024,6 +1033,6 @@
   <div id="toast-container" class="toast-container"></div>
 
   <!-- Main JavaScript App -->
-  <script type="module" src="/platform/app.js?v=portal2"></script>
+  <script type="module" src="/platform/app.js?v=portal3"></script>
 </body>
 </html>

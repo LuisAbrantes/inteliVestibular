@@ -1,10 +1,19 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "versao": "2027.1",
-  "data_atualizacao": "2026-09-18",
-  "autor": "Muse-spark 1.3 & IntelligentTrackArchitect",
+  "versao": "2027.3",
+  "data_atualizacao": "2026-09-19",
+  "autor": "Muse Spark 1.3 & IntelligentTrackArchitect",
   "titulo": "Trilha Inteligente de Estudos - Vestibular Inteli 2027",
-  "descricao": "Matriz pedagógica de 5 módulos progressivos alinhada estritamente aos 17 objetos de conhecimento do ANEXO II (Edital Oficial Inteli) e calibrada para o motor adaptativo de Teoria de Resposta ao Item (TRI).",
+  "descricao": "Matriz pedagógica de 5 módulos progressivos alinhada aos 17 objetos de conhecimento do ANEXO II e calibrada para o motor adaptativo TRI. AUDITORIA 2027.2: 19 arquivos = 14 conteúdos únicos (5 duplicatas literais: 0009, 0011, 0012, 0014, 0015) + 3 placeholders genéricos a regenerar (0008, 0010, 0013). Cobertura real ~76% do Anexo II; ver campo auditoria_2027_2.",
+  "auditoria_2027_2": {
+    "veredito": "NÃO conforme 100%. Conforme com ressalvas — ~76% coberto.",
+    "arquivos_total": 19,
+    "conteudos_unicos": 14,
+    "duplicatas_literais": ["0009=0005", "0011=0002", "0012=0005", "0014=0006", "0015=0007"],
+    "placeholders_genericos_regenerar": ["0008 ✓ REGENERADA em 2027.3 (Sarrus/Cramer/SPD-SPI-SI, eval 97.6)", "0010 ✓ REGENERADA em 2027.3 (Briot/Girard/exp-log/inversa, eval 93.8)", "0013 ✓ REGENERADA em 2027.3 (juros compostos/break-even, eval 97.6)"],
+    "lacunas_conteudo": ["PA/PG e recorrências (só Gauss/loops em 0005)", "Geometria Plana clássica: Tales e Pitágoras (0018 cobre Euler/volumes)", "mmc/mdc e primos (Aritmética)"],
+    "plano_100": "1) Regenerar 0008/0010/0013 com conteúdo específico; 2) Criar lição PA-PG-Recorrências; 3) Reforçar Tales/Pitágoras/mmc-mdc nas lições existentes; 4) Despublicar duplicatas do catálogo"
+  },
   "meta_global": "Garantir pontuação inicial de topo de régua no Bloco 1 (>=8/10), fixação na Trilha Superior no Bloco 2 e imunidade contra armadilhas conceituais e distratores de cálculo nos Blocos 3 e 4 via descarte estratégico.",
   "estrategia_blocos_tri": {
     "bloco_1": {
@@ -129,9 +138,9 @@
       "tempo_alvo_questao_min": 4.5,
       "licoes": [
         "0002",
-        "0010",
-        "0011"
+        "0010"
       ],
+      "nota_duplicata": "0011 é duplicata literal de 0002 — estudar uma vez só.",
       "topicos": [
         {
           "nome": "Polinômios e Raízes Racionais",
@@ -201,9 +210,9 @@
       "licoes": [
         "0001",
         "0004",
-        "0007",
-        "0015"
+        "0007"
       ],
+      "nota_duplicata": "0015 é duplicata literal de 0007 — estudar uma vez só.",
       "topicos": [
         {
           "nome": "Análise Combinatória: Chaves, Hashes e PFC",
@@ -263,10 +272,9 @@
       "meta_retencao": "Gabaritar somatórios e rastreamentos em teste de mesa",
       "tempo_alvo_questao_min": 4.0,
       "licoes": [
-        "0005",
-        "0009",
-        "0012"
+        "0005"
       ],
+      "licoes_pendentes_criar": ["Nova lição PA/PG e Recorrências de 1ª ordem (0009 e 0012 são duplicatas literais de 0005: cobrem Gauss/loops/busca binária, mas NÃO cobrem PA, PG nem recorrências)"],
       "topicos": [
         {
           "nome": "Rastreamento de Loops & Soma de Gauss",
@@ -325,10 +333,10 @@
       "licoes": [
         "0006",
         "0008",
-        "0014",
         "0018",
         "0019"
       ],
+      "nota_duplicata": "0014 é duplicata literal de 0006 — estudar uma vez só.",
       "topicos": [
         {
           "nome": "Coordenadas de Telas com Y Invertido & Geometria Analítica",

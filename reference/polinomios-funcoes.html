@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Referência Polinômios & Funções Exp/Log - Vestibular Inteli</title>
+  <link rel="stylesheet" href="../assets/lesson.css">
+  <!-- Typography: Anthropic Editorial Serif (Newsreader/Charter), Clean UI Sans (Inter) & Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="initKaTeX()"></script>
+  <script>
+    function initKaTeX() {
+      if (window.renderMathInElement) {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+          ],
+          throwOnError: false
+        });
+      }
+    }
+    document.addEventListener("DOMContentLoaded", initKaTeX);
+    window.addEventListener("load", initKaTeX);
+    try {
+      const saved = localStorage.getItem('theme');
+      if (saved) document.documentElement.setAttribute('data-theme', saved);
+    } catch (e) {}
+      document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.getElementById('btn-theme-toggle');
+        if (btn) {
+          btn.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme') ||
+              (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            const next = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            try { localStorage.setItem('theme', next); } catch (e) {}
+          });
+        }
+      });
+  </script>
+</head>
+<body>
+  <nav class="lesson-top-nav">
+    <div class="nav-content">
+      <a href="/" class="btn-nav-back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        <span>Voltar ao Portal de Estudos</span>
+      </a>
+      <div class="nav-lesson-badge">
+        <span class="dot-active"></span>
+        <span>Folha de Consulta &bull; Vestibular Inteli 2027</span>
+      </div>
+      <div class="nav-quick-links">
+        <button class="btn-theme-toggle" id="btn-theme-toggle" title="Alternar Modo Escuro / Claro">&#9681;</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="lesson-meta">Documento de Referência Rápida • Vestibular Inteli • Trilha Superior</div>
+    <h1>Polinômios, Exponenciais & Logaritmos</h1>
+
+    <p>Fórmulas de fatoração, divisão de polinômios e manipulação exp/log para questões de modelagem de crescimento, curvas de tração e latência no Vestibular Inteli.</p>
+
+    <aside class="sidenote">
+      <strong>Heurística de prova:</strong> diante de polinômio de grau $\ge 3$, teste primeiro as raízes inteiras candidatas $\pm 1, \pm 2$ — a banca quase sempre planta uma raiz pequena.
+    </aside>
+
+    <h2>1. Divisão de Polinômios (Briot-Ruffini)</h2>
+
+    <div class="formula-card">
+      <h3>Dispositivo Prático por $(x - a)$</h3>
+      <p>Exemplo: $P(x) = x^3 - 6x^2 + 11x - 6$ com raiz $x = 1$:</p>
+      <div class="math-block">$$\begin{array}{c|rrrr} 1 & 1 & -6 & 11 & -6 \\ & & 1 & -5 & 6 \\ \hline & 1 & -5 & 6 & 0 \end{array} \implies Q(x) = x^2 - 5x + 6 = (x-2)(x-3)$$</div>
+      <p>Raízes: $x = 1, 2, 3$. Resto zero confirma a fatoração.</p>
+    </div>
+
+    <div class="formula-card">
+      <h3>Teorema do Resto & D'Alembert</h3>
+      <div class="math-block">$$\text{Resto de } P(x) \div (x - a) = P(a)$$</div>
+      <div class="math-block">$$P(a) = 0 \iff (x - a) \text{ é fator de } P(x)$$</div>
+      <p><strong>Raízes racionais candidatas:</strong> $x = \frac{p}{q}$, com $p$ dividindo o termo independente e $q$ dividindo o coeficiente líder.</p>
+    </div>
+
+    <div class="formula-card">
+      <h3>Relações de Girard</h3>
+      <div class="math-block">$$2º\text{ grau: } x_1 + x_2 = -\frac{b}{a} \quad\mid\quad x_1 \cdot x_2 = \frac{c}{a}$$</div>
+      <div class="math-block">$$3º\text{ grau: } \sum x_i = -\frac{b}{a} \;\mid\; \sum_{i<j} x_i x_j = \frac{c}{a} \;\mid\; x_1x_2x_3 = -\frac{d}{a}$$</div>
+    </div>
+
+    <h2>2. Exponenciais, Logaritmos & Inversas</h2>
+
+    <div class="formula-card">
+      <h3>Propriedades Operatórias do Log</h3>
+      <div class="math-block">$$\log(a \cdot b) = \log a + \log b \quad\mid\quad \log(a/b) = \log a - \log b \quad\mid\quad \log(a^k) = k \cdot \log a$$</div>
+      <div class="math-block">$$\log_b a = \frac{\log_c a}{\log_c b} \quad\text{(mudança de base)} \quad\mid\quad b^{\log_b x} = x$$</div>
+      <p><strong>Tempo de duplicação</strong> ($N = N_0 \cdot 2^{t/T}$): $T$ é o período; para $e^{kt}$, $T = \frac{\ln 2}{k}$.</p>
+    </div>
+
+    <div class="formula-card">
+      <h3>Função Inversa & Composta</h3>
+      <div class="math-block">$$(f \circ g)(x) = f(g(x)) \quad\mid\quad f^{-1} \text{ troca } x \leftrightarrow y \text{ e isola } y$$</div>
+      <div class="math-block">$$f(f^{-1}(x)) = x \quad\mid\quad \text{gráficos simétricos em relação à reta } y = x$$</div>
+      <p><em>Exemplo:</em> $f(x) = 2x + 3 \implies y = 2x+3 \implies x = \frac{y-3}{2} \implies f^{-1}(x) = \frac{x-3}{2}$.</p>
+    </div>
+
+      <footer class="lesson-footer">
+        <div class="footer-nav">
+          <a href="/?tab=docs&doc=mission">&larr; Sum&aacute;rio da Miss&atilde;o</a>
+          <a href="/?tab=docs&doc=glossary">&#128214; Gloss&aacute;rio T&eacute;cnico</a>
+          <a href="/" class="btn-back-hub">&larr; Voltar &agrave; Tela Principal do Portal</a>
+        </div>
+      </footer>
+  </div>
+</body>
+</html>

@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lição 0008: Matrizes e Transformacoes de Cores RGB YUV: Modelagem Quantitativa para o Vestibular Inteli | Inteli Vestibular</title>
+  <title>Lição 0008: Matrizes, Determinantes e Sistemas Lineares em Pipelines Gráficos | Inteli Vestibular</title>
   
   <!-- Typography: Anthropic Editorial Serif (Newsreader/Charter), Clean UI Sans (Inter) & Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
-  
+
   <!-- Estilos Oficiais -->
   <link rel="stylesheet" href="../assets/lesson.css">
   
@@ -57,13 +57,13 @@
     <article class="lesson" id="conteudo">
       <header class="lesson-header">
         <span class="lesson-badge">Lição 0008</span>
-        <h1 class="lesson-title">Matrizes e Transformacoes de Cores RGB YUV: Modelagem Quantitativa para o Vestibular Inteli</h1>
+        <h1 class="lesson-title">Matrizes, Determinantes e Sistemas Lineares em Pipelines Gráficos</h1>
         <div class="lesson-meta">
-          <span class="meta-time">⏱️ Tempo Estimado: 8 min</span>
+          <span class="meta-time">⏱️ Tempo Estimado: 9 min</span>
           <span>•</span>
-          <span class="meta-topic">🎯 Eixo: Tópico Sob Demanda</span>
+          <span class="meta-topic">🎯 Eixo: Matrizes, Determinantes e Sistemas Lineares</span>
           <span>•</span>
-          <span class="meta-track">📈 Trilha Mediana e Superior</span>
+          <span class="meta-track">📈 Trilha Superior e Mediana</span>
         </div>
         <div class="lesson-meta" style="margin-top: 0.5rem;">
           <a href="/?tab=docs&doc=mission">← Voltar para a Missão</a>
@@ -76,55 +76,63 @@
       <section class="scenario">
         <h2>Cenário Real Inteli</h2>
         <div class="scenario-box">
-          <div class="scenario-tag">🏢 Inteli Tech Labs (Incubadora de Projetos) | Aplicação Prática e Resolução Analítica: Matrizes e Transformacoes de Cores RGB YUV</div>
-          <p>No ecossistema de aprendizagem baseada em projetos do Inteli, engenheiros e líderes aplicam <strong>Matrizes e Transformacoes de Cores RGB YUV</strong> para construir soluções computacionais escaláveis e tomar decisões de negócios fundamentadas em dados.
-      O desafio consiste em decompor o problema em componentes formais, modelar as restrições matemáticas e calcular a resposta ótima com agilidade sob restrição de tempo.</p>
+          <div class="scenario-tag">🏢 PixelForge (Startup de Renderização e Filtros de Imagem) | Conversão de Espaços de Cor, Transformações 2D e Calibração de Sensores</div>
+          <p>Você é engenheiro de computação gráfica na <strong>PixelForge</strong>, responsável pelo pipeline de filtros de imagem em tempo real.
+      O motor precisa (1) converter pixels do espaço <strong>RGB para luminância YUV</strong> via multiplicação matricial e
+      (2) <strong>calibrar dois sensores</strong> cujas leituras obedecem a um sistema linear 2x2.
+      A banca do Inteli cobra exatamente isso: multiplicação linha-por-coluna, determinantes e Cramer sob pressão de tempo.</p>
         </div>
       </section>
 
       <!-- 2. NÚCLEO CONCEITUAL -->
       <section class="core-knowledge">
         <h2>Núcleo Conceitual</h2>
-        <p class="lead-summary">O domínio conceitual de <strong>Matrizes e Transformacoes de Cores RGB YUV</strong> exige compreensão intuitiva antes da aplicação mecânica. Na régua adaptativa do Inteli, enunciados contextualizam o problema com terminologia do ecossistema de inovação.</p>
+        <p class="lead-summary">Matriz no Inteli é <strong>função linear empacotada</strong>: multiplicar é encadear transformações. O determinante mede se a transformação <strong>esmaga o espaço</strong> (det = 0) ou é invertível — e isso decide Cramer, inversa e a classificação do sistema.</p>
         
         <div class="concepts-list">
           
     <div class="concept-item">
-      <h3 class="concept-term">Fundamento e Modelagem</h3>
-      <p class="concept-def">Formalização matemática direta aplicada às restrições operacionais descritas no problema de Matrizes e Transformacoes de Cores RGB YUV.</p>
-      <aside class="sidenote"><strong>Nota lateral:</strong> Separe dados fornecidos das variáveis de decisão antes de iniciar os cálculos.</aside>
+      <h3 class="concept-term">Multiplicação Matricial (Linha por Coluna)</h3>
+      <p class="concept-def">O elemento <em>c<sub>ij</sub></em> é o produto escalar da linha <em>i</em> de A pela coluna <em>j</em> de B. Exigência dimensional: <strong>A<sub>m×k</sub> · B<sub>k×p</sub> = C<sub>m×p</sub></strong> (dimensões internas iguais). Ordem importa: em geral <strong>AB ≠ BA</strong>.</p>
+      <aside class="sidenote"><strong>Nota lateral:</strong> Dimensão primeiro, conta depois: 2x3 vezes 3x1 resulta 2x1. Se as internas diferem, o produto nem existe.</aside>
     </div>
   
 
     <div class="concept-item">
-      <h3 class="concept-term">Estratégia de Resolução Rápida</h3>
-      <p class="concept-def">Identifique invariâncias, simetrias ou atalhos analíticos para economizar tempo na prova adaptativa de 6 minutos por questão.</p>
-      <aside class="sidenote"><strong>Nota lateral:</strong> Elimine distratores absurdos por análise dimensional ou ordens de grandeza.</aside>
+      <h3 class="concept-term">Determinante, Inversa e Transposta</h3>
+      <p class="concept-def">Ordem 2: <strong>ad − bc</strong>. Ordem 3: <strong>Sarrus</strong> (repete as 2 primeiras colunas, principais menos secundárias). Inversa: <strong>A⁻¹ = (1/det A) · adj(A)</strong>, só existe se <strong>det A ≠ 0</strong>. Transposta: <strong>(AB)ᵀ = BᵀAᵀ</strong>.</p>
+      <aside class="sidenote"><strong>Nota lateral:</strong> Sarrus SÓ vale para 3x3. Para 4x4 a banca exigiria Laplace — reconheça o limite da ferramenta.</aside>
     </div>
   
         </div>
 
         <div class="formula-card">
-          <div class="formula-card-title">📌 Estrutura Matemática Essencial</div>
+          <div class="formula-card-title">📌 Fórmulas de Bolso para o Vestibular Inteli</div>
           
     <div class="formula-row">
-      <span class="formula-name">Relação Fundamental:</span>
-      <div class="formula-math">$$\text{Entrada} - \text{Saída} = \text{Variação}$$</div>
+      <span class="formula-name">Determinante 2x2:</span>
+      <div class="formula-math">$$\det \begin{pmatrix} a & b \\ c & d \end{pmatrix} = ad - bc$$</div>
     </div>
   
 
     <div class="formula-row">
-      <span class="formula-name">Otimização Relativa:</span>
-      <div class="formula-math">$$\text{Eficiência} = \frac{\text{Resultado Obtido}}{\text{Recursos Consumidos}}$$</div>
+      <span class="formula-name">Matriz Inversa (2x2):</span>
+      <div class="formula-math">$$A^{-1} = \frac{1}{ad-bc} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix}$$</div>
     </div>
   
-          <div class="formula-tip">💡 <strong>Dica de Ouro:</strong> Verifique se as unidades estão homogêneas (ex.: segundos vs minutos, bits vs bytes).</div>
+
+    <div class="formula-row">
+      <span class="formula-name">Regra de Cramer (2x2):</span>
+      <div class="formula-math">$$x = \frac{\det A_x}{\det A} \quad\mid\quad y = \frac{\det A_y}{\det A}$$</div>
+    </div>
+  
+          <div class="formula-tip">💡 <strong>Dica de Ouro:</strong> Cramer com det A = 0 é cilada: o sistema é SPI (infinitas) ou SI (impossível) — classifique pelo escalonamento, nunca divida por zero.</div>
         </div>
 
         
         <div class="callout callout-trap">
-          <h4>⚠️ Armadilha do Padrão Escolar Tradicional</h4>
-          <p>Não tente aplicar fórmulas decoradas sem verificar as restrições de contorno impostas pelo cenário de engenharia.</p>
+          <h4>⚠️ Armadilha Típica do Inteli: Cramer com Determinante Nulo</h4>
+          <p>O candidato calcula det A = 0 e mesmo assim aplica a fórmula, "encontrando" valores. Com det nulo não há solução única: escalone — fila 0 = 0 indica SPI, fila 0 = k (k ≠ 0) indica SI.</p>
         </div>
       </section>
 
@@ -137,30 +145,30 @@
         <div class="question-header">
           <span class="question-number">Questão 1 de 2</span>
         </div>
-        <p class="question-stem">Ao modelar um problema quantitativo envolvendo Matrizes e Transformacoes de Cores RGB YUV, qual abordagem garante a resolução mais precisa e eficiente no vestibular adaptativo do Inteli?</p>
+        <p class="question-stem">No pipeline da PixelForge, um filtro combina dois canais segundo a matriz A = [[4, 7], [2, 6]]. Para calibrar o filtro inverso, o primeiro passo é o determinante de A. Quanto vale det A?</p>
         <div class="quiz-options">
           
-      <button class="quiz-option" type="button" data-correct="false" data-feedback="Contas extensas aumentam a probabilidade de erros aritméticos sob pressão de tempo. Sempre simplifique frações e relações antes de calcular.">
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="Você somou os produtos em vez de subtrair. O determinante 2x2 é a DIFERENÇA ad − bc, não a soma.">
         <span class="option-label">A</span>
-        <span class="option-text">Fazer contas numéricas extensas no rascunho sem simplificar termos algébricos.</span>
+        <span class="option-text">det A = 4·6 + 7·2 = 38</span>
       </button>
     
 
-      <button class="quiz-option" type="button" data-correct="true" data-feedback="Exato! O modelo pedagógico do Inteli recompensa a modelagem estruturada e o raciocínio formal ágil.">
+      <button class="quiz-option" type="button" data-correct="true" data-feedback="Exato! ad − bc = 24 − 14 = 10. Como det ≠ 0, a matriz é invertível e o filtro inverso existe.">
         <span class="option-label">B</span>
-        <span class="option-text">Mapear as variáveis, identificar o núcleo matemático subjacente e eliminar distratores simétricos.</span>
+        <span class="option-text">det A = 4·6 − 7·2 = 10</span>
       </button>
     
 
-      <button class="quiz-option" type="button" data-correct="false" data-feedback="No Inteli, o contexto define restrições vitais (ex.: ordem de pixels, eixos invertidos, independentes vs dependentes).">
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="Ordem invertida: o termo positivo é o da diagonal principal (a·d = 4·6), não o da secundária.">
         <span class="option-label">C</span>
-        <span class="option-text">Ignorar o contexto do enunciado e buscar apenas os números no texto.</span>
+        <span class="option-text">det A = 7·2 − 4·6 = −10</span>
       </button>
     
 
-      <button class="quiz-option" type="button" data-correct="false" data-feedback="A TRI do Inteli calibra distratores com precisão técnica; alternativas não são arbitrárias.">
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="Determinante não é soma de elementos — é ad − bc. Revise a definição antes de avançar.">
         <span class="option-label">D</span>
-        <span class="option-text">Chutar a alternativa com o número mais complexo ou decimal.</span>
+        <span class="option-text">det A = 4 + 6 + 7 + 2 = 19</span>
       </button>
     
         </div>
@@ -168,10 +176,10 @@
         <div class="quiz-resolution hidden">
           <div class="resolution-title">🔍 Resolução Oficial Comentada</div>
           <div class="resolution-content"><strong>Resolução Passo a Passo:</strong><br>
-        1. Leia o enunciado identificando a pergunta final e as restrições impostas.<br>
-        2. Modele a relação matemática entre as variáveis.<br>
-        3. Realize simplificações algébricas prévias.<br>
-        4. Verifique a coerência do resultado numérico frente ao cenário real.</div>
+        1. Identificamos <code>a = 4, b = 7, c = 2, d = 6</code>.<br>
+        2. Diagonal principal: <code>4 × 6 = 24</code>.<br>
+        3. Diagonal secundária: <code>7 × 2 = 14</code>.<br>
+        4. Determinante: <code>24 − 14 = 10</code>. Como é não-nulo, A admite inversa.</div>
         </div>
       </div>
     
@@ -180,30 +188,30 @@
         <div class="question-header">
           <span class="question-number">Questão 2 de 2</span>
         </div>
-        <p class="question-stem">Em testes de hipótese e modelagem algorítmica para Matrizes e Transformacoes de Cores RGB YUV, qual métrica é mais resiliente contra anomalias e valores extremos (outliers)?</p>
+        <p class="question-stem">A calibração dos sensores da PixelForge recai no sistema {2x + y = 7; x + 3y = 11}. Aplicando Cramer, qual é o par (x, y)?</p>
         <div class="quiz-options">
           
-      <button class="quiz-option" type="button" data-correct="false" data-feedback="A média simples é fortemente distorcida por dados extremos e outliers na amostra.">
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="Teste na 1ª equação: 2·3 + 2 = 8 ≠ 7. Par ordenado exige satisfazer TODAS as equações — sempre confira.">
         <span class="option-label">A</span>
-        <span class="option-text">Média aritmética simples dos valores observados.</span>
+        <span class="option-text">(x, y) = (3, 2)</span>
       </button>
     
 
-      <button class="quiz-option" type="button" data-correct="true" data-feedback="Correto! A mediana é uma medida separatriz posicional imune a distorções causadas por outliers isolados.">
+      <button class="quiz-option" type="button" data-correct="true" data-feedback="Perfeito! det A = 5, det Ax = 10, det Ay = 15: x = 10/5 = 2, y = 15/5 = 3. Confere nas duas equações.">
         <span class="option-label">B</span>
-        <span class="option-text">Mediana (p50) e análise de percentis de distribuição.</span>
+        <span class="option-text">(x, y) = (2, 3)</span>
       </button>
     
 
-      <button class="quiz-option" type="button" data-correct="false" data-feedback="O valor máximo captura unicamente o ponto mais extremo, desconsiderando a tendência central.">
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="Passa na 1ª (2 + 5 = 7) mas falha na 2ª (1 + 15 = 16 ≠ 11). Distrator clássico de conferência parcial.">
         <span class="option-label">C</span>
-        <span class="option-text">Valor máximo registrado no período de pico.</span>
+        <span class="option-text">(x, y) = (1, 5)</span>
       </button>
     
 
-      <button class="quiz-option" type="button" data-correct="false" data-feedback="Valores não-normalizados dependem do tempo de observação e não fornecem medida de estabilidade.">
+      <button class="quiz-option" type="button" data-correct="false" data-feedback="det A = 2·3 − 1·1 = 5 ≠ 0, logo há solução única (SPD). SI exigiria det nulo com fila 0 = k.">
         <span class="option-label">D</span>
-        <span class="option-text">Soma total não-normalizada dos eventos.</span>
+        <span class="option-text">Sistema impossível (SI)</span>
       </button>
     
         </div>
@@ -211,9 +219,10 @@
         <div class="quiz-resolution hidden">
           <div class="resolution-title">🔍 Resolução Oficial Comentada</div>
           <div class="resolution-content"><strong>Resolução Passo a Passo:</strong><br>
-        1. A mediana divide a distribuição em metades exatas de 50%.<br>
-        2. A presença de um número arbitrariamente grande ou pequeno não altera a posição do elemento central.<br>
-        3. Portanto, em métricas de engenharia e ciência de dados, a mediana e os percentis (p95, p99) são o padrão de aferição.</div>
+        1. Determinante principal: <code>det A = 2·3 − 1·1 = 5</code> (SPD, solução única).<br>
+        2. <code>det Ax = 7·3 − 1·11 = 21 − 11 = 10</code> → <code>x = 10/5 = 2</code>.<br>
+        3. <code>det Ay = 2·11 − 7·1 = 22 − 7 = 15</code> → <code>y = 15/5 = 3</code>.<br>
+        4. Conferência: <code>2·2+3 = 7 ✓</code> e <code>2+3·3 = 11 ✓</code>.</div>
         </div>
       </div>
     
@@ -224,7 +233,7 @@
         <h2>Desafio de 48 Horas (Storage Strength)</h2>
         <div class="spaced-prompt">
           <div class="spaced-tag">🧠 Teste de Fixação e Evocação Tardia</div>
-          <p class="prompt-question"><strong>Em 48 horas: explique em 3 frases para um colega como Matrizes e Transformacoes de Cores RGB YUV se conecta a um produto ou software do mundo real.</strong></p>
+          <p class="prompt-question"><strong>Em 48 horas, sem consultar: calcule de cabeça o determinante de [[5, 3], [4, 7]] e explique por que um determinante nulo inviabiliza Cramer mas não significa "sem solução".</strong></p>
           <p style="font-size:0.9rem; color:#666; margin-top:0.5rem;"><em>Dica da Ciência Cognitiva:</em> Responder a esta pergunta mentalmente após 2 dias consolida o aprendizado na memória de longo prazo (efeito de recuperação espaçada de Bjork).</p>
         </div>
       </section>
@@ -233,7 +242,7 @@
       <footer class="lesson-footer">
         <div class="source-citation">
           <strong>📚 Fonte Primária e Referência Acadêmica:</strong><br>
-          <span>Processo Seletivo Inteli (Matriz de Referência e Provas Anteriores); Caderno de Competências em Liderança e Tecnologia.</span>
+          <span>Processo Seletivo Inteli 2025.1 (Prova Adaptativa); Gilbert Strang, &quot;Introduction to Linear Algebra&quot;, 5th Edition; Edital Oficial Inteli (Anexo II - Matrizes e Sistemas Lineares).</span>
         </div>
         <div class="footer-nav">
           <a href="/?tab=docs&doc=mission">← Sumário da Missão</a>

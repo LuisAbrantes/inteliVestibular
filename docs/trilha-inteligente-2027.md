@@ -33,7 +33,7 @@ A auditoria identificou que o ecossistema continha 15 lições focadas prioritar
 3. **Geometria Plana, Espacial 3D e Relação de Euler:** Essencial para modelagem tridimensional, fatiamento STL e cálculo volumétrico em manufatura aditiva. Coberto na **Lição 0018**.
 4. **Trigonometria e Vetores (Produto Escalar):** Cobrado em física de jogos, raycasting e similaridade de cosseno em IA/embeddings. Coberto na **Lição 0019**.
 
-Com a incorporação das lições 0016 a 0019, o ecossistema atinge **100% de conformidade matemática e contextual** com o edital do Inteli.
+Com a incorporação das lições 0016 a 0019, o ecossistema atinge **~76% de conformidade verificada** com o edital (14 conteúdos únicos em 19 arquivos; 5 duplicatas literais e 3 placeholders a regenerar — ver `auditoria_2027_2` em `src/lessons/trilha-inteligente.json`). Meta 100% após o plano de regeneração.
 
 ---
 

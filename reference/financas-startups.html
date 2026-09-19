@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Referência Finanças & Métricas de Startups - Vestibular Inteli</title>
   <link rel="stylesheet" href="../assets/lesson.css">
+  <!-- Typography: Anthropic Editorial Serif (Newsreader/Charter), Clean UI Sans (Inter) & Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="initKaTeX()"></script>
@@ -26,13 +30,38 @@
       const saved = localStorage.getItem('theme');
       if (saved) document.documentElement.setAttribute('data-theme', saved);
     } catch (e) {}
+      document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.getElementById('btn-theme-toggle');
+        if (btn) {
+          btn.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme') ||
+              (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            const next = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            try { localStorage.setItem('theme', next); } catch (e) {}
+          });
+        }
+      });
   </script>
 </head>
 <body>
-  <div class="container">
-    <div style="margin-bottom: 1.5rem;">
-      <a href="/" class="btn-nav-back">← Voltar ao Portal</a>
+  <nav class="lesson-top-nav">
+    <div class="nav-content">
+      <a href="/" class="btn-nav-back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        <span>Voltar ao Portal de Estudos</span>
+      </a>
+      <div class="nav-lesson-badge">
+        <span class="dot-active"></span>
+        <span>Folha de Consulta &bull; Vestibular Inteli 2027</span>
+      </div>
+      <div class="nav-quick-links">
+        <button class="btn-theme-toggle" id="btn-theme-toggle" title="Alternar Modo Escuro / Claro">&#9681;</button>
+      </div>
     </div>
+  </nav>
+
+  <div class="container">
     <div class="lesson-meta">Documento de Referência Rápida • Vestibular Inteli • Trilha Superior</div>
     <h1>Finanças Quantitativas, Métricas SaaS & Startups</h1>
 
@@ -102,6 +131,14 @@
     <div class="callout">
       <strong>Dica para a Prova:</strong> Fique atento às unidades de tempo. Se a taxa de churn ou juros é mensal ($i_m$), o tempo $t$ nas fórmulas deve estar obrigatoriamente em meses.
     </div>
+
+      <footer class="lesson-footer">
+        <div class="footer-nav">
+          <a href="/?tab=docs&doc=mission">&larr; Sum&aacute;rio da Miss&atilde;o</a>
+          <a href="/?tab=docs&doc=glossary">&#128214; Gloss&aacute;rio T&eacute;cnico</a>
+          <a href="/" class="btn-back-hub">&larr; Voltar &agrave; Tela Principal do Portal</a>
+        </div>
+      </footer>
   </div>
 </body>
 </html>

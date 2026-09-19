@@ -239,6 +239,9 @@ const AppState = {
   // Drill specific
   drillVerified: {},
 
+  // Router: which mode produced the results on screen (null while exam live)
+  lastResultsMode: null,
+
   // Local storage history
   history: []
 };
@@ -310,6 +313,8 @@ async function initApp() {
   loadHistory();
   await loadQuestionBank();
   console.log('[DEBUG] loadQuestionBank passed');
+  handleRoute();
+  console.log('[DEBUG] handleRoute passed');
 }
 
 if (document.readyState === 'loading') {
@@ -428,9 +433,27 @@ function setupEventListeners() {
     });
   }
   // Results Actions
-  document.getElementById('btn-results-home').addEventListener('click', () => switchScreen('home'));
+  document.getElementById('btn-results-home').addEventListener('click', () => navigateTo('#/'));
   document.getElementById('btn-results-retry').addEventListener('click', () => {
     startExam(AppState.activeMode);
+  });
+
+  // Runner breadcrumb Voltar (per-mode exit, answers kept for resume)
+  const runnerBackBtn = document.getElementById('btn-runner-back');
+  if (runnerBackBtn) runnerBackBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const answered = Object.keys(AppState.userAnswers).length;
+    if (answered > 0) {
+      if (!window.confirm('Sair deste simulado? Suas respostas ficam salvas e você pode retomar pelo link do modo.')) return;
+    }
+    exitToHome();
+  });
+
+  // Runner breadcrumb Descartar (exit + wipe: counts nothing, nowhere)
+  const runnerDiscardBtn = document.getElementById('btn-runner-discard');
+  if (runnerDiscardBtn) runnerDiscardBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    discardExam();
   });
 
   // Filter Pills on Review
@@ -568,6 +591,10 @@ function startExam(mode) {
   switchScreen('runner');
   renderCurrentQuestion();
 
+  AppState.lastResultsMode = null;
+  document.title = `${getModeDisplayName(mode)} // Inteli Harness`;
+  navigateTo(`#/simulado/${modeToRoute(mode)}`);
+
   showToast(`Simulado iniciado (${getModeDisplayName(mode)})! Boa prova.`, 'success');
 }
 
@@ -579,6 +606,8 @@ function updateHeaderModeText(mode) {
     'bolsa': 'Diagnóstico Bolsa 100% Inteli 2027 • 45m'
   };
   document.getElementById('header-mode-indicator').textContent = names[mode] || 'Vestibular 2027';
+  const crumb = document.getElementById('runner-crumb-mode');
+  if (crumb) crumb.textContent = getModeDisplayName(mode);
 }
 
 function getModeDisplayName(mode) {
@@ -962,16 +991,20 @@ function finishExam() {
   AppState.sessionEndTime = Date.now();
 
   // Reset header UI
-  document.getElementById('header-runner-stats').style.display = 'none';
-  document.getElementById('btn-scratchpad-toggle').style.display = 'none';
-  document.getElementById('btn-finish-exam-header').style.display = 'none';
-  document.getElementById('header-home-links').style.display = 'flex';
+  resetHeaderToHome();
 
   // Compute Results
   computeAndRenderResults();
 
-  // Switch to Results View
+  // Switch to Results View (replace runner entry: browser-back lands on home, no trap)
+  AppState.lastResultsMode = AppState.activeMode;
   switchScreen('results');
+  document.title = `Resultado — ${getModeDisplayName(AppState.activeMode)} // Inteli Harness`;
+  try {
+    history.replaceState(null, '', `#/simulado/${modeToRoute(AppState.activeMode)}/resultado`);
+  } catch (e) {
+    navigateTo(`#/simulado/${modeToRoute(AppState.activeMode)}/resultado`);
+  }
 }
 
 // ============================================================================
@@ -1412,6 +1445,120 @@ function switchScreen(screenName) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
+
+// ============================================================================
+// 13b. HASH ROUTER — one route per simulado mode (static-safe, Vercel OK)
+// Routes: #/ (home) | #/simulado/oficial | #/simulado/adaptativo
+//         #/simulado/treino | #/simulado/bolsa | #/simulado/<m>/resultado
+// ============================================================================
+const MODE_TO_ROUTE = { oficial: 'oficial', adaptativo: 'adaptativo', drill: 'treino', bolsa: 'bolsa' };
+const ROUTE_TO_MODE = { oficial: 'oficial', adaptativo: 'adaptativo', treino: 'drill', bolsa: 'bolsa' };
+
+function modeToRoute(mode) {
+  return MODE_TO_ROUTE[mode] || 'oficial';
+}
+
+function parseRoute() {
+  const h = window.location.hash || '#/';
+  const m = h.match(/^#\/simulado\/(oficial|adaptativo|treino|bolsa)(\/resultado)?$/);
+  if (m) {
+    return { screen: m[2] ? 'results' : 'runner', mode: ROUTE_TO_MODE[m[1]], route: m[1] };
+  }
+  return { screen: 'home', mode: null, route: null };
+}
+
+function navigateTo(hash) {
+  if (window.location.hash === hash) {
+    handleRoute();
+    return;
+  }
+  window.location.hash = hash;
+}
+
+function resetHeaderToHome() {
+  const runnerStats = document.getElementById('header-runner-stats');
+  const scratchBtn = document.getElementById('btn-scratchpad-toggle');
+  const finishBtn = document.getElementById('btn-finish-exam-header');
+  const homeLinks = document.getElementById('header-home-links');
+  if (runnerStats) runnerStats.style.display = 'none';
+  if (scratchBtn) scratchBtn.style.display = 'none';
+  if (finishBtn) finishBtn.style.display = 'none';
+  if (homeLinks) homeLinks.style.display = 'flex';
+  const indicator = document.getElementById('header-mode-indicator');
+  if (indicator) indicator.textContent = 'Plataforma de Estudos & Simulados';
+}
+
+// Discard the live attempt WITHOUT counting anything: no history,
+// no localStorage, no server sync. Wipes session state completely.
+function discardExam() {
+  if (!window.confirm('Descartar esta tentativa? Nada será salvo no histórico.')) return;
+  if (AppState.timerInterval) clearInterval(AppState.timerInterval);
+  AppState.currentQuestions = [];
+  AppState.currentIndex = 0;
+  AppState.userAnswers = {};
+  AppState.flaggedQuestions = new Set();
+  AppState.drillVerified = {};
+  AppState.isPaused = false;
+  AppState.lastResultsMode = null;
+  hideConfirmModal();
+  resetHeaderToHome();
+  switchScreen('home');
+  document.title = 'Inteli Harness // Simulador Oficial, Aulas Tufte & Editais';
+  navigateTo('#/');
+  showToast('Tentativa descartada — nada foi registrado.', 'info');
+}
+
+// Exit runner WITHOUT submitting. Answers are kept in memory so the
+// mode route can resume the exam (Voltar button / browser back-safe).
+function exitToHome() {
+  if (AppState.timerInterval) clearInterval(AppState.timerInterval);
+  AppState.isPaused = false;
+  hideConfirmModal();
+  resetHeaderToHome();
+  switchScreen('home');
+  document.title = 'Inteli Harness // Simulador Oficial, Aulas Tufte & Editais';
+  navigateTo('#/');
+}
+
+function handleRoute() {
+  const r = parseRoute();
+
+  if (r.screen === 'home') {
+    // Browser-back into home while an exam is live: hold the runner,
+    // ask via the submit modal instead of silently wiping state.
+    if (AppState.currentScreen === 'runner' && AppState.currentQuestions.length > 0) {
+      navigateTo(`#/simulado/${modeToRoute(AppState.activeMode)}`);
+      showConfirmModal();
+      return;
+    }
+    if (AppState.currentScreen !== 'home') {
+      resetHeaderToHome();
+      switchScreen('home');
+      document.title = 'Inteli Harness // Simulador Oficial, Aulas Tufte & Editais';
+    }
+    return;
+  }
+
+  if (r.screen === 'runner') {
+    // Resume live exam for this mode; deep link / refresh starts it fresh.
+    if (AppState.currentScreen === 'runner' && AppState.activeMode === r.mode && AppState.currentQuestions.length > 0) {
+      return;
+    }
+    if (AppState.currentScreen === 'results' && AppState.lastResultsMode === r.mode) {
+      return; // finished exam: stay on results, don't restart underneath it
+    }
+    startExam(r.mode);
+    return;
+  }
+
+  // results route: show stored results or fall back to the mode route
+  if (AppState.currentScreen === 'results' && AppState.lastResultsMode === r.mode) {
+    return;
+  }
+  navigateTo(`#/simulado/${r.route}`);
+}
+
+window.addEventListener('hashchange', handleRoute);
 
 // ============================================================================
 // 14. DIGITAL SCRATCHPAD / CANVAS TOOLKIT

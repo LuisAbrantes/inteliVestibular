@@ -81,7 +81,7 @@ Princípio ordenador: **peso TRI (Bloco 1→4) + dependência conceitual (fundam
 **Objetivo:** rastrear loops e somar PA em piloto automático; ler recorrência como código.
 
 - Lições: consolidar `0005/0009/0012` em trilha única (`0005` Loops+Gauss `n(n+1)/2`, `0009` Complexidade `O(n²)/O(log n)`, `0012` Recorrências 1ª ordem + alça Excel) + `0009` Pensamento Computacional
-- Teste: 8 questões: Selection Sort N=10 → 55 ops, busca binária N=524.288 → 19 passos (`log2`), PA/PG planilha, 2 recorrências. Meta: 100% em somatórios.
+- Teste: 8 questões: Selection Sort N=10 → 45 comparações [(N-1)+...+1 = N(N-1)/2 — padrão oficial do harness, cf. `reference/logica-computacional.html`; errata 2027.2: o "55 ops" anterior usava a convenção n(n+1)/2 de laço até N], busca binária N=524.288 → 19 passos (`log2`), PA/PG planilha, 2 recorrências. Meta: 100% em somatórios.
 
 ## MÓDULO 5 — Geometria Tech e Álgebra Linear (Fechamento TRI)
 **Objetivo:** imunidade aos distratores de referencial invertido e matrizes.
