@@ -432,6 +432,20 @@ function setupEventListeners() {
       if (section) section.scrollIntoView({ behavior: 'smooth' });
     });
   }
+  // Tutorial tab-jump buttons (Como funciona → abas do portal)
+  document.querySelectorAll('.tutorial-tab-jump').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tabId = btn.getAttribute('data-goto-tab');
+      const tabBtn = document.querySelector(`.tab-nav-btn[data-tab="${tabId}"]`);
+      if (tabBtn) {
+        tabBtn.click();
+        tabBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
+  });
+  // Tutorial collapse/expand toggle
+  setupTutorialCollapse();
+
   // Results Actions
   document.getElementById('btn-results-home').addEventListener('click', () => navigateTo('#/'));
   document.getElementById('btn-results-retry').addEventListener('click', () => {
@@ -2389,6 +2403,54 @@ function setupPromptCopyButtons() {
       navigator.clipboard.writeText(pathText).then(() => {
         showToast('Caminho do arquivo copiado!', 'success');
       });
+    });
+  }
+}
+
+function setupTutorialCollapse() {
+  const tutorialCard = document.getElementById('tutorial-como-funciona');
+  const toggleBtn = document.getElementById('btn-tutorial-toggle');
+  const heroBtn = document.getElementById('btn-hero-tutorial');
+  const body = document.getElementById('tutorial-collapsible-body');
+  if (!tutorialCard || !toggleBtn || !body) return;
+
+  const toggleIcon = toggleBtn.querySelector('.tutorial-toggle-icon');
+  const toggleLabel = toggleBtn.querySelector('.tutorial-toggle-text');
+
+  // Load saved preference (default: collapsed to save space and show modes immediately)
+  const isSavedCollapsed = localStorage.getItem('inteli_tutorial_collapsed') !== 'false';
+
+  function setCollapsed(collapsed) {
+    if (collapsed) {
+      tutorialCard.classList.add('is-collapsed');
+      body.style.display = 'none';
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      if (toggleIcon) toggleIcon.textContent = '▾';
+      if (toggleLabel) toggleLabel.textContent = 'Abrir Guia';
+      localStorage.setItem('inteli_tutorial_collapsed', 'true');
+    } else {
+      tutorialCard.classList.remove('is-collapsed');
+      body.style.display = 'block';
+      toggleBtn.setAttribute('aria-expanded', 'true');
+      if (toggleIcon) toggleIcon.textContent = '▲';
+      if (toggleLabel) toggleLabel.textContent = 'Recolher Guia';
+      localStorage.setItem('inteli_tutorial_collapsed', 'false');
+    }
+  }
+
+  // Initialize
+  setCollapsed(isSavedCollapsed);
+
+  toggleBtn.addEventListener('click', () => {
+    const isNowCollapsed = tutorialCard.classList.contains('is-collapsed');
+    setCollapsed(!isNowCollapsed);
+  });
+
+  if (heroBtn) {
+    heroBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      setCollapsed(false);
+      tutorialCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   }
 }

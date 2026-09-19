@@ -57,11 +57,11 @@
   --inteli-blue-glow: rgba(123, 178, 219, 0.22);
   --inteli-blue-border: rgba(123, 178, 219, 0.35);
 
-  --inteli-violet: #b592e8;
-  --inteli-violet-hover: #a178db;
-  --inteli-violet-subtle: rgba(181, 146, 232, 0.12);
-  --inteli-violet-glow: rgba(181, 146, 232, 0.22);
-  --inteli-violet-border: rgba(181, 146, 232, 0.35);
+  --inteli-violet: var(--color-clay);
+  --inteli-violet-hover: var(--color-clay-deep);
+  --inteli-violet-subtle: var(--color-clay-subtle);
+  --inteli-violet-glow: var(--shadow-coral-glow);
+  --inteli-violet-border: var(--inteli-coral-border);
 
   --success: #34a853;
   --success-subtle: rgba(52, 168, 83, 0.12);
@@ -87,7 +87,7 @@
   --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.55);
   --shadow-coral-glow: 0 4px 16px rgba(217, 119, 87, 0.35);
   --shadow-blue-glow: 0 4px 16px rgba(123, 178, 219, 0.25);
-  --shadow-violet-glow: 0 4px 16px rgba(181, 146, 232, 0.25);
+  --shadow-violet-glow: var(--shadow-coral-glow);
 
   --grid-line-color: rgba(255, 255, 255, 0.03);
   --ambient-opacity: 0.12;
@@ -131,11 +131,11 @@ html[data-theme="dark"],
   --inteli-blue-glow: rgba(123, 178, 219, 0.22);
   --inteli-blue-border: rgba(123, 178, 219, 0.35);
 
-  --inteli-violet: #b592e8;
-  --inteli-violet-hover: #a178db;
-  --inteli-violet-subtle: rgba(181, 146, 232, 0.12);
-  --inteli-violet-glow: rgba(181, 146, 232, 0.22);
-  --inteli-violet-border: rgba(181, 146, 232, 0.35);
+  --inteli-violet: var(--color-clay);
+  --inteli-violet-hover: var(--color-clay-deep);
+  --inteli-violet-subtle: var(--color-clay-subtle);
+  --inteli-violet-glow: var(--shadow-coral-glow);
+  --inteli-violet-border: var(--inteli-coral-border);
 
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.35);
   --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.45);
@@ -179,11 +179,11 @@ html[data-theme="light"],
   --inteli-blue-glow: rgba(26, 82, 118, 0.18);
   --inteli-blue-border: rgba(26, 82, 118, 0.35);
 
-  --inteli-violet: #6B449B;
-  --inteli-violet-hover: #593582;
-  --inteli-violet-subtle: rgba(107, 68, 155, 0.08);
-  --inteli-violet-glow: rgba(107, 68, 155, 0.18);
-  --inteli-violet-border: rgba(107, 68, 155, 0.35);
+  --inteli-violet: var(--color-clay);
+  --inteli-violet-hover: var(--color-clay-deep);
+  --inteli-violet-subtle: var(--color-clay-subtle);
+  --inteli-violet-glow: var(--shadow-coral-glow);
+  --inteli-violet-border: var(--inteli-coral-border);
 
   --success: #1e824c;
   --success-subtle: rgba(30, 130, 76, 0.08);
@@ -200,7 +200,7 @@ html[data-theme="light"],
   --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.09), 0 4px 10px rgba(0, 0, 0, 0.04);
   --shadow-coral-glow: 0 4px 14px rgba(217, 119, 87, 0.22);
   --shadow-blue-glow: 0 4px 14px rgba(26, 82, 118, 0.2);
-  --shadow-violet-glow: 0 4px 14px rgba(107, 68, 155, 0.2);
+  --shadow-violet-glow: var(--shadow-coral-glow);
 
   --grid-line-color: rgba(0, 0, 0, 0.025);
   --ambient-opacity: 0.08;
@@ -446,9 +446,9 @@ body {
 }
 
 .badge-violet {
-  background: var(--inteli-violet-subtle);
-  color: var(--inteli-violet);
-  border: 1px solid var(--inteli-violet-border);
+  background: var(--color-clay-subtle);
+  color: var(--color-clay);
+  border: 1px solid var(--inteli-coral-border);
 }
 
 .badge-emerald {
@@ -945,7 +945,7 @@ body {
 }
 
 .tab-nav-agent.active {
-  border-color: var(--inteli-violet);
+  border-color: var(--color-clay);
   color: var(--text-primary);
 }
 
@@ -1138,10 +1138,10 @@ body {
 }
 
 .btn-launch-mode.btn-launch-emerald:hover {
-  background: var(--inteli-violet);
-  border-color: var(--inteli-violet);
+  background: var(--color-clay);
+  border-color: var(--color-clay-deep);
   color: #ffffff;
-  box-shadow: var(--shadow-violet-glow);
+  box-shadow: var(--shadow-coral-glow);
 }
 
 .btn-launch-icon {
@@ -1999,10 +1999,10 @@ body {
 }
 
 .btn-copy-prompt:hover {
-  background: var(--inteli-violet);
-  border-color: var(--inteli-violet);
+  background: var(--color-clay);
+  border-color: var(--color-clay-deep);
   color: #ffffff;
-  box-shadow: var(--shadow-violet-glow);
+  box-shadow: var(--shadow-coral-glow);
 }
 
 .workflow-title {
@@ -3088,4 +3088,203 @@ body,
 .runner-breadcrumb .crumb-discard:hover {
   border-color: var(--danger, #e05252);
   color: var(--danger, #e05252);
+}
+
+/* ==========================================================================
+   TUTORIAL — differences between modes + getting-started track
+   ========================================================================== */
+.hero-cta-row {
+  margin-top: 1.1rem;
+}
+
+.hero-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-clay);
+  text-decoration: none;
+  padding: 0.45rem 1rem;
+  border: 1px solid var(--inteli-coral-border);
+  border-radius: 9999px;
+  background: var(--inteli-coral-subtle);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-cta-link:hover {
+  background: var(--color-clay);
+  border-color: var(--color-clay);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.hero-tutorial-chevron {
+  font-size: 0.75rem;
+  transition: transform 0.2s ease;
+}
+
+.tutorial-card {
+  margin-bottom: 1.75rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tutorial-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1rem;
+}
+
+.tutorial-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.tutorial-header-title {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.btn-tutorial-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.32rem 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-tutorial-toggle:hover {
+  background: var(--bg-surface-3);
+  border-color: var(--color-clay);
+  color: var(--color-clay);
+  transform: translateY(-1px);
+}
+
+.tutorial-toggle-icon {
+  font-size: 0.7rem;
+  transition: transform 0.2s ease;
+}
+
+.tutorial-card.is-collapsed {
+  margin-bottom: 1.25rem;
+}
+
+.tutorial-card.is-collapsed .bezel-core {
+  padding: 0.85rem 1.25rem;
+}
+
+.tutorial-card.is-collapsed .tutorial-collapsible-body {
+  display: none;
+}
+
+.tutorial-card .bezel-core {
+  gap: 0.25rem;
+}
+
+.tutorial-title {
+  font-size: 1.5rem;
+  margin: 0.6rem 0 0.4rem;
+}
+.tutorial-modes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.25rem 0;
+}
+
+.tutorial-mode {
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-inner);
+  padding: 1.1rem 1.25rem;
+}
+
+.tutorial-mode h4 {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem;
+}
+
+.tutorial-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-clay);
+  border: 1px solid var(--inteli-coral-border);
+  background: var(--inteli-coral-subtle);
+  border-radius: 9999px;
+  padding: 0.12rem 0.5rem;
+  margin-left: 0.35rem;
+  vertical-align: middle;
+}
+
+.tutorial-mode p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0 0 0.5rem;
+}
+
+.tutorial-mode .tutorial-use {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.tutorial-link {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-clay);
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.tutorial-link:hover {
+  text-decoration: underline;
+}
+
+.tutorial-steps-title {
+  font-size: 1.15rem;
+  margin: 1rem 0 0.5rem;
+}
+
+.tutorial-steps {
+  margin: 0;
+  padding-left: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+}
+
+.tutorial-steps strong {
+  color: var(--text-primary);
+}
+
+@media (max-width: 767px) {
+  .tutorial-modes-grid {
+    grid-template-columns: 1fr;
+  }
 }

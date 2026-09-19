@@ -126,6 +126,12 @@
           <p class="hero-subtitle">
             Ambiente completo conectado: provas adaptativas, editais e manuais oficiais absorvidos, biblioteca de PDFs originais, lições interativas no padrão Tufte e auto-aprimoramento contínuo baseado no seu uso.
           </p>
+          <p class="hero-cta-row">
+            <button class="hero-cta-link" id="btn-hero-tutorial" type="button">
+              <span>Primeira vez aqui? Ver guia dos 4 modos</span>
+              <span class="hero-tutorial-chevron">▾</span>
+            </button>
+          </p>
         </div>
 
         <!-- Global Navigation Tab Bar (Connects everything!) -->
@@ -168,6 +174,66 @@
         <!-- ========================================================= -->
         <div class="harness-tab-panel active" id="tab-panel-simulados">
           
+          <!-- Tutorial: Como Funciona + Por Onde Começar (Retrátil) -->
+          <div class="bezel-card tutorial-card is-collapsed" id="tutorial-como-funciona">
+            <div class="bezel-core">
+              <div class="card-header-bar tutorial-header-bar">
+                <div class="tutorial-header-left">
+                  <span class="mode-badge badge-coral">Como Funciona</span>
+                  <span class="tutorial-header-title">Guia dos 4 Modos de Simulado & Trilha de Início</span>
+                </div>
+                <button class="btn-tutorial-toggle" id="btn-tutorial-toggle" aria-expanded="false" title="Abrir ou fechar o tutorial">
+                  <span class="tutorial-toggle-text">Abrir Guia</span>
+                  <span class="tutorial-toggle-icon">▾</span>
+                </button>
+              </div>
+
+              <div class="tutorial-collapsible-body" id="tutorial-collapsible-body" style="display: none;">
+                <h2 class="tutorial-title">Qual simulado fazer — e por onde começar?</h2>
+                <p class="mode-desc">
+                  São 4 modos complementares calibrados com as provas e editais oficiais do Inteli. Cada simulado possui rota própria na URL, temporizador regulamentar e histórico preservado.
+                </p>
+
+                <div class="tutorial-modes-grid">
+                  <div class="tutorial-mode">
+                    <h4>🎯 Treino por Tópico <span class="tutorial-tag">comece aqui</span></h4>
+                    <p><strong>Até 15 questões · sem tempo limite · resolução imediata.</strong> Filtre o domínio desejado (Combinatória, Lógica, Funções, etc.), responda e confira o gabarito comentado na hora.</p>
+                    <p class="tutorial-use">Ideal para: sanar pontos cegos específicos e fixar fundamentos sem ansiedade de tempo.</p>
+                    <a class="tutorial-link" href="#/simulado/treino">Abrir treino por tópico →</a>
+                  </div>
+                  <div class="tutorial-mode">
+                    <h4>🎓 Diagnóstico Bolsa 100%</h4>
+                    <p><strong>10 questões calibradas · 45 min · foco em alta complexidade.</strong> Bateria densa com questões Médias e Difíceis para aferir aptidão aos critérios da Bolsa Integral.</p>
+                    <p class="tutorial-use">Ideal para: termômetro inicial e checagem periódica da nota de corte da bolsa.</p>
+                    <a class="tutorial-link" href="#/simulado/bolsa">Fazer diagnóstico bolsa →</a>
+                  </div>
+                  <div class="tutorial-mode">
+                    <h4>📝 Simulado Oficial</h4>
+                    <p><strong>20 questões balanceadas · 120 min cronometrados · sem gabarito imediato.</strong> Réplica fiel do dia da prova presencial do vestibular Inteli.</p>
+                    <p class="tutorial-use">Ideal para: treinar ritmo de prova, gestão de 6 min/questão e resistência cognitiva.</p>
+                    <a class="tutorial-link" href="#/simulado/oficial">Iniciar simulado oficial →</a>
+                  </div>
+                  <div class="tutorial-mode">
+                    <h4>📈 Simulado Adaptativo (TRI)</h4>
+                    <p><strong>20 questões · 120 min · dificuldade dinâmica.</strong> Inicia no nível médio: acertos puxam para Trilha Superior; erros calibram a régua para fundamentos.</p>
+                    <p class="tutorial-use">Ideal para: refinamento de topo de régua e calibragem de escore após consolidar a base.</p>
+                    <a class="tutorial-link" href="#/simulado/adaptativo">Iniciar adaptativo TRI →</a>
+                  </div>
+                </div>
+
+                <h3 class="tutorial-steps-title">Sequência Recomendada de Preparação</h3>
+                <ol class="tutorial-steps">
+                  <li><strong>Treino por Tópico</strong> — Faça 1 sessão mista para conhecer a mecânica de prova e os distratores da banca. <a href="#/simulado/treino">Começar Treino →</a></li>
+                  <li><strong>Aulas Tufte (Módulo 1)</strong> — Domine Lógica Proposicional, Teoria dos Conjuntos e Bases Numéricas. <button class="tutorial-link tutorial-tab-jump" data-goto-tab="lessons">Abrir Aulas Tufte →</button></li>
+                  <li><strong>Diagnóstico Bolsa 100%</strong> — Meça seu escore de partida (meta recomendada: ≥ 80%). <a href="#/simulado/bolsa">Iniciar Diagnóstico →</a></li>
+                  <li><strong>Trilha Inteligente (Módulos 2 a 5)</strong> — Acompanhe a ordem do edital e intercale treinos deliberados. <button class="tutorial-link tutorial-tab-jump" data-goto-tab="docs">Ver Trilha Oficial →</button></li>
+                  <li><strong>Simulado Oficial</strong> — Realize sessões de 120 min para simular as condições reais do vestibular. <a href="#/simulado/oficial">Fazer Simulado Oficial →</a></li>
+                  <li><strong>Simulado Adaptativo + Folhas de Consulta</strong> — Refinamento fino nas semanas anteriores à prova. <a href="#/simulado/adaptativo">Adaptativo TRI →</a> <button class="tutorial-link tutorial-tab-jump" data-goto-tab="reference">Folhas de Revisão →</button></li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
           <!-- Mode Selection Matrix (Double-Bezel Cards) -->
           <div class="modes-grid">
             
