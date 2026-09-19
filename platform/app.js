@@ -303,6 +303,10 @@ window.applyTheme = applyTheme;
 window.loadHistory = loadHistory;
 window.renderProficiencyMatrix = renderProficiencyMatrix;
 window.saveSessionRecord = saveSessionRecord;
+window.AppState = AppState;
+window.startExam = startExam;
+window.loadQuestionBank = loadQuestionBank;
+window.initApp = initApp;
 async function initApp() {
   initTheme();
   console.log('[DEBUG] initApp started');
@@ -325,43 +329,56 @@ if (document.readyState === 'loading') {
   initApp();
 }
 
+let questionBankPromise = null;
+
 /**
  * Loads questions from /api/questions, fallback to static JSON or internal curated set
  */
-async function loadQuestionBank() {
-  try {
-    const apiRes = await fetch('/api/questions');
-    if (apiRes.ok) {
-      const data = await apiRes.json();
-      if (Array.isArray(data) && data.length > 0) {
-        AppState.allQuestions = data;
-        console.log(`[Inteli Engine] Loaded ${data.length} questions from /api/questions.`);
-        return;
-      }
-    }
-  } catch (err) {
-    console.warn('[Inteli Engine] API endpoint unavailable, trying static JSON fallback.');
+function loadQuestionBank() {
+  if (AppState.allQuestions && AppState.allQuestions.length > 0) {
+    return Promise.resolve(AppState.allQuestions);
   }
-
-  try {
-    const staticRes = await fetch('/platform/data/questions.json');
-    if (staticRes.ok) {
-      const data = await staticRes.json();
-      if (Array.isArray(data) && data.length > 0) {
-        AppState.allQuestions = data;
-        console.log(`[Inteli Engine] Loaded ${data.length} questions from static data/questions.json.`);
-        return;
+  if (!questionBankPromise) {
+    questionBankPromise = (async () => {
+      try {
+        const apiRes = await fetch('/api/questions');
+        if (apiRes.ok) {
+          const data = await apiRes.json();
+          if (Array.isArray(data) && data.length > 0) {
+            AppState.allQuestions = data;
+            console.log(`[Inteli Engine] Loaded ${data.length} questions from /api/questions.`);
+            return data;
+          }
+        }
+      } catch (err) {
+        console.warn('[Inteli Engine] API endpoint unavailable, trying static JSON fallback.');
       }
-    }
-  } catch (err) {
-    console.warn('[Inteli Engine] Static file unavailable, using curated fallback.');
-  }
 
-  // Fallback to high quality preloaded items
-  AppState.allQuestions = FALLBACK_QUESTIONS;
-  console.log(`[Inteli Engine] Initialized with ${AppState.allQuestions.length} curated fallback questions.`);
+      try {
+        const staticRes = await fetch('/platform/data/questions.json');
+        if (staticRes.ok) {
+          const data = await staticRes.json();
+          if (Array.isArray(data) && data.length > 0) {
+            AppState.allQuestions = data;
+            console.log(`[Inteli Engine] Loaded ${data.length} questions from static data/questions.json.`);
+            return data;
+          }
+        }
+      } catch (err) {
+        console.warn('[Inteli Engine] Static file unavailable, using curated fallback.');
+      }
+
+      // Fallback to high quality preloaded items
+      AppState.allQuestions = [...FALLBACK_QUESTIONS];
+      console.log(`[Inteli Engine] Initialized with ${AppState.allQuestions.length} curated fallback questions.`);
+      return AppState.allQuestions;
+    })();
+  }
+  return questionBankPromise;
 }
 
+// Preload question bank immediately on module execution
+loadQuestionBank();
 // ============================================================================
 // 4. EVENT LISTENERS & NAVIGATION
 // ============================================================================
@@ -530,7 +547,15 @@ function handleKeyboardShortcuts(e) {
 // ============================================================================
 // 5. EXAM RUNNER ENGINE
 // ============================================================================
-function startExam(mode) {
+async function startExam(mode) {
+  // Defensive guard: Ensure question bank is loaded before building question set
+  if (!AppState.allQuestions || AppState.allQuestions.length === 0) {
+    await loadQuestionBank();
+  }
+  if (!AppState.allQuestions || AppState.allQuestions.length === 0) {
+    AppState.allQuestions = [...FALLBACK_QUESTIONS];
+  }
+
   AppState.activeMode = mode;
   AppState.userAnswers = {};
   AppState.flaggedQuestions = new Set();
@@ -544,10 +569,13 @@ function startExam(mode) {
 
   // Build Question Set based on Mode
   let pool = [...AppState.allQuestions];
+  if (pool.length === 0) {
+    pool = [...FALLBACK_QUESTIONS];
+  }
 
   if (mode === 'drill') {
     if (AppState.selectedTopic !== 'all') {
-      pool = pool.filter(q => q.topic.toLowerCase().includes(AppState.selectedTopic.toLowerCase()));
+      pool = pool.filter(q => q.topic && q.topic.toLowerCase().includes(AppState.selectedTopic.toLowerCase()));
       if (pool.length === 0) pool = [...AppState.allQuestions];
     }
     shuffleArray(pool);
@@ -609,8 +637,14 @@ function startExam(mode) {
 
   AppState.lastResultsMode = null;
   document.title = `${getModeDisplayName(mode)} // Inteli Harness`;
-  navigateTo(`#/simulado/${modeToRoute(mode)}`);
-
+  const targetHash = `#/simulado/${modeToRoute(mode)}`;
+  if (window.location.hash !== targetHash) {
+    try {
+      history.replaceState(null, '', targetHash);
+    } catch {
+      window.location.hash = targetHash;
+    }
+  }
   showToast(`Simulado iniciado (${getModeDisplayName(mode)})! Boa prova.`, 'success');
 }
 
@@ -621,7 +655,8 @@ function updateHeaderModeText(mode) {
     'drill': 'Treino Deliberado (Modelo 2027)',
     'bolsa': 'Diagnóstico Bolsa 100% Inteli 2027 • 45m'
   };
-  document.getElementById('header-mode-indicator').textContent = names[mode] || 'Vestibular 2027';
+  const modeInd = document.getElementById('header-mode-indicator');
+  if (modeInd) modeInd.textContent = names[mode] || 'Vestibular 2027';
   const crumb = document.getElementById('runner-crumb-mode');
   if (crumb) crumb.textContent = getModeDisplayName(mode);
 }
@@ -1488,11 +1523,9 @@ function parseRoute() {
 }
 
 function navigateTo(hash) {
-  if (window.location.hash === hash) {
-    handleRoute();
-    return;
+  if (window.location.hash !== hash) {
+    window.location.hash = hash;
   }
-  window.location.hash = hash;
 }
 
 function resetHeaderToHome() {
@@ -1540,7 +1573,7 @@ function exitToHome() {
   navigateTo('#/');
 }
 
-function handleRoute() {
+async function handleRoute() {
   const r = parseRoute();
 
   if (r.screen === 'home') {
@@ -1567,7 +1600,7 @@ function handleRoute() {
     if (AppState.currentScreen === 'results' && AppState.lastResultsMode === r.mode) {
       return; // finished exam: stay on results, don't restart underneath it
     }
-    startExam(r.mode);
+    await startExam(r.mode);
     return;
   }
 

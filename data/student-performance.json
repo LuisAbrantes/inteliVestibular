@@ -1,9 +1,9 @@
 {
   "summary": {
-    "totalExams": 24,
-    "totalQuestionsAnswered": 470,
-    "totalCorrect": 386,
-    "averageScore": 16.1,
+    "totalExams": 25,
+    "totalQuestionsAnswered": 490,
+    "totalCorrect": 404,
+    "averageScore": 16.2,
     "averagePercentage": 82,
     "overallProficiency": "Intermediário",
     "accuracyPerTopic": {
@@ -18,9 +18,19 @@
         "percentage": 0
       },
       "Análise Combinatória": {
-        "correct": 108,
-        "total": 108,
+        "correct": 113,
+        "total": 113,
         "percentage": 100
+      },
+      "Probabilidade": {
+        "correct": 88,
+        "total": 110,
+        "percentage": 80
+      },
+      "Álgebra Linear": {
+        "correct": 198,
+        "total": 220,
+        "percentage": 90
       },
       "Lógica Proposicional": {
         "correct": 2,
@@ -56,21 +66,47 @@
         "correct": 2,
         "total": 2,
         "percentage": 100
-      },
-      "Probabilidade": {
-        "correct": 84,
-        "total": 105,
-        "percentage": 80
-      },
-      "Álgebra Linear": {
-        "correct": 189,
-        "total": 210,
-        "percentage": 90
       }
     },
-    "lastUpdated": "2026-09-19T17:18:04.135Z"
+    "lastUpdated": "2026-09-19T19:24:39.177Z"
   },
   "history": [
+    {
+      "id": "test_session_automated",
+      "timestamp": "2026-09-19T19:24:39.176Z",
+      "mode": "diagnostic",
+      "score": 18,
+      "total": 20,
+      "percentage": 90,
+      "proficiency": "Avançado",
+      "timeTaken": 1200,
+      "topicBreakdown": {
+        "Análise Combinatória": {
+          "correct": 5,
+          "total": 5
+        },
+        "Probabilidade": {
+          "correct": 4,
+          "total": 5
+        },
+        "Álgebra Linear": {
+          "correct": 9,
+          "total": 10
+        }
+      },
+      "answers": [
+        {
+          "id": 1,
+          "topic": "Análise Combinatória",
+          "isCorrect": true
+        },
+        {
+          "id": 2,
+          "topic": "Probabilidade",
+          "isCorrect": false
+        }
+      ]
+    },
     {
       "id": "SIM-LIVE-TEST",
       "timestamp": "2026-09-19T17:18:04.132Z",
