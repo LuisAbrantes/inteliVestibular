@@ -998,5 +998,65 @@
     "correctIndex": 2,
     "explanation": "### Resolução Passo a Passo\n\n1. **Área do quarteirão em metros quadrados:**\n   $$A_{\\text{quarteirão}} = 200\\text{ m} \\times 200\\text{ m} = 40.000\\text{ m}^2$$\n\n2. **Área de 1 quilômetro quadrado em metros quadrados:**\n   $$1\\text{ km}^2 = 1.000\\text{ m} \\times 1.000\\text{ m} = 1.000.000\\text{ m}^2$$\n\n3. **Densidade de dispositivos na rede 5G:**\n   $$\\text{Densidade} = \\frac{1.000.000\\text{ dispositivos}}{1.000.000\\text{ m}^2} = 1\\text{ dispositivo por m}^2$$\n\n4. **Dispositivos no quarteirão de $40.000\\text{ m}^2$:**\n   $$N = 40.000\\text{ m}^2 \\times 1\\text{ disp/m}^2 = 40.000\\text{ dispositivos}$$\n\nPodem ser conectados no máximo 40.000 dispositivos.",
     "keyTakeaway": "Converta sempre áreas para unidades homogêneas ($1\\text{ km}^2 = 10^6\\text{ m}^2$) para trabalhar com razões de densidade de forma direta."
+  },
+  {
+    "id": "INTELI-2025-33",
+    "year": "2025.1",
+    "source": "Banco Inteli Harness — questão autoral calibrada (padrão 2025.1)",
+    "topic": "Lógica Proposicional",
+    "subtopic": "Leis de De Morgan em Regras de Acesso",
+    "difficulty": "medium",
+    "context": "Controle de Acesso e Autorização em Plataforma SaaS",
+    "statement": "O gateway de uma plataforma SaaS libera o acesso ao painel administrativo somente quando o usuário satisfaz a regra: (possui matrícula ativa) E ( Pagou o boleto do mês). Para implementar a tela de bloqueio, o engenheiro precisa da negação exata dessa regra. Qual condição bloqueia o acesso corretamente?",
+    "options": [
+      "Bloquear se (NÃO possui matrícula ativa) OU (NÃO pagou o boleto)",
+      "Bloquear se (NÃO possui matrícula ativa) E (NÃO pagou o boleto)",
+      "Bloquear se (possui matrícula ativa) OU (pagou o boleto)",
+      "Bloquear somente se (NÃO possui matrícula ativa) E (NÃO pagou o boleto) E (é fim de semana)",
+      "Liberar o acesso em todos os casos e registrar um alerta"
+    ],
+    "correctIndex": 0,
+    "explanation": "### Resolução Passo a Passo\n\n1. A regra de liberação é a conjunção $A \\land B$, com $A$ = 'matrícula ativa' e $B$ = 'boleto pago'.\n2. Bloquear = negar a liberação: $\\neg(A \\land B)$.\n3. Pela Lei de De Morgan, $\\neg(A \\land B) \\equiv \\neg A \\lor \\neg B$: basta UMA das condições falhar para o acesso ser negado.\n4. A alternativa do 'E' só bloquearia quem falhasse nas duas condições ao mesmo tempo — um usuário sem matrícula mas com boleto pago passaria indevidamente.",
+    "keyTakeaway": "A negação de 'E' é 'OU' com as partes negadas ($\\neg(A \\land B) \\equiv \\neg A \\lor \\neg B$): em regras de bloqueio, uma falha basta."
+  },
+  {
+    "id": "INTELI-2025-34",
+    "year": "2025.1",
+    "source": "Banco Inteli Harness — questão autoral calibrada (padrão 2025.1)",
+    "topic": "Lógica Proposicional",
+    "subtopic": "Contrapositiva em Pipeline de Deploy",
+    "difficulty": "easy",
+    "context": "Pipeline CI/CD e Qualidade de Software",
+    "statement": "O manual de engenharia do Inteli estabelece a regra: 'Se o build passa em todos os testes automatizados, então o deploy para produção é liberado.' Na sexta-feira, o deploy do build X NÃO foi liberado. O que se pode concluir com certeza lógica?",
+    "options": [
+      "O build X passou em todos os testes",
+      "O build X NÃO passou em todos os testes",
+      "Nada se pode concluir sobre os testes do build X",
+      "O deploy será liberado manualmente na segunda-feira",
+      "Os testes automatizados estão com defeito"
+    ],
+    "correctIndex": 1,
+    "explanation": "### Resolução Passo a Passo\n\n1. Formalize: $p$ = 'passa nos testes', $q$ = 'deploy liberado'. Regra: $p \\to q$.\n2. Fato observado: $\\neg q$ (deploy não liberado).\n3. Pela contrapositiva, $(p \\to q) \\equiv (\\neg q \\to \\neg p)$: logo $\\neg p$ — o build NÃO passou em todos os testes.\n4. A alternativa 'passou nos testes' afirma o consequente a partir de nada (o deploy foi negado, não afirmado); 'nada se conclui' ignora a contrapositiva, que é equivalência válida.",
+    "keyTakeaway": "Diante de $p \\to q$ com $q$ falso, aplique a contrapositiva $\\neg q \\to \\neg p$ — é a única inferência garantida."
+  },
+  {
+    "id": "INTELI-2025-35",
+    "year": "2025.1",
+    "source": "Banco Inteli Harness — questão autoral calibrada (padrão 2025.1)",
+    "topic": "Lógica Proposicional",
+    "subtopic": "Verdadeiros e Mentirosos em Microsserviços",
+    "difficulty": "hard",
+    "context": "Observabilidade e Diagnóstico de Falhas Distribuídas",
+    "statement": "Dois microsserviços, Alfa e Beta: exatamente um registra logs sempre verdadeiros e o outro registra logs sempre falsos. O serviço com defeito (faulty) é precisamente o que mente. Os logs coletados foram:\n• Alfa: 'Beta é o serviço com defeito'.\n• Beta: 'Alfa e eu estamos ambos saudáveis'.\n\nQual serviço está com defeito?",
+    "options": [
+      "Alfa",
+      "Beta",
+      "Ambos estão com defeito",
+      "Nenhum está com defeito",
+      "Impossível determinar com esses logs"
+    ],
+    "correctIndex": 1,
+    "explanation": "### Resolução Passo a Passo\n\n1. Hipótese 1 — Alfa fala a verdade: então 'Beta é defeituoso' é verdade, logo Beta mente. O log de Beta ('ambos saudáveis') seria falso — consistente, pois Beta defeituoso não é saudável. Cenário coerente.\n2. Hipótese 2 — Alfa mente: então Alfa é o defeituoso e Beta fala a verdade. Mas o log verdadeiro de Beta diria 'Alfa e eu ambos saudáveis', o que é falso (Alfa está defeituoso). Contradição: um serviço veraz não registra falsidade.\n3. Resta só a Hipótese 1: **Beta está com defeito**.",
+    "keyTakeaway": "Em pares verdadeiro/mentiroso, teste cada hipótese até o fim: a hipótese correta nunca gera contradição com o comportamento assumido."
   }
 ]

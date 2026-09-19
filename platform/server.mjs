@@ -614,11 +614,8 @@ export async function handleRequest(req, res) {
     const descriptions = {
       'Provas-Inteli.pdf': 'Caderno Oficial com 86 páginas de Provas Anteriores Inteli (2022 a 2023)',
       'Gabarito-Final-Prova-PS-2025.1.pdf': 'Caderno e Gabarito Comentado Oficial do Processo Seletivo Adaptativo 2025.1 (77 páginas)',
-      'Edital-Vestibular-2026.pdf': 'Edital Oficial Processo Seletivo Graduação Inteli 2026',
+      'Edital-Vestibular-2026.pdf': 'Edital Oficial Processo Seletivo Graduação Inteli 2026 (ciclo vestibular vigente)',
       'Edital-Bolsas-2027.pdf': 'Edital Oficial Programa de Bolsas de Estudo Inteli 2027 (Ciclo Atual)',
-      'Edital-Bolsas-2026.pdf': 'Edital Oficial Programa de Bolsas de Estudo Inteli 2026',
-      'Edital-Vestibular-2025.pdf': 'Edital Oficial Processo Seletivo Graduação Inteli 2025',
-      'Edital-Bolsas-2025.pdf': 'Edital Oficial Programa de Bolsas de Estudo Inteli 2025',
       'Book-Bolsistas.pdf': 'Livro de Bolsistas Inteli: Perfis, Trajetórias e Relatos Reais',
       'Guia-Bolsas-Ebook.pdf': 'Guia Ilustrado do Processo Seletivo de Bolsas de Estudo'
     };
