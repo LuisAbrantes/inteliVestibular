@@ -542,6 +542,36 @@ export async function handleRequest(req, res) {
     sendJson(res, 200, catalog);
     return;
   }
+  // POST /api/delete-lesson
+  if (pathname === '/api/delete-lesson' && method === 'POST') {
+    try {
+      const body = await parseJsonBody(req);
+      const fileName = body?.fileName;
+      if (!fileName || typeof fileName !== 'string') {
+        sendError(res, 400, 'Nome de arquivo inválido para exclusão.');
+        return;
+      }
+      // Sanitize fileName to prevent directory traversal
+      const safeName = path.basename(fileName);
+      if (!safeName.endsWith('.html')) {
+        sendError(res, 400, 'Apenas arquivos de lição (.html) podem ser excluídos.');
+        return;
+      }
+      const targetPath = path.join(PATHS.lessons, safeName);
+      if (fs.existsSync(targetPath)) {
+        fs.unlinkSync(targetPath);
+        console.log(`[Server] Lição excluída com sucesso: ${safeName}`);
+        sendJson(res, 200, { success: true, message: `Lição ${safeName} excluída com sucesso.` });
+      } else {
+        sendError(res, 404, 'Arquivo de lição não encontrado.');
+      }
+      return;
+    } catch (err) {
+      console.error('[Server] Erro ao excluir lição:', err);
+      sendError(res, 500, `Falha ao excluir lição: ${err.message}`);
+      return;
+    }
+  }
   // GET /api/harness-health
   if (pathname === '/api/harness-health' && method === 'GET') {
     try {

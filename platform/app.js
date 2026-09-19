@@ -1828,15 +1828,56 @@ function renderLessonsGrid(lessons) {
           <p class="lesson-card-desc">${lesson.description || 'Lição interativa com fundamentos matemáticos e teste de recuperação ativa.'}</p>
           <div class="lesson-footer-row">
             <span class="lesson-time-tag">⏱ ${lesson.estimatedMinutes || 8} min de estudo</span>
-            <a href="/lessons/${lesson.fileName}" target="_blank" class="btn-open-lesson">
-              <span>Estudar Lição</span>
-              <span>↗</span>
-            </a>
+            <div class="lesson-actions-group">
+              <button class="btn-delete-lesson" data-filename="${lesson.fileName}" title="Excluir esta lição" aria-label="Excluir lição">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="3 6 5 6 21 6"></polyline>
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                </svg>
+              </button>
+              <a href="/lessons/${lesson.fileName}" target="_blank" class="btn-open-lesson">
+                <span>Estudar Lição</span>
+                <span>↗</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
     `;
   }).join('');
+
+  // Attach delete handlers
+  container.querySelectorAll('.btn-delete-lesson').forEach(btn => {
+    btn.addEventListener('click', async (e) => {
+      e.stopPropagation();
+      const fileName = btn.getAttribute('data-filename');
+      if (!fileName) return;
+
+      const confirmed = window.confirm(`Tem certeza de que deseja excluir a lição "${fileName}"?`);
+      if (!confirmed) return;
+
+      try {
+        btn.disabled = true;
+        const res = await fetch('/api/delete-lesson', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ fileName })
+        });
+        const result = await res.json();
+        if (res.ok && result.success) {
+          showToast(`Lição "${fileName}" excluída com sucesso.`, 'success');
+          await loadLessonsTab();
+        } else {
+          showToast(result.error || 'Falha ao excluir a lição.', 'error');
+          btn.disabled = false;
+        }
+      } catch (err) {
+        console.error('Erro ao excluir lição:', err);
+        showToast('Erro de conexão ao excluir lição.', 'error');
+        btn.disabled = false;
+      }
+    });
+  });
 }
 
 function setupLessonsSearchAndFilter() {

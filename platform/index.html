@@ -43,15 +43,12 @@
     <header class="app-header">
       <div class="header-left">
         <a href="#" class="logo-brand" id="btn-logo-home" title="Voltar à tela inicial">
-          <div class="logo-mark">
+          <div class="logo-mark" aria-hidden="true">
             <span class="logo-symbol">∫</span>
           </div>
-          <div class="logo-text-group">
-            <div class="logo-title">
-              <span class="logo-title-accent">INTELI</span> HARNESS
-              <span class="badge-tag">PORTAL UNIFICADO</span>
-            </div>
-            <div class="logo-sub" id="header-mode-indicator">Plataforma de Estudos & Simulados</div>
+          <div class="logo-wordmark">
+            <span class="logo-wordmark-brand">Inteli</span>
+            <span class="logo-wordmark-sub">Harness</span>
           </div>
         </a>
       </div>
@@ -94,17 +91,16 @@
         </button>
 
         <div id="header-home-links" class="header-home-links">
-          <button class="btn-secondary-bezel btn-theme-switch" id="btn-theme-switch" title="Alternar Modo Escuro / Claro (Tema Anthropic)" aria-label="Alternar Tema">
+          <button class="btn-header-theme" id="btn-theme-switch" title="Alternar Modo Escuro / Claro" aria-label="Alternar Tema">
             <span class="theme-switch-icon" id="theme-switch-icon">◐</span>
-            <span class="btn-text" id="theme-switch-text">Tema</span>
           </button>
-          <button class="btn-secondary-bezel" id="btn-header-health-badge" title="Índice de Saúde do Harness">
-            <span class="health-dot"></span>
-            <span class="btn-text" id="header-health-score-text">Saúde: 85%</span>
-          </button>
-          <button class="btn-accent-bezel btn-agent-quick" id="btn-header-agent" title="Central do Agente OMP">
+          <button class="btn-header-agent" id="btn-header-agent" title="Abrir Central do Agente OMP">
+            <span class="agent-sparkle-icon" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+              </svg>
+            </span>
             <span class="btn-text">Agente OMP</span>
-            <span class="btn-badge-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></svg></span>
           </button>
         </div>
       </div>

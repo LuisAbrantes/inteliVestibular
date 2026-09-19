@@ -350,12 +350,12 @@ body {
   width: calc(100% - 3rem);
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0.75rem 1.25rem;
+  padding: 0.65rem 1.25rem;
   background: var(--bg-glass);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border-subtle);
-  border-radius: 20px;
+  border-radius: 14px;
   box-shadow: var(--shadow-sm);
   transition: all var(--duration-normal) var(--ease-spring);
 }
@@ -371,35 +371,51 @@ body {
   gap: 0.75rem;
   text-decoration: none;
   color: inherit;
+  transition: opacity 0.15s ease;
+}
+
+.logo-brand:hover {
+  opacity: 0.9;
 }
 
 .logo-mark {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
   background: var(--color-clay);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-mono);
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
   color: #ffffff;
-  box-shadow: var(--shadow-coral-glow);
+  flex-shrink: 0;
 }
 
-.logo-title {
-  font-size: 1.05rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
+.logo-wordmark {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--text-primary);
+  align-items: baseline;
+  gap: 0.4rem;
 }
 
-.logo-title-accent {
-  color: var(--inteli-coral);
+.logo-wordmark-brand {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.logo-wordmark-sub {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  line-height: 1;
 }
 
 .badge-tag {
@@ -702,17 +718,62 @@ body {
   background: var(--inteli-blue-hover);
 }
 
-.btn-agent-quick {
-  background: var(--color-clay);
-  border: 1px solid var(--color-clay-deep);
-  color: #ffffff;
-  box-shadow: var(--shadow-coral-glow);
+.btn-header-theme {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.btn-agent-quick:hover {
-  background: var(--color-clay-deep);
+.btn-header-theme:hover {
+  background: var(--bg-surface-3);
+  border-color: var(--border-medium);
+  color: var(--text-primary);
+  transform: translateY(-1px);
 }
 
+.btn-header-agent {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.42rem 0.85rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border-medium);
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-header-agent:hover {
+  background: var(--bg-surface-3);
+  border-color: var(--color-clay);
+  color: var(--color-clay);
+  transform: translateY(-1px);
+}
+
+.btn-header-agent .agent-sparkle-icon {
+  display: flex;
+  align-items: center;
+  color: var(--color-clay);
+  transition: transform 0.25s ease;
+}
+
+.btn-header-agent:hover .agent-sparkle-icon {
+  transform: rotate(15deg) scale(1.1);
+}
 .health-dot {
   width: 8px;
   height: 8px;
@@ -1385,6 +1446,33 @@ body {
   background-color: var(--inteli-coral);
   color: #ffffff;
   box-shadow: var(--shadow-coral-glow);
+}
+
+.lesson-actions-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-delete-lesson {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-delete-lesson:hover {
+  background: var(--danger-subtle);
+  border-color: var(--danger);
+  color: var(--danger);
+  transform: translateY(-1px);
 }
 
 /* ==========================================================================
