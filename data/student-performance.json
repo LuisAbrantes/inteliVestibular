@@ -1,9 +1,9 @@
 {
   "summary": {
-    "totalExams": 22,
-    "totalQuestionsAnswered": 440,
-    "totalCorrect": 360,
-    "averageScore": 16.4,
+    "totalExams": 24,
+    "totalQuestionsAnswered": 470,
+    "totalCorrect": 386,
+    "averageScore": 16.1,
     "averagePercentage": 82,
     "overallProficiency": "Intermediário",
     "accuracyPerTopic": {
@@ -18,24 +18,140 @@
         "percentage": 0
       },
       "Análise Combinatória": {
-        "correct": 100,
-        "total": 100,
+        "correct": 108,
+        "total": 108,
+        "percentage": 100
+      },
+      "Lógica Proposicional": {
+        "correct": 2,
+        "total": 2,
+        "percentage": 100
+      },
+      "Probabilidade & Bayes": {
+        "correct": 1,
+        "total": 3,
+        "percentage": 33
+      },
+      "Funções & Otimização": {
+        "correct": 2,
+        "total": 2,
+        "percentage": 100
+      },
+      "Algoritmos & Complexidade": {
+        "correct": 2,
+        "total": 2,
+        "percentage": 100
+      },
+      "Finanças Tech & SaaS": {
+        "correct": 0,
+        "total": 1,
+        "percentage": 0
+      },
+      "Geometria & Telas": {
+        "correct": 1,
+        "total": 2,
+        "percentage": 50
+      },
+      "Estatística & Nuvem": {
+        "correct": 2,
+        "total": 2,
         "percentage": 100
       },
       "Probabilidade": {
-        "correct": 80,
-        "total": 100,
+        "correct": 84,
+        "total": 105,
         "percentage": 80
       },
       "Álgebra Linear": {
-        "correct": 180,
-        "total": 200,
+        "correct": 189,
+        "total": 210,
         "percentage": 90
       }
     },
-    "lastUpdated": "2026-09-19T16:25:52.700Z"
+    "lastUpdated": "2026-09-19T17:18:04.135Z"
   },
   "history": [
+    {
+      "id": "SIM-LIVE-TEST",
+      "timestamp": "2026-09-19T17:18:04.132Z",
+      "mode": "bolsa",
+      "score": 8,
+      "total": 10,
+      "percentage": 80,
+      "proficiency": "Trilha Superior — Perfil Bolsa 100%",
+      "timeTaken": 1750,
+      "topicBreakdown": {
+        "Análise Combinatória": {
+          "correct": 3,
+          "total": 3
+        },
+        "Lógica Proposicional": {
+          "correct": 2,
+          "total": 2
+        },
+        "Probabilidade & Bayes": {
+          "correct": 1,
+          "total": 3
+        },
+        "Funções & Otimização": {
+          "correct": 2,
+          "total": 2
+        },
+        "Algoritmos & Complexidade": {
+          "correct": 2,
+          "total": 2
+        },
+        "Finanças Tech & SaaS": {
+          "correct": 0,
+          "total": 1
+        },
+        "Geometria & Telas": {
+          "correct": 1,
+          "total": 2
+        },
+        "Estatística & Nuvem": {
+          "correct": 2,
+          "total": 2
+        }
+      },
+      "answers": []
+    },
+    {
+      "id": "test_session_automated",
+      "timestamp": "2026-09-19T17:07:24.283Z",
+      "mode": "diagnostic",
+      "score": 18,
+      "total": 20,
+      "percentage": 90,
+      "proficiency": "Avançado",
+      "timeTaken": 1200,
+      "topicBreakdown": {
+        "Análise Combinatória": {
+          "correct": 5,
+          "total": 5
+        },
+        "Probabilidade": {
+          "correct": 4,
+          "total": 5
+        },
+        "Álgebra Linear": {
+          "correct": 9,
+          "total": 10
+        }
+      },
+      "answers": [
+        {
+          "id": 1,
+          "topic": "Análise Combinatória",
+          "isCorrect": true
+        },
+        {
+          "id": 2,
+          "topic": "Probabilidade",
+          "isCorrect": false
+        }
+      ]
+    },
     {
       "id": "test_session_automated",
       "timestamp": "2026-09-19T16:25:52.700Z",

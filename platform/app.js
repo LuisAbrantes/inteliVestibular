@@ -300,7 +300,9 @@ function updateThemeSwitchUI(theme) {
 
 window.toggleTheme = toggleTheme;
 window.applyTheme = applyTheme;
-
+window.loadHistory = loadHistory;
+window.renderProficiencyMatrix = renderProficiencyMatrix;
+window.saveSessionRecord = saveSessionRecord;
 async function initApp() {
   initTheme();
   console.log('[DEBUG] initApp started');
@@ -1127,7 +1129,8 @@ function computeAndRenderResults() {
     percentage: scorePct,
     proficiency: profTitleEl.textContent,
     timeTaken: elapsedSeconds,
-    weakTopics: weakTopics.slice(0, 2).map(w => w.topic)
+    weakTopics: weakTopics.slice(0, 2).map(w => w.topic),
+    topicBreakdown: topicStats
   };
 
   saveSessionRecord(sessionRecord);
@@ -1360,6 +1363,7 @@ function loadHistory() {
     AppState.history = [];
   }
   renderHistoryWidget();
+  renderProficiencyMatrix();
 }
 
 function saveSessionRecord(record) {
@@ -1382,6 +1386,7 @@ function saveSessionRecord(record) {
     .catch(err => console.warn('[Server Sync Offline]', err));
 
   renderHistoryWidget();
+  renderProficiencyMatrix();
 }
 
 function clearHistory() {
@@ -1389,6 +1394,7 @@ function clearHistory() {
     localStorage.removeItem('inteli_sim_history');
     AppState.history = [];
     renderHistoryWidget();
+    renderProficiencyMatrix();
     showToast('Histórico excluído com sucesso.', 'info');
   }
 }
@@ -2454,3 +2460,185 @@ function setupTutorialCollapse() {
     });
   }
 }
+
+/* ==========================================================================
+   CONNECTED SUBJECT PROFICIENCY SYSTEM (8 DOMÍNIOS DO ANEXO II)
+   ========================================================================== */
+
+const CANONICAL_DOMAINS = [
+  { key: 'Combinatória', name: 'Análise Combinatória', icon: '🔢' },
+  { key: 'Funções', name: 'Funções & Otimização', icon: '📈' },
+  { key: 'Lógica', name: 'Lógica Proposicional', icon: '⚖️' },
+  { key: 'Probabilidade', name: 'Probabilidade & Bayes', icon: '🎲' },
+  { key: 'Algoritmos', name: 'Algoritmos & Complexidade', icon: '💻' },
+  { key: 'Geometria', name: 'Geometria & Telas', icon: '📐' },
+  { key: 'Estatística', name: 'Estatística & Nuvem', icon: '📊' },
+  { key: 'Finanças', name: 'Finanças Tech & SaaS', icon: '💳' }
+];
+
+function computeAccumulatedTopicProficiency() {
+  const totals = {};
+  CANONICAL_DOMAINS.forEach(d => {
+    totals[d.key] = { correct: 0, total: 0 };
+  });
+
+  let totalQuestionsCount = 0;
+  let totalCorrectCount = 0;
+
+  AppState.history.forEach(session => {
+    if (session.topicBreakdown) {
+      for (const [topicKey, stats] of Object.entries(session.topicBreakdown)) {
+        const matched = CANONICAL_DOMAINS.find(d => 
+          topicKey.toLowerCase().includes(d.key.toLowerCase()) || 
+          d.name.toLowerCase().includes(topicKey.toLowerCase())
+        ) || CANONICAL_DOMAINS[0];
+
+        totals[matched.key].correct += (stats.correct || 0);
+        totals[matched.key].total += (stats.total || 0);
+        totalQuestionsCount += (stats.total || 0);
+        totalCorrectCount += (stats.correct || 0);
+      }
+    }
+  });
+
+  const domainsResult = CANONICAL_DOMAINS.map(d => {
+    const stat = totals[d.key];
+    const pct = stat.total > 0 ? Math.round((stat.correct / stat.total) * 100) : null;
+    return {
+      key: d.key,
+      name: d.name,
+      icon: d.icon,
+      correct: stat.correct,
+      total: stat.total,
+      pct: pct
+    };
+  });
+
+  const attemptedDomains = domainsResult.filter(d => d.total > 0);
+  const globalPct = totalQuestionsCount > 0 
+    ? Math.round((totalCorrectCount / totalQuestionsCount) * 100) 
+    : 0;
+
+  return {
+    totalSessions: AppState.history.length,
+    totalQuestions: totalQuestionsCount,
+    totalCorrect: totalCorrectCount,
+    globalPct,
+    hasData: totalQuestionsCount > 0,
+    domains: domainsResult,
+    attemptedCount: attemptedDomains.length
+  };
+}
+
+function renderProficiencyMatrix() {
+  const card = document.getElementById('proficiency-matrix-card');
+  if (!card) return;
+
+  const emptyState = document.getElementById('prof-empty-state');
+  const activeState = document.getElementById('prof-active-state');
+  const statusIndicator = document.getElementById('prof-status-indicator');
+  const statusText = document.getElementById('prof-status-text');
+  const gridContainer = document.getElementById('prof-topics-grid');
+  const insightBar = document.getElementById('prof-insight-bar');
+
+  const prof = computeAccumulatedTopicProficiency();
+
+  if (!prof.hasData) {
+    if (emptyState) emptyState.style.display = 'block';
+    if (activeState) activeState.style.display = 'none';
+    if (statusIndicator) statusIndicator.classList.remove('is-active');
+    if (statusText) statusText.textContent = 'Linha de Base: Não Iniciada';
+    return;
+  }
+
+  if (emptyState) emptyState.style.display = 'none';
+  if (activeState) activeState.style.display = 'block';
+  if (statusIndicator) statusIndicator.classList.add('is-active');
+  if (statusText) statusText.textContent = `Proficiência Global: ${prof.globalPct}% (${prof.totalSessions} sessões)`;
+
+  const sortedByNeed = [...prof.domains].sort((a, b) => {
+    const aScore = a.pct !== null ? a.pct : -1;
+    const bScore = b.pct !== null ? b.pct : -1;
+    return aScore - bScore;
+  });
+  const weakest = sortedByNeed[0];
+
+  if (gridContainer) {
+    gridContainer.innerHTML = prof.domains.map(d => {
+      const isWeakest = d.key === weakest.key;
+      const pctDisplay = d.pct !== null ? `${d.pct}%` : 'Sem dados';
+      const fillClass = d.pct >= 75 ? 'fill-high' : d.pct >= 50 ? 'fill-mid' : 'fill-low';
+      const fillWidth = d.pct !== null ? d.pct : 0;
+      const countLabel = d.total > 0 ? `${d.correct} de ${d.total} acertos` : 'Pendente de teste';
+
+      return `
+        <div class="prof-topic-card ${isWeakest ? 'is-weakest' : ''}">
+          <div class="prof-topic-header">
+            <span class="prof-topic-name">
+              <span>${d.icon}</span>
+              <span>${d.name}</span>
+            </span>
+            <span class="prof-topic-pct" style="color: ${d.pct >= 75 ? 'var(--success)' : d.pct >= 50 ? 'var(--warning)' : 'var(--color-clay)'}">
+              ${pctDisplay}
+            </span>
+          </div>
+          <div class="prof-progress-track">
+            <div class="prof-progress-fill ${fillClass}" style="width: ${fillWidth}%;"></div>
+          </div>
+          <div class="prof-topic-footer">
+            <span>${countLabel}</span>
+            <button class="btn-prof-drill" data-topic-target="${d.key}">
+              <span>Treinar Matéria →</span>
+            </button>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    gridContainer.querySelectorAll('.btn-prof-drill').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetTopic = btn.getAttribute('data-topic-target');
+        const selectEl = document.getElementById('drill-topic-select');
+        if (selectEl) {
+          selectEl.value = targetTopic;
+          AppState.selectedTopic = targetTopic;
+        }
+        startExam('drill');
+      });
+    });
+  }
+
+  if (insightBar) {
+    const weakestLabel = weakest.pct !== null 
+      ? `(${weakest.pct}% de acerto em ${weakest.total} questões)` 
+      : '(ainda não testado)';
+
+    insightBar.innerHTML = `
+      <div class="prof-insight-text">
+        🎯 <strong>Ponto Cego Prioritário:</strong> ${weakest.name} ${weakestLabel}.
+        Recomendação pedagógica: isole esta disciplina em uma sessão de treino deliberado com gabarito imediato para consolidar a régua.
+      </div>
+      <button class="btn-prof-insight-action" id="btn-prof-focus-weakest" data-topic-target="${weakest.key}">
+        <span>Iniciar Treino de ${weakest.name} →</span>
+      </button>
+    `;
+
+    const focusBtn = document.getElementById('btn-prof-focus-weakest');
+    if (focusBtn) {
+      focusBtn.addEventListener('click', () => {
+        const selectEl = document.getElementById('drill-topic-select');
+        if (selectEl) {
+          selectEl.value = weakest.key;
+          AppState.selectedTopic = weakest.key;
+        }
+        startExam('drill');
+      });
+    }
+  }
+}
+
+// Expose for browser debugging & integration
+window.loadHistory = loadHistory;
+window.renderProficiencyMatrix = renderProficiencyMatrix;
+window.saveSessionRecord = saveSessionRecord;
