@@ -56,25 +56,17 @@ Este documento registra as diretrizes pedagógicas, preferências de estudo e an
 
 ---
 
-## 5. Pendências & Próximas Decisões do Candidato (Anotadas para seu Retorno)
+## 5. Decisões Estratégicas Confirmadas do Candidato (Ciclo Vestibular 2027)
 
-Como você se ausentou por alguns minutos, deixamos os seguintes pontos práticos anotados para alinharmos quando você voltar:
+1. **Curso de 1ª Opção:**
+   - **Engenharia de Software** (Confirmado). Foco calibrado em modelagem algorítmica, lógica booleana, complexidade de código e arquitetura de sistemas.
 
-1. **Definição do Curso de 1ª Opção:**
-   Qual dos 5 cursos do Inteli é o seu foco principal?
-   - Ciência da Computação
-   - Engenharia de Computação
-   - Engenharia de Software
-   - Sistemas de Informação
-   - Administração (ADM Tech)
-   *Por que importa:* O peso dos tópicos no Eixo Prova e o foco da dinâmica do Eixo Projeto variam sutilmente entre engenharia e negócios.
+2. **Situação Geográfica & Prioridade de Bolsa:**
+   - **Candidato residente fora da Grande São Paulo** (Confirmado).
+   - Prioridade máxima no **Auxílio-Moradia** do Programa de Bolsas Inteli (vagas garantidas na moradia estudantil parceira no Butantã para estudantes de outras regiões).
 
-2. **Elegibilidade Geográfica do Auxílio-Moradia (Bolsa 2027):**
-   Você reside fora da Região Metropolitana de São Paulo?
-   *Por que importa:* O Edital de Bolsas 2027 dá prioridade absoluta para candidatos de outras cidades/estados para as vagas na moradia estudantil parceira do Inteli próxima ao campus no Butantã.
+3. **Dossiê Open Finance (EducaOpen):**
+   - *Pendente/Adiado por opção:* Preparação documental e conexão bancária mantidas para etapa posterior, após consolidação da nota de corte da prova.
 
-3. **Mapeamento Prévio das Contas para o Open Finance (EducaOpen):**
-   No processo de 2027, todos os membros adultos do domicílio precisarão conectar suas contas bancárias via Open Finance. Vale listar com antecedência quem são os membros da sua família com renda formal (holerite/CLT) e informal (PIX/autônomo) para evitarmos qualquer divergência na análise socioeconômica.
-
-4. **Escolha do Projeto Base para o Ensaio do Eixo Perfil:**
-   Qual conquista pessoal, projeto de programação, feira de ciências, olimpíada ou desafio comunitário você gostaria de usar na redação de liderança? Quando você voltar, podemos estruturar o primeiro rascunho completo juntos pelo método STAR.
+4. **Ensaio de Liderança (Eixo Perfil - Método STAR):**
+   - *Pendente/Adiado por opção:* Rascunho da redação e preparação para a dinâmica em grupo agendados para a fase seguinte. O foco imediato e total é a maestria técnica no **Eixo Prova**.
