@@ -307,6 +307,7 @@ window.AppState = AppState;
 window.startExam = startExam;
 window.loadQuestionBank = loadQuestionBank;
 window.initApp = initApp;
+window.formatMarkdownAndFormulas = formatMarkdownAndFormulas;
 async function initApp() {
   initTheme();
   console.log('[DEBUG] initApp started');
@@ -782,7 +783,13 @@ function renderCurrentQuestion() {
  */
 function formatMarkdownAndFormulas(text) {
   if (!text) return '';
-  let out = text
+
+  // 1. Protect currency (R$) so KaTeX auto-render never treats $ as an inline math delimiter
+  let out = text.replace(/R\$\s*([\d\.,]+(?:\s*(?:milhões|mil|bilhões))?|)/g, (match, val) => {
+    return val ? `<span class="katex-ignore">R$ ${val}</span>` : `<span class="katex-ignore">R$</span>`;
+  });
+
+  out = out
     .replace(/\r\n/g, '\n')
     .replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>')
     .replace(/`([^`]+)`/g, '<code>$1</code>')
@@ -803,6 +810,7 @@ function renderKaTeXFormulas(container) {
           { left: '$$', right: '$$', display: true },
           { left: '$', right: '$', display: false }
         ],
+        ignoredClasses: ["katex-ignore", "no-katex", "option-letter-badge"],
         throwOnError: false
       });
     } catch (e) {

@@ -2047,6 +2047,7 @@ export function renderLessonHtml(lessonData) {
             {left: '$$', right: '$$', display: true},
             {left: '$', right: '$', display: false}
           ],
+          ignoredClasses: ["katex-ignore", "no-katex"],
           throwOnError: false
         });
       }
